@@ -48,7 +48,7 @@ export const Templates = () => {
     }, 800);
   };
 
-  // --- Template 模式下的鍵盤事件
+  // Template 模式下的鍵盤事件
   const handleKeyDown = (e: React.KeyboardEvent) => {
     // 如果按下 Enter 且表單有效，就直接發送
     if (e.key === "Enter" && isFormValid) {
@@ -61,7 +61,7 @@ export const Templates = () => {
   }, [messages, isTemplateMode]);
 
   return (
-    <div className="w-full max-w-md h-[300px] flex flex-col animate-in fade-in zoom-in duration-500">
+    <div className="w-full max-w-md h-[500px] flex flex-col animate-in fade-in zoom-in duration-500">
       
       {/* 訊息顯示區 */}
       <div className="flex-1 overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-slate-200 scrollbar-track-transparent">
