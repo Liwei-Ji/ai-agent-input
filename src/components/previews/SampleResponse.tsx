@@ -40,8 +40,8 @@ export const SampleResponse = () => {
       sampleData: {
         title: "Draft: Skeleton Loading Guidelines",
         status: 'preview',
-        previewText: `**Objective:** Improve perceived performance during data fetching.\n\n**Core Principles:**\n1. **Motion:** Use a subtle "shimmer" effect (left-to-right).\n2. **Layout Match:** Skeleton must match the final content structure to prevent layout shifts (CLS).\n3. **Duration:** Only use for wait times exceeding 500ms.\n\n*Should I proceed with these rules?*`,
-        fullContent: `**Skeleton Loading Guidelines**\n\nSkeleton screens are essentially a wireframe version of the UI, used to indicate that content is loading. They improve the user's perception of speed by showing the structure of the page immediately.\n\n**1. Animation & Motion**\nInstead of a static gray box, use a "shimmer" animation moving from left to right. This creates a sense of momentum and progress. \n* Recommendation: Use \`bg-slate-200\` with a 1.5s linear gradient animation.\n\n**2. Layout Fidelity (Crucial)**\nThe skeleton structure must match the loaded content layout by at least 90%. If the skeleton is significantly smaller or larger than the actual content, it will cause a Cumulative Layout Shift (CLS) when data loads, creating a jarring experience.\n\n**3. Usage Threshold**\n- **< 500ms:** Use no loading state (instant).\n- **500ms - 2s:** Use Skeleton screens.\n- **> 2s:** Consider a progress bar or spinner with text feedback.`
+        previewText: `Objective: Improve perceived performance during data fetching.\n\nCore Principles:\n1. Motion: Use a subtle "shimmer" effect (left-to-right).\n2. Layout Match: Skeleton must match the final content structure to prevent layout shifts (CLS).\n3. Duration: Only use for wait times exceeding 500ms.\n\n*Should I proceed with these rules?*`,
+        fullContent: `Skeleton Loading Guidelines\n\nSkeleton screens are essentially a wireframe version of the UI, used to indicate that content is loading. They improve the user's perception of speed by showing the structure of the page immediately.\n\n1. Animation & Motion\nInstead of a static gray box, use a "shimmer" animation moving from left to right. This creates a sense of momentum and progress. \n* Recommendation: Use \`bg-slate-200\` with a 1.5s linear gradient animation.\n\n2. Layout Fidelity (Crucial)\nThe skeleton structure must match the loaded content layout by at least 90%. If the skeleton is significantly smaller or larger than the actual content, it will cause a Cumulative Layout Shift (CLS) when data loads, creating a jarring experience.\n\n3. Usage Threshold\n- < 500ms: Use no loading state (instant).\n- 500ms - 2s: Use Skeleton screens.\n- > 2s: Consider a progress bar or spinner with text feedback.`
       }
     }
   ]);
@@ -183,14 +183,14 @@ export const SampleResponse = () => {
                                 <span className={`text-xs font-bold uppercase tracking-wider ${
                                     msg.sampleData.status === 'completed' ? "text-slate-500" : "text-indigo-600"
                                 }`}>
-                                    {msg.sampleData.status === 'completed' ? "Final Output" : "Sample Draft"}
+                                    {msg.sampleData.status === 'completed' ? "Final Output" : "Draft"}
                                 </span>
                             </div>
                             
                             {/* 狀態標籤 */}
                             {msg.sampleData.status === 'preview' && (
                                 <span className="text-[10px] bg-white px-2 py-0.5 rounded-full text-indigo-600 font-medium shadow-sm">
-                                    Preview Mode
+                                    Preview
                                 </span>
                             )}
                         </div>
