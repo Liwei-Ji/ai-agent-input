@@ -30,6 +30,7 @@ import { References } from "./References";
 import { Workflows } from "./Workflows";
 import { Controls } from "./Controls";
 import { Regenerate } from "./Regenerate";
+import { Copy } from "./Copy";
 
 
 
@@ -107,7 +108,9 @@ export const PreviewManager = ({ featureTitle }: Props) => {
     case "Controls":
       return <Controls/>;
     case "Regenerate":
-      return <Regenerate/>;  
+      return <Regenerate/>;
+    case "Copy":
+      return <Copy/>;   
     default:
       return (
         <div className="text-center space-y-4">
