@@ -26,6 +26,11 @@ import { Attachments } from "./Attachments";
 import { Filters } from "./Filters";
 import { ModelManagement } from "./ModelManagement";
 import { Parameters } from "./Parameters";
+import { References } from "./References";
+import { Workflows } from "./Workflows";
+import { Controls } from "./Controls";
+
+
 
 
 interface Props {
@@ -93,7 +98,13 @@ export const PreviewManager = ({ featureTitle }: Props) => {
     case "Model management":
       return <ModelManagement/>; 
     case "Parameters":
-      return <Parameters/>;    
+      return <Parameters/>;
+    case "References":
+      return <References/>;
+    case "Workflows":
+      return <Workflows/>;
+    case "Controls":
+      return <Controls/>;  
     default:
       return (
         <div className="text-center space-y-4">

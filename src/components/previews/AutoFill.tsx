@@ -1,4 +1,3 @@
-// src/components/previews/AutoFill.tsx
 import { useState, useRef, useEffect } from "react";
 import { Send, Table as TableIcon, Zap, GripVertical } from "lucide-react";
 
@@ -265,8 +264,6 @@ export const AutoFill = () => {
                 >
                   <TableIcon size={20} />
                 </button>
-
-                {/* 修改 1: 移除了原本這裡的分隔線 (w-px h-5 ...) */}
 
                 <input 
                   type="text" 
