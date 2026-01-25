@@ -32,6 +32,7 @@ import { Controls } from "./Controls";
 import { Regenerate } from "./Regenerate";
 import { Copy } from "./Copy";
 import { Variations } from "./Variations";
+import { PromptTransparency } from "./PromptTransparency";
 
 
 
@@ -112,7 +113,9 @@ export const PreviewManager = ({ featureTitle }: Props) => {
     case "Copy":
       return <Copy/>;
     case "Variations":
-      return <Variations/>;  
+      return <Variations/>;
+    case "Prompt transparency":
+      return <PromptTransparency/>;  
     default:
       return (
         <div className="text-center space-y-4">
