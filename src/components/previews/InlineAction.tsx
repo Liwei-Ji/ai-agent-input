@@ -134,7 +134,7 @@ export const InlineAction = () => {
   };
 
   return (
-    <div ref={containerRef} className="relative w-full h-full min-h-[500px] overflow-hidden rounded-3xl flex flex-col animate-in fade-in zoom-in duration-500 bg-white">
+    <div ref={containerRef} className="relative w-full h-full min-h-[500px] overflow-hidden rounded-3xl flex flex-col animate-in fade-in zoom-in duration-500 ">
       
       {/* 捲動區域 */}
       <div className="flex-1 w-full max-w-md mx-auto flex flex-col">
