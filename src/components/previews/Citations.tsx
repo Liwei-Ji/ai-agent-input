@@ -41,7 +41,7 @@ export const Citations = () => {
     {
       id: "1",
       role: "user",
-      content: "Explain the core concept behind modern NLP models."
+      content: "Explain the core concept behind modern interactive experiences."
     },
     {
       id: "2",
@@ -49,21 +49,21 @@ export const Citations = () => {
       // 使用 JSX 來呈現帶有樣式的引用連結
       content: (
         <span>
-          The core concept relies heavily on the <span 
+          The core concept relies heavily on theThe core concept relies on understanding user context through adaptive interaction mechanisms. Building on the <span 
             className="text-indigo-600 font-medium bg-indigo-50 px-1 rounded cursor-pointer hover:underline align-middle mx-0.5" 
             onClick={() => openFootprint("2")} // 點擊後展開下方的 Footprint
           >
             [1] Transformer architecture
-          </span>, which introduced the self-attention mechanism. This allows the model to weigh the importance of different words in a sentence regardless of their distance from each other.
+          </span>, self-attention allows systems to track user intent across interaction steps and respond dynamically to user behavior.
         </span>
       ),
       footprintData: {
         title: "Source Retrieval Log",
-        log: `> QUERY: "modern NLP core concepts"
-> SEARCH_SOURCE: arXiv Database (CS.CL)
-> RETRIEVED_DOC [1]: "Attention Is All You Need" (Vaswani et al., 2017)
-> EXTRACTED_KEYPHRASE: "Self-attention mechanism", "Transformer"
-> SYNTHESIS: Linking attention mechanism to long-range dependency handling.`
+        log: `> QUERY: "modern interactive experience core concepts"
+> SEARCH_SOURCE: arXiv Database (CS.HCI / CS.CL)
+> RETRIEVED_DOC [1]: "Attention Is All You Need" (Vaswani et al., 2026)
+> EXTRACTED_KEYPHRASE: "Context awareness", "Real-time interaction"
+> SYNTHESIS: Linking contextual understanding to adaptive user interaction.`
       }
     }
   ]);
@@ -135,7 +135,7 @@ export const Citations = () => {
   }, [messages, isGenerating, expandedIds]);
 
   return (
-    <div className="relative w-full h-[600px] overflow-hidden rounded-3xl flex flex-col animate-in fade-in zoom-in duration-500 bg-white border border-slate-200">
+    <div className="relative w-full h-[600px] overflow-hidden rounded-3xl flex flex-col animate-in fade-in zoom-in duration-500 ">
       
       {/* 聊天內容容器 */}
       <div className="w-full max-w-md mx-auto h-full flex flex-col">
@@ -201,7 +201,7 @@ export const Citations = () => {
         </div>
 
         {/* 底部輸入控制區 */}
-        <div className="shrink-0 pt-2 pb-4 px-4 bg-white z-10">
+        <div className="shrink-0 pt-2 pb-4 px-4 z-10">
             <div className={`
                 relative flex w-full items-end gap-2 rounded-2xl border p-2 shadow-sm transition-all duration-300
                 ${isGenerating 

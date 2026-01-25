@@ -1,14 +1,13 @@
-// src/components/previews/Footprints.tsx
 import { useState, useRef, useEffect } from "react";
 import { ChevronDown, ChevronRight, Footprints as FootprintsIcon, Send, Paperclip, FileText, Database } from "lucide-react";
 
 interface Message {
   id: string;
   role: "user" | "ai";
-  content: string; // 回覆內容恢復為純文字
+  content: string; 
   footprintData?: {
     title: string;
-    log: React.ReactNode; // 修改：Log 改為 ReactNode 以支援自訂樣式元件
+    log: React.ReactNode;
   };
 }
 
@@ -39,7 +38,7 @@ export const Footprints = () => {
     {
       id: "2",
       role: "ai",
-      // 主訊息恢復乾淨的純文字
+      // AI訊息
       content: "The core concept relies heavily on the Transformer architecture, which introduced the self-attention mechanism. This allows the model to weigh the importance of different words in a sentence regardless of their distance from each other.",
       footprintData: {
         title: "Source Retrieval Log",
@@ -54,7 +53,7 @@ export const Footprints = () => {
                 <span className="text-slate-500 mt-0.5">{">"}</span>
                 <div className="flex flex-col gap-1">
                     <span className="text-slate-400">RETRIEVED_SOURCE:</span>
-                    {/* 這裡應用您要求的紫色樣式 */}
+                    {/* 紫色樣式 */}
                     <div className="flex items-center gap-2">
                         <span className="text-indigo-600 font-medium bg-indigo-50 px-1.5 py-0.5 rounded cursor-pointer hover:bg-indigo-100 flex items-center gap-1">
                             <FileText size={10} />
@@ -159,7 +158,7 @@ export const Footprints = () => {
   }, [messages, isGenerating, expandedIds]);
 
   return (
-    <div className="relative w-full h-[600px] overflow-hidden rounded-3xl flex flex-col animate-in fade-in zoom-in duration-500 bg-white border border-slate-200">
+    <div className="relative w-full h-[600px] overflow-hidden rounded-3xl flex flex-col animate-in fade-in zoom-in duration-500">
       
       {/* 聊天內容容器 */}
       <div className="w-full max-w-md mx-auto h-full flex flex-col">
@@ -173,7 +172,7 @@ export const Footprints = () => {
             {messages.map((msg) => (
               <div key={msg.id} className="flex flex-col gap-2">
                 
-                {/* 1. Footprints Block (Processing Trace) */}
+                {/* Footprints Block (Processing Trace) */}
                 {msg.role === "ai" && msg.footprintData && (
                   <div className="max-w-[90%]">
                     
@@ -196,7 +195,7 @@ export const Footprints = () => {
                         )}
                     </button>
 
-                    {/* Expanded Content (Log) - 修改：直接渲染 ReactNode，不再使用 pre */}
+                    {/* Expanded Content (Log) - 直接渲染 ReactNode，不再使用 pre */}
                     {expandedIds.includes(msg.id) && (
                         <div className="mt-2 p-3 rounded-lg bg-slate-900 border border-slate-800 animate-in slide-in-from-top-2 fade-in duration-300 shadow-inner">
                              {/* 直接渲染 JSX 內容 */}
@@ -206,7 +205,7 @@ export const Footprints = () => {
                   </div>
                 )}
 
-                {/* 2. 訊息本體 */}
+                {/* 訊息本體 */}
                 <div className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}>
                   <div className={`
                     max-w-[90%] p-4 text-sm leading-7 rounded-2xl whitespace-pre-wrap
@@ -224,7 +223,7 @@ export const Footprints = () => {
         </div>
 
         {/* 底部輸入控制區 */}
-        <div className="shrink-0 pt-2 pb-4 px-4 bg-white z-10">
+        <div className="shrink-0 pt-2 pb-4 px-4 z-10">
             <div className={`
                 relative flex w-full items-end gap-2 rounded-2xl border p-2 shadow-sm transition-all duration-300
                 ${isGenerating 

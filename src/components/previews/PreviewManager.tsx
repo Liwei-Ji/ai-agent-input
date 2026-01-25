@@ -34,6 +34,7 @@ import { Copy } from "./Copy";
 import { Variations } from "./Variations";
 import { PromptTransparency } from "./PromptTransparency";
 import { Footprints } from "./Footprints";
+import { Citations } from "./Citations";
 
 
 
@@ -118,7 +119,9 @@ export const PreviewManager = ({ featureTitle }: Props) => {
     case "Prompt transparency":
       return <PromptTransparency/>;
     case "Footprints":
-      return <Footprints/>;  
+      return <Footprints/>;
+    case "Citations":
+      return <Citations/>;  
     default:
       return (
         <div className="text-center space-y-4">
