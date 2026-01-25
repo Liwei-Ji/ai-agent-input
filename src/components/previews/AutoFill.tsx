@@ -118,7 +118,7 @@ export const AutoFill = () => {
   };
 
   return (
-    <div className="relative w-full h-full min-h-[500px] overflow-hidden rounded-3xl flex flex-col animate-in fade-in zoom-in duration-500 bg-white">
+    <div className="relative w-full h-full min-h-[600px] overflow-hidden rounded-3xl flex flex-col animate-in fade-in zoom-in duration-500 ">
       
       {/* 聊天區域 */}
       <div className="flex-1 w-full max-w-md mx-auto flex flex-col relative">
@@ -166,8 +166,8 @@ export const AutoFill = () => {
           </div>
         </div>
 
-        {/* --- 表格編輯器 (絕對定位，浮在輸入框上方) --- 
-          修改重點：使用 absolute bottom-full 確保它固定在輸入框上方，不影響佈局
+        {/* 表格編輯器 (絕對定位，浮在輸入框上方)
+        使用 absolute bottom-full 確保它固定在輸入框上方，不影響佈局
         */}
         {showTableEditor && (
           <div className="absolute bottom-[72px] right-4 w-[300px] z-30 animate-in slide-in-from-bottom-2 fade-in duration-300">
@@ -247,7 +247,7 @@ export const AutoFill = () => {
         )}
 
         {/* 底部輸入區 */}
-        <div className="shrink-0 pt-2 pb-4 px-4 bg-white relative z-20">
+        <div className="shrink-0 pt-2 pb-4 px-4 relative z-20">
             <div className="relative flex w-full items-center gap-2 rounded-2xl border border-gray-200 bg-white px-2 py-2 shadow-sm focus-within:ring-2 focus-within:ring-indigo-100 focus-within:border-indigo-400 transition-all">
                 
                 {/* 表格按鈕 */}

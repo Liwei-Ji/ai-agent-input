@@ -39,6 +39,7 @@ import { PlanOfAction } from "./PlanOfAction";
 import { SampleResponse } from "./SampleResponse";
 import { TokenTransparency } from "./TokenTransparency";
 import { PersonalVoice } from "./PersonalVoice";
+import { Inpainting } from "./Inpainting";
 
 
 
@@ -133,7 +134,9 @@ export const PreviewManager = ({ featureTitle }: Props) => {
     case "Token Transparency":
       return <TokenTransparency/>;
     case "Personal voice":
-      return <PersonalVoice/>;   
+      return <PersonalVoice/>;
+    case "Inpainting":
+      return <Inpainting/>;  
     default:
       return (
         <div className="text-center space-y-4">
