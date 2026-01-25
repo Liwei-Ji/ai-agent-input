@@ -38,6 +38,7 @@ import { Citations } from "./Citations";
 import { PlanOfAction } from "./PlanOfAction";
 import { SampleResponse } from "./SampleResponse";
 import { TokenTransparency } from "./TokenTransparency";
+import { PersonalVoice } from "./PersonalVoice";
 
 
 
@@ -130,7 +131,9 @@ export const PreviewManager = ({ featureTitle }: Props) => {
     case "Sample response":
       return <SampleResponse/>;
     case "Token Transparency":
-      return <TokenTransparency/>;  
+      return <TokenTransparency/>;
+    case "Personal voice":
+      return <PersonalVoice/>;   
     default:
       return (
         <div className="text-center space-y-4">
