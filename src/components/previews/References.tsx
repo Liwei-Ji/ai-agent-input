@@ -60,7 +60,7 @@ export const References = () => {
     // 外層容器設定
     <div className="flex h-[600px] w-full min-h-[500px] overflow-hidden font-sans rounded-3xl">
       
-      {/* --- 1. 左側主區域 (Main Content) --- */}
+      {/* 左側主區域 (Main Content) */}
       <div className="flex-1 flex flex-col h-full min-w-0 transition-all duration-300 ease-in-out relative">
         
         {/* 懸浮觸發開關 */}
@@ -77,7 +77,7 @@ export const References = () => {
             </button>
         </div>
 
-        {/* --- 內容卷軸區 (Static Content) --- */}
+        {/* 內容卷軸區 (Static Content) */}
         <div className="flex-1 overflow-y-auto p-4 md:p-8 scrollbar-thin scrollbar-thumb-slate-200">
             <div className="max-w-md mx-auto w-full pb-10 pt-10 space-y-8">
                 
@@ -91,7 +91,7 @@ export const References = () => {
             </div>
         </div>
 
-        {/* --- 底部輸入框區 (Visual Only) --- */}
+        {/* 底部輸入框區 (Visual Only)  */}
         <div className="shrink-0 p-4 z-20">
             <div className="max-w-md mx-auto w-full">
                 <div className="relative flex w-full items-center gap-2 rounded-2xl border border-slate-200 bg-white px-2 py-2 shadow-sm focus-within:border-indigo-400 focus-within:ring-2 focus-within:ring-indigo-100 transition-all duration-300">
@@ -119,7 +119,7 @@ export const References = () => {
 
       </div>
 
-      {/* --- 2. 右側邊欄 (References Sidebar - 懸浮卡片版) --- */}
+      {/* 右側懸浮卡片 (References Sidebar)  */}
       <div 
         className={`
             shrink-0 bg-white flex flex-col
