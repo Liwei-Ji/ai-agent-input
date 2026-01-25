@@ -31,7 +31,7 @@ import { Workflows } from "./Workflows";
 import { Controls } from "./Controls";
 import { Regenerate } from "./Regenerate";
 import { Copy } from "./Copy";
-
+import { Variations } from "./Variations";
 
 
 
@@ -110,7 +110,9 @@ export const PreviewManager = ({ featureTitle }: Props) => {
     case "Regenerate":
       return <Regenerate/>;
     case "Copy":
-      return <Copy/>;   
+      return <Copy/>;
+    case "Variations":
+      return <Variations/>;  
     default:
       return (
         <div className="text-center space-y-4">
