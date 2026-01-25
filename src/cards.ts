@@ -203,6 +203,11 @@ export const data: CardGroup[] = [
         img: "https://cdn.prod.website-files.com/65db6dd21591364dfcb8ae36/68ac864d563bf2b258221d00_regenerate_card.svg"
       },
       {
+        title: "Copy",
+        subtitle: "Have t",
+        img: ""
+      },
+      {
         title: "Sample response",
         subtitle: "Confirm the user's intent for complicated prompts",
         img: "https://cdn.prod.website-files.com/65db6dd21591364dfcb8ae36/68ac90cc404c75f50377f40f_sampleresponse_card.svg"

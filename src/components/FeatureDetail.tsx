@@ -1,4 +1,4 @@
-import { useEffect, useMemo } from "react"; // 補上 useMemo
+import { useEffect, useMemo } from "react"; 
 import { useTranslation } from "react-i18next";
 import { data } from "../cards";
 import { PreviewManager } from "./previews/PreviewManager";

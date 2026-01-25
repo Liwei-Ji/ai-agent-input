@@ -29,6 +29,7 @@ import { Parameters } from "./Parameters";
 import { References } from "./References";
 import { Workflows } from "./Workflows";
 import { Controls } from "./Controls";
+import { Regenerate } from "./Regenerate";
 
 
 
@@ -104,7 +105,9 @@ export const PreviewManager = ({ featureTitle }: Props) => {
     case "Workflows":
       return <Workflows/>;
     case "Controls":
-      return <Controls/>;  
+      return <Controls/>;
+    case "Regenerate":
+      return <Regenerate/>;  
     default:
       return (
         <div className="text-center space-y-4">
