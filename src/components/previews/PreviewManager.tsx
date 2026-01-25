@@ -37,6 +37,7 @@ import { Footprints } from "./Footprints";
 import { Citations } from "./Citations";
 import { PlanOfAction } from "./PlanOfAction";
 import { SampleResponse } from "./SampleResponse";
+import { TokenTransparency } from "./TokenTransparency";
 
 
 
@@ -127,7 +128,9 @@ export const PreviewManager = ({ featureTitle }: Props) => {
     case "Plan of Action":
       return <PlanOfAction/>;
     case "Sample response":
-      return <SampleResponse/>;  
+      return <SampleResponse/>;
+    case "Token Transparency":
+      return <TokenTransparency/>;  
     default:
       return (
         <div className="text-center space-y-4">
