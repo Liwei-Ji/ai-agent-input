@@ -141,7 +141,7 @@ export const PersonalVoice = () => {
   }, [messages, isGenerating]);
 
   return (
-    <div className="relative w-full h-[600px] overflow-hidden rounded-3xl flex flex-col animate-in fade-in zoom-in duration-500 bg-white border border-slate-200">
+    <div className="relative w-full h-[600px] overflow-hidden rounded-3xl flex flex-col animate-in fade-in zoom-in duration-500 ">
       
       {/* 聊天內容容器 */}
       <div className="w-full max-w-md mx-auto h-full flex flex-col">
@@ -211,7 +211,7 @@ export const PersonalVoice = () => {
         </div>
 
         {/* 底部輸入控制區 */}
-        <div className="shrink-0 pt-2 pb-4 px-4 bg-white z-10">
+        <div className="shrink-0 pt-2 pb-4 px-4 z-10">
             <div className={`
                 relative flex w-full items-end gap-2 rounded-2xl border p-2 shadow-sm transition-all duration-300
                 ${isGenerating 
