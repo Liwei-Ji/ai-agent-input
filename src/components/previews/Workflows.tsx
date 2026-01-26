@@ -271,7 +271,7 @@ export const Workflows = () => {
   };
 
   return (
-    <div className="flex h-[600px] w-full min-h-[500px] bg-slate-50 overflow-hidden font-sans rounded-3xl relative">
+    <div className="flex h-[600px] w-full min-h-[500px] overflow-hidden font-sans rounded-3xl relative">
       
       {/* 背景 */}
       <div 
