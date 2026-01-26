@@ -86,7 +86,7 @@ export const Summary = () => {
   }, [activeId]);
 
   return (
-    <div className="relative w-full h-full min-h-[500px] bg-slate-50 flex gap-4 p-4 overflow-hidden rounded-3xl animate-in fade-in zoom-in duration-500">
+    <div className="relative w-full h-full min-h-[600px] flex gap-4 p-4 overflow-hidden rounded-3xl animate-in fade-in zoom-in duration-500">
       
       {/* 左側：原始資料 (Source Document) */}
       <div className="flex-1 flex flex-col min-w-0 bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
