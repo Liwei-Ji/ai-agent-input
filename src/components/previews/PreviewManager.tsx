@@ -42,6 +42,7 @@ import { PersonalVoice } from "./PersonalVoice";
 import { Inpainting } from "./Inpainting";
 import { Disclosure } from "./Disclosure";
 import { Name } from "./Name";
+import { Color } from "./Color";
 
 
 
@@ -142,7 +143,9 @@ export const PreviewManager = ({ featureTitle }: Props) => {
     case "Disclosure":
       return <Disclosure/>; 
     case "Name":
-      return <Name/>;    
+      return <Name/>;
+    case "Color":
+      return <Color/>;  
     default:
       return (
         <div className="text-center space-y-4">
