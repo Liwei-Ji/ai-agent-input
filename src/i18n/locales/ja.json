@@ -116,8 +116,12 @@
   "Differentiate the AI from other features and highlight its use case": "AIを他の機能と区別し、そのユースケースを強調します。",
   "Color": "カラー",
   "Visual cues to help users identify AI features or content": "AIの機能やコンテンツを識別するための視覚的なヒントです。",
+
   "Disclosure": "開示",
   "Clearly mark content and interactions guided or delivered by AI": "AIによって提供されたコンテンツや対話を明確にマークします。",
+  "disclosure.desc_1": "The core of disclosure lies in transparency.",
+  "disclosure.desc_2":  "text",
+
   "Name": "名称",
   "How do we refer to the AI?": "そのAIを何と呼びますか？",
   "Personality": "パーソナリティ",
