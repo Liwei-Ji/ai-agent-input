@@ -44,6 +44,7 @@ import { Disclosure } from "./Disclosure";
 import { Name } from "./Name";
 import { Color } from "./Color";
 import { Personality } from "./Personality";
+import { StreamOfThought } from "./StreamOfThought";
 
 
 
@@ -150,7 +151,9 @@ export const PreviewManager = ({ featureTitle }: Props) => {
     case "Color":
       return <Color/>;
     case "Personality":
-      return <Personality/>;  
+      return <Personality/>;
+    case "Stream Of Thought":
+      return <StreamOfThought/>;  
     default:
       return (
         <div className="text-center space-y-4">

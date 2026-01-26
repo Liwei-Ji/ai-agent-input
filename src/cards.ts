@@ -193,6 +193,11 @@ export const data: CardGroup[] = [
         img: "https://cdn.prod.website-files.com/65db6dd21591364dfcb8ae36/68ac95a1b099d421f1be4c78_planofaction_card.svg"
       },
       {
+        title: "Stream Of Thought",
+        subtitle: "Reveals the AI's logic thought process, tool use, and decisions for oversight and auditability",
+        img: ""
+      },
+      {
         title: "Prompt transparency",
         subtitle: "Show users what is actually happening behind the scenes",
         img: "https://cdn.prod.website-files.com/65db6dd21591364dfcb8ae36/68ac6c5a16f4eb679b0dbc5f_prompttransparency_card.svg"
