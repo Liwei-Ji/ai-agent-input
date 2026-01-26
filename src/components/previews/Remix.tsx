@@ -4,6 +4,7 @@ import { Sparkles, ArrowUp, X, AlignLeft } from "lucide-react";
 export const Remix = () => {
   const containerRef = useRef<HTMLDivElement>(null);
 
+// 初始文章內容
   const [blocks, setBlocks] = useState([
     {
       id: "title",
@@ -117,7 +118,7 @@ export const Remix = () => {
   };
 
   return (
-    <div className="relative w-full h-full min-h-[500px] bg-slate-100 flex items-center justify-center overflow-hidden rounded-3xl">
+    <div className="relative w-full h-full min-h-[600px] flex items-center justify-center overflow-hidden rounded-3xl">
       
       {/* 編輯器容器 */}
       <div 

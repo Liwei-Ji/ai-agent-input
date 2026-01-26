@@ -132,7 +132,7 @@ export const Restyle = () => {
   };
 
   return (
-    <div className="relative w-full h-full min-h-[500px] bg-slate-50 flex items-center justify-center overflow-hidden rounded-3xl">
+    <div className="relative w-full h-full min-h-[600px] flex items-center justify-center overflow-hidden rounded-3xl">
       
       {/* 編輯器區域 */}
       <div 
