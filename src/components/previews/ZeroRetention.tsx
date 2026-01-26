@@ -76,22 +76,19 @@ export const ZeroRetention = () => {
   const theme = isGhostMode ? {
     bg: "bg-slate-900",
     text: "text-slate-300",
-    // border: "border-slate-700", // 已移除外框線邏輯
     inputBg: "bg-slate-800",
     userBubble: "bg-indigo-900 text-indigo-100",
     aiText: "text-slate-300",
   } : {
     bg: "bg-white",
     text: "text-slate-600",
-    // border: "border-slate-200", // 已移除外框線邏輯
     inputBg: "bg-white",
     userBubble: "bg-blue-600 text-white",
     aiText: "text-slate-700",
   };
 
   return (
-    // 修改 1: 移除了 border 與 ${theme.border}
-    <div className={`relative w-full h-full min-h-[500px] overflow-hidden rounded-3xl flex flex-col transition-colors duration-500 ${theme.bg}`}>
+    <div className={`relative w-full h-full min-h-[600px] overflow-hidden rounded-3xl flex flex-col transition-colors duration-500 ${theme.bg}`}>
       
       {/* 頂部控制列 */}
       <div className={`shrink-0 px-6 py-4 flex items-center justify-between transition-colors duration-500`}>
@@ -138,7 +135,7 @@ export const ZeroRetention = () => {
 
               return (
                 <div key={msg.id} className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}>
-                   {/* 修改 2: AI 訊息改為純文字 (無氣泡), User 訊息維持氣泡 */}
+
                    {msg.role === "ai" ? (
                     <div className={`max-w-[95%] text-sm leading-7 whitespace-pre-wrap animate-in fade-in slide-in-from-bottom-2 ${theme.aiText}`}>
                       {msg.text}
@@ -180,7 +177,6 @@ export const ZeroRetention = () => {
                   value={inputValue}
                   onChange={(e) => setInputValue(e.target.value)}
                   onKeyDown={handleKeyDown}
-                  // 修改 3: 綁定中文輸入監聽事件 (IME Handlers)
                   onCompositionStart={() => setIsComposing(true)}
                   onCompositionEnd={() => setIsComposing(false)}
                   placeholder={isGhostMode ? "Interact without traces..." : "Ask a question..."}
