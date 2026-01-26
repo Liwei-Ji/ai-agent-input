@@ -20,7 +20,7 @@ export const OpenText = () => {
   const [inputValue, setInputValue] = useState("");
   const [isComposing, setIsComposing] = useState(false);
 
-  // 修改 2: 預設為空陣列 (沒有按鈕被點擊)
+  // 預設為空陣列 (沒有按鈕被點擊)
   const [activeTools, setActiveTools] = useState<string[]>([]);
 
   const handleSend = () => {
@@ -58,7 +58,7 @@ export const OpenText = () => {
   }, [messages]);
 
   return (
-    <div className="relative w-full h-full min-h-[500px] overflow-hidden rounded-3xl flex flex-col animate-in fade-in zoom-in duration-500 bg-white">
+    <div className="relative w-full h-full min-h-[600px] overflow-hidden rounded-3xl flex flex-col animate-in fade-in zoom-in duration-500 ">
       
       {/* 捲動區域 */}
       <div className="flex-1 w-full max-w-md mx-auto flex flex-col">
@@ -86,14 +86,14 @@ export const OpenText = () => {
         {/* 底部輸入區 */}
         <div className="shrink-0 pt-2 pb-6 px-4 relative z-20">
             
-            {/* 加高的輸入框容器 */}
+            {/* 加高輸入框容器 */}
             <div className={`
                 flex flex-col rounded-2xl border bg-white shadow-sm transition-all duration-300
                 ${inputValue.trim() || activeTools.length > 0 ? "border-indigo-200 ring-2 ring-indigo-50" : "border-gray-200"}
                 focus-within:ring-2 focus-within:ring-indigo-100 focus-within:border-indigo-400
             `}>
                 
-                {/* 1. 上層：文字輸入區 */}
+                {/* 上層：文字輸入區 */}
                 <div className="p-3">
                     <textarea 
                         value={inputValue}
@@ -102,12 +102,12 @@ export const OpenText = () => {
                         onCompositionStart={() => setIsComposing(true)}
                         onCompositionEnd={() => setIsComposing(false)}
                         placeholder="Ask anything..."
-                        className="w-full min-h-[60px] max-h-[120px] bg-transparent text-sm outline-none placeholder:text-slate-400 resize-none scrollbar-none"
+                        className="w-full min-h-[40px] max-h-[100px] bg-transparent text-sm outline-none placeholder:text-slate-400 resize-none scrollbar-none"
                         rows={2}
                     />
                 </div>
 
-                {/* 2. 下層：工具按鈕列 */}
+                {/* 下層：工具按鈕列 */}
                 <div className="flex items-center justify-between px-2 pb-2">
                     
                     {/* 左側：三個功能按鈕 */}
