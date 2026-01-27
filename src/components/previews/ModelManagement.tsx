@@ -4,7 +4,7 @@ import {
   ChevronDown, Sparkles, Zap, Cpu 
 } from "lucide-react";
 
-// --- 模型選項介面 ---
+// 模型選項
 interface ModelOption {
   id: string;
   name: string;
@@ -14,13 +14,13 @@ interface ModelOption {
 }
 
 export const ModelManagement = () => {
-  // --- 輸入框狀態 ---
+  // 輸入框狀態
   const [inputValue, setInputValue] = useState("");
   const [isExpanded, setIsExpanded] = useState(false);
   const [showExpandBtn, setShowExpandBtn] = useState(false);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
 
-  // --- Model Selector 狀態 ---
+  // Model Selector 狀態
   const [showModelMenu, setShowModelMenu] = useState(false);
   const modelMenuRef = useRef<HTMLDivElement>(null);
   const [selectedModel, setSelectedModel] = useState("pro");
@@ -34,7 +34,7 @@ export const ModelManagement = () => {
   // 取得當前選中的模型物件
   const currentModel = models.find(m => m.id === selectedModel) || models[0];
 
-  // --- 點擊外部關閉選單 ---
+  // 點擊外部關閉選單
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (modelMenuRef.current && !modelMenuRef.current.contains(event.target as Node)) {
@@ -45,7 +45,7 @@ export const ModelManagement = () => {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  // --- 高度控制 (Pixel Perfect) ---
+  // 高度控制 (Pixel Perfect)
   useEffect(() => {
     const textarea = textareaRef.current;
     if (!textarea) return;
@@ -68,9 +68,9 @@ export const ModelManagement = () => {
   }, [inputValue, isExpanded]);
 
   return (
-    <div className="relative w-full h-full min-h-[500px] bg-slate-50 flex flex-col items-center justify-center overflow-hidden rounded-3xl font-sans">
+    <div className="relative w-full h-full min-h-[600px] flex flex-col items-center justify-center overflow-hidden rounded-3xl font-sans">
       
-      {/* 1. 訊息顯示區 */}
+      {/* 訊息顯示區 */}
       <div className="w-full max-w-md flex-1 flex flex-col p-6">
         <div className="mb-4 space-y-1 mt-2">
           <h3 className="text-sm font-medium text-slate-500">Hi, I'm AI Agent</h3>
@@ -78,7 +78,7 @@ export const ModelManagement = () => {
         </div>
       </div>
 
-      {/* 2. 底部輸入區 */}
+      {/* 底部輸入區 */}
       <div className="w-full max-w-md mx-auto mb-6 px-6">
         
         <div className={`
@@ -86,7 +86,7 @@ export const ModelManagement = () => {
             ${isExpanded ? "rounded-2xl shadow-lg border-gray-300" : "hover:border-gray-300 focus-within:border-indigo-400 focus-within:ring-4 focus-within:ring-indigo-50/50"}
         `}>
             
-            {/* A. 左側按鈕 (只剩上傳) */}
+            {/* 左側按鈕 */}
             <button 
                 className={`
                     shrink-0 p-2 rounded-xl text-slate-400 hover:bg-slate-100 hover:text-indigo-600 transition-colors mb-[2px]
@@ -97,7 +97,7 @@ export const ModelManagement = () => {
                 <Paperclip size={20} />
             </button>
 
-            {/* B. 中間輸入框 */}
+            {/* 中間輸入框 */}
             <div className="flex-1 relative min-w-0 flex items-end gap-2">
                 <textarea
                     ref={textareaRef}
@@ -119,10 +119,10 @@ export const ModelManagement = () => {
                 </button>
             </div>
 
-            {/* --- C. 右側區域 (Model Selector + Send) --- */}
+            {/* 右側區域 (Model Selector + Send) */}
             <div className={`flex items-center gap-1 shrink-0 mb-[2px] ${isExpanded ? "self-end" : ""}`}>
                 
-                {/* 1. Model Selector Trigger */}
+                {/* Model Selector Trigger */}
                 <div className="relative" ref={modelMenuRef}>
                     <button
                         onClick={() => setShowModelMenu(!showModelMenu)}
@@ -182,7 +182,7 @@ export const ModelManagement = () => {
                     )}
                 </div>
 
-                {/* 2. 發送按鈕 */}
+                {/* 發送按鈕 */}
                 <button
                     disabled={!inputValue.trim()}
                     className={`
