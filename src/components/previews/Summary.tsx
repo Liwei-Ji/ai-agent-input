@@ -38,7 +38,7 @@ export const Summary = () => {
     }
   ];
 
-  // 模擬 AI 生成的摘要：針對 UX 的關鍵洞察
+  // 模擬AI生成的摘要
   const summaryPoints: SummaryPoint[] = [
     {
       id: "s1",

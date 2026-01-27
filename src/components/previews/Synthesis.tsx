@@ -82,7 +82,7 @@ export const Synthesis = () => {
 
   return (
     <div 
-      className="relative w-full h-full min-h-[500px] bg-slate-50 overflow-hidden rounded-3xl select-none cursor-default group"
+      className="relative w-full h-full min-h-[600px] overflow-hidden rounded-3xl select-none cursor-default group"
       onClick={handleSelect} // 點擊畫布任意處模擬「框選完成」
     >
       
@@ -96,7 +96,7 @@ export const Synthesis = () => {
         </div>
       )}
 
-      {/* --- 1. 便利貼渲染層 --- */}
+      {/* 便利貼渲染層 */}
       <div className="relative w-full h-full">
         {notesData.map((note) => {
           // 決定位置：根據狀態切換 initialX 或 groupedX
@@ -125,7 +125,7 @@ export const Synthesis = () => {
           );
         })}
 
-        {/* --- 分類標題 (僅在 Synthesized 狀態顯示) --- */}
+        {/* 分類標題 (僅在 Synthesized 狀態顯示) */}
         {status === "synthesized" && (
             <>
                 <div className="absolute left-[40px] top-[70px] animate-in fade-in slide-in-from-bottom-2 duration-700 delay-300">
@@ -142,7 +142,7 @@ export const Synthesis = () => {
         )}
       </div>
 
-      {/* --- 2. 模擬框選範圍 (Bounding Box) --- */}
+      {/* 模擬框選範圍 (Bounding Box) */}
       {status === "selected" && (
         <div className="absolute border-2 border-indigo-500 border-dashed rounded-xl pointer-events-none bg-indigo-500/5 animate-in fade-in duration-200"
              style={{ left: 30, top: 30, width: 480, height: 350 }}
@@ -154,7 +154,7 @@ export const Synthesis = () => {
         </div>
       )}
 
-      {/* --- 3. 懸浮工具列 (Floating Toolbar) --- */}
+      {/* 懸浮工具列 (Floating Toolbar) */}
       {status === "selected" && (
         <div className="absolute left-1/2 -translate-x-1/2 bottom-12 z-50 animate-in slide-in-from-bottom-4 fade-in duration-300">
             <div className="bg-white rounded-full shadow-2xl border border-slate-200 p-1.5 flex items-center gap-1">
@@ -177,7 +177,7 @@ export const Synthesis = () => {
         </div>
       )}
 
-      {/* --- 4. AI 處理面板 (Processing State) --- */}
+      {/* AI處理面板 (Processing State) */}
       {status === "processing" && (
         <div 
             className="absolute z-50 w-[240px] bg-white rounded-xl shadow-2xl border border-indigo-100 p-4 animate-in fade-in zoom-in duration-300"
