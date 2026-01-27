@@ -12,7 +12,7 @@ interface FilterOption {
 }
 
 export const Filters = () => {
-  // --- 狀態管理 ---
+  // 狀態管理
   const [inputValue, setInputValue] = useState("");
   const [isExpanded, setIsExpanded] = useState(false);
   const [showExpandBtn, setShowExpandBtn] = useState(false);
@@ -66,19 +66,18 @@ export const Filters = () => {
   }, [inputValue, isExpanded]);
 
   return (
-    <div className="relative w-full h-full min-h-[500px] bg-slate-50 flex flex-col items-center justify-center overflow-hidden rounded-3xl font-sans">
+    <div className="relative w-full h-full min-h-[600px] flex flex-col items-center justify-center overflow-hidden rounded-3xl font-sans">
       
-      {/* 1. 訊息顯示區 */}
-      {/* 移除 items-center，讓內容默認靠左 */}
+      {/* 訊息顯示區 */}
       <div className="w-full max-w-md flex-1 flex flex-col p-6"> 
         
-        {/* A. 標題區：靠左 (預設) */}
+        {/* 標題區：靠左 (預設) */}
         <div className="mb-4 space-y-1 mt-2">
           <h3 className="text-sm font-medium text-slate-500">Hi, I'm AI Agent</h3>
           <p className="text-xs text-slate-400 font-medium">15:47</p>
         </div>
 
-        {/* B. 篩選器標籤區：保持置中 (justify-center) */}
+        {/* 篩選器標籤區：保持置中 (justify-center) */}
         <div className="flex justify-center gap-2 flex-wrap w-full">
             {filterOptions.filter(f => f.isActive).map(f => (
                 <span key={f.id} className="bg-white border border-slate-200 text-slate-500 text-xs py-1 px-3 rounded-full shadow-sm flex items-center gap-1 animate-in fade-in zoom-in duration-300">
@@ -89,7 +88,7 @@ export const Filters = () => {
         </div>
       </div>
 
-      {/* 2. 底部輸入區 (保持完美狀態) */}
+      {/* 底部輸入區 */}
       <div className="w-full max-w-md mx-auto mb-6 px-6">
         
         <div className={`
