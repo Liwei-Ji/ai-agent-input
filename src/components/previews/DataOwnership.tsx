@@ -60,13 +60,13 @@ export const DataOwnership = () => {
   };
 
   return (
-    <div className="relative w-full h-full min-h-[500px] overflow-hidden rounded-3xl flex flex-col animate-in fade-in zoom-in duration-500">
+    <div className="relative w-full h-full min-h-[600px] overflow-hidden rounded-3xl flex flex-col animate-in fade-in zoom-in duration-500">
       
       {/* 聊天區域 */}
       <div className="w-full max-w-md mx-auto h-full flex flex-col">
         <div 
           ref={scrollRef}
-          className="flex-1 overflow-y-auto pr-2 pb-4 scrollbar-thin scrollbar-thumb-slate-200 scrollbar-track-transparent"
+          className="flex-1 overflow-y-auto pr-2 pb-75 scrollbar-thin scrollbar-thumb-slate-200 scrollbar-track-transparent"
         >
           <div className="mb-6 space-y-1 mt-24">
           </div>
@@ -97,7 +97,7 @@ export const DataOwnership = () => {
         </div>
 
         {/* 底部操作區 */}
-        <div className="shrink-0 pt-2 pb-4 z-10 bg-transparent px-1">
+        <div className="shrink-0 pt-2 pb-0 z-10 bg-transparent px-1">
           
           {/* --- Data Ownership Control Bar --- */}
           <div className="mb-3 flex flex-col items-end gap-2">
