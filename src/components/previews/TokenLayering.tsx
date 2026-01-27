@@ -86,7 +86,7 @@ export const TokenLayering = () => {
   };
 
   return (
-    <div className="relative w-full h-full min-h-[500px] bg-slate-50 flex flex-col items-center justify-center p-6 overflow-hidden rounded-3xl">
+    <div className="relative w-full h-full min-h-[500px] flex flex-col items-center justify-center p-6 overflow-hidden rounded-3xl">
       
       <div className="w-full max-w-2xl flex flex-col gap-6">
         
