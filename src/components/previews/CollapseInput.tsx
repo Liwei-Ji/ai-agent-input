@@ -8,7 +8,7 @@ export const CollapseInput = () => {
   
   const textareaRef = useRef<HTMLTextAreaElement>(null);
 
-  // --- 核心邏輯：高度控制 (保留不變) ---
+  // 核心邏輯：高度控制
   useEffect(() => {
     const textarea = textareaRef.current;
     if (!textarea) return;
@@ -42,7 +42,7 @@ export const CollapseInput = () => {
   }, [inputValue, isExpanded]);
 
   return (
-    <div className="relative w-full h-full min-h-[500px] bg-slate-50 flex flex-col items-center justify-center overflow-hidden rounded-3xl">
+    <div className="relative w-full h-full min-h-[600px] flex flex-col items-center justify-center overflow-hidden rounded-3xl">
       
       {/* 1. 訊息顯示區 (已清空文字) */}
       <div className="w-full max-w-md flex-1 flex flex-col p-6">
@@ -89,14 +89,11 @@ export const CollapseInput = () => {
                         transition-[height] duration-200 ease-out
                     `}
                     style={{
-                        // 這裡可以根據按鈕位置微調，因為按鈕現在移到外面了 (-right-10)，
-                        // 所以輸入框內部其實不需要留這麼多白，可以改回 0 或少一點。
-                        // 但為了保險起見，如果按鈕還是在附近，保留一點也無妨。
                         paddingRight: '0px' 
                     }}
                 />
 
-                {/* 右上角展開/收起按鈕 (位置改為 -right-10) */}
+                {/* 右上角展開/收起按鈕 */}
                 <button
                     onClick={() => {
                         setIsExpanded(!isExpanded);
