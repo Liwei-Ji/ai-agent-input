@@ -1,4 +1,3 @@
-// src/components/previews/Attachments.tsx
 import { useState, useRef, useEffect } from "react";
 import { Send, Paperclip, Maximize2, Minimize2, FileText, X, Database } from "lucide-react";
 
@@ -7,7 +6,6 @@ export const Attachments = () => {
   const [isExpanded, setIsExpanded] = useState(false);
   const [showExpandBtn, setShowExpandBtn] = useState(false);
   
-  // --- 新增：附件狀態 ---
   // 模擬已上傳的來源檔案
   const [sources, setSources] = useState<string[]>([]);
   
@@ -28,7 +26,7 @@ export const Attachments = () => {
     setSources(newSources);
   };
 
-  // --- 高度控制邏輯 (保持不變) ---
+  // 高度控制邏輯
   useEffect(() => {
     const textarea = textareaRef.current;
     if (!textarea) return;
@@ -54,9 +52,9 @@ export const Attachments = () => {
   }, [inputValue, isExpanded]);
 
   return (
-    <div className="flex w-full h-[600px] bg-slate-50 rounded-3xl overflow-hidden border border-slate-200">
+    <div className="flex w-full h-[600px] rounded-3xl overflow-hidden ">
       
-      {/* --- 左側：來源管理區 (模擬 NotebookLM 側邊欄) --- */}
+      {/* 左側：來源管理區 (模擬 NotebookLM 側邊欄) */}
       <div className="w-64 bg-white border-r border-slate-200 flex flex-col hidden md:flex">
         <div className="p-4 border-b border-slate-100 flex items-center gap-2">
             <Database size={18} className="text-indigo-600" />
@@ -71,7 +69,7 @@ export const Attachments = () => {
             ) : (
                 sources.map((file, idx) => (
                     <div key={idx} className="flex items-center gap-3 p-3 bg-slate-50 border border-slate-100 rounded-xl animate-in slide-in-from-left-2 duration-300">
-                        <div className="w-8 h-8 rounded-lg bg-red-100 text-red-500 flex items-center justify-center shrink-0">
+                        <div className="w-8 h-8 rounded-lg bg-green-100 text-green-500 flex items-center justify-center shrink-0">
                             <FileText size={16} />
                         </div>
                         <span className="text-xs font-medium text-slate-600 truncate flex-1">{file}</span>
@@ -81,12 +79,11 @@ export const Attachments = () => {
         </div>
       </div>
 
-      {/* --- 右側：主對話區 --- */}
+      {/* 右側：主對話區 */}
       <div className="flex-1 flex flex-col relative">
           
           {/* Header */}
-          <div className="h-14 border-b border-slate-100 bg-white/50 backdrop-blur-sm flex items-center px-6 justify-between">
-             <span className="text-sm font-medium text-slate-600">Notebook Chat</span>
+          <div className="h-14 flex items-center px-6 justify-between">
           </div>
 
           {/* 訊息顯示區 (空白) */}
@@ -100,7 +97,7 @@ export const Attachments = () => {
              )}
           </div>
 
-          {/* --- 底部輸入區 (Attachments 核心) --- */}
+          {/* 底部輸入區 (Attachments 核心) */}
           <div className="w-full max-w-2xl mx-auto mb-6 px-6">
             
             <div className={`
@@ -142,9 +139,8 @@ export const Attachments = () => {
                         }}
                     />
 
-                    {/* --- NEW: 來源標籤 (Source Chip) --- */}
-                    {/* 顯示條件：有來源檔案 && 未展開模式 (展開時通常顯示在 Header 或其他地方，這裡為了不擠壓空間，我們示範在收起時顯示) */}
-                    {/* 如果您希望展開時也顯示，可以移除 !isExpanded 的判斷，並調整 layout */}
+                    {/* 來源標籤 (Source Chip) */}
+                    {/* 顯示條件：有來源檔案 && 未展開模式 */}
                     {sources.length > 0 && !isExpanded && (
                         <div className="shrink-0 mb-[6px] animate-in fade-in slide-in-from-bottom-2 duration-300">
                              <div className="flex items-center gap-1 bg-indigo-50 text-indigo-600 px-2 py-1 rounded-lg border border-indigo-100">
