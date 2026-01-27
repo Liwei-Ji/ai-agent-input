@@ -13,7 +13,7 @@ export const ZeroRetention = () => {
   const [isGhostMode, setIsGhostMode] = useState(false);
   const [inputValue, setInputValue] = useState("");
   
-  // 新增中文輸入狀態 (IME State)
+  // 中文輸入狀態 (IME State)
   const [isComposing, setIsComposing] = useState(false);
   
   const [messages, setMessages] = useState<Message[]>([
@@ -169,7 +169,7 @@ export const ZeroRetention = () => {
                 relative flex w-full items-center gap-2 rounded-2xl border px-4 py-2 shadow-sm transition-colors duration-500
                 ${isGhostMode 
                     ? "bg-slate-800 border-slate-700 focus-within:ring-2 focus-within:ring-indigo-900 focus-within:border-indigo-700" 
-                    : "bg-white border-gray-200 focus-within:ring-2 focus-within:ring-indigo-100 focus-within:border-indigo-400"
+                    : "border-gray-200 focus-within:ring-2 focus-within:ring-indigo-100 focus-within:border-indigo-400"
                 }
             `}>
                 <input 
