@@ -3,7 +3,7 @@ import {
   Send, Paperclip 
 } from "lucide-react";
 
-// --- 定義訊息類型 ---
+// 定義訊息類型
 interface Message {
   id: string;
   role: "user" | "ai";
@@ -12,7 +12,7 @@ interface Message {
 }
 
 export const Controls = () => {
-  // --- 邏輯狀態 ---
+  // 邏輯狀態
   const [inputValue, setInputValue] = useState("");
   const [messages, setMessages] = useState<Message[]>([
     {
@@ -40,7 +40,7 @@ export const Controls = () => {
     }
   }, [messages, isGenerating]);
 
-  // --- 發送邏輯 ---
+  // 發送邏輯
   const handleSend = () => {
     if (!inputValue.trim()) return;
 
@@ -66,7 +66,7 @@ export const Controls = () => {
     }, 3000);
   };
 
-  // --- 停止邏輯 ---
+  // 停止邏輯
   const handleStop = () => {
     if (generationTimeoutRef.current) {
       clearTimeout(generationTimeoutRef.current);
@@ -96,9 +96,9 @@ export const Controls = () => {
 
   return (
     // 外層容器 (Widget 模式)
-    <div className="flex h-[500px] w-full min-h-[500px] bg-slate-50 overflow-hidden font-sans rounded-3xl border border-slate-200 relative flex-col">
+    <div className="flex h-[500px] w-full min-h-[600px] overflow-hidden font-sans rounded-3xl relative flex-col">
       
-      {/* --- 訊息列表區域 --- */}
+      {/* 訊息列表區域 */}
       <div className="flex-1 w-full max-w-md mx-auto flex flex-col relative overflow-hidden">
           
           <div 
@@ -147,7 +147,7 @@ export const Controls = () => {
 
       </div>
 
-      {/* --- 底部輸入控制區 --- */}
+      {/* 底部輸入控制區 */}
       <div className="shrink-0 p-4 z-10 w-full">
         <div className="max-w-md mx-auto w-full">
             
@@ -217,9 +217,6 @@ export const Controls = () => {
               )}
 
             </div>
-            
-            {/* 1. 已刪除下方的狀態提示文字區塊 */}
-
         </div>
       </div>
 

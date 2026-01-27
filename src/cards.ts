@@ -291,7 +291,11 @@ export const data: CardGroup[] = [
       {
         title: "Disclosure",
         subtitle: "Clearly mark content and interactions guided or delivered by AI",
-        img: "https://cdn.prod.website-files.com/65db6dd21591364dfcb8ae36/68b3319ed0bdb1335b8f7c20_disclosure_card.svg"
+        img: "https://cdn.prod.website-files.com/65db6dd21591364dfcb8ae36/68b3319ed0bdb1335b8f7c20_disclosure_card.svg",
+        description: [
+      "disclosure.desc_1",
+      "disclosure.desc_2"
+     ]
       },
       {
         title: "Name",
