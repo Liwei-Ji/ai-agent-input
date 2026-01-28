@@ -1,10 +1,10 @@
 import { useState, useRef, useEffect } from "react";
 import { 
   Sparkles, ImageIcon, Loader2, 
-  Palette, Frame, X // 新增圖示
+  Palette, Frame, X 
 } from "lucide-react";
 
-// --- 定義參數介面 ---
+// 定義參數介面
 interface StyleOption {
   id: string;
   label: string;
@@ -18,13 +18,13 @@ interface RatioOption {
 }
 
 export const Parameters = () => {
-  // --- 原有狀態 ---
+  // 原有狀態
   const [status, setStatus] = useState<"idle" | "generating" | "completed">("idle");
   const [inputValue, setInputValue] = useState("");
   const [submittedPrompt, setSubmittedPrompt] = useState("");
   const [isComposing, setIsComposing] = useState(false);
   
-  // --- 新增：風格與比例狀態 ---
+  // 風格與比例狀態
   // Style
   const [showStyleMenu, setShowStyleMenu] = useState(false);
   const styleMenuRef = useRef<HTMLDivElement>(null);
@@ -51,7 +51,7 @@ export const Parameters = () => {
 
   const generatedImageUrl = "https://images.unsplash.com/photo-1635322966219-b75ed372eb01?q=80&w=1000&auto=format&fit=crop";
 
-  // --- 點擊外部關閉選單 ---
+  // 點擊外部關閉選單
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       const target = event.target as Node;
@@ -84,11 +84,11 @@ export const Parameters = () => {
   return (
     <div className="relative w-full h-full min-h-[500px] flex flex-col overflow-hidden rounded-3xl font-sans">
       
-      {/* --- 顯示區域 (Canvas / Chat Area) --- */}
+      {/* 顯示區域 (Canvas / Chat Area)*/}
       <div className="flex-1 w-full overflow-y-auto p-6 scrollbar-thin scrollbar-thumb-slate-200">
         <div className="min-h-full flex flex-col max-w-md mx-auto w-full">
             
-            {/* A. 等待狀態 */}
+            {/* 等待狀態 */}
             {status === "idle" && (
                 <div className="flex flex-col animate-in fade-in duration-500">
                     <div className="mb-6 space-y-1 mt-2">
@@ -98,7 +98,7 @@ export const Parameters = () => {
                 </div>
             )}
 
-            {/* B. 生成中或完成狀態 */}
+            {/* 生成中或完成狀態 */}
             {(status === "generating" || status === "completed") && (
                 <div className="flex flex-col gap-6 animate-in slide-in-from-bottom-4 fade-in duration-500 pt-4">
                     {/* 1. 使用者氣泡 */}
@@ -115,7 +115,7 @@ export const Parameters = () => {
                         </div>
                     </div>
 
-                    {/* 2. AI 圖片容器 */}
+                    {/* AI 圖片容器 */}
                     <div className={`
                         relative w-full aspect-video rounded-2xl overflow-hidden shadow-sm border border-slate-200 bg-white transition-all duration-500
                         ${status === "completed" ? "shadow-xl" : ""}
@@ -163,7 +163,7 @@ export const Parameters = () => {
                 ${status === "generating" ? "border-indigo-200 ring-2 ring-indigo-50" : "border-slate-200 focus-within:border-indigo-400 focus-within:ring-2 focus-within:ring-indigo-100"}
             `}>
                 
-                {/* 1. 輸入框 */}
+                {/* 輸入框 */}
                 <input 
                     type="text" 
                     value={inputValue}
@@ -176,7 +176,7 @@ export const Parameters = () => {
                     className="flex-1 bg-transparent text-sm outline-none placeholder:text-slate-400 h-10 pl-2 disabled:cursor-wait disabled:text-slate-400 min-w-0"
                 />
 
-                {/* 2. 風格參數按鈕群組 (新增) */}
+                {/* 風格參數按鈕群組 */}
                 <div className="flex items-center gap-1 shrink-0">
                     
                     {/* Style Parameter */}
@@ -253,7 +253,7 @@ export const Parameters = () => {
 
                 </div>
 
-                {/* 3. 生成按鈕 */}
+                {/* 生成按鈕 */}
                 <button
                     onClick={handleGenerate}
                     disabled={!inputValue.trim() || status === "generating"}
