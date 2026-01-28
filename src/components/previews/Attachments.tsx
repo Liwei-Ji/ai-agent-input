@@ -55,11 +55,22 @@ export const Attachments = () => {
     <div className="flex w-full h-[600px] rounded-3xl overflow-hidden ">
       
       {/* 左側：來源管理區 (模擬 NotebookLM 側邊欄) */}
-      <div className="w-64 bg-white border-r border-slate-200 flex flex-col hidden md:flex">
+        <div className="w-64 bg-white border-r border-slate-200 flex flex-col hidden md:flex">
+
+            {/* 標題與圖標 */}
         <div className="p-4 border-b border-slate-100 flex items-center gap-2">
             <Database size={18} className="text-indigo-600" />
             <h3 className="font-semibold text-slate-700">Sources</h3>
+
+            {/* Add 按鈕 */}
+            <button 
+                    onClick={handleUpload} 
+                    className="ml-auto text-xs font-bold text-indigo-600 bg-indigo-50 hover:bg-indigo-100 px-3 py-1.5 rounded-lg transition-colors border border-indigo-100"
+                >
+                    + Add
+                </button>
         </div>
+        
         <div className="flex-1 p-4 space-y-3 overflow-y-auto">
             {sources.length === 0 ? (
                 <div className="text-center mt-10 text-slate-400 text-sm px-4">
@@ -79,7 +90,7 @@ export const Attachments = () => {
         </div>
       </div>
 
-      {/* 右側：主對話區 */}
+      {/* 右側：對話區 */}
       <div className="flex-1 flex flex-col relative">
           
           {/* Header */}
