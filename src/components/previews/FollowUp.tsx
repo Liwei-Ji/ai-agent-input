@@ -36,12 +36,12 @@ export const FollowUp = () => {
   }, [messages, showSuggestions]);
 
   return (
-    <div className="w-full max-w-md h-[450px] flex flex-col animate-in fade-in zoom-in duration-500">
+    <div className="w-full max-w-md h-[600px] flex flex-col animate-in fade-in zoom-in duration-500">
       
       {/* 訊息區 */}
       <div className="flex-1 overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-slate-200 scrollbar-track-transparent">
         
-        <div className="mb-6 space-y-1 mt-2">
+        <div className="mb-6 space-y-1 mt-16">
           <h3 className="text-sm font-medium text-slate-500">Hi, I'm AI Agent</h3>
           <p className="text-xs text-slate-400 font-medium">15:47</p>
         </div>
