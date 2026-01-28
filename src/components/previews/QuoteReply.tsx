@@ -1,4 +1,3 @@
-// src/components/previews/QuoteReply.tsx
 import { useState, useRef, useEffect } from "react";
 import { Send, MessageSquarePlus, X, Quote } from "lucide-react";
 
@@ -29,7 +28,7 @@ export const QuoteReply = () => {
 
   const [isComposing, setIsComposing] = useState(false);
 
-  // 1. 監聽文字選取
+  // 監聽文字選取
   useEffect(() => {
     const handleMouseUp = () => {
       const selection = window.getSelection();
@@ -71,7 +70,7 @@ export const QuoteReply = () => {
     };
   }, []);
 
-  // 2. 點擊「詢問 AI」
+  // 點擊「詢問 AI」
   const handleQuoteClick = (e: React.MouseEvent) => {
     e.stopPropagation();
     if (selectionTooltip) {
@@ -118,10 +117,10 @@ export const QuoteReply = () => {
   }, [messages, activeQuote]);
 
   return (
-    // 1. 改回 Flexbox 結構 (flex flex-col)
-    <div ref={containerRef} className="relative w-full h-full min-h-[500px] overflow-hidden rounded-3xl flex flex-col animate-in fade-in zoom-in duration-500">
+    //  Flexbox 結構 (flex flex-col)
+    <div ref={containerRef} className="relative w-full h-full min-h-[600px] overflow-hidden rounded-3xl flex flex-col animate-in fade-in zoom-in duration-500">
       
-      {/* 2. 捲動區域：改回 flex-1 (自動佔滿剩餘空間)，移除 pb-[120px] */}
+      {/* 捲動區域：自動佔滿剩餘空間 */}
       <div className="flex-1 w-full max-w-md mx-auto flex flex-col">
           <div 
             ref={scrollRef}
@@ -198,7 +197,7 @@ export const QuoteReply = () => {
                 )}
 
                 {/* B. 輸入行 (Input + Button) */}
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2 ">
                     <input 
                       type="text" 
                       value={inputValue}
