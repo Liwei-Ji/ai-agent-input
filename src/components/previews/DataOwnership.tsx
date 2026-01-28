@@ -66,9 +66,9 @@ export const DataOwnership = () => {
       <div className="w-full max-w-md mx-auto h-full flex flex-col">
         <div 
           ref={scrollRef}
-          className="flex-1 overflow-y-auto pr-2 pb-75 scrollbar-thin scrollbar-thumb-slate-200 scrollbar-track-transparent"
+          className="flex-1 overflow-y-auto pr-2 pb-90 scrollbar-thin scrollbar-thumb-slate-200 scrollbar-track-transparent"
         >
-          <div className="mb-6 space-y-1 mt-24">
+          <div className="mb-6 space-y-1 mt-4">
           </div>
 
           <div className="space-y-6">
