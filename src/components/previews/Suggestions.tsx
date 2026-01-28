@@ -40,13 +40,13 @@ export const Suggestions = () => {
   }, [messages]);
 
   return (
-    <div className="w-full max-w-md h-[300px] flex flex-col animate-in fade-in zoom-in duration-500">
+    <div className="w-full max-w-md h-[600px] flex flex-col animate-in fade-in zoom-in duration-500">
       
       {/* 訊息區 */}
       <div className="flex-1 overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-slate-200 scrollbar-track-transparent">
         
         {/* 歡迎標題 */}
-        <div className="mb-6 space-y-1 mt-2">
+        <div className="mb-6 space-y-1 mt-12">
           <h3 className="text-sm font-medium text-slate-500">Hi, I'm AI Agent</h3>
           <p className="text-xs text-slate-400 font-medium">15:47</p>
         </div>
@@ -77,7 +77,7 @@ export const Suggestions = () => {
       </div>
 
      {/* 底部固定區 */}
-      <div className="shrink-0 pt-4">
+      <div className="shrink-0 pt-4 pb-4">
         {messages.length === 0 && (
           <div className="flex flex-wrap gap-2 mb-3 px-1 animate-in slide-in-from-bottom-2 fade-in duration-500">
             {suggestionTags.map((tag) => (
