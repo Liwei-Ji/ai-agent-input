@@ -71,8 +71,8 @@
   "Tuners": "チューナー",
   "Let users refine or remix their prompt to get improved results": "プロンプトを微調整またはリミックスして、より良い結果を得られるようにします。",
   
-  "Collapse Input": "入力ボックスを折りたたむ",
-  "Improve focus and layout efficiency by collapsing the input area while preserving all input content.": "透過收合輸入區域，同時保留所有輸入內容，以提升專注度與版面配置效率。",
+  "Collapse Input": "入力ボックスを展開",
+  "Improve focus and layout efficiency by collapsing the input area while preserving all input content.": "入力ボックスを折りたたみつつ、すべての入力内容を保持することで、集中力とレイアウト効率を向上させます。",
 
   "Attachments": "添付ファイル",
   "Give the AI a specific reference to anchor its response": "AIに回答の根拠となる特定の参照資料を提供します。",
@@ -113,12 +113,18 @@
   "Plan of Action": "行動計画",
   "Have the AI show the steps it will take to respond to the user's prompt before it executes its response": "AIが実行前に、プロンプトに対してどのような手順で回答するかを表示します。",
   
+  "Stream Of Thought": "思考の流れ",
+  "Reveals the AI's logic thought process, tool use, and decisions for oversight and auditability": "AIの推論の流れやツール使用状況、意思決定の過程を明らかにし、監督や監査を可能にします。",
+
   "Prompt transparency": "プロンプトの透明性",
   "Show users what is actually happening behind the scenes": "舞台裏で実際に何が起きているかをユーザーに示します。",
   
   "Regenerate": "再生成",
   "Have the AI reproduce its response to the prompt without additional input": "追加の入力なしで、プロンプトに対する回答を再生成させます。",
   
+  "Copy": "コピー",
+  "Instantly copy the response to your clipboard.":"返信をすぐにクリップボードにコピーします。",
+
   "Sample response": "サンプル回答",
   "Confirm the user's intent for complicated prompts": "複雑なプロンプトに対してユーザーの意図を確認します。",
   
