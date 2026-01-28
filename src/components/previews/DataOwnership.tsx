@@ -75,12 +75,12 @@ export const DataOwnership = () => {
             {messages.map((msg) => (
               <div key={msg.id} className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}>
                 {msg.role === "ai" ? (
-                  // 修改 1: AI 回覆改為純文字 (無氣泡)
+                  // AI 訊息無氣泡
                   <div className="max-w-[95%] text-slate-700 text-sm leading-7 whitespace-pre-wrap animate-in fade-in slide-in-from-bottom-2">
                     {msg.text}
                   </div>
                 ) : (
-                  // User 回覆維持氣泡 (依模式變色)
+                  // User 訊息藍色氣泡
                   <div className={`
                     max-w-[90%] p-4 text-sm leading-7 rounded-2xl shadow-sm whitespace-pre-wrap transition-colors duration-500 rounded-br-sm
                     ${isDataShared 
@@ -99,7 +99,7 @@ export const DataOwnership = () => {
         {/* 底部操作區 */}
         <div className="shrink-0 pt-2 pb-0 z-10 bg-transparent px-1">
           
-          {/* --- Data Ownership Control Bar --- */}
+          {/* Data Ownership Control Bar */}
           <div className="mb-3 flex flex-col items-end gap-2">
             
             {/* 上方開關列 */}
@@ -151,7 +151,7 @@ export const DataOwnership = () => {
             }
           `}>
             
-            {/* 左側私密模式圖標提示 */}
+            {/* 私密模式圖標提示 */}
             {!isDataShared && (
               <div className="animate-in zoom-in duration-300 text-emerald-500 mr-1" title="Private Mode Active">
                  <ShieldCheck size={18} />
