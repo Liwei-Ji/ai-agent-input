@@ -209,7 +209,7 @@ export const data: CardGroup[] = [
       },
       {
         title: "Copy",
-        subtitle: "Have t",
+        subtitle: "Instantly copy the response to your clipboard.",
         img: ""
       },
       {

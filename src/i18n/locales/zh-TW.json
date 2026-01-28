@@ -41,6 +41,9 @@
   "Inline Action": "內嵌操作",
   "Ask or interact with AI contextually based on something already available on the page": "根據頁面上已有的內容，進行上下文相關的 AI 互動或提問。",
   
+  "Quote Reply": "引用回覆",
+  "Enable users to initiate a contextual AI query directly from selected content, preserving focus and reducing disruption to the primary interaction flow.":"允許使用者直接從選取的內容發起情境化 AI 查詢，維持專注並減少對主要互動流程的干擾。",
+
   "Madlibs": "填充填空",
   "Repeatedly run generative tasks without compromising on the format or accuracy": "在不犧牲格式或準確性的情況下，重複執行生成任務。",
   
@@ -64,6 +67,9 @@
   
   "Transform": "格式轉換",
   "Use AI to change the modality of content": "使用 AI 改變內容的呈現形式或模態。",
+
+  "Collapse Input": "收合輸入框",
+  "Improve focus and layout efficiency by collapsing the input area while preserving all input content.": "透過收合輸入區域，同時保留所有輸入內容，以提升專注度與版面配置效率。",
 
   "Tuners": "微調控制",
   "Let users refine or remix their prompt to get improved results": "讓使用者精確調整或重新組合提示詞，以獲得更好的結果。",
@@ -107,11 +113,17 @@
   "Plan of Action": "行動計畫",
   "Have the AI show the steps it will take to respond to the user's prompt before it executes its response": "讓 AI 在執行前先顯示處理提示詞的計畫步驟。",
   
+  "Stream Of Thought": "思緒流",
+  "Reveals the AI's logic thought process, tool use, and decisions for oversight and auditability": "揭示 AI 的推理邏輯、工具使用情況與決策過程，以利監督與稽核。",
+
   "Prompt transparency": "提示詞透明度",
   "Show users what is actually happening behind the scenes": "向使用者展示幕後的實際運作情況。",
   
   "Regenerate": "重新生成",
   "Have the AI reproduce its response to the prompt without additional input": "讓 AI 在不增加輸入的情況下針對提示詞再次生成回覆。",
+  
+  "Copy": "複製",
+  "Instantly copy the response to your clipboard.":"可即時將回應複製至剪貼簿。",
   
   "Sample response": "回覆範例",
   "Confirm the user's intent for complicated prompts": "針對複雜的提示詞確認使用者的意圖。",

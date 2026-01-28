@@ -41,6 +41,9 @@
   "Inline Action": "Inline Action",
   "Ask or interact with AI contextually based on something already available on the page": "Ask or interact with AI contextually based on something already available on the page",
   
+  "Quote Reply": "Quote Reply",
+  "Enable users to initiate a contextual AI query directly from selected content, preserving focus and reducing disruption to the primary interaction flow.":"Enable users to initiate a contextual AI query directly from selected content, preserving focus and reducing disruption to the primary interaction flow.",
+  
   "Madlibs": "Madlibs",
   "Repeatedly run generative tasks without compromising on the format or accuracy": "Repeatedly run generative tasks without compromising on the format or accuracy",
   
@@ -67,6 +70,9 @@
 
   "Tuners": "Tuners",
   "Let users refine or remix their prompt to get improved results": "Let users refine or remix their prompt to get improved results",
+  
+  "Collapse Input":"Collapse Input",
+  "Improve focus and layout efficiency by collapsing the input area while preserving all input content.":"Improve focus and layout efficiency by collapsing the input area while preserving all input content.",
   
   "Attachments": "Attachments",
   "Give the AI a specific reference to anchor its response": "Give the AI a specific reference to anchor its response",
@@ -107,12 +113,18 @@
   "Plan of Action": "Plan of Action",
   "Have the AI show the steps it will take to respond to the user's prompt before it executes its response": "Have the AI show the steps it will take to respond to the user's prompt before it executes its response",
   
+  "Stream Of Thought": "Stream Of Thought",
+  "Reveals the AI's logic thought process, tool use, and decisions for oversight and auditability" : "Reveals the AI's logic thought process, tool use, and decisions for oversight and auditability",
+
   "Prompt transparency": "Prompt transparency",
   "Show users what is actually happening behind the scenes": "Show users what is actually happening behind the scenes",
   
   "Regenerate": "Regenerate",
   "Have the AI reproduce its response to the prompt without additional input": "Have the AI reproduce its response to the prompt without additional input",
   
+  "Copy": "Copy",
+  "Instantly copy the response to your clipboard.":"Instantly copy the response to your clipboard.",
+
   "Sample response": "Sample response",
   "Confirm the user's intent for complicated prompts": "Confirm the user's intent for complicated prompts",
   
