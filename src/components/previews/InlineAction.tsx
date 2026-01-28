@@ -27,7 +27,7 @@ export const InlineAction = () => {
   const [isRegenerating, setIsRegenerating] = useState(false);
   const [isComposing, setIsComposing] = useState(false);
 
-  // 1. 監聽文字選取
+  // 監聽文字選取
   useEffect(() => {
     const handleMouseUp = () => {
       const selection = window.getSelection();
@@ -37,7 +37,7 @@ export const InlineAction = () => {
         return; 
       }
 
-      // --- 修改重點：檢查選取內容的來源 ---
+      // 檢查選取內容的來源
       const anchorNode = selection.anchorNode;
       // 獲取元素節點 (如果是文字節點，取其父層)
       const targetElement = (anchorNode?.nodeType === 3 ? anchorNode.parentElement : anchorNode) as HTMLElement;
@@ -85,7 +85,7 @@ export const InlineAction = () => {
     };
   }, []);
 
-  // 2. 執行「使其更簡潔」
+  // 執行「使其更簡潔」
   const handleMakeConcise = (e: React.MouseEvent) => {
     e.stopPropagation();
     setSelectionTooltip(null);
@@ -134,7 +134,7 @@ export const InlineAction = () => {
   };
 
   return (
-    <div ref={containerRef} className="relative w-full h-full min-h-[500px] overflow-hidden rounded-3xl flex flex-col animate-in fade-in zoom-in duration-500 ">
+    <div ref={containerRef} className="relative w-full h-full min-h-[600px] overflow-hidden rounded-3xl flex flex-col animate-in fade-in zoom-in duration-500 ">
       
       {/* 捲動區域 */}
       <div className="flex-1 w-full max-w-md mx-auto flex flex-col">
@@ -146,7 +146,7 @@ export const InlineAction = () => {
             {messages.map((msg) => (
                 <div 
                     key={msg.id} 
-                    // --- 修改重點：在這裡加上 data-role 屬性 ---
+                    // 加上 data-role 屬性
                     data-role={msg.role}
                     className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}
                 >
@@ -196,7 +196,7 @@ export const InlineAction = () => {
         )}
 
         {/* 底部輸入區 */}
-        <div className="shrink-0 pt-2 pb-4 px-4 relative z-20">
+        <div className="shrink-0 pt-2 pb-10 px-4 relative z-20">
             <div className="relative flex w-full items-center gap-2 rounded-2xl border border-gray-200 bg-white px-2 py-2 shadow-sm focus-within:ring-2 focus-within:ring-indigo-100 focus-within:border-indigo-400 transition-all">
                 <input 
                     type="text" 
