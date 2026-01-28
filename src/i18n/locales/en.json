@@ -25,6 +25,8 @@
 
   "Nudges": "Nudges",
   "Alert users to actions they can take to use AI, especially if they are just getting started": "Alert users to actions they can take to use AI, especially if they are just getting started",
+  "nudges_cta.desc_1": "What happens when a tool is capable of performing many tasks, but users are only aware of a small subset of its functions?",
+  "nudges_cta.desc_2": "Nudging is a gentle guidance mechanism that helps users initiate actions by gradually revealing the capabilities of artificial intelligence, combined with actionable trigger prompts.",
   
   "Suggestions": "Suggestions",
   "Solves the blank canvas dilemma with clues for how to prompt": "Solves the blank canvas dilemma with clues for how to prompt",

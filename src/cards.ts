@@ -39,7 +39,11 @@ export const data: CardGroup[] = [
       {
         title: "Nudges",
         subtitle: "Alert users to actions they can take to use AI, especially if they are just getting started",
-        img: "https://cdn.prod.website-files.com/65db6dd21591364dfcb8ae36/68acc6618b356cc505bac940_Nudge_card.svg"
+        img: "https://cdn.prod.website-files.com/65db6dd21591364dfcb8ae36/68acc6618b356cc505bac940_Nudge_card.svg",
+        description: [
+      "nudges_cta.desc_1",
+      "nudges_cta.desc_2"
+    ]
       },
       {
         title: "Suggestions",

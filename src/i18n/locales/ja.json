@@ -25,6 +25,8 @@
 
   "Nudges": "ナッジ",
   "Alert users to actions they can take to use AI, especially if they are just getting started": "AIを活用するために取れるアクションをユーザーに通知します。",
+  "nudges_cta.desc_1": "ツールが多くのタスクを実行できる一方で、ユーザーがその中のごく一部の機能しか認識していない場合、どのような状況が生じるでしょうか。",
+  "nudges_cta.desc_2": "ナッジとは、人工知能の機能を段階的に提示し、実行可能なトリガープロンプトと組み合わせることで、ユーザーが操作を開始できるよう支援する穏やかな誘導メカニズムです。",
   
   "Suggestions": "提案",
   "Solves the blank canvas dilemma with clues for how to prompt": "プロンプトのヒントを提供することで、「何を書けばいいかわからない」という問題を解決します。",

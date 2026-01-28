@@ -25,6 +25,8 @@
 
   "Nudges": "輕推",
   "Alert users to actions they can take to use AI, especially if they are just getting started": "提示使用者可以採取的行動以使用 AI，特別是剛入門時。",
+  "nudges_cta.desc_1": "當工具能完成許多任務，而使用者卻只認識其中少數功能時，會發生什麼情況？",
+  "nudges_cta.desc_2": "輕推是一種溫和的引導機制，透過逐步呈現人工智慧的功能，並搭配可執行的觸發提示，協助使用者啟動操作。",
   
   "Suggestions": "建議",
   "Solves the blank canvas dilemma with clues for how to prompt": "透過如何下提示詞的線索，解決面對空白畫布的困擾。",
