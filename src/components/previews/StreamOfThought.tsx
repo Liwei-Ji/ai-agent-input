@@ -272,7 +272,7 @@ export const StreamOfThought = () => {
       </div>
 
       {/* Input (Fixed Bottom) */}
-      <div className="absolute bottom-0 left-0 right-2 bg-slate-50 z-20">
+      <div className="absolute bottom-0 left-0 right-2  z-20">
           <div className="w-full max-w-md mx-auto pt-4 pb-4 px-4">
             <div className={`
                 relative flex w-full items-end gap-2 rounded-2xl border p-2 shadow-sm transition-all duration-300
