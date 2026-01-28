@@ -39,14 +39,14 @@ export const Transform = () => {
   return (
     <div className="relative w-full h-full min-h-[500px] flex flex-col overflow-hidden rounded-3xl">
       
-      {/* --- 顯示區域 (Canvas / Chat Area) --- */}
+      {/* 顯示區域 (Canvas / Chat Area)  */}
       <div className="flex-1 w-full overflow-y-auto p-6 scrollbar-thin scrollbar-thumb-slate-200">
         
-        {/* 修改重點 1: 加上 max-w-md mx-auto */}
+        {/* 加上 max-w-md mx-auto */}
         {/* 這樣可以確保內容區域的寬度與下方的輸入框一致，且水平置中，文字就不會貼在最左邊 */}
         <div className="min-h-full flex flex-col max-w-md mx-auto w-full">
             
-            {/* A. 等待狀態 (Idle Placeholder) */}
+            {/* 等待狀態 (Idle Placeholder) */}
             {status === "idle" && (
                 <div className="flex flex-col animate-in fade-in duration-500">
                     <div className="mb-6 space-y-1 mt-2">
@@ -56,20 +56,20 @@ export const Transform = () => {
                 </div>
             )}
 
-            {/* B. 生成中或完成狀態 (Active State) */}
+            {/* 生成中或完成狀態 (Active State) */}
             {(status === "generating" || status === "completed") && (
                 // 這裡原本有 max-w-md，現在外層加了，這裡可以移除或保留(繼承)
                 // 為了保險起見，我們讓它單純是 flex-col 即可
                 <div className="flex flex-col gap-6 animate-in slide-in-from-bottom-4 fade-in duration-500 pt-4">
                     
-                    {/* 1. 使用者氣泡 (User Bubble) - 靠右 */}
+                    {/* 使用者氣泡 (User Bubble) - 靠右 */}
                     <div className="self-end max-w-[90%]">
                         <div className="bg-blue-600 text-white px-4 py-3 rounded-2xl rounded-tr-sm shadow-sm text-sm leading-relaxed break-words">
                             {submittedPrompt}
                         </div>
                     </div>
 
-                    {/* 2. AI 圖片容器 (Image Container) - 靠左 */}
+                    {/* AI 圖片容器 (Image Container) - 靠左 */}
                     <div className={`
                         relative w-full aspect-video rounded-2xl overflow-hidden shadow-sm border border-slate-200 bg-white transition-all duration-500
                         ${status === "completed" ? "shadow-xl" : ""}
