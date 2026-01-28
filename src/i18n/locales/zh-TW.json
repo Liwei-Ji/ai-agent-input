@@ -68,11 +68,11 @@
   "Transform": "格式轉換",
   "Use AI to change the modality of content": "使用 AI 改變內容的呈現形式或模態。",
 
-  "Collapse Input": "收合輸入框",
-  "Improve focus and layout efficiency by collapsing the input area while preserving all input content.": "透過收合輸入區域，同時保留所有輸入內容，以提升專注度與版面配置效率。",
-
   "Tuners": "微調控制",
   "Let users refine or remix their prompt to get improved results": "讓使用者精確調整或重新組合提示詞，以獲得更好的結果。",
+
+  "Collapse Input": "輸入框展開",
+  "Improve focus and layout efficiency by collapsing the input area while preserving all input content.": "透過收合輸入區域，同時保留所有輸入內容，以提升專注度與版面配置效率。",
   
   "Attachments": "附件參考",
   "Give the AI a specific reference to anchor its response": "提供 AI 具體的參考資料以定位其回覆內容。",

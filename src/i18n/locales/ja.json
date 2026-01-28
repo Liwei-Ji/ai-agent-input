@@ -25,95 +25,137 @@
 
   "Nudges": "ナッジ",
   "Alert users to actions they can take to use AI, especially if they are just getting started": "AIを活用するために取れるアクションをユーザーに通知します。",
+  
   "Suggestions": "提案",
   "Solves the blank canvas dilemma with clues for how to prompt": "プロンプトのヒントを提供することで、「何を書けばいいかわからない」という問題を解決します。",
+  
   "Templates": "テンプレート",
   "Structured templates that can be filled by the user or pre-filled by the AI": "ユーザーが記入するか、AIが事前入力できる構造化されたテンプレートです。",
 
   "Inputs": "インプット",
   "Submit the user's prompt to the AI within its surrounding context": "関連するコンテキスト内でユーザーのプロンプトをAIに送信します。",
+  
   "Auto fill": "オートフィル",
   "Makes it easy for users to extend a prompt to multiple inputs at once": "プロンプトを一度に複数の入力欄へ簡単に拡張できるようにします。",
+  
   "Inline Action": "インラインアクション",
   "Ask or interact with AI contextually based on something already available on the page": "ページ上の既存コンテンツに基づき、文脈に沿ってAIと対話します。",
+  
+  "Quote Reply": "引用返信",
+  "Enable users to initiate a contextual AI query directly from selected content, preserving focus and reducing disruption to the primary interaction flow.":"ユーザーが選択したコンテンツから直接コンテキストに基づくAIクエリを開始できるようにし、集中を維持しつつ主要なインタラクションの流れへの干渉を減らします。",
+  
   "Madlibs": "マドリブ",
   "Repeatedly run generative tasks without compromising on the format or accuracy": "形式や精度を損なうことなく、生成タスクを繰り返し実行します。",
+  
   "Open text": "オープンテキスト",
   "Open ended prompt inputs that can be used in AI conversations and other natural language prompting": "AIとの会話や自然言語プロンプトに使用できる自由入力欄です。",
+  
   "Remix": "リミックス",
   "Use existing content as the starting point for prompting": "既存のコンテンツをプロンプトの起点として利用します。",
+  
   "Restyle": "リスタイル",
   "Transfer styles without changing the underlying structure of a generation": "生成物の基本構造を変えずにスタイルのみを変換します。",
+  
   "Summary": "要約",
   "Have AI distill a topic or resource down to its essence": "AIにトピックやリソースをエッセンスのみに抽出させます。",
+  
   "Synthesis": "統合",
   "Distill or reorganize complicated information into simple structure": "複雑な情報を抽出・再構成してシンプルな構造にします。",
+  
   "Token layering": "トークンレイヤリング",
   "Construct a prompt with raw tokens, just like building with legos": "レゴを組み立てるように、生のトークンでプロンプトを構築します。",
+  
   "Transform": "変換",
   "Use AI to change the modality of content": "AIを使用してコンテンツの形式やモダリティを変更します。",
 
   "Tuners": "チューナー",
   "Let users refine or remix their prompt to get improved results": "プロンプトを微調整またはリミックスして、より良い結果を得られるようにします。",
+  
+  "Collapse Input": "入力ボックスを折りたたむ",
+  "Improve focus and layout efficiency by collapsing the input area while preserving all input content.": "透過收合輸入區域，同時保留所有輸入內容，以提升專注度與版面配置效率。",
+
   "Attachments": "添付ファイル",
   "Give the AI a specific reference to anchor its response": "AIに回答の根拠となる特定の参照資料を提供します。",
+  
   "Filters": "フィルター",
   "Constrain the inputs or the outputs of the AI by source, type, modality, etc": "ソース、タイプ、形式などによってAIの入出力を制限します。",
+  
   "Inpainting": "インペインティング",
   "Target specific areas of the AI's result to regenerate or remix": "AIの生成結果の特定の部分を指定して、再生成や修正を行います。",
+  
   "Model management": "モデル管理",
   "Let users specify what model to use for their prompts": "プロンプトに使用するAIモデルをユーザーが指定できるようにします。",
+  
   "Parameters": "パラメータ",
   "Include constraints with your prompt for the AI to reference when generating its result": "結果生成時にAIが参照する制約条件をプロンプトに含めます。",
+  
   "Personal voice": "パーソナルボイス",
   "Ensure outputs match your voice, tone, and preferences in a consistent way": "出力が常にユーザー自身の口調、トーン、好みに一致するようにします。",
+  
   "References": "参考文献",
   "See and manage what additional sources the AI references to generate its response": "AIが回答を生成する際に参照した追加ソースを表示・管理します。",
+  
   "Workflows": "ワークフロー",
   "String generative steps together to synthesize, create, or send content on auto-pilot": "生成ステップを連携させ、自動で情報の統合・作成・送信を行います。",
 
   "Governors": "ガバナー",
   "Maintain user agency as the AI works in order to understand and direct the AI's logic": "AIの動作中もユーザーの主導権を維持し、AIのロジックを理解・誘導できるようにします。",
+  
   "Citations": "引用",
   "Give the AI a specific reference to anchor its response": "AIに回答の根拠となる特定の参照資料を提供します。",
+  
   "Controls": "コントロール",
   "Manage the flow of information or pause a request mid-stream to adjust the prompt": "情報フローを管理し、リクエストを途中で一時停止してプロンプトを調整します。",
+  
   "Footprints": "フットプリント",
   "Let users trace the AI's steps from prompt to result": "プロンプトから結果に至るまでのAIの思考プロセスを追跡できるようにします。",
+  
   "Plan of Action": "行動計画",
   "Have the AI show the steps it will take to respond to the user's prompt before it executes its response": "AIが実行前に、プロンプトに対してどのような手順で回答するかを表示します。",
+  
   "Prompt transparency": "プロンプトの透明性",
   "Show users what is actually happening behind the scenes": "舞台裏で実際に何が起きているかをユーザーに示します。",
+  
   "Regenerate": "再生成",
   "Have the AI reproduce its response to the prompt without additional input": "追加の入力なしで、プロンプトに対する回答を再生成させます。",
+  
   "Sample response": "サンプル回答",
   "Confirm the user's intent for complicated prompts": "複雑なプロンプトに対してユーザーの意図を確認します。",
+  
   "Token Transparency": "トークンの透明性",
   "Reveal the tokens the AI used to craft its response": "回答の構築に使用されたトークンの詳細を明らかにします。",
+  
   "Variations": "バリエーション",
   "Trace through multiple variations of a result to choose the one that works best for them": "複数のバリエーションを比較し、最適なものを選択できるようにします。",
 
   "Trust builder": "トラストビルダー",
   "Give users confidence that the AI's results are ethical, accurate, and trustworthy": "AIの結果が倫理的で正確、かつ信頼できるものであるという確信をユーザーに与えます。",
+  
   "Consent": "同意",
   "Only capture data from others with their knowledge and permission": "他者のデータは、本人の承諾と許可がある場合にのみ取得します。",
+  
   "Watermark": "透かし",
   "Identifiers on AI Generative content that humans, software, or programs can read": "人間やソフトウェアが識別できる、AI生成コンテンツ上の識別標識です。",
+  
   "Memory": "メモリ",
   "Control what details the AI knows about you": "AIが保持しているユーザーの詳細情報をコントロールします。",
   "Interact with the AI without leaving any traces": "履歴を残さずにAIとやり取りを行います。",
 
   "Dark matter": "ダークマター",
   "Potentially nefarious, but certainly ambiguous patterns that impact user trust with questionable user value": "悪影響を及ぼす可能性があり、ユーザーの信頼を損なう不透明なパターンです。",
+  
   "Caveat": "警告",
   "Inform users about shortcomings or risks in the model or the technology overall": "モデルやテクノロジー全体の欠点やリスクについてユーザーに通知します。",
+  
   "Rating": "レーティング",
   "Signal expectation gaps or errors in the model – but is that clear to the user?": "モデルの期待とのギャップやエラーを通知します。",
+  
   "Data ownership": "データ所有権",
   "Control how the model remembers and uses your data": "モデルがユーザーのデータをどのように記憶し使用するかをコントロールします。",
 
   "Identifiers": "アイデンティファイア",
   "Differentiate the AI from other features and highlight its use case": "AIを他の機能と区別し、そのユースケースを強調します。",
+  
   "Color": "カラー",
   "Visual cues to help users identify AI features or content": "AIの機能やコンテンツを識別するための視覚的なヒントです。",
 
@@ -123,7 +165,9 @@
   "disclosure.desc_2":  "text",
 
   "Name": "名称",
+  
   "How do we refer to the AI?": "そのAIを何と呼びますか？",
+  
   "Personality": "パーソナリティ",
   "Characteristics that distinguish the AI's personality and vibe": "AIの性格や雰囲気を特徴づける要素です。"
 }
