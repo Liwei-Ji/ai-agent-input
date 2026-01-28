@@ -41,7 +41,7 @@ export const Nudges = () => {
       </div>
 
       {/* 底部區域 Nudge+輸入框 */}
-      <div className="relative">
+      <div className="relative pb-7">
         
         {/* Nudge 絕對定位在輸入框正上方*/}
         {showNudge && (

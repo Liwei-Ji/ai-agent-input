@@ -61,11 +61,11 @@ export const Templates = () => {
   }, [messages, isTemplateMode]);
 
   return (
-    <div className="w-full max-w-md h-[500px] flex flex-col animate-in fade-in zoom-in duration-500">
+    <div className="w-full max-w-md h-[600px] flex flex-col animate-in fade-in zoom-in duration-500">
       
       {/* 訊息顯示區 */}
       <div className="flex-1 overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-slate-200 scrollbar-track-transparent">
-        <div className="mb-6 space-y-1 mt-2">
+        <div className="mb-6 space-y-1 mt-20">
           <h3 className="text-sm font-medium text-slate-500">Hi, I'm AI Agent</h3>
           <p className="text-xs text-slate-400 font-medium">15:47</p>
         </div>
@@ -88,7 +88,7 @@ export const Templates = () => {
       </div>
 
       {/* 輸入框區域 */}
-      <div className="shrink-0 pt-4 pb-1 flex flex-col justify-end">
+      <div className="shrink-0 pt-4 pb-4 flex flex-col justify-end">
         
         {/* 邏輯判斷 */}
         {isTemplateMode ? (
@@ -134,7 +134,7 @@ export const Templates = () => {
             {/* 底部工具列 */}
             <div className="flex items-center justify-between">
               
-              {/* 左側 Templates 按鈕 */}
+              {/* Templates 按鈕 */}
               <button
                 onClick={() => setIsTemplateMode(false)}
                 className="flex items-center justify-center h-10 rounded-xl px-3 bg-slate-100 text-slate-700 transition-all hover:bg-slate-200"
@@ -145,7 +145,7 @@ export const Templates = () => {
                 </span>
               </button>
 
-              {/* 右側 發送按鈕 */}
+              {/* 發送按鈕 */}
               <button
                 onClick={() => handleSend()}
                 disabled={!isFormValid}
