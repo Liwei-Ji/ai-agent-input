@@ -171,8 +171,8 @@
   "Disclosure": "Disclosure",
   "Clearly mark content and interactions guided or delivered by AI": "Clearly mark content and interactions guided or delivered by AI",
   
-  "disclosure.desc_1": "The core of disclosure lies in transparency.",
-  "disclosure.desc_2":  "text",
+  "disclosure_desc_1": "The core of disclosure lies in transparency.",
+  "disclosure_desc_2":  "text",
 
   "Name": "Name",
   "How do we refer to the AI?": "How do we refer to the AI?",
