@@ -36,7 +36,6 @@ export const Suggestions = () => {
 
 // 自動滾動
   useEffect(() => {
-    // 修改：增加判斷，只有當有訊息時才滾動，避免初始載入時下滑
     if (messages.length > 0) {
       messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
     }
