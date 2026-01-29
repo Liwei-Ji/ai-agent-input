@@ -34,9 +34,12 @@ export const Suggestions = () => {
     }, 800);
   };
 
-  // 自動滾動
+// 自動滾動
   useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    // 修改：增加判斷，只有當有訊息時才滾動，避免初始載入時下滑
+    if (messages.length > 0) {
+      messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    }
   }, [messages]);
 
   return (
