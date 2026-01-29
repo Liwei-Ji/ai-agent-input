@@ -1,4 +1,3 @@
-// src/components/previews/Madlibs.tsx
 import { useState, useRef, useEffect } from "react";
 import { ChatInput } from "../ChatInput";
 import { ChevronDown, ChevronUp, Send, Paperclip } from "lucide-react";
@@ -61,7 +60,7 @@ export const Madlibs = () => {
 
   const handleSend = () => {
     if (mode === "form" && isFormValid) {
-      // 1. 使用者發送「摘要卡片」
+      // 使用者發送「摘要卡片」
       const newUserMsg: Message = {
         id: Date.now().toString(),
         sender: "user",
@@ -72,8 +71,7 @@ export const Madlibs = () => {
       setMessages((prev) => [...prev, newUserMsg]);
       setMode("initial");
 
-      // 2. AI 回覆「完整的信件草稿」
-      // 這裡使用了與截圖完全一致的排版
+      // AI 回覆「完整的信件草稿」
       setTimeout(() => {
         const aiResponse: Message = {
           id: (Date.now() + 1).toString(),
@@ -197,7 +195,7 @@ AI Agent`
       </div>
 
       {/* 底部操作區 */}
-      <div className="shrink-0 pt-2 pb-1">
+      <div className="shrink-0 pt-2 pb-6">
         
         {mode === "initial" && (
           <div className="flex flex-wrap gap-2 mb-3 px-1 animate-in slide-in-from-bottom-2 fade-in duration-500">
