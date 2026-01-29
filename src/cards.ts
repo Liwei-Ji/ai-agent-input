@@ -198,40 +198,64 @@ export const data: CardGroup[] = [
         title: "Filters",
         subtitle: "Constrain the inputs or the outputs of the AI by source, type, modality, etc",
         img: "https://cdn.prod.website-files.com/65db6dd21591364dfcb8ae36/68ad07d23eec6f119675d709_filters_card.svg",
-              description: [
-      "attachments_cta.desc_1",
-      "attachments_cta.desc_2"
+        description: [
+      "filters_cta.desc_1",
+      "filters_cta.desc_2"
     ]
       },
       {
         title: "Inpainting",
         subtitle: "Target specific areas of the AI's result to regenerate or remix",
         img: "https://cdn.prod.website-files.com/65db6dd21591364dfcb8ae36/68ad10e7000b95f2b577f9fb_inpainting_card.svg",
+        description: [
+      "inpainting_cta.desc_1",
+      "inpainting_cta.desc_2"
+    ]
       },
       {
         title: "Model management",
         subtitle: "Let users specify what model to use for their prompts",
         img: "https://cdn.prod.website-files.com/65db6dd21591364dfcb8ae36/68ad1231271efefc27673d31_modelmanagement_card.svg",
+        description: [
+      "model_management_cta.desc_1",
+      "model_management_cta.desc_2"
+    ]
       },
       {
         title: "Parameters",
         subtitle: "Include constraints with your prompt for the AI to reference when generating its result",
         img: "https://cdn.prod.website-files.com/65db6dd21591364dfcb8ae36/68ad155b9b8d80f64aebee1e_parameters_card.svg",
+        description: [
+      "parameters_cta.desc_1",
+      "parameters_cta.desc_2"
+    ]
       },
       {
         title: "Personal voice",
         subtitle: "Ensure outputs match your voice, tone, and preferences in a consistent way",
         img: "https://cdn.prod.website-files.com/65db6dd21591364dfcb8ae36/68ad15f5719956709202c6e2_personalovoice_card.svg",
+        description: [
+      "personal_voice_cta.desc_1",
+      "personal_voice_cta.desc_2"
+    ]
       },
       {
         title: "References",
         subtitle: "See and manage what additional sources the AI references to generate its response",
         img: "https://cdn.prod.website-files.com/65db6dd21591364dfcb8ae36/68ad1cf4e65278d06e72d111_references_card.svg",
+        description: [
+      "references_cta.desc_1",
+      "references_cta.desc_2"
+    ]
       },
       {
         title: "Workflows",
         subtitle: "String generative steps together to synthesize, create, or send content on auto-pilot",
         img: "https://cdn.prod.website-files.com/65db6dd21591364dfcb8ae36/68ad1fe8e715687380252c4e_workflows_card.svg",
+        description: [
+      "workflows_cta.desc_1",
+      "workflows_cta.desc_2"
+    ]
       }
     ]
   },
@@ -244,56 +268,100 @@ export const data: CardGroup[] = [
         title: "Citations",
         subtitle: "Give the AI a specific reference to anchor its response",
         img: "https://cdn.prod.website-files.com/65db6dd21591364dfcb8ae36/68ac7be5d23c1be315c14fc4_citation_card.svg",
+        description: [
+      "citations_desc_1",
+      "citations_desc_2"
+     ] 
       },
       {
         title: "Controls",
         subtitle: "Manage the flow of information or pause a request mid-stream to adjust the prompt",
         img: "https://cdn.prod.website-files.com/65db6dd21591364dfcb8ae36/68ac7ee1bea66470b3c8339e_controls_card.svg",
+        description: [
+      "controls_desc_1",
+      "controls_desc_2"
+     ] 
       },
       {
         title: "Footprints",
         subtitle: "Let users trace the AI's steps from prompt to result",
         img: "https://cdn.prod.website-files.com/65db6dd21591364dfcb8ae36/68ac832f83a5ddd9aab906d3_footprints_card.svg",
+        description: [
+      "footprints_desc_1",
+      "footprints_desc_2"
+     ] 
       },
       {
         title: "Plan of Action",
         subtitle: "Have the AI show the steps it will take to respond to the user's prompt before it executes its response",
         img: "https://cdn.prod.website-files.com/65db6dd21591364dfcb8ae36/68ac95a1b099d421f1be4c78_planofaction_card.svg",
+        description: [
+      "plan_of_action_desc_1",
+      "plan_of_action_desc_2"
+     ] 
       },
       {
         title: "Stream Of Thought",
         subtitle: "Reveals the AI's logic thought process, tool use, and decisions for oversight and auditability",
-        img: ""
+        img: "",
+        description: [
+      "stream_Of_thought_desc_1",
+      "stream_Of_thought_desc_2"
+     ] 
       },
       {
         title: "Prompt transparency",
         subtitle: "Show users what is actually happening behind the scenes",
         img: "https://cdn.prod.website-files.com/65db6dd21591364dfcb8ae36/68ac6c5a16f4eb679b0dbc5f_prompttransparency_card.svg",
+        description: [
+      "prompt_transparency_desc_1",
+      "prompt_transparency_desc_2"
+     ] 
       },
       {
         title: "Regenerate",
         subtitle: "Have the AI reproduce its response to the prompt without additional input",
         img: "https://cdn.prod.website-files.com/65db6dd21591364dfcb8ae36/68ac864d563bf2b258221d00_regenerate_card.svg",
+        description: [
+      "regenerate_desc_1",
+      "regenerate_desc_2"
+     ] 
       },
       {
         title: "Copy",
         subtitle: "Instantly copy the response to your clipboard.",
         img: "",
+        description: [
+      "copy_desc_1",
+      "copy_desc_2"
+     ] 
       },
       {
         title: "Sample response",
         subtitle: "Confirm the user's intent for complicated prompts",
         img: "https://cdn.prod.website-files.com/65db6dd21591364dfcb8ae36/68ac90cc404c75f50377f40f_sampleresponse_card.svg",
+        description: [
+      "sample_response_desc_1",
+      "sample_response_desc_2"
+     ] 
       },
       {
         title: "Token Transparency",
         subtitle: "Reveal the tokens the AI used to craft its response",
         img: "https://cdn.prod.website-files.com/65db6dd21591364dfcb8ae36/68ac5fc7c03253880a417461_tokentransparency_card.svg",
+        description: [
+      "token_transparency_desc_1",
+      "token_transparency_desc_2"
+     ] 
       },
       {
         title: "Variations",
         subtitle: "Trace through multiple variations of a result to choose the one that works best for them",
         img: "https://cdn.prod.website-files.com/65db6dd21591364dfcb8ae36/68ac9935f14f97dac35b004c_variations_card.svg",
+        description: [
+      "variations_desc_1",
+      "variations_desc_2"
+     ] 
       }
     ]
   },
@@ -306,21 +374,37 @@ export const data: CardGroup[] = [
         title: "Consent",
         subtitle: "Only capture data from others with their knowledge and permission",
         img: "https://cdn.prod.website-files.com/65db6dd21591364dfcb8ae36/68b617c289680bc8e194b949_consent_card.svg",
+        description: [
+      "consent_desc_1",
+      "consent_desc_2"
+     ] 
       },
       {
         title: "Watermark",
         subtitle: "Identifiers on AI Generative content that humans, software, or programs can read",
         img: "https://cdn.prod.website-files.com/65db6dd21591364dfcb8ae36/68ad3102cabb29e3abc06f3d_watermarks_card.svg",
+        description: [
+      "watermark_desc_1",
+      "watermark_desc_2"
+     ]  
       },
       {
         title: "Memory",
         subtitle: "Control what details the AI knows about you",
         img: "https://cdn.prod.website-files.com/65db6dd21591364dfcb8ae36/68ad2e956ec69fa4ae8385c2_memory_card.svg",
+        description: [
+      "memory_desc_1",
+      "memory_desc_2"
+     ]  
       },
       {
         title: "Interact with the AI without leaving any traces",
         subtitle: "Large, open-ended input inviting the user to start their first interaction with the AI",
         img: "https://cdn.prod.website-files.com/65db6dd21591364dfcb8ae36/68ad2dc30a9b0bee5768c764_incognito_card.svg",
+        description: [
+      "interact_with_the_ai_without_leaving_any_traces_desc_1",
+      "interact_with_the_ai_without_leaving_any_traces_desc_2"
+     ] 
       }
     ]
   },
@@ -333,16 +417,28 @@ export const data: CardGroup[] = [
         title: "Caveat",
         subtitle: "Inform users about shortcomings or risks in the model or the technology overall",
         img: "https://cdn.prod.website-files.com/65db6dd21591364dfcb8ae36/68ad33551d4f4f54c24f6054_caveat_card.svg",
+        description: [
+      "caveat_desc_1",
+      "caveat_desc_2"
+     ]      
       },
       {
         title: "Rating",
         subtitle: "Signal expectation gaps or errors in the model – but is that clear to the user?",
         img: "https://cdn.prod.website-files.com/65db6dd21591364dfcb8ae36/66550b496ae3ac9e19b0d9a2_p_rating.svg",
+        description: [
+      "rating_desc_1",
+      "rating_desc_2"
+     ]
       },
       {
         title: "Data ownership",
         subtitle: "Control how the model remembers and uses your data",
         img: "https://cdn.prod.website-files.com/65db6dd21591364dfcb8ae36/68ad348d3ddb47cd6b8c56bd_dataownership_card.svg",
+        description: [
+      "data_ownership_desc_1",
+      "data_ownership_desc_2"
+     ]
       }
     ]
   },
@@ -355,6 +451,10 @@ export const data: CardGroup[] = [
         title: "Color",
         subtitle: "Visual cues to help users identify AI features or content",
         img: "https://cdn.prod.website-files.com/65db6dd21591364dfcb8ae36/68b331d407f299d4789625e6_color_card.svg",
+        description: [
+      "color_desc_1",
+      "color_desc_2"
+     ]
       },
       {
         title: "Disclosure",
