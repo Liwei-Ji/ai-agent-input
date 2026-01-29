@@ -30,7 +30,9 @@
   
   "Suggestions": "提案",
   "Solves the blank canvas dilemma with clues for how to prompt": "プロンプトのヒントを提供することで、「何を書けばいいかわからない」という問題を解決します。",
-  
+  "suggestions_cta.desc_1":"人工知能は、ユーザーに関する情報を把握してはじめて最大の価値を発揮します。ユーザーが新しいトピックを初めて開始した段階では、システムの理解はまだ限定的です。",
+  "suggestions_cta.desc_2":"提案機能は、ユーザーに関する初期情報の一部をシステムが取得するのを支援します。",
+
   "Templates": "テンプレート",
   "Structured templates that can be filled by the user or pre-filled by the AI": "ユーザーが記入するか、AIが事前入力できる構造化されたテンプレートです。",
 

@@ -27,10 +27,12 @@
   "Alert users to actions they can take to use AI, especially if they are just getting started": "提示使用者可以採取的行動以使用 AI，特別是剛入門時。",
   "nudges_cta.desc_1": "當工具能完成許多任務，而使用者卻只認識其中少數功能時，會發生什麼情況？",
   "nudges_cta.desc_2": "輕推是一種溫和的引導機制，透過逐步呈現人工智慧的功能，並搭配可執行的觸發提示，協助使用者啟動操作。",
-  
+
   "Suggestions": "建議",
   "Solves the blank canvas dilemma with clues for how to prompt": "透過如何下提示詞的線索，解決面對空白畫布的困擾。",
-  
+  "suggestions_cta.desc_1":"人工智慧只有在掌握使用者相關資訊後，才能發揮最大的價值。當使用者首次啟動一個新主題時，系統對其理解仍相對有限。",
+  "suggestions_cta.desc_2":"建議功能可協助系統取得部分使用者的初始資訊。",
+
   "Templates": "結構模板",
   "Structured templates that can be filled by the user or pre-filled by the AI": "可由使用者填寫或由 AI 預填的結構化模板。",
 

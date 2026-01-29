@@ -30,6 +30,8 @@
   
   "Suggestions": "Suggestions",
   "Solves the blank canvas dilemma with clues for how to prompt": "Solves the blank canvas dilemma with clues for how to prompt",
+   "suggestions_cta.desc_1":"Artificial intelligence can only deliver its maximum value once it has information about you. When a new topic is initiated for the first time, the system’s understanding of the user is still limited.",
+   "suggestions_cta.desc_2":"Recommendation features can help the system acquire some initial information about users.",
   
   "Templates": "Templates",
   "Structured templates that can be filled by the user or pre-filled by the AI": "Structured templates that can be filled by the user or pre-filled by the AI",
