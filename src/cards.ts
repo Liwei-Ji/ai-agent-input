@@ -48,12 +48,20 @@ export const data: CardGroup[] = [
       {
         title: "Suggestions",
         subtitle: "Solves the blank canvas dilemma with clues for how to prompt",
-        img: "https://cdn.prod.website-files.com/65db6dd21591364dfcb8ae36/68ace576103ad564b4406d6d_suggestions_card.svg"
+        img: "https://cdn.prod.website-files.com/65db6dd21591364dfcb8ae36/68ace576103ad564b4406d6d_suggestions_card.svg",
+        description: [
+      "suggestions_cta.desc_1",
+      "suggestions_cta.desc_2"
+    ]
       },
       {
         title: "Templates",
         subtitle: "Structured templates that can be filled by the user or pre-filled by the AI",
-        img: "https://cdn.prod.website-files.com/65db6dd21591364dfcb8ae36/68ace652459c4533e7d88e3e_template_card.svg"
+        img: "https://cdn.prod.website-files.com/65db6dd21591364dfcb8ae36/68ace652459c4533e7d88e3e_template_card.svg",
+        description: [
+      "templates_cta.desc_1",
+      "templates_cta.desc_2"
+    ]
       }
     ]
   },
@@ -65,32 +73,56 @@ export const data: CardGroup[] = [
       {
         title: "Auto fill",
         subtitle: "Makes it easy for users to extend a prompt to multiple inputs at once",
-        img: "https://cdn.prod.website-files.com/65db6dd21591364dfcb8ae36/68acf3b81d4f4f54c245396b_autofill_card.svg"
+        img: "https://cdn.prod.website-files.com/65db6dd21591364dfcb8ae36/68acf3b81d4f4f54c245396b_autofill_card.svg",
+        description: [
+      "auto_fill_cta.desc_1",
+      "auto_fill_cta.desc_2"
+    ]
       },
       {
         title: "Inline Action",
         subtitle: "Ask or interact with AI contextually based on something already available on the page",
-        img: "https://cdn.prod.website-files.com/65db6dd21591364dfcb8ae36/68acf45e3f1431ad0c44551a_inlineaction_card.svg"
+        img: "https://cdn.prod.website-files.com/65db6dd21591364dfcb8ae36/68acf45e3f1431ad0c44551a_inlineaction_card.svg",
+        description: [
+      "inline_action_cta.desc_1",
+      "inline_action_cta.desc_2"
+    ]
       },
       {
         title: "Quote Reply",
         subtitle: "Enable users to initiate a contextual AI query directly from selected content, preserving focus and reducing disruption to the primary interaction flow.",
-        img: ""
+        img: "",
+        description: [
+      "quote_reply_cta.desc_1",
+      "quote_reply_cta.desc_2"
+    ]
       },
       {
         title: "Madlibs",
         subtitle: "Repeatedly run generative tasks without compromising on the format or accuracy",
-        img: "https://cdn.prod.website-files.com/65db6dd21591364dfcb8ae36/68acf60ad26fd9febbe28ffc_madlibs_card.svg"
+        img: "https://cdn.prod.website-files.com/65db6dd21591364dfcb8ae36/68acf60ad26fd9febbe28ffc_madlibs_card.svg",
+        description: [
+      "mablibs_cta.desc_1",
+      "mablibs_cta.desc_2"
+    ]
       },
       {
         title: "Open text",
         subtitle: "Open ended prompt inputs that can be used in AI conversations and other natural language prompting",
-        img: "https://cdn.prod.website-files.com/65db6dd21591364dfcb8ae36/68acf789178baa4e2e9e9aab_openinput_card.svg"
+        img: "https://cdn.prod.website-files.com/65db6dd21591364dfcb8ae36/68acf789178baa4e2e9e9aab_openinput_card.svg",
+        description: [
+      "open_text_cta.desc_1",
+      "open_texe_cta.desc_2"
+    ]
       },
       {
         title: "Remix",
         subtitle: "Use existing content as the starting point for prompting",
-        img: "https://cdn.prod.website-files.com/65db6dd21591364dfcb8ae36/68b5b84cee9245c03c296be6_remix_card.svg"
+        img: "https://cdn.prod.website-files.com/65db6dd21591364dfcb8ae36/68b5b84cee9245c03c296be6_remix_card.svg",
+        description: [
+      "remix_cta.desc_1",
+      "remix_cta.desc_2"
+    ]
       },
       {
         title: "Restyle",
