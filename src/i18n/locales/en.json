@@ -35,150 +35,233 @@
   
   "Templates": "Templates",
   "Structured templates that can be filled by the user or pre-filled by the AI": "Structured templates that can be filled by the user or pre-filled by the AI",
+  "templates_cta.desc_1":"",
+  "templates_cta.desc_2":"",
 
   "Inputs": "Inputs",
   "Submit the user's prompt to the AI within its surrounding context": "Submit the user's prompt to the AI within its surrounding context",
   
   "Auto fill": "Auto fill",
   "Makes it easy for users to extend a prompt to multiple inputs at once": "Makes it easy for users to extend a prompt to multiple inputs at once",
-  
+  "auto_fill_cta.desc_1":"",
+  "auto_fill_cta.desc_2":"",
+
   "Inline Action": "Inline Action",
   "Ask or interact with AI contextually based on something already available on the page": "Ask or interact with AI contextually based on something already available on the page",
-  
+  "inline_action_cta.desc_1":"",
+  "inline_action_cta.desc_2":"",
+
   "Quote Reply": "Quote Reply",
   "Enable users to initiate a contextual AI query directly from selected content, preserving focus and reducing disruption to the primary interaction flow.":"Enable users to initiate a contextual AI query directly from selected content, preserving focus and reducing disruption to the primary interaction flow.",
-  
+  "quote_reply_cta.desc_1":"",
+  "quote_reply_cta.desc_2":"",
+
   "Madlibs": "Madlibs",
   "Repeatedly run generative tasks without compromising on the format or accuracy": "Repeatedly run generative tasks without compromising on the format or accuracy",
-  
+  "mablibs_cta.desc_1":"",
+  "mablibs_cta.desc_2":"",
+
   "Open text": "Open text",
   "Open ended prompt inputs that can be used in AI conversations and other natural language prompting": "Open ended prompt inputs that can be used in AI conversations and other natural language prompting",
-  
+  "open_text_cta.desc_1":"",
+  "open_texe_cta.desc_2":"",
+
   "Remix": "Remix",
   "Use existing content as the starting point for prompting": "Use existing content as the starting point for prompting",
-  
+  "remix_cta.desc_1":"",
+  "remix_cta.desc_2":"",
+
   "Restyle": "Restyle",
   "Transfer styles without changing the underlying structure of a generation": "Transfer styles without changing the underlying structure of a generation",
-  
+  "restyle_cta.desc_1":"",
+  "restyle_cta.desc_2":"",
+
   "Summary": "Summary",
   "Have AI distill a topic or resource down to its essence": "Have AI distill a topic or resource down to its essence",
-  
+  "summary_cta.desc_1":"",
+  "summary_cta.desc_2":"",
+
   "Synthesis": "Synthesis",
   "Distill or reorganize complicated information into simple structure": "Distill or reorganize complicated information into simple structure",
-  
+  "synthesis_cta.desc_1":"",
+  "synthesis_cta.desc_2":"",
+
   "Token layering": "Token layering",
   "Construct a prompt with raw tokens, just like building with legos": "Construct a prompt with raw tokens, just like building with legos",
-  
+  "token_layering_cta.desc_1":"",
+  "token_layering_cta.desc_2":"",
+
   "Transform": "Transform",
   "Use AI to change the modality of content": "Use AI to change the modality of content",
+  "transform_cta.desc_1":"",
+  "transform_cta.desc_2":"",
 
   "Tuners": "Tuners",
   "Let users refine or remix their prompt to get improved results": "Let users refine or remix their prompt to get improved results",
   
   "Collapse Input":"Collapse Input",
   "Improve focus and layout efficiency by collapsing the input area while preserving all input content.":"Improve focus and layout efficiency by collapsing the input area while preserving all input content.",
-  
+  "collapse_input_cta.desc_1":"",
+  "collapse_input_cta.desc_2":"",
+
   "Attachments": "Attachments",
   "Give the AI a specific reference to anchor its response": "Give the AI a specific reference to anchor its response",
-  
+  "attachments_cta.desc_1":"",
+  "attachments_cta.desc_2":"",
+
   "Filters": "Filters",
   "Constrain the inputs or the outputs of the AI by source, type, modality, etc": "Constrain the inputs or the outputs of the AI by source, type, modality, etc",
-  
+  "filters_cta.desc_1":"",
+  "filters_cta.desc_2":"",
+
   "Inpainting": "Inpainting",
   "Target specific areas of the AI's result to regenerate or remix": "Target specific areas of the AI's result to regenerate or remix",
-  
+  "inpainting_cta.desc_1":"",
+  "inpainting_cta.desc_2":"",
+
   "Model management": "Model management",
   "Let users specify what model to use for their prompts": "Let users specify what model to use for their prompts",
-  
+  "model_management_cta.desc_1":"",
+  "model_management_cta.desc_2":"",
+
   "Parameters": "Parameters",
   "Include constraints with your prompt for the AI to reference when generating its result": "Include constraints with your prompt for the AI to reference when generating its result",
-  
+  "parameters_cta.desc_1":"",
+  "parameters_cta.desc_2":"",
+
   "Personal voice": "Personal voice",
   "Ensure outputs match your voice, tone, and preferences in a consistent way": "Ensure outputs match your voice, tone, and preferences in a consistent way",
-  
+  "personal_voice_cta.desc_1":"",
+  "personal_voice_cta.desc_2":"",
+
   "References": "References",
   "See and manage what additional sources the AI references to generate its response": "See and manage what additional sources the AI references to generate its response",
-  
+  "references_cta.desc_1":"",
+  "references_cta.desc_2":"",
+
   "Workflows": "Workflows",
   "String generative steps together to synthesize, create, or send content on auto-pilot": "String generative steps together to synthesize, create, or send content on auto-pilot",
+  "workflows_cta.desc_1":"",
+  "workflows_cta.desc_2":"",
 
   "Governors": "Governors",
   "Maintain user agency as the AI works in order to understand and direct the AI's logic": "Maintain user agency as the AI works in order to understand and direct the AI's logic",
   
   "Citations": "Citations",
   "Give the AI a specific reference to anchor its response": "Give the AI a specific reference to anchor its response",
-  
+  "citations_desc_1":"",
+  "citations_desc_2":"",
+
   "Controls": "Controls",
   "Manage the flow of information or pause a request mid-stream to adjust the prompt": "Manage the flow of information or pause a request mid-stream to adjust the prompt",
-  
+  "controls_desc_1":"",
+  "controls_desc_2":"",
+
   "Footprints": "Footprints",
   "Let users trace the AI's steps from prompt to result": "Let users trace the AI's steps from prompt to result",
-  
+  "footprints_desc_1":"",
+  "footprints_desc_2":"",
+
   "Plan of Action": "Plan of Action",
   "Have the AI show the steps it will take to respond to the user's prompt before it executes its response": "Have the AI show the steps it will take to respond to the user's prompt before it executes its response",
-  
+  "plan_of_action_desc_1":"",
+  "plan_of_action_desc_2":"",
+
   "Stream Of Thought": "Stream Of Thought",
   "Reveals the AI's logic thought process, tool use, and decisions for oversight and auditability" : "Reveals the AI's logic thought process, tool use, and decisions for oversight and auditability",
+  "stream_Of_thought_desc_1":"",
+  "stream_Of_thought_desc_2":"",
 
   "Prompt transparency": "Prompt transparency",
   "Show users what is actually happening behind the scenes": "Show users what is actually happening behind the scenes",
-  
+  "prompt_transparency_desc_1":"",
+  "prompt_transparency_desc_2":"",
+
   "Regenerate": "Regenerate",
   "Have the AI reproduce its response to the prompt without additional input": "Have the AI reproduce its response to the prompt without additional input",
-  
+  "regenerate_desc_1":"",
+  "regenerate_desc_2":"",
+
   "Copy": "Copy",
   "Instantly copy the response to your clipboard.":"Instantly copy the response to your clipboard.",
+  "copy_desc_1":"",
+  "copy_desc_2":"",
 
   "Sample response": "Sample response",
   "Confirm the user's intent for complicated prompts": "Confirm the user's intent for complicated prompts",
-  
+  "sample_response_desc_1":"",
+  "sample_response_desc_2":"",
+
   "Token Transparency": "Token Transparency",
   "Reveal the tokens the AI used to craft its response": "Reveal the tokens the AI used to craft its response",
-  
+  "token_transparency_desc_1":"",
+  "token_transparency_desc_2":"",
+
   "Variations": "Variations",
   "Trace through multiple variations of a result to choose the one that works best for them": "Trace through multiple variations of a result to choose the one that works best for them",
+  "variations_desc_1":"",
+  "variations_desc_2":"",
 
   "Trust builder": "Trust builder",
   "Give users confidence that the AI's results are ethical, accurate, and trustworthy": "Give users confidence that the AI's results are ethical, accurate, and trustworthy",
   
   "Consent": "Consent",
   "Only capture data from others with their knowledge and permission": "Only capture data from others with their knowledge and permission",
-  
+  "consent_desc_1":"",
+  "consent_desc_2":"",
+
   "Watermark": "Watermark",
   "Identifiers on AI Generative content that humans, software, or programs can read": "Identifiers on AI Generative content that humans, software, or programs can read",
-  
+  "watermark_desc_1":"",
+  "watermark_desc_2":"",
+
   "Memory": "Memory",
   "Control what details the AI knows about you": "Control what details the AI knows about you",
-  
+  "memory_desc_1":"",
+  "memory_desc_2":"",
+
   "Interact with the AI without leaving any traces": "Interact with the AI without leaving any traces",
+  "interact_with_the_ai_without_leaving_any_traces_desc_1":"",
+  "interact_with_the_ai_without_leaving_any_traces_desc_2":"",
 
   "Dark matter": "Dark matter",
   "Potentially nefarious, but certainly ambiguous patterns that impact user trust with questionable user value": "Potentially nefarious, but certainly ambiguous patterns that impact user trust with questionable user value",
   
   "Caveat": "Caveat",
   "Inform users about shortcomings or risks in the model or the technology overall": "Inform users about shortcomings or risks in the model or the technology overall",
-  
+  "caveat_desc_1":"",
+  "caveat_desc_2":"",
+
   "Rating": "Rating",
   "Signal expectation gaps or errors in the model – but is that clear to the user?": "Signal expectation gaps or errors in the model – but is that clear to the user?",
-  
+  "rating_desc_1":"",
+  "rating_desc_2":"",
+
   "Data ownership": "Data ownership",
   "Control how the model remembers and uses your data": "Control how the model remembers and uses your data",
+  "data_ownership_desc_1":"",
+  "data_ownership_desc_2":"",
 
   "Identifiers": "Identifiers",
   "Differentiate the AI from other features and highlight its use case": "Differentiate the AI from other features and highlight its use case",
   
   "Color": "Color",
   "Visual cues to help users identify AI features or content": "Visual cues to help users identify AI features or content",
+  "color_desc_1":"",
+  "color_desc_2":"",
 
   "Disclosure": "Disclosure",
   "Clearly mark content and interactions guided or delivered by AI": "Clearly mark content and interactions guided or delivered by AI",
-  
   "disclosure_desc_1": "The core of disclosure lies in transparency.",
   "disclosure_desc_2":  "text",
 
   "Name": "Name",
   "How do we refer to the AI?": "How do we refer to the AI?",
-  
+  "name_desc_1":"",
+  "name_desc_2":"",
+
   "Personality": "Personality",
-  "Characteristics that distinguish the AI's personality and vibe": "Characteristics that distinguish the AI's personality and vibe"
+  "Characteristics that distinguish the AI's personality and vibe": "Characteristics that distinguish the AI's personality and vibe",
+  "personality_desc_1":"",
+  "personality_desc_2":""
 }
