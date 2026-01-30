@@ -260,8 +260,8 @@
   "name_desc_1":"",
   "name_desc_2":"",
 
-  "Personality": "パーソナリティ",
+  "Personality": "個性",
   "Characteristics that distinguish the AI's personality and vibe": "AIの性格や雰囲気を特徴づける要素です。",
-  "personality_desc_1":"",
-  "personality_desc_2":""
+  "personality_desc_1":"親しみやすく熱意のあるパーソナリティは安心感を生み出し、ユーザーがより多くの機能を試すことを促します。一方で、簡潔かつ理性的なパーソナリティは、安定性とスピードを重視します。",
+  "personality_desc_2":"適切に設計されたパーソナリティアーキテクチャにより、製品は多様なコンテキストにおいて同一のコアモデルを共有しつつ、語調、フォーマリティ、インタラクションの振る舞いを調整するだけで、親しみやすい、専門的、あるいは機械的といった表現スタイルへ切り替えることが可能になります。"
 }

@@ -260,8 +260,8 @@
   "name_desc_1":"",
   "name_desc_2":"",
 
-  "Personality": "人格特質",
+  "Personality": "個性",
   "Characteristics that distinguish the AI's personality and vibe": "區分 AI 個性與氛圍的特徵描述。",
-  "personality_desc_1":"",
-  "personality_desc_2":""
+  "personality_desc_1":"親切熱情的個性能建立舒適感，鼓勵使用者嘗試更多功能；相對地，簡潔理性的個性則強調穩定與速度。",
+  "personality_desc_2":"良好規劃的個性架構，使產品能在多元情境下共用同一核心模型，僅透過語調、正式程度與互動行為的調整，就能切換為友善、專業或機械化的表現風格。"
 }

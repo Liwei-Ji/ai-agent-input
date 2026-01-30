@@ -262,6 +262,6 @@
 
   "Personality": "Personality",
   "Characteristics that distinguish the AI's personality and vibe": "Characteristics that distinguish the AI's personality and vibe",
-  "personality_desc_1":"",
-  "personality_desc_2":""
+  "personality_desc_1":"A friendly and enthusiastic personality helps create a sense of comfort and encourages users to explore more features; in contrast, a concise and rational personality emphasizes stability and efficiency.",
+  "personality_desc_2":"A well-designed personality framework allows a product to share the same core model across diverse contexts, while switching between friendly, professional, or mechanical expression styles simply by adjusting tone, level of formality, and interaction behaviors."
 }
