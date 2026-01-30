@@ -169,8 +169,8 @@
 
   "Stream Of Thought": "思緒流",
   "Reveals the AI's logic thought process, tool use, and decisions for oversight and auditability": "揭示 AI 的推理邏輯、工具使用情況與決策過程，以利監督與稽核。",
-  "stream_Of_thought_desc_1":"",
-  "stream_Of_thought_desc_2":"",
+  "stream_Of_thought_desc_1":"AI 的思維流展示了從使用者輸入到最終回答的完整路徑，包括其制定的計畫、調用的工具、執行的程式碼以及過程中的檢查與決策。當這些資訊可見時，系統更透明，也更容易讓使用者建立信任。",
+  "stream_Of_thought_desc_2":"除了確定展示的內容外，設計者還需考慮：每次工具呼叫或參考資料應顯示多少資訊、如何呈現 AI 邏輯狀態的變化，以及每個摘要應包含的細節層級。",
 
   "Prompt transparency": "提示詞透明度",
   "Show users what is actually happening behind the scenes": "向使用者展示幕後的實際運作情況。",

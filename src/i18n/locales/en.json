@@ -169,8 +169,8 @@
 
   "Stream Of Thought": "Stream Of Thought",
   "Reveals the AI's logic thought process, tool use, and decisions for oversight and auditability" : "Reveals the AI's logic thought process, tool use, and decisions for oversight and auditability",
-  "stream_Of_thought_desc_1":"",
-  "stream_Of_thought_desc_2":"",
+  "stream_Of_thought_desc_1":"The AI’s thought-flow visualization shows the complete path from user input to final response, including planned steps, tools invoked, executed code, and checks or decisions made along the way. When this information is visible, the system becomes more transparent and helps users build trust.",
+  "stream_Of_thought_desc_2":"Beyond deciding what content to display, designers must also consider: how much information to show for each tool call or reference, how to present changes in the AI’s logical state, and the level of detail to include in each summary.",
 
   "Prompt transparency": "Prompt transparency",
   "Show users what is actually happening behind the scenes": "Show users what is actually happening behind the scenes",

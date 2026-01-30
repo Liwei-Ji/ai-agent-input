@@ -169,8 +169,8 @@
 
   "Stream Of Thought": "思考の流れ",
   "Reveals the AI's logic thought process, tool use, and decisions for oversight and auditability": "AIの推論の流れやツール使用状況、意思決定の過程を明らかにし、監督や監査を可能にします。",
-  "stream_Of_thought_desc_1":"",
-  "stream_Of_thought_desc_2":"",
+  "stream_Of_thought_desc_1":"AIの思考フローは、ユーザーの入力から最終的な応答に至るまでの完全な経路を示しており、計画の立案、呼び出されたツール、実行されたコード、プロセス中のチェックや意思決定などを含みます。これらの情報が可視化されることで、システムの透明性が向上し、ユーザーの信頼構築にもつながります。",
+  "stream_Of_thought_desc_2":"表示する内容を確定するだけでなく、設計者は次の点も考慮する必要があります：各ツール呼び出しや参照資料にどの程度の情報を表示するか、AIの論理状態の変化をどのように示すか、各サマリーに含める詳細レベルはどの程度にするか、などです。",
 
   "Prompt transparency": "プロンプトの透明性",
   "Show users what is actually happening behind the scenes": "舞台裏で実際に何が起きているかをユーザーに示します。",
