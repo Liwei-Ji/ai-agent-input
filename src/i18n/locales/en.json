@@ -189,8 +189,8 @@
 
   "Sample response": "Sample response",
   "Confirm the user's intent for complicated prompts": "Confirm the user's intent for complicated prompts",
-  "sample_response_desc_1":"",
-  "sample_response_desc_2":"",
+  "sample_response_desc_1":"Sample responses act as lightweight previews shown before the full output is generated, helping users quickly understand the AI’s intended direction and avoid consuming resources or overwriting content before that direction is confirmed.",
+  "sample_response_desc_2":"This mechanism allows users to regain control over the pacing of the workflow. Instead of immediately processing long drafts or running high-cost computations, users can first review a brief proof of concept to validate the direction; if deviations are detected, adjustments can be made immediately, and execution can continue once the direction is confirmed.",
 
   "Token Transparency": "Token Transparency",
   "Reveal the tokens the AI used to craft its response": "Reveal the tokens the AI used to craft its response",

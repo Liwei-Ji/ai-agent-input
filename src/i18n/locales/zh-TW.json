@@ -187,10 +187,10 @@
   "copy_desc_1":"",
   "copy_desc_2":"",
   
-  "Sample response": "回覆範例",
+  "Sample response": "範例回應",
   "Confirm the user's intent for complicated prompts": "針對複雜的提示詞確認使用者的意圖。",
-  "sample_response_desc_1":"",
-  "sample_response_desc_2":"",
+  "sample_response_desc_1":"範例回應是一種在完整結果產生前顯示的輕量預覽，幫助使用者快速理解 AI 的生成方向，避免在方向未確認前就消耗資源或覆寫內容。",
+  "sample_response_desc_2":"此機制讓使用者重新掌握流程節奏。與其立即處理長篇草稿或進行高成本計算，不如先透過簡短的概念驗證檢視方向；若發現偏差可立即修正，確認無誤後再繼續執行。",
 
   "Token Transparency": "Token 透明度",
   "Reveal the tokens the AI used to craft its response": "揭示 AI 用於構建回覆的 Token 詳情。",

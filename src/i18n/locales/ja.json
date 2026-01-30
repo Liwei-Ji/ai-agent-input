@@ -189,8 +189,8 @@
 
   "Sample response": "サンプル回答",
   "Confirm the user's intent for complicated prompts": "複雑なプロンプトに対してユーザーの意図を確認します。",
-  "sample_response_desc_1":"",
-  "sample_response_desc_2":"",
+  "sample_response_desc_1":"サンプル応答は、最終的な結果が生成される前に表示される軽量なプレビューであり、AIの生成方向をユーザーが素早く把握できるようにします。これにより、方向性が未確定のままリソースを消費したり、既存の内容を上書きしてしまうことを防げます。",
+  "sample_response_desc_2":"この仕組みによって、ユーザーはプロセスの主導権を取り戻すことができます。長文の下書きをすぐに処理したり、高コストな計算を行ったりするのではなく、まずは簡潔な概念実証（PoC）を通じて方向性を確認します。ずれがあれば即座に修正し、問題がないことを確認したうえで処理を継続できます。",
 
   "Token Transparency": "トークンの透明性",
   "Reveal the tokens the AI used to craft its response": "回答の構築に使用されたトークンの詳細を明らかにします。",
