@@ -199,8 +199,8 @@
 
   "Variations": "バリエーション",
   "Trace through multiple variations of a result to choose the one that works best for them": "複数のバリエーションを比較し、最適なものを選択できるようにします。",
-  "variations_desc_1":"",
-  "variations_desc_2":"",
+  "variations_desc_1":"生成型AIの本質は確率的であるため、結果にはランダムな差異が生じる可能性があります。複数のバリエーションを提供することで、ユーザーは同じプロンプトに対するモデルの異なる組み合わせを比較することができます。",
+  "variations_desc_2":"同じシード値から複数の候補を生成でき、ユーザーはリストから選択することができます。選択された内容は、自動的に主要な出力に統合されます。",
 
   "Trust builder": "トラストビルダー",
   "Give users confidence that the AI's results are ethical, accurate, and trustworthy": "AIの結果が倫理的で正確、かつ信頼できるものであるという確信をユーザーに与えます。",

@@ -199,8 +199,8 @@
 
   "Variations": "Variations",
   "Trace through multiple variations of a result to choose the one that works best for them": "Trace through multiple variations of a result to choose the one that works best for them",
-  "variations_desc_1":"",
-  "variations_desc_2":"",
+  "variations_desc_1":"Generative AI is inherently probabilistic, meaning outputs may vary randomly. Providing multiple variants allows users to compare different permutations of the model’s responses to the same prompt.",
+  "variations_desc_2":"A single seed can generate multiple candidate options, from which users can select. The chosen content is then automatically merged into the main output.",
 
   "Trust builder": "Trust builder",
   "Give users confidence that the AI's results are ethical, accurate, and trustworthy": "Give users confidence that the AI's results are ethical, accurate, and trustworthy",
