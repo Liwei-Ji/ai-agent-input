@@ -179,13 +179,13 @@
 
   "Regenerate": "Regenerate",
   "Have the AI reproduce its response to the prompt without additional input": "Have the AI reproduce its response to the prompt without additional input",
-  "regenerate_desc_1":"",
-  "regenerate_desc_2":"",
+  "regenerate_desc_1":"If the initial AI output is unsatisfactory, users can request the system to regenerate content using the same prompt and context.",
+  "regenerate_desc_2":"Common action labels include “Regenerate,” “Try Again,” or “Rerun.” This means that even without changing the prompt, the new response may present different wording, reasoning approaches, or details.",
 
   "Copy": "Copy",
   "Instantly copy the response to your clipboard.":"Instantly copy the response to your clipboard.",
-  "copy_desc_1":"",
-  "copy_desc_2":"",
+  "copy_desc_1":"Users often need to quickly integrate AI outputs into other workflows. Providing consistent and clear copy functionality reduces operational friction and prevents errors caused by manual selection.",
+  "copy_desc_2":"Each AI message includes a one-click copy feature. When clicked, the full content is automatically copied to the clipboard, with real-time feedback confirming the action has been completed.",
 
   "Sample response": "Sample response",
   "Confirm the user's intent for complicated prompts": "Confirm the user's intent for complicated prompts",

@@ -179,13 +179,13 @@
 
   "Regenerate": "重新生成",
   "Have the AI reproduce its response to the prompt without additional input": "讓 AI 在不增加輸入的情況下針對提示詞再次生成回覆。",
-  "regenerate_desc_1":"",
-  "regenerate_desc_2":"",
+  "regenerate_desc_1":"如果 AI 初次生成的結果不理想，使用者可要求系統在相同提示和上下文下重新生成內容",
+  "regenerate_desc_2":"常見操作標籤包括「重新產生」、「再試一次」或「重新運行」。這意味著，即使提示未變，新的回應仍可能使用不同的表達、推理方式或細節。",
 
   "Copy": "複製",
   "Instantly copy the response to your clipboard.":"可即時將回應複製至剪貼簿。",
-  "copy_desc_1":"",
-  "copy_desc_2":"",
+  "copy_desc_1":"使用者常需將 AI 輸出快速導入其他工作流程。提供一致且明確的複製操作，可降低操作成本，並避免手動選取造成的錯誤。",
+  "copy_desc_2":"每則 AI 訊息下方設有一鍵複製功能，點擊後完整內容會自動寫入剪貼簿，並透過即時回饋讓使用者確認操作完成。",
   
   "Sample response": "範例回應",
   "Confirm the user's intent for complicated prompts": "針對複雜的提示詞確認使用者的意圖。",

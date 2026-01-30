@@ -179,13 +179,13 @@
 
   "Regenerate": "再生成",
   "Have the AI reproduce its response to the prompt without additional input": "追加の入力なしで、プロンプトに対する回答を再生成させます。",
-  "regenerate_desc_1":"",
-  "regenerate_desc_2":"",
+  "regenerate_desc_1":"AIが初回に生成した結果が期待通りでない場合、ユーザーは同じプロンプトとコンテキストで内容を再生成するようシステムに要求できます。",
+  "regenerate_desc_2":"一般的な操作ラベルには「再生成」「もう一度試す」「再実行」などがあります。これは、プロンプトが変わらなくても、新しい応答は異なる表現や推論方法、詳細を用いる可能性があることを意味します。",
 
   "Copy": "コピー",
   "Instantly copy the response to your clipboard.":"返信をすぐにクリップボードにコピーします。",
-  "copy_desc_1":"",
-  "copy_desc_2":"",
+  "copy_desc_1":"ユーザーは、AIの出力を迅速に他のワークフローに取り込む必要があることが多いです。一貫性があり明確なコピー操作を提供することで、操作コストを低減し、手動選択によるミスを防ぐことができます。",
+  "copy_desc_2":"各AIメッセージの下にはワンクリックコピー機能が設置されており、クリックすると内容全体が自動的にクリップボードに書き込まれます。さらに、リアルタイムのフィードバックにより、ユーザーは操作が完了したことを確認できます。",
 
   "Sample response": "サンプル回答",
   "Confirm the user's intent for complicated prompts": "複雑なプロンプトに対してユーザーの意図を確認します。",
