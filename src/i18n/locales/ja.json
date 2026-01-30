@@ -239,8 +239,8 @@
 
   "Data ownership": "データ所有権",
   "Control how the model remembers and uses your data": "モデルがユーザーのデータをどのように記憶し使用するかをコントロールします。",
-  "data_ownership_desc_1":"",
-  "data_ownership_desc_2":"",
+  "data_ownership_desc_1":"個人データのオンライン利用は常に議論の的となっています。ユーザーがAIと対話したり、協働的な創作を行ったりする際には、ユーザーデータ、プラットフォームデータ、および仲介情報の境界が曖昧になりがちです。",
+  "data_ownership_desc_2":"インターフェースは、透明性と制御性のある設定機能を提供し、ユーザーがどの機能をオン・オフするか、また関連する情報の利用方法を明確に把握できるようにするべきです。",
 
   "Identifiers": "アイデンティファイア",
   "Differentiate the AI from other features and highlight its use case": "AIを他の機能と区別し、そのユースケースを強調します。",

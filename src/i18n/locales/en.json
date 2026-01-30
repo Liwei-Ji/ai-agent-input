@@ -239,8 +239,8 @@
 
   "Data ownership": "Data ownership",
   "Control how the model remembers and uses your data": "Control how the model remembers and uses your data",
-  "data_ownership_desc_1":"",
-  "data_ownership_desc_2":"",
+  "data_ownership_desc_1":"The use of personal data online has always been contentious. When people interact with AI or engage in collaborative creation, the boundaries between user data, platform data, and intermediary information often become blurred.",
+  "data_ownership_desc_2":"Interfaces should provide transparent and controllable settings, allowing users to clearly understand which features they have enabled or disabled and how their information is being used.",
 
   "Identifiers": "Identifiers",
   "Differentiate the AI from other features and highlight its use case": "Differentiate the AI from other features and highlight its use case",

@@ -237,10 +237,10 @@
   "rating_desc_1":"",
   "rating_desc_2":"",
 
-  "Data ownership": "數據所有權",
+  "Data ownership": "資料所有權",
   "Control how the model remembers and uses your data": "控制模型如何記憶及使用您的數據。",
-  "data_ownership_desc_1":"",
-  "data_ownership_desc_2":"",
+  "data_ownership_desc_1":"個人資料在網路上的使用始終充滿爭議。當人們與 AI 互動或進行協作式創作時，使用者資料、平台資料與中介資訊之間的界線往往變得模糊。",
+  "data_ownership_desc_2":"介面應提供透明且可控的設定機制，讓使用者清楚掌握自己選擇開啟或關閉的功能與相關資訊使用方式。",
 
   "Identifiers": "識別標記",
   "Differentiate the AI from other features and highlight its use case": "將 AI 與其他功能區分開來，並強調其應用場景。",
