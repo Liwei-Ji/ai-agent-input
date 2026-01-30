@@ -257,8 +257,8 @@
 
   "Name": "Name",
   "How do we refer to the AI?": "How do we refer to the AI?",
-  "name_desc_1":"",
-  "name_desc_2":"",
+  "name_desc_1":"Users have the right to know what or whom they are interacting with.",
+  "name_desc_2":"Naming helps set expectations by signaling whether the AI is a tool, a collaborator, or something in between. It also enables customization: names can be defined by the company, chosen by the user, or adapted to specific contexts. Through naming, artificial intelligence becomes less of an abstract system and more of a recognizable part of the user’s world.",
 
   "Personality": "Personality",
   "Characteristics that distinguish the AI's personality and vibe": "Characteristics that distinguish the AI's personality and vibe",

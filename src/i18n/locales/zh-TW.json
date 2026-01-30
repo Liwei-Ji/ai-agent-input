@@ -255,10 +255,10 @@
   "disclosure_desc_1": "揭露的核心在於「透明度」。",
   "disclosure_desc_2": "text",
   
-  "Name": "命名標示",
+  "Name": "姓名",
   "How do we refer to the AI?": "我們該如何稱呼這個 AI？",
-  "name_desc_1":"",
-  "name_desc_2":"",
+  "name_desc_1":"使用者有權清楚知道自己正在與「什麼」或「誰」互動。",
+  "name_desc_2":"命名有助於建立使用者預期，傳達其角色定位是工具、合作夥伴，或介於兩者之間的關係。 同時，命名也提供了自訂彈性：名稱可以由企業設定、由使用者選擇，甚至依特定情境動態調整。這樣的設計能讓人工智慧不再只是抽象的系統，而更像是使用者生活世界中的一部分。",
 
   "Personality": "個性",
   "Characteristics that distinguish the AI's personality and vibe": "區分 AI 個性與氛圍的特徵描述。",
