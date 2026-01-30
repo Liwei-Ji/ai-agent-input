@@ -234,8 +234,8 @@
 
   "Rating": "評分回饋",
   "Signal expectation gaps or errors in the model – but is that clear to the user?": "標記模型的預期落差或錯誤，但這對使用者來說清晰嗎？",
-  "rating_desc_1":"",
-  "rating_desc_2":"",
+  "rating_desc_1":"使用者清楚地知道自己正在與 AI 模型互動。透過按讚或點擊反饋，使用者能告訴工程師模型的設計是否符合預期，這在專有模型或處理敏感資料的安全模型中尤為重要。",
+  "rating_desc_2":"在實務上，這類反饋通常以拇指或星形圖示呈現。我們應該期望或至少希望能提供更多資訊，說明使用者評分後系統做了什麼，並透明告訴使用者，他們評價的是單一回應，還是整個模型的整體表現。",
 
   "Data ownership": "資料所有權",
   "Control how the model remembers and uses your data": "控制模型如何記憶及使用您的數據。",

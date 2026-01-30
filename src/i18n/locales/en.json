@@ -234,8 +234,8 @@
 
   "Rating": "Rating",
   "Signal expectation gaps or errors in the model – but is that clear to the user?": "Signal expectation gaps or errors in the model – but is that clear to the user?",
-  "rating_desc_1":"",
-  "rating_desc_2":"",
+  "rating_desc_1":"Users should clearly know when they are interacting with an AI model. Through likes or click based feedback, users can inform engineers whether the model’s behavior meets expectations a practice that is especially important for proprietary models or safety focused models handling sensitive data.",
+  "rating_desc_2":"In practice, such feedback is often presented using thumbs-up icons or star ratings. Ideally or at least preferably systems should provide more information about what happens after a user submits feedback, transparently indicating whether the evaluation applies to a single response or reflects the overall performance of the model.",
 
   "Data ownership": "Data ownership",
   "Control how the model remembers and uses your data": "Control how the model remembers and uses your data",
