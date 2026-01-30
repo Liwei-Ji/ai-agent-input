@@ -164,8 +164,8 @@
 
   "Plan of Action": "行動計画",
   "Have the AI show the steps it will take to respond to the user's prompt before it executes its response": "AIが実行前に、プロンプトに対してどのような手順で回答するかを表示します。",
-  "plan_of_action_desc_1":"",
-  "plan_of_action_desc_2":"",
+  "plan_of_action_desc_1":"プレビュー機能により、ユーザーはシステムが操作を実行する前に計画の正確性を確認でき、リソースの無駄や潜在的なエラーを回避できます。",
+  "plan_of_action_desc_2":"計画は簡潔で明瞭であるべきで、ユーザーがその意図を素早く理解できることが重要です。長すぎる、あるいは過度に技術的な計画は可読性を低下させる可能性があります。技術的または機密性の高いプロセスの場合、ユーザーがステップを展開したりAIと対話したりして、詳細を深く理解できるようにすることを推奨します。",
 
   "Stream Of Thought": "思考の流れ",
   "Reveals the AI's logic thought process, tool use, and decisions for oversight and auditability": "AIの推論の流れやツール使用状況、意思決定の過程を明らかにし、監督や監査を可能にします。",

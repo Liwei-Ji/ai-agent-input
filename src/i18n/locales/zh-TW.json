@@ -164,8 +164,8 @@
 
   "Plan of Action": "行動計畫",
   "Have the AI show the steps it will take to respond to the user's prompt before it executes its response": "讓 AI 在執行前先顯示處理提示詞的計畫步驟。",
-  "plan_of_action_desc_1":"",
-  "plan_of_action_desc_2":"",
+  "plan_of_action_desc_1":"預覽功能讓使用者能在系統執行操作前確認計劃正確，避免資源浪費和隱藏錯誤。",
+  "plan_of_action_desc_2":"計劃應簡潔明瞭，使用者應能快速理解其意圖。過長或過於技術化的計劃可能降低可讀性。對於技術性或敏感的流程，建議允許使用者展開步驟或與 AI 互動，以深入了解細節。",
 
   "Stream Of Thought": "思緒流",
   "Reveals the AI's logic thought process, tool use, and decisions for oversight and auditability": "揭示 AI 的推理邏輯、工具使用情況與決策過程，以利監督與稽核。",

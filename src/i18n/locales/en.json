@@ -164,8 +164,8 @@
 
   "Plan of Action": "Plan of Action",
   "Have the AI show the steps it will take to respond to the user's prompt before it executes its response": "Have the AI show the steps it will take to respond to the user's prompt before it executes its response",
-  "plan_of_action_desc_1":"",
-  "plan_of_action_desc_2":"",
+  "plan_of_action_desc_1":"Preview functionality allows users to confirm that a plan is correct before the system executes it, preventing wasted resources and hidden errors.",
+  "plan_of_action_desc_2":"Plans should be concise and easy to understand, enabling users to quickly grasp their intent. Overly long or technical plans may reduce readability. For technical or sensitive workflows, it is recommended to allow users to expand steps or interact with the AI to explore the details more deeply.",
 
   "Stream Of Thought": "Stream Of Thought",
   "Reveals the AI's logic thought process, tool use, and decisions for oversight and auditability" : "Reveals the AI's logic thought process, tool use, and decisions for oversight and auditability",
