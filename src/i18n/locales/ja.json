@@ -194,8 +194,8 @@
 
   "Token Transparency": "トークンの透明性",
   "Reveal the tokens the AI used to craft its response": "回答の構築に使用されたトークンの詳細を明らかにします。",
-  "token_transparency_desc_1":"",
-  "token_transparency_desc_2":"",
+  "token_transparency_desc_1":"生成型AIが持つブラックボックス性による不確実さを軽減するため、モデルの生成過程におけるトークン構造や確率情報を可視化し、応答がどのように分解・再構成されているのかをユーザーが確認できるようにします。",
+  "token_transparency_desc_2":"高度なビューオプションを提供し、テキストをトークンレベルに分解するとともに、トークン数、生成遅延、Logprob などのメタデータを開示することで、ユーザーによる分析、デバッグ、信頼性の判断を支援します。",
 
   "Variations": "バリエーション",
   "Trace through multiple variations of a result to choose the one that works best for them": "複数のバリエーションを比較し、最適なものを選択できるようにします。",

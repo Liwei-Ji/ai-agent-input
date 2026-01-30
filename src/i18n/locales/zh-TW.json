@@ -194,8 +194,8 @@
 
   "Token Transparency": "Token 透明度",
   "Reveal the tokens the AI used to craft its response": "揭示 AI 用於構建回覆的 Token 詳情。",
-  "token_transparency_desc_1":"",
-  "token_transparency_desc_2":"",
+  "token_transparency_desc_1":"為減少生成式黑盒特性所帶來的不確定感，透過視覺化模型生成過程中的 Token 結構與機率資訊，讓使用者看見回覆如何被拆解並組合而成。",
+  "token_transparency_desc_2":"提供進階視圖選項，將文字拆分為 Token 層級，並揭示 Token 數量、生成延遲及 Logprob 等元資料，支援使用者進行分析、除錯與可信度判斷。",
 
   "Variations": "多樣化選擇",
   "Trace through multiple variations of a result to choose the one that works best for them": "追蹤多個生成變體，從中選擇最合適的一個。",

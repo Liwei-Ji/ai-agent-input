@@ -194,8 +194,8 @@
 
   "Token Transparency": "Token Transparency",
   "Reveal the tokens the AI used to craft its response": "Reveal the tokens the AI used to craft its response",
-  "token_transparency_desc_1":"",
-  "token_transparency_desc_2":"",
+  "token_transparency_desc_1":"To reduce the uncertainty caused by the black-box nature of generative systems, visualize the token structure and probability information involved in the model’s generation process, allowing users to see how responses are decomposed and assembled.",
+  "token_transparency_desc_2":"Provide advanced view options that break text down to the token level and reveal metadata such as token counts, generation latency, and log probabilities, supporting user analysis, debugging, and credibility assessment.",
 
   "Variations": "Variations",
   "Trace through multiple variations of a result to choose the one that works best for them": "Trace through multiple variations of a result to choose the one that works best for them",
