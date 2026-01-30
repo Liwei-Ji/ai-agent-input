@@ -207,8 +207,8 @@
   
   "Consent": "同意",
   "Only capture data from others with their knowledge and permission": "他者のデータは、本人の承諾と許可がある場合にのみ取得します。",
-  "consent_desc_1":"",
-  "consent_desc_2":"",
+  "consent_desc_1":"人工知能とデータを共有する前に、ユーザーの同意を積極的に取得することは、信頼の構築、責任の担保、そして倫理的に配慮されたユーザー体験の提供に役立ちます。",
+  "consent_desc_2":"デフォルトでは「オプトイン（選択参加）」方式を採用すべきであり、「オプトアウト（選択解除）」方式では不十分です。沈黙は同意を意味しないためです。事前に承認を得た製品であっても、テキストによる対話を開始する前にはユーザーの同意を改めて確認すべきです。オプトインのプロセスは、ユーザーの自主性を尊重するだけでなく、新興のAIおよびプライバシー関連法規への準拠作業を簡素化する効果もあります。",
   
   "Watermark": "透かし",
   "Identifiers on AI Generative content that humans, software, or programs can read": "人間やソフトウェアが識別できる、AI生成コンテンツ上の識別標識です。",

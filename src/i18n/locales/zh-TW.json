@@ -207,8 +207,8 @@
   
   "Consent": "同意",
   "Only capture data from others with their knowledge and permission": "僅在獲得他人知情並許可的情況下擷取數據。",
-  "consent_desc_1":"",
-  "consent_desc_2":"",
+  "consent_desc_1":"在與人工智慧分享資料之前，主動取得使用者同意，有助於建立信任、提供責任保障，並支持符合倫理的使用者體驗。",
+  "consent_desc_2":"預設應採用「選擇加入」而非「選擇退出」的方式，因為沉默不等於同意。即使在已取得事先授權的產品中，文字互動前仍應徵得使用者同意。選擇加入流程不僅尊重使用者自主權，也能簡化對新興人工智慧與隱私法規的合規工作。",
 
   "Watermark": "數位浮水印",
   "Identifiers on AI Generative content that humans, software, or programs can read": "AI 生成內容中可供人類或軟體讀取的辨識標記。",

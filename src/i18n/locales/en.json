@@ -207,8 +207,8 @@
   
   "Consent": "Consent",
   "Only capture data from others with their knowledge and permission": "Only capture data from others with their knowledge and permission",
-  "consent_desc_1":"",
-  "consent_desc_2":"",
+  "consent_desc_1":"Actively obtaining user consent before sharing data with AI helps build trust, provides accountability, and supports an ethically responsible user experience.",
+  "consent_desc_2":"Default settings should follow an opt-in rather than opt-out approach, as silence does not equal consent. Even in products with prior authorization, consent should still be obtained before any textual interactions. An opt-in process not only respects user autonomy but also simplifies compliance with emerging AI and privacy regulations.",
 
   "Watermark": "Watermark",
   "Identifiers on AI Generative content that humans, software, or programs can read": "Identifiers on AI Generative content that humans, software, or programs can read",
