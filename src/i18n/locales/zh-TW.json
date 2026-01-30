@@ -212,8 +212,8 @@
 
   "Watermark": "數位浮水印",
   "Identifiers on AI Generative content that humans, software, or programs can read": "AI 生成內容中可供人類或軟體讀取的辨識標記。",
-  "watermark_desc_1":"",
-  "watermark_desc_2":"",
+  "watermark_desc_1":"浮水印資訊應放在使用者易預期的位置，例如「內容資訊」面板、元資料檢視或滑鼠懸停時顯示。保持一致性能增強識別性，並降低使用者的認知負擔。",
+  "watermark_desc_2":"可見標籤有助於防止濫用並明確來源；不可見追蹤器（如嵌入雜湊或模型指紋）則能提供追蹤與取證能力。結合兩者使用，可在內容生命週期中實現更全面的保護。",
 
   "Memory": "記憶",
   "Control what details the AI knows about you": "控制 AI 掌握關於您的哪些細節資訊。",

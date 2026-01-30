@@ -212,8 +212,8 @@
 
   "Watermark": "Watermark",
   "Identifiers on AI Generative content that humans, software, or programs can read": "Identifiers on AI Generative content that humans, software, or programs can read",
-  "watermark_desc_1":"",
-  "watermark_desc_2":"",
+  "watermark_desc_1":"Watermark information should be placed where users naturally expect to find it, such as in a “Content Information” panel, metadata view, or on hover. Consistency enhances recognizability and reduces users’ cognitive load.",
+  "watermark_desc_2":"Visible labels help prevent misuse and clearly indicate the source, while invisible trackers—such as embedded hashes or model fingerprints—provide tracing and forensic capabilities. Using both in combination enables more comprehensive protection throughout the content lifecycle.",
 
   "Memory": "Memory",
   "Control what details the AI knows about you": "Control what details the AI knows about you",

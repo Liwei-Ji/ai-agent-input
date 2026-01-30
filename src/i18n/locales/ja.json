@@ -212,8 +212,8 @@
   
   "Watermark": "透かし",
   "Identifiers on AI Generative content that humans, software, or programs can read": "人間やソフトウェアが識別できる、AI生成コンテンツ上の識別標識です。",
-  "watermark_desc_1":"",
-  "watermark_desc_2":"",
+  "watermark_desc_1":"ウォーターマーク情報は、ユーザーが予測しやすい位置に配置するべきです。たとえば「コンテンツ情報」パネル、メタデータビュー、またはマウスオーバー時の表示などです。一貫性を保つことで認識性が向上し、ユーザーの認知負荷を軽減できます。",
+  "watermark_desc_2":"可視ラベルは濫用防止や出所の明確化に役立ちます。一方で、不可視トラッカー（ハッシュの埋め込みやモデルフィンガープリントなど）は追跡や証拠保全の機能を提供します。両者を組み合わせることで、コンテンツのライフサイクル全体にわたってより包括的な保護を実現できます。",
 
   "Memory": "メモリ",
   "Control what details the AI knows about you": "AIが保持しているユーザーの詳細情報をコントロールします。",
