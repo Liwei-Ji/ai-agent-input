@@ -250,10 +250,10 @@
   "color_desc_1":"",
   "color_desc_2":"",
 
-  "Disclosure": "披露聲明",
+  "Disclosure": "披露",
   "Clearly mark content and interactions guided or delivered by AI": "明確標記由 AI 引導或提供的內容與互動。",
-  "disclosure_desc_1": "揭露的核心在於「透明度」。",
-  "disclosure_desc_2": "text",
+  "disclosure_desc_1": "提升使用者安心感的一項關鍵做法，是在使用者與人工智慧互動時，始終保持坦誠且清楚的告知。",
+  "disclosure_desc_2": "揭露的核心在於「透明度」：當 AI 主動進行分類、標記或歸檔等操作時，必須明確向使用者說明「此為 AI 所處理」，並將最終決定權保留給使用者。",
   
   "Name": "姓名",
   "How do we refer to the AI?": "我們該如何稱呼這個 AI？",

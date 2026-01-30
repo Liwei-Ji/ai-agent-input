@@ -252,8 +252,8 @@
 
   "Disclosure": "Disclosure",
   "Clearly mark content and interactions guided or delivered by AI": "Clearly mark content and interactions guided or delivered by AI",
-  "disclosure_desc_1": "The core of disclosure lies in transparency.",
-  "disclosure_desc_2":  "text",
+  "disclosure_desc_1": "One key way to enhance users’ sense of safety is to remain transparent and explicit throughout their interactions with artificial intelligence.",
+  "disclosure_desc_2":  "At the core of disclosure is transparency: when the AI proactively performs actions such as classification, labeling, or archiving, it must clearly indicate that these actions are carried out by the AI, while reserving final decision-making authority for the user.",
 
   "Name": "Name",
   "How do we refer to the AI?": "How do we refer to the AI?",

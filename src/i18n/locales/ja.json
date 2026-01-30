@@ -252,8 +252,8 @@
 
   "Disclosure": "開示",
   "Clearly mark content and interactions guided or delivered by AI": "AIによって提供されたコンテンツや対話を明確にマークします。",
-  "disclosure_desc_1": "The core of disclosure lies in transparency.",
-  "disclosure_desc_2":  "text",
+  "disclosure_desc_1": "ユーザーの安心感を高めるための重要な取り組みの一つは、ユーザーと人工知能が対話するあらゆる場面において、常に率直かつ明確な説明を行うことです。",
+  "disclosure_desc_2":  "開示の中核となるのは「透明性」です。AIが分類、ラベリング、アーカイブといった処理を自律的に行う場合には、それが「AIによって処理されたものである」ことを明確にユーザーへ伝え、最終的な判断権はユーザーに委ねなければなりません。",
 
   "Name": "名称",
   "How do we refer to the AI?": "そのAIを何と呼びますか？",
