@@ -174,8 +174,8 @@
 
   "Prompt transparency": "プロンプトの透明性",
   "Show users what is actually happening behind the scenes": "舞台裏で実際に何が起きているかをユーザーに示します。",
-  "prompt_transparency_desc_1":"",
-  "prompt_transparency_desc_2":"",
+  "prompt_transparency_desc_1":"ユーザーは、AIの応答がどのように生成されたかを理解したいと考えており、信頼構築につながります。システムは控えめなスイッチを提供し、コアコンテンツを清潔で整然と保ち、余分な情報による干渉を防ぎます。",
+  "prompt_transparency_desc_2":"「Prompt Engineering Context」を有効にすると、ユーザーは隠された基礎ロジックを確認でき、モデルの思考過程を追跡し、生成の根拠を分析することができます。",
 
   "Regenerate": "再生成",
   "Have the AI reproduce its response to the prompt without additional input": "追加の入力なしで、プロンプトに対する回答を再生成させます。",

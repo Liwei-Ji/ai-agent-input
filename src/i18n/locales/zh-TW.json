@@ -174,8 +174,8 @@
 
   "Prompt transparency": "提示詞透明度",
   "Show users what is actually happening behind the scenes": "向使用者展示幕後的實際運作情況。",
-  "prompt_transparency_desc_1":"",
-  "prompt_transparency_desc_2":"",
+  "prompt_transparency_desc_1":"使用者希望理解 AI 回覆的生成邏輯，以建立信任。系統提供一個低調開關，使核心內容保持乾淨整潔，不被額外資訊干擾。",
+  "prompt_transparency_desc_2":"啟用「Prompt Engineering Context」後，使用者可以查看隱藏的底層邏輯，追蹤模型思路並分析其生成依據。",
 
   "Regenerate": "重新生成",
   "Have the AI reproduce its response to the prompt without additional input": "讓 AI 在不增加輸入的情況下針對提示詞再次生成回覆。",

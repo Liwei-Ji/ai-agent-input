@@ -174,8 +174,8 @@
 
   "Prompt transparency": "Prompt transparency",
   "Show users what is actually happening behind the scenes": "Show users what is actually happening behind the scenes",
-  "prompt_transparency_desc_1":"",
-  "prompt_transparency_desc_2":"",
+  "prompt_transparency_desc_1":"Users want to understand the reasoning behind AI responses to build trust. The system provides a subtle toggle, keeping the core content clean and uncluttered while avoiding information overload.",
+  "prompt_transparency_desc_2":"When the “Prompt Engineering Context” is enabled, users can view the underlying logic, trace the model’s thought process, and analyze the basis for its generated output.",
 
   "Regenerate": "Regenerate",
   "Have the AI reproduce its response to the prompt without additional input": "Have the AI reproduce its response to the prompt without additional input",
