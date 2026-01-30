@@ -229,8 +229,8 @@
   
   "Caveat": "Caveat",
   "Inform users about shortcomings or risks in the model or the technology overall": "Inform users about shortcomings or risks in the model or the technology overall",
-  "caveat_desc_1":"",
-  "caveat_desc_2":"",
+  "caveat_desc_1":"AI systems may contain errors, incomplete information, or biases. While this usage pattern is quite common, its effectiveness in helping users develop skepticism and critical thinking still requires further validation.",
+  "caveat_desc_2":"For users who are less technically familiar, these prompts provide a simple and direct way to highlight the product’s limitations. Warnings should be positioned close to the results so that users can see them immediately when making decisions.",
 
   "Rating": "Rating",
   "Signal expectation gaps or errors in the model – but is that clear to the user?": "Signal expectation gaps or errors in the model – but is that clear to the user?",

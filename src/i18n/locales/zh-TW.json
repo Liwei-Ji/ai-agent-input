@@ -229,8 +229,8 @@
   
   "Caveat": "風險警示",
   "Inform users about shortcomings or risks in the model or the technology overall": "告知使用者關於模型或整體技術的缺點或風險。",
-  "caveat_desc_1":"",
-  "caveat_desc_2":"",
+  "caveat_desc_1":"人工智慧系統可能存在錯誤、不完整或偏頗的情況。儘管這種使用模式相當普遍，但它在幫助使用者培養懷疑精神與批判性思考的效果，仍需進一步驗證。",
+  "caveat_desc_2":"對不熟悉技術的使用者而言，這些提示提供了一種簡單且直接的方法，提醒產品的限制。應將注意事項放在與結果緊密相連的位置，以便使用者在作出決定時能立即看到。",
 
   "Rating": "評分回饋",
   "Signal expectation gaps or errors in the model – but is that clear to the user?": "標記模型的預期落差或錯誤，但這對使用者來說清晰嗎？",
