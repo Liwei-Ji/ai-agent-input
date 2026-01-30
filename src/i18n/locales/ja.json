@@ -217,8 +217,8 @@
 
   "Memory": "メモリ",
   "Control what details the AI knows about you": "AIが保持しているユーザーの詳細情報をコントロールします。",
-  "memory_desc_1":"",
-  "memory_desc_2":"",
+  "memory_desc_1":"メモリ機能は、AIシステムが複数回の対話において情報を保持する能力を付与し、ユーザーが毎回背景情報を再提供する必要なく、一貫した継続的な体験を享受できるようにします。これにより、AIは単なる作業ツールではなく、信頼できる長期的なアシスタントとなります。",
+  "memory_desc_2":"新たに保存されるメモリはユーザーに明確に提示され、簡単に管理できる手段が提供されるべきです。ユーザーは自然言語で自身のアイデンティティを記述でき、AIは人間に対する理解を自然で直感的な対話感として維持する必要があります。",
 
   "Interact with the AI without leaving any traces": "履歴を残さずにAIとやり取りを行います。",
   "interact_with_the_ai_without_leaving_any_traces_desc_1":"",

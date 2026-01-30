@@ -217,8 +217,8 @@
 
   "Memory": "記憶",
   "Control what details the AI knows about you": "控制 AI 掌握關於您的哪些細節資訊。",
-  "memory_desc_1":"",
-  "memory_desc_2":"",
+  "memory_desc_1":"記憶功能賦予 AI 系統在多次互動中保留資訊的能力，使使用者享有連貫、持續的體驗，不必每次都重新提供背景資訊。這讓 AI 不只是事務工具，而成為可靠的長期助手。",
+  "memory_desc_2":"新增的記憶應明確向使用者呈現，並提供簡單的管理方式，讓使用者能控制哪些記憶2, 被保留。使用者應能用自然語言描述自己的身分，而 AI 對人類的理解也應保持自然、直覺的互動感。",
 
   "Interact with the AI without leaving any traces": "與 AI 互動而不留下任何痕跡",
   "interact_with_the_ai_without_leaving_any_traces_desc_1":"",

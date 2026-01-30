@@ -217,8 +217,8 @@
 
   "Memory": "Memory",
   "Control what details the AI knows about you": "Control what details the AI knows about you",
-  "memory_desc_1":"",
-  "memory_desc_2":"",
+  "memory_desc_1":"Memory functionality gives AI systems the ability to retain information across multiple interactions, allowing users to enjoy a coherent and continuous experience without having to provide background information each time. This transforms AI from a mere transactional tool into a reliable long-term assistant.",
+  "memory_desc_2":"Newly stored memories should be clearly presented to users, along with simple management options that allow them to control which memories are retained. Users should be able to describe their identity in natural language, and the AI’s understanding of humans should maintain a natural and intuitive interactive feel.",
 
   "Interact with the AI without leaving any traces": "Interact with the AI without leaving any traces",
   "interact_with_the_ai_without_leaving_any_traces_desc_1":"",
