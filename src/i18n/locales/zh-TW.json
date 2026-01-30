@@ -245,10 +245,10 @@
   "Identifiers": "識別標記",
   "Differentiate the AI from other features and highlight its use case": "將 AI 與其他功能區分開來，並強調其應用場景。",
   
-  "Color": "視覺色彩",
+  "Color": "顏色",
   "Visual cues to help users identify AI features or content": "幫助使用者識別 AI 功能或內容的視覺線索。",
-  "color_desc_1":"",
-  "color_desc_2":"",
+  "color_desc_1":"運用色彩作為輔助提示機制，讓顏色成為區分 AI 產生內容與人類內容的視覺標記。",
+  "color_desc_2":"將「AI 使用了哪些資料」以及「內容來源為何」進行視覺化呈現。參考人類以螢光筆標註重點的方式，標示被引用的核心觀點，並在文字下方清楚列出對應的「參考資料」或「搜尋結果」，讓使用者能進一步點擊查證。",
 
   "Disclosure": "披露",
   "Clearly mark content and interactions guided or delivered by AI": "明確標記由 AI 引導或提供的內容與互動。",

@@ -247,8 +247,8 @@
   
   "Color": "カラー",
   "Visual cues to help users identify AI features or content": "AIの機能やコンテンツを識別するための視覚的なヒントです。",
-  "color_desc_1":"",
-  "color_desc_2":"",
+  "color_desc_1":"色彩を補助的な手がかりとして活用し、AIが生成したコンテンツと人間によるコンテンツを区別するための視覚的なマーカーとして色を用います。",
+  "color_desc_2":"「AIがどのようなデータを使用したのか」および「コンテンツの出所は何か」を視覚的に提示します。人が蛍光ペンで重要な箇所を強調する手法にならい、引用された主要なポイントを明示し、テキストの下に対応する「参考資料」や「検索結果」を明確に表示することで、ユーザーがさらにクリックして検証できるようにします。",
 
   "Disclosure": "開示",
   "Clearly mark content and interactions guided or delivered by AI": "AIによって提供されたコンテンツや対話を明確にマークします。",

@@ -247,8 +247,8 @@
   
   "Color": "Color",
   "Visual cues to help users identify AI features or content": "Visual cues to help users identify AI features or content",
-  "color_desc_1":"",
-  "color_desc_2":"",
+  "color_desc_1":"Use color as a supporting cue, allowing it to function as a visual marker that distinguishes AI generated content from human-created content.",
+  "color_desc_2":"Visually represent both what data the AI used and where the content originated. Drawing inspiration from how humans use highlighters to mark key points, highlight the core ideas that are being referenced, and clearly list the corresponding references or search results beneath the text, enabling users to click through and verify the information.",
 
   "Disclosure": "Disclosure",
   "Clearly mark content and interactions guided or delivered by AI": "Clearly mark content and interactions guided or delivered by AI",
