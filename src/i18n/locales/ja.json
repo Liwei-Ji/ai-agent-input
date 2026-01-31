@@ -149,8 +149,8 @@
   
   "Citations": "引用",
   "Give the AI a specific reference to anchor its response": "AIに回答の根拠となる特定の参照資料を提供します。",
-  "citations_desc_1":"",
-  "citations_desc_2":"",
+  "citations_desc_1":"引用を通じて、ユーザーはAIの応答が依拠しているデータソースを遡ることができ、出力結果を元の資料（PDF、文字起こし、Webページ、社内データなど）と関連付けることが可能になります。これにより、透明性が向上し、検証を支援します。",
+  "citations_desc_2":"引用は、AIの専門性や権威性に対するユーザーの認識を強め、要約の信頼性を高めます。一方で、要約に誤りや歪みが含まれている場合、かえってハルシネーションによるリスクを拡大してしまう可能性もあります。",
 
   "Controls": "コントロール",
   "Manage the flow of information or pause a request mid-stream to adjust the prompt": "情報フローを管理し、リクエストを途中で一時停止してプロンプトを調整します。",

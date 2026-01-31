@@ -149,8 +149,8 @@
   
   "Citations": "引用出處",
   "Give the AI a specific reference to anchor its response": "提供 AI 具體的參考資料以定位其回覆內容。",
-  "citations_desc_1":"",
-  "citations_desc_2":"",
+  "citations_desc_1":"透過引用，使用者可以追溯 AI 回應所依據的資料來源，將輸出結果與原始素材（如 PDF、文字記錄、網頁或內部資料）建立關聯，以提升透明度並支持查證。",
+  "citations_desc_2":"引用會強化使用者對 AI 專業性與權威性的感受，提升摘要的可信度；但若摘要存在錯誤或失真，反而可能放大幻覺帶來的風險。",
 
   "Controls": "流程控制",
   "Manage the flow of information or pause a request mid-stream to adjust the prompt": "管理資訊流，或在中途暫停請求以調整提示詞。",

@@ -149,8 +149,8 @@
   
   "Citations": "Citations",
   "Give the AI a specific reference to anchor its response": "Give the AI a specific reference to anchor its response",
-  "citations_desc_1":"",
-  "citations_desc_2":"",
+  "citations_desc_1":"Through citations, users can trace the data sources underlying AI responses, linking outputs back to original materials such as PDFs, transcripts, web pages, or internal documents. This improves transparency and supports verification.",
+  "citations_desc_2":"Citations can strengthen users’ perception of the AI’s expertise and authority, increasing the credibility of summaries; however, if a summary contains errors or distortions, citations may instead amplify the risks associated with hallucinations.",
 
   "Controls": "Controls",
   "Manage the flow of information or pause a request mid-stream to adjust the prompt": "Manage the flow of information or pause a request mid-stream to adjust the prompt",
