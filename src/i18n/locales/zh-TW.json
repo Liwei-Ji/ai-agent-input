@@ -154,8 +154,8 @@
 
   "Controls": "流程控制",
   "Manage the flow of information or pause a request mid-stream to adjust the prompt": "管理資訊流，或在中途暫停請求以調整提示詞。",
-  "controls_desc_1":"",
-  "controls_desc_2":"",
+  "controls_desc_1":"由於運算時間成本高，等待提示完整執行後再進行修正既浪費時間也增加費用。控制機制讓使用者能即時中止 AI 行為，維持對流程的掌控。",
+  "controls_desc_2":"常見的控制元件包括停止圖示或取消按鈕，使用者可在生成過程中終止請求；這會中斷所有進度，並導致當前工作無法保留。",
 
   "Footprints": "邏輯足跡",
   "Let users trace the AI's steps from prompt to result": "讓使用者追蹤從提示詞到生成結果的 AI 思考步驟。",

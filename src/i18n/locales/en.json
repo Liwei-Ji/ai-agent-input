@@ -154,8 +154,8 @@
 
   "Controls": "Controls",
   "Manage the flow of information or pause a request mid-stream to adjust the prompt": "Manage the flow of information or pause a request mid-stream to adjust the prompt",
-  "controls_desc_1":"",
-  "controls_desc_2":"",
+  "controls_desc_1":"Due to the high cost of computation time, waiting for a process to fully complete before making corrections is both time-consuming and expensive. Control mechanisms allow users to interrupt AI behavior in real time, helping them maintain control over the workflow.",
+  "controls_desc_2":"Common control elements include stop icons or cancel buttons, which enable users to terminate a request while generation is in progress. This interrupts all ongoing progress and results in the current work not being saved.",
 
   "Footprints": "Footprints",
   "Let users trace the AI's steps from prompt to result": "Let users trace the AI's steps from prompt to result",

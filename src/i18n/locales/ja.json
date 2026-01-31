@@ -154,8 +154,8 @@
 
   "Controls": "コントロール",
   "Manage the flow of information or pause a request mid-stream to adjust the prompt": "情報フローを管理し、リクエストを途中で一時停止してプロンプトを調整します。",
-  "controls_desc_1":"",
-  "controls_desc_2":"",
+  "controls_desc_1":"計算にかかる時間とコストが高いため、処理が完全に実行された後に修正を行うのは、時間の無駄であるだけでなく、費用の増加にもつながります。制御メカニズムを提供することで、ユーザーはAIの動作を即時に中断でき、プロセスに対する主導権を維持できます。",
+  "controls_desc_2":"一般的な制御コンポーネントには、停止アイコンやキャンセルボタンなどがあります。ユーザーは生成の途中でリクエストを中止することができ、その場合、すべての進行状況は中断され、現在の作業内容は保持されません。",
 
   "Footprints": "フットプリント",
   "Let users trace the AI's steps from prompt to result": "プロンプトから結果に至るまでのAIの思考プロセスを追跡できるようにします。",
