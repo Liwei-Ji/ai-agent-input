@@ -141,8 +141,8 @@
 
   "Workflows": "Workflows",
   "String generative steps together to synthesize, create, or send content on auto-pilot": "String generative steps together to synthesize, create, or send content on auto-pilot",
-  "workflows_cta.desc_1":"",
-  "workflows_cta.desc_2":"",
+  "workflows_cta.desc_1":"Workflows combine multiple steps into repeatable and predictable sequences of actions. As agent capabilities expand, interaction models are shifting toward supporting agents that generate and explain their own workflows, making their behavior understandable and open to inspection. As a result, interfaces must not only support workflow construction but also serve review and audit functions.",
+  "workflows_cta.desc_2":"Unlike dynamically stitched prompt chains, workflows are defined in advance and executed repeatedly using fixed instructions and parameters, ensuring consistent outcomes. This consistency makes them particularly well suited for teams that need to maintain quality and reliability across repetitive tasks.",
 
   "Governors": "Governors",
   "Maintain user agency as the AI works in order to understand and direct the AI's logic": "Maintain user agency as the AI works in order to understand and direct the AI's logic",

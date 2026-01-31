@@ -141,8 +141,8 @@
 
   "Workflows": "工作流",
   "String generative steps together to synthesize, create, or send content on auto-pilot": "將多個生成步驟串聯，以自動化方式綜合、創建或傳送內容。",
-  "workflows_cta.desc_1":"",
-  "workflows_cta.desc_2":"",
+  "workflows_cta.desc_1":"工作流程將多個步驟組合成可重複、可預測的操作序列。隨著智能體能力增強，互動模式將轉向支援智能體生成並說明自身工作流程，使其行為可被理解與檢視。因此，介面除了用於建構流程，也需承擔審查與檢查的功能。",
+  "workflows_cta.desc_2":"相較於即時拼接的提示鏈，工作流程在事前已被定義，透過固定指令與參數反覆執行，確保結果一致。這種一致性讓它特別適合需要在重複任務中維持品質與可靠性的團隊。",
 
   "Governors": "管理機制",
   "Maintain user agency as the AI works in order to understand and direct the AI's logic": "在 AI 運作時保持使用者的主導權，以便理解並引導 AI 的邏輯。",
