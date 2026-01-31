@@ -159,8 +159,8 @@
 
   "Footprints": "Footprints",
   "Let users trace the AI's steps from prompt to result": "Let users trace the AI's steps from prompt to result",
-  "footprints_desc_1":"",
-  "footprints_desc_2":"",
+  "footprints_desc_1":"Provenance trails record how and where artificial intelligence participates in creation, editing, and decision-making. Through multi-layered representations, they help explain how outcomes are formed, support internal review, and meet policy and regulatory requirements.",
+  "footprints_desc_2":"Without such records, users cannot assess reliability, reproduce results, or establish accountability. Robust tracking mechanisms enable source verification, decision-path inspection, and reduce the risk of AI misuse or content laundering.",
 
   "Plan of Action": "Plan of Action",
   "Have the AI show the steps it will take to respond to the user's prompt before it executes its response": "Have the AI show the steps it will take to respond to the user's prompt before it executes its response",

@@ -159,8 +159,8 @@
 
   "Footprints": "邏輯足跡",
   "Let users trace the AI's steps from prompt to result": "讓使用者追蹤從提示詞到生成結果的 AI 思考步驟。",
-  "footprints_desc_1":"",
-  "footprints_desc_2":"",
+  "footprints_desc_1":"足跡記錄了人工智慧在創作、編輯與決策中參與的方式與位置，透過多層次的呈現，幫助理解結果的形成過程，支援內部審查，並滿足政策與法規需求。",
+  "footprints_desc_2":"缺少這類記錄，使用者便無法評估可靠性、重現結果或追究責任。完善的追蹤機制能協助驗證資訊來源、檢視決策流程，並降低人工智慧被濫用或洗白的風險。",
 
   "Plan of Action": "行動計畫",
   "Have the AI show the steps it will take to respond to the user's prompt before it executes its response": "讓 AI 在執行前先顯示處理提示詞的計畫步驟。",

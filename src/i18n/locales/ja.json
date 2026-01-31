@@ -159,8 +159,8 @@
 
   "Footprints": "フットプリント",
   "Let users trace the AI's steps from prompt to result": "プロンプトから結果に至るまでのAIの思考プロセスを追跡できるようにします。",
-  "footprints_desc_1":"",
-  "footprints_desc_2":"",
+  "footprints_desc_1":"フットプリントは、創作、編集、意思決定の各段階において、人工知能がどのように、そしてどこで関与したかを記録します。多層的な可視化を通じて結果の形成過程の理解を助け、内部監査を支援するとともに、ポリシーや法規制の要件を満たします。",
+  "footprints_desc_2":"このような記録が欠如していると、ユーザーは信頼性を評価したり、結果を再現したり、責任の所在を追及したりすることができません。十分に整備されたトレーサビリティの仕組みは、情報源の検証や意思決定プロセスの確認を可能にし、人工知能の濫用やホワイトウォッシングのリスクを低減します。",
 
   "Plan of Action": "行動計画",
   "Have the AI show the steps it will take to respond to the user's prompt before it executes its response": "AIが実行前に、プロンプトに対してどのような手順で回答するかを表示します。",
