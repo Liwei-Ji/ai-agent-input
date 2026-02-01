@@ -136,8 +136,8 @@
 
   "References": "參考來源",
   "See and manage what additional sources the AI references to generate its response": "查看並管理 AI 生成回覆時參考的其他來源。",
-  "references_cta.desc_1":"",
-  "references_cta.desc_2":"",
+  "references_cta.desc_1":"參考來源指的是 AI 在生成回應時檢索並引用的外部內容，用以連結模型的既有知識與使用者當下的情境，確保輸出建立在可查證的基礎上。這種設計高度仰賴 RAG 架構，將模型內部知識與即時外部資料整合，而非僅依靠訓練資料與上下文限制。",
+  "references_cta.desc_2":"將摘要結果與清楚的來源資訊一併呈現，有助於使用者理解資訊從何而來、是否可信，並限制 AI 的推理範圍。缺少來源標示時，系統容易被視為不可驗證的黑盒；相反地，清楚的參考來源讓使用者能篩選、關聯與點擊查證，進一步掌控結果。",
 
   "Workflows": "工作流",
   "String generative steps together to synthesize, create, or send content on auto-pilot": "將多個生成步驟串聯，以自動化方式綜合、創建或傳送內容。",

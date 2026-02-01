@@ -136,8 +136,8 @@
 
   "References": "References",
   "See and manage what additional sources the AI references to generate its response": "See and manage what additional sources the AI references to generate its response",
-  "references_cta.desc_1":"",
-  "references_cta.desc_2":"",
+  "references_cta.desc_1":"Sources refer to external content that the AI retrieves and cites while generating responses, connecting the model’s existing knowledge with the user’s current context to ensure outputs are grounded in verifiable evidence. This design relies heavily on Retrieval-Augmented Generation (RAG) architectures, which integrate internal model knowledge with real-time external data, rather than relying solely on training data and prompt context.",
+  "references_cta.desc_2":"Presenting summaries together with clear source information helps users understand where information comes from, assess its credibility, and constrain the scope of the AI’s reasoning. Without source attribution, systems are easily perceived as unverifiable black boxes; in contrast, clearly identified sources allow users to filter, relate, and click through to verify information, giving them greater control over the results.",
 
   "Workflows": "Workflows",
   "String generative steps together to synthesize, create, or send content on auto-pilot": "String generative steps together to synthesize, create, or send content on auto-pilot",

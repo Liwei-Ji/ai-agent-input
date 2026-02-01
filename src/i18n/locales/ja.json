@@ -136,8 +136,8 @@
 
   "References": "参考文献",
   "See and manage what additional sources the AI references to generate its response": "AIが回答を生成する際に参照した追加ソースを表示・管理します。",
-  "references_cta.desc_1":"",
-  "references_cta.desc_2":"",
+  "references_cta.desc_1":"参照元とは、AIが応答を生成する際に検索・引用する外部コンテンツを指し、モデルが持つ既存の知識と、ユーザーの現在のコンテキストを結び付けるためのものです。これにより、出力は検証可能な基盤の上に構築されます。この設計は、トレーニングデータやコンテキストの制約のみに依存するのではなく、モデル内部の知識とリアルタイムの外部データを統合する RAG（Retrieval-Augmented Generation）アーキテクチャに強く依存しています。",
+  "references_cta.desc_2":"要約結果を明確な参照元情報と併せて提示することで、ユーザーは情報がどこから来たのか、信頼できるものかどうかを理解しやすくなり、AIの推論範囲を抑制することにもつながります。参照元の表示がない場合、システムは検証不可能なブラックボックスと見なされがちです。一方で、明確な参照元が示されていれば、ユーザーは情報を取捨選択し、関連付け、クリックして検証することで、結果に対するコントロールをさらに高めることができます。",
 
   "Workflows": "ワークフロー",
   "String generative steps together to synthesize, create, or send content on auto-pilot": "生成ステップを連携させ、自動で情報の統合・作成・送信を行います。",
