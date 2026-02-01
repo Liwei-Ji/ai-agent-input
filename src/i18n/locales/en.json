@@ -131,8 +131,8 @@
 
   "Personal voice": "Personal voice",
   "Ensure outputs match your voice, tone, and preferences in a consistent way": "Ensure outputs match your voice, tone, and preferences in a consistent way",
-  "personal_voice_cta.desc_1":"",
-  "personal_voice_cta.desc_2":"",
+  "personal_voice_cta.desc_1":"Adjusting tone should not require a complex configuration process. By offering real-time, lightweight tone-switching options during text generation, users can quickly change the tone without rewriting the prompt and clearly see which tone is currently active.",
+  "personal_voice_cta.desc_2":"Distinguishing between different tones and roles is essential. Users are generally less concerned with the AI’s personality settings themselves and more focused on whether the responses fit the usage context.",
 
   "References": "References",
   "See and manage what additional sources the AI references to generate its response": "See and manage what additional sources the AI references to generate its response",

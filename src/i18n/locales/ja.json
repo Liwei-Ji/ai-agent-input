@@ -131,8 +131,8 @@
 
   "Personal voice": "パーソナルボイス",
   "Ensure outputs match your voice, tone, and preferences in a consistent way": "出力が常にユーザー自身の口調、トーン、好みに一致するようにします。",
-  "personal_voice_cta.desc_1":"",
-  "personal_voice_cta.desc_2":"",
+  "personal_voice_cta.desc_1":"文章のトーンを調整することが煩雑な設定プロセスになってはなりません。テキスト生成時に、即時かつ軽量なトーン切り替えオプションを提供することで、ユーザーはプロンプトを書き直すことなく、素早く語調を変更でき、現在有効になっているトーンの状態を明確に把握できます。",
+  "personal_voice_cta.desc_2":"異なる語調やロールを区別することは非常に重要です。多くの場合、人々が関心を持つのはAIの性格設定そのものではなく、その応答が利用シーンにどれだけ適しているかという点です。",
 
   "References": "参考文献",
   "See and manage what additional sources the AI references to generate its response": "AIが回答を生成する際に参照した追加ソースを表示・管理します。",

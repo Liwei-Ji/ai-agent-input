@@ -131,8 +131,8 @@
 
   "Personal voice": "個人化口吻",
   "Ensure outputs match your voice, tone, and preferences in a consistent way": "確保輸出內容始終符合您的語氣、色調和偏好。",
-  "personal_voice_cta.desc_1":"",
-  "personal_voice_cta.desc_2":"",
+  "personal_voice_cta.desc_1":"調整文字語氣不應成為繁瑣的設定流程。透過在生成文字時提供即時、輕量的語調切換選項，使用者無需重新撰寫 Prompt，即可快速變更語氣，並明確看到當前啟用的語調狀態。",
+  "personal_voice_cta.desc_2":"區分不同語調與角色十分關鍵。人們通常不關心 AI 的性格設定本身，而是關心它的回應是否貼合使用情境。",
 
   "References": "參考來源",
   "See and manage what additional sources the AI references to generate its response": "查看並管理 AI 生成回覆時參考的其他來源。",
