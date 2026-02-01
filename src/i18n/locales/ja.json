@@ -121,8 +121,8 @@
 
   "Model management": "モデル管理",
   "Let users specify what model to use for their prompts": "プロンプトに使用するAIモデルをユーザーが指定できるようにします。",
-  "model_management_cta.desc_1":"",
-  "model_management_cta.desc_2":"",
+  "model_management_cta.desc_1":"性能、品質、コストなどの観点から、ユーザーは生成結果に使用するモデルを切り替えたい場合があります。モデルごとに得意分野や制約が異なるため、モデル切り替え機能の提供や、現在使用中のモデルを明示することは、AI製品における標準的な実践になりつつあります。",
+  "model_management_cta.desc_2":"モデルの選択肢は、通常階層的に提示され、それぞれの階層が異なるトレードオフや適用シーンを表しています。",
 
   "Parameters": "パラメータ",
   "Include constraints with your prompt for the AI to reference when generating its result": "結果生成時にAIが参照する制約条件をプロンプトに含めます。",

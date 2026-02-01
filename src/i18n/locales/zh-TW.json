@@ -121,8 +121,8 @@
 
   "Model management": "模型管理",
   "Let users specify what model to use for their prompts": "讓使用者指定用於其提示詞的 AI 模型。",
-  "model_management_cta.desc_1":"",
-  "model_management_cta.desc_2":"",
+  "model_management_cta.desc_1":"出於效能、品質或成本等考量，使用者可能希望更換生成結果的模型。不同模型各有強項與限制，因此提供模型切換功能，或明確顯示當前使用模型，已逐漸成為 AI 產品的標準做法。",
+  "model_management_cta.desc_2":"模型選項通常以分層方式呈現，每一層級都代表不同的取捨與適用情境。",
 
   "Parameters": "參數設定",
   "Include constraints with your prompt for the AI to reference when generating its result": "在提示詞中加入約束條件，供 AI 生成結果時參考。",

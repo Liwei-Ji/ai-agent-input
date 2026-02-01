@@ -121,8 +121,8 @@
 
   "Model management": "Model management",
   "Let users specify what model to use for their prompts": "Let users specify what model to use for their prompts",
-  "model_management_cta.desc_1":"",
-  "model_management_cta.desc_2":"",
+  "model_management_cta.desc_1":"For reasons of performance, quality, or cost, users may wish to switch the model used for generating outputs. Different models have distinct strengths and limitations, so providing a model-switching feature—or clearly displaying the currently active model—has become a standard practice in AI products.",
+  "model_management_cta.desc_2":"Model options are typically presented in a hierarchical manner, with each tier representing different trade-offs and suitable use cases.",
 
   "Parameters": "Parameters",
   "Include constraints with your prompt for the AI to reference when generating its result": "Include constraints with your prompt for the AI to reference when generating its result",
