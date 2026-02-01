@@ -126,8 +126,8 @@
 
   "Parameters": "Parameters",
   "Include constraints with your prompt for the AI to reference when generating its result": "Include constraints with your prompt for the AI to reference when generating its result",
-  "parameters_cta.desc_1":"",
-  "parameters_cta.desc_2":"",
+  "parameters_cta.desc_1":"Parameters act as regulators between user intent and the model’s generation process, helping the AI interpret inputs, weigh trade-offs, and form responses. They function like dials on a machine, allowing users to control the AI’s level of strictness, exploration, constraint, and proactiveness.",
+  "parameters_cta.desc_2":"Default values should be designed to be clear and easy to understand. Since most users will not adjust parameters, defaults should prioritize common and intuitive options, avoiding confusion for new users while still offering advanced settings when needed.",
 
   "Personal voice": "Personal voice",
   "Ensure outputs match your voice, tone, and preferences in a consistent way": "Ensure outputs match your voice, tone, and preferences in a consistent way",

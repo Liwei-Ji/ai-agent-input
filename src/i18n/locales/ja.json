@@ -126,8 +126,8 @@
 
   "Parameters": "パラメータ",
   "Include constraints with your prompt for the AI to reference when generating its result": "結果生成時にAIが参照する制約条件をプロンプトに含めます。",
-  "parameters_cta.desc_1":"",
-  "parameters_cta.desc_2":"",
+  "parameters_cta.desc_1":"パラメータは、ユーザーの意図とモデルの生成プロセスの間で調整役を果たし、入力の解釈、取捨選択、そして応答の形成をAIが行う際の判断を支えます。それらは機械のつまみのようなもので、厳密さの度合い、探索の幅、制約条件、能動性といった要素をユーザーがコントロールできるようにします。",
+  "parameters_cta.desc_2":"デフォルト値は、明確で理解しやすいように設計されるべきです。多くのユーザーはパラメータを調整しないことを前提に、初期設定は一般的で直感的な選択肢を中心とし、新規ユーザーを混乱させないよう配慮する必要があります。高度な調整が必要な場合にのみ、詳細設定（アドバンスドオプション）を提供するのが望ましいでしょう。",
 
   "Personal voice": "パーソナルボイス",
   "Ensure outputs match your voice, tone, and preferences in a consistent way": "出力が常にユーザー自身の口調、トーン、好みに一致するようにします。",

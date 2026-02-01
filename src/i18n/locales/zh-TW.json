@@ -126,8 +126,8 @@
 
   "Parameters": "參數設定",
   "Include constraints with your prompt for the AI to reference when generating its result": "在提示詞中加入約束條件，供 AI 生成結果時參考。",
-  "parameters_cta.desc_1":"",
-  "parameters_cta.desc_2":"",
+  "parameters_cta.desc_1":"參數在使用者意圖與模型生成過程之間發揮調節作用，幫助 AI 判斷輸入、權衡取捨並形成回應。它們就像機器的旋鈕，讓使用者掌控 AI 的嚴格程度、探索空間、約束條件與主動程度。",
+  "parameters_cta.desc_2":"預設值應設計得清楚且易於理解。考量多數使用者不會調整參數，預設設定應以常用、直覺的選項為主，並避免讓新使用者感到困惑；必要時再提供進階選項。",
 
   "Personal voice": "個人化口吻",
   "Ensure outputs match your voice, tone, and preferences in a consistent way": "確保輸出內容始終符合您的語氣、色調和偏好。",
