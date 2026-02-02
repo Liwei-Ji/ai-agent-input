@@ -83,8 +83,8 @@
 
   "Synthesis": "Synthesis",
   "Distill or reorganize complicated information into simple structure": "Distill or reorganize complicated information into simple structure",
-  "synthesis_cta.desc_1":"",
-  "synthesis_cta.desc_2":"",
+  "synthesis_cta.desc_1":"By integrating and reorganizing information from multiple sources, synthesis uncovers patterns and insights, distinguishing it from simple summarization, which merely compresses content without introducing new interpretation.",
+  "synthesis_cta.desc_2":"After ideas are categorized and prioritized, they can be transformed into actionable plans with clearly defined owners and next steps. Integrating this process with project management tools helps streamline the transition from ideation to execution.",
 
   "Token layering": "Token layering",
   "Construct a prompt with raw tokens, just like building with legos": "Construct a prompt with raw tokens, just like building with legos",

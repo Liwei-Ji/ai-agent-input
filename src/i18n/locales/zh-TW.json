@@ -81,10 +81,10 @@
   "summary_cta.desc_1":"摘要用來濃縮與整理資訊，幫助使用者快速掌握重點並採取行動。無論涵蓋單一或多個來源，摘要都應忠於原文，專注於核心內容，而非加入解讀或主觀判斷。這能讓使用者明確分辨哪些是自動整理的摘要，哪些則是 AI 的延伸或綜合結果，從而建立信任。",
   "summary_cta.desc_2":"在摘要中自動加入出處標註，並以內嵌引用或可點擊連結呈現，能提升內容的可信度，協助使用者驗證資訊並避免誤讀。",
 
-  "Synthesis": "綜合分析",
+  "Synthesis": "整合分析",
   "Distill or reorganize complicated information into simple structure": "將複雜資訊提煉或重組為簡單結構。",
-  "synthesis_cta.desc_1":"",
-  "synthesis_cta.desc_2":"",
+  "synthesis_cta.desc_1":"透過整合並重新組織多個來源的資料，挖掘其中的模式與洞察，因此有別於僅壓縮內容、未加入新解釋的概括。",
+  "synthesis_cta.desc_2":"將創意分類並設定優先順序後，轉化為可執行的計畫，明確負責人與下一步行動，並與專案管理工具串接，讓構想到落地執行的過程更加順暢。",
 
   "Token layering": "Token 分層",
   "Construct a prompt with raw tokens, just like building with legos": "像玩樂高一樣，使用原始 Token 構建提示詞。",

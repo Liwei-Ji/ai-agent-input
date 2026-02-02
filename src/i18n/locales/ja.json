@@ -83,8 +83,8 @@
 
   "Synthesis": "統合",
   "Distill or reorganize complicated information into simple structure": "複雑な情報を抽出・再構成してシンプルな構造にします。",
-  "synthesis_cta.desc_1":"",
-  "synthesis_cta.desc_2":"",
+  "synthesis_cta.desc_1":"複数の情報源を統合・再構成し、そこからパターンやインサイトを抽出する点において、単に内容を圧縮し、新たな解釈を加えない要約とは異なります。",
+  "synthesis_cta.desc_2":"アイデアを分類し、優先順位を設定したうえで実行可能な計画へと落とし込み、担当者や次のアクションを明確にします。さらに、プロジェクト管理ツールと連携することで、構想から実行への移行をよりスムーズにします。",
 
   "Token layering": "トークンレイヤリング",
   "Construct a prompt with raw tokens, just like building with legos": "レゴを組み立てるように、生のトークンでプロンプトを構築します。",
