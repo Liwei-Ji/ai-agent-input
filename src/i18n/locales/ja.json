@@ -116,8 +116,8 @@
 
   "Inpainting": "インペインティング",
   "Target specific areas of the AI's result to regenerate or remix": "AIの生成結果の特定の部分を指定して、再生成や修正を行います。",
-  "inpainting_cta.desc_1":"",
-  "inpainting_cta.desc_2":"",
+  "inpainting_cta.desc_1":"インターフェースは、ユーザーが編集可能な領域を素早く見つけられるよう支援し、修正したい範囲を正確に選択できる操作手段を提供すべきです。ハイライトされたテキストに対してインライン操作を直接適用することで、編集効率を高めることができます。",
+  "inpainting_cta.desc_2":"部分的な調整が可能になることで、ユーザーはコンテンツ全体を再生成することなく、特定の段落のみをAIに修正させることができます。これにより、コラボレーションはより安定かつ制御しやすくなり、手戻りのコストを抑え、反復改善のスピードを向上させることができます。",
 
   "Model management": "モデル管理",
   "Let users specify what model to use for their prompts": "プロンプトに使用するAIモデルをユーザーが指定できるようにします。",

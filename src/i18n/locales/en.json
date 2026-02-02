@@ -116,8 +116,8 @@
 
   "Inpainting": "Inpainting",
   "Target specific areas of the AI's result to regenerate or remix": "Target specific areas of the AI's result to regenerate or remix",
-  "inpainting_cta.desc_1":"",
-  "inpainting_cta.desc_2":"",
+  "inpainting_cta.desc_1":"Interfaces should help users quickly identify editable regions and provide precise interaction methods that allow them to select the exact scope of changes. Applying inline actions directly to highlighted text can significantly improve editing efficiency.",
+  "inpainting_cta.desc_2":"The ability to make localized adjustments allows users to ask the AI to modify specific sections without regenerating the entire content, making collaboration more stable and controllable while reducing rework costs and increasing iteration speed.",
 
   "Model management": "Model management",
   "Let users specify what model to use for their prompts": "Let users specify what model to use for their prompts",

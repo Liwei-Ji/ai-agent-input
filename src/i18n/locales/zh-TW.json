@@ -114,10 +114,10 @@
   "filters_cta.desc_1":"",
   "filters_cta.desc_2":"",
 
-  "Inpainting": "局部重繪",
+  "Inpainting": "局部調整",
   "Target specific areas of the AI's result to regenerate or remix": "針對 AI 生成結果的特定區域進行重新生成或修改。",
-  "inpainting_cta.desc_1":"",
-  "inpainting_cta.desc_2":"",
+  "inpainting_cta.desc_1":"介面應協助使用者快速找到可編輯區域，並提供精準的操作方式，讓他們能選取需要修改的範圍。透過內聯操作直接作用於被高亮的文字，可提升編輯效率。",
+  "inpainting_cta.desc_2":"局部調整的能力讓使用者不必重新生成整份內容，就能請 AI 修改特定段落，讓協作更穩定、可控，並有效降低重工成本、提升迭代速度。",
 
   "Model management": "模型管理",
   "Let users specify what model to use for their prompts": "讓使用者指定用於其提示詞的 AI 模型。",
