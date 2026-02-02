@@ -58,8 +58,8 @@
 
   "Madlibs": "マドリブ",
   "Repeatedly run generative tasks without compromising on the format or accuracy": "形式や精度を損なうことなく、生成タスクを繰り返し実行します。",
-  "mablibs_cta.desc_1":"",
-  "mablibs_cta.desc_2":"",
+  "mablibs_cta.desc_1":"構造化入力フィールドは、複雑なタスクを分解し、プロンプト作成を簡素化します。ユーザーは名前、製品情報、トーンなどの重要な変数だけを入力すればよく、詳細な説明をすべて書く必要はありません。これにより、ミスを減らすとともに、チーム全体の出力の一貫性を維持できます。",
+  "mablibs_cta.desc_2":"デフォルトの入力により、出力の修正から指示内容へのフォーカスが移り、プロセスの安定性が向上します。また、チームに対してブランドやワークフローに沿った共有プロンプトのリソースを提供することも可能になります。",
   
   "Open text": "オープンテキスト",
   "Open ended prompt inputs that can be used in AI conversations and other natural language prompting": "AIとの会話や自然言語プロンプトに使用できる自由入力欄です。",

@@ -58,8 +58,8 @@
 
   "Madlibs": "填充填空",
   "Repeatedly run generative tasks without compromising on the format or accuracy": "在不犧牲格式或準確性的情況下，重複執行生成任務。",
-  "mablibs_cta.desc_1":"",
-  "mablibs_cta.desc_2":"",
+  "mablibs_cta.desc_1":"結構化輸入欄位將複雜任務拆解，簡化提示編寫。使用者只需填寫關鍵變數，例如名稱、產品資訊或語氣，而不必完整撰寫說明，既減少錯誤，也維持團隊輸出一致性。",
+  "mablibs_cta.desc_2":"預設輸入將焦點從修正輸出轉向指引內容，提升流程穩定性，並為團隊提供與品牌或工作流程相符的共享提示資源。",
 
   "Open text": "開放文本",
   "Open ended prompt inputs that can be used in AI conversations and other natural language prompting": "可用於 AI 對話和其他自然語言提示的開放式提示輸入。",

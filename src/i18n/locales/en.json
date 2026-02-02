@@ -58,8 +58,8 @@
 
   "Madlibs": "Madlibs",
   "Repeatedly run generative tasks without compromising on the format or accuracy": "Repeatedly run generative tasks without compromising on the format or accuracy",
-  "mablibs_cta.desc_1":"",
-  "mablibs_cta.desc_2":"",
+  "mablibs_cta.desc_1":"Structured input fields break down complex tasks, simplifying prompt creation. Users only need to fill in key variables, such as names, product information, or tone, without writing full instructions. This reduces errors while maintaining consistency across team outputs.",
+  "mablibs_cta.desc_2":"Default input shifts the focus from correcting outputs to guiding content, enhancing process stability and providing teams with a shared prompt resource aligned with their brand and workflows.",
 
   "Open text": "Open text",
   "Open ended prompt inputs that can be used in AI conversations and other natural language prompting": "Open ended prompt inputs that can be used in AI conversations and other natural language prompting",
