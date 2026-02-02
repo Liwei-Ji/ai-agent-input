@@ -78,8 +78,8 @@
 
   "Summary": "要約",
   "Have AI distill a topic or resource down to its essence": "AIにトピックやリソースをエッセンスのみに抽出させます。",
-  "summary_cta.desc_1":"",
-  "summary_cta.desc_2":"",
+  "summary_cta.desc_1":"要約は、情報を凝縮・整理し、ユーザーが要点を素早く把握して行動に移せるよう支援するためのものです。単一の情報源であっても、複数の情報源を扱う場合であっても、要約は原文に忠実であり、解釈や主観的な判断を加えず、核心となる内容に焦点を当てるべきです。これにより、ユーザーは自動的に整理された要約と、AIによる拡張や統合の結果とを明確に区別でき、信頼の構築につながります。",
+  "summary_cta.desc_2":"要約に出所情報を自動的に付与し、インライン引用やクリック可能なリンクとして表示することで、コンテンツの信頼性が高まり、ユーザーが情報を検証しやすくなるとともに、誤解を防ぐことができます。",
 
   "Synthesis": "統合",
   "Distill or reorganize complicated information into simple structure": "複雑な情報を抽出・再構成してシンプルな構造にします。",

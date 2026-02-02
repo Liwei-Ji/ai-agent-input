@@ -78,8 +78,8 @@
 
   "Summary": "摘要生成",
   "Have AI distill a topic or resource down to its essence": "讓 AI 將主題或資源提煉成核心精華。",
-  "summary_cta.desc_1":"",
-  "summary_cta.desc_2":"",
+  "summary_cta.desc_1":"摘要用來濃縮與整理資訊，幫助使用者快速掌握重點並採取行動。無論涵蓋單一或多個來源，摘要都應忠於原文，專注於核心內容，而非加入解讀或主觀判斷。這能讓使用者明確分辨哪些是自動整理的摘要，哪些則是 AI 的延伸或綜合結果，從而建立信任。",
+  "summary_cta.desc_2":"在摘要中自動加入出處標註，並以內嵌引用或可點擊連結呈現，能提升內容的可信度，協助使用者驗證資訊並避免誤讀。",
 
   "Synthesis": "綜合分析",
   "Distill or reorganize complicated information into simple structure": "將複雜資訊提煉或重組為簡單結構。",

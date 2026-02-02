@@ -78,8 +78,8 @@
 
   "Summary": "Summary",
   "Have AI distill a topic or resource down to its essence": "Have AI distill a topic or resource down to its essence",
-  "summary_cta.desc_1":"",
-  "summary_cta.desc_2":"",
+  "summary_cta.desc_1":"Summaries are used to condense and organize information, helping users quickly grasp key points and take action. Whether covering a single source or multiple sources, summaries should remain faithful to the original material and focus on core content, rather than introducing interpretation or subjective judgment. This clarity helps users distinguish between automatically generated summaries and AI-added synthesis or extension, thereby building trust.",
+  "summary_cta.desc_2":"Automatically including source attribution in summaries—presented as inline citations or clickable links—enhances credibility, supports information verification, and helps prevent misinterpretation.",
 
   "Synthesis": "Synthesis",
   "Distill or reorganize complicated information into simple structure": "Distill or reorganize complicated information into simple structure",
