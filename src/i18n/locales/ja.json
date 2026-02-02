@@ -35,8 +35,8 @@
 
   "Templates": "テンプレート",
   "Structured templates that can be filled by the user or pre-filled by the AI": "ユーザーが記入するか、AIが事前入力できる構造化されたテンプレートです。",
-  "templates_cta.desc_1":"",
-  "templates_cta.desc_2":"",
+  "templates_cta.desc_1":"テンプレートは、複雑な製品の学習コストを下げ、新規ユーザーが馴染みのある枠組みを通じて素早く使い始め、作業を完了できるようにします。",
+  "templates_cta.desc_2":"テンプレートの強みは、パラメータ、推奨プロンプト、テキスト入力を一体化して提供できる点にあります。特に、安定した結果を得るために高度に具体的な指示が求められるツールに適しています。",
 
   "Inputs": "インプット",
   "Submit the user's prompt to the AI within its surrounding context": "関連するコンテキスト内でユーザーのプロンプトをAIに送信します。",

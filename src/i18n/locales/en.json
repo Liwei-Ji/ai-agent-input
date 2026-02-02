@@ -35,8 +35,8 @@
   
   "Templates": "Templates",
   "Structured templates that can be filled by the user or pre-filled by the AI": "Structured templates that can be filled by the user or pre-filled by the AI",
-  "templates_cta.desc_1":"",
-  "templates_cta.desc_2":"",
+  "templates_cta.desc_1":"Templates reduce the learning curve of complex products by allowing new users to get started quickly and complete tasks within familiar structures.",
+  "templates_cta.desc_2":"The strength of templates lies in their ability to unify parameters, recommended prompts, and text inputs into a single experience, making them especially well suited for tools that require highly specific prompts to produce consistent results.",
 
   "Inputs": "Inputs",
   "Submit the user's prompt to the AI within its surrounding context": "Submit the user's prompt to the AI within its surrounding context",

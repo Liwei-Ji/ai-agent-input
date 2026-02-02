@@ -35,8 +35,8 @@
 
   "Templates": "結構模板",
   "Structured templates that can be filled by the user or pre-filled by the AI": "可由使用者填寫或由 AI 預填的結構化模板。",
-  "templates_cta.desc_1":"",
-  "templates_cta.desc_2":"",
+  "templates_cta.desc_1":"模板能降低複雜產品的學習門檻，讓新使用者透過熟悉的框架快速上手並完成工作。",
+  "templates_cta.desc_2":"模板的強大之處在於將參數、建議提示與文字輸入整合為一體，特別適合那些需要高度具體提示才能穩定產出結果的工具。",
 
   "Inputs": "輸入引導",
   "Submit the user's prompt to the AI within its surrounding context": "在相關上下文環境中將使用者的提示詞提交給 AI。",
