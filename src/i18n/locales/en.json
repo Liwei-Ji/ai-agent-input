@@ -88,8 +88,8 @@
 
   "Token layering": "Token layering",
   "Construct a prompt with raw tokens, just like building with legos": "Construct a prompt with raw tokens, just like building with legos",
-  "token_layering_cta.desc_1":"",
-  "token_layering_cta.desc_2":"",
+  "token_layering_cta.desc_1":"Through a modular, block-based approach to instruction building, role definitions, actions, and output formats are decomposed into combinable tokens. Users can construct clear, well-structured AI system instructions simply by selecting and arranging these tokens, significantly lowering the barrier to prompt creation while preserving a high degree of professional control and flexibility.",
+  "token_layering_cta.desc_2":"The interface provides a real-time preview of the complete prompt assembled from tokens, allowing users to clearly understand how each module influences the outcome as they work. Users can add, remove, or adjust configurations at any time, transforming what was once an abstract process of AI instruction design into an intuitive, visual, and highly iterative interactive experience.",
 
   "Transform": "Transform",
   "Use AI to change the modality of content": "Use AI to change the modality of content",

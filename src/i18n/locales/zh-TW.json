@@ -86,10 +86,10 @@
   "synthesis_cta.desc_1":"透過整合並重新組織多個來源的資料，挖掘其中的模式與洞察，因此有別於僅壓縮內容、未加入新解釋的概括。",
   "synthesis_cta.desc_2":"將創意分類並設定優先順序後，轉化為可執行的計畫，明確負責人與下一步行動，並與專案管理工具串接，讓構想到落地執行的過程更加順暢。",
 
-  "Token layering": "Token 分層",
+  "Token layering": "Token積木化",
   "Construct a prompt with raw tokens, just like building with legos": "像玩樂高一樣，使用原始 Token 構建提示詞。",
-  "token_layering_cta.desc_1":"",
-  "token_layering_cta.desc_2":"",
+  "token_layering_cta.desc_1":"透過「積木化」的指令構建方式，將角色設定、執行動作與輸出格式拆解為可組合的 Token，使用者只需點選與排列，即可逐步堆疊出結構清晰、語意明確的 AI 系統指令，大幅降低撰寫 Prompt 的門檻，同時保留高度的專業控制彈性。",
+  "token_layering_cta.desc_2":"介面即時同步預覽由 Token 組合而成的完整 Prompt，讓使用者在操作過程中清楚理解每個模組對結果的影響，並可隨時新增、移除或調整配置，將原本抽象的 AI 指令設計流程，轉化為直觀、可視化且可反覆試驗的互動體驗。",
 
   "Transform": "格式轉換",
   "Use AI to change the modality of content": "使用 AI 改變內容的呈現形式或模態。",
