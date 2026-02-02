@@ -53,8 +53,8 @@
 
   "Quote Reply": "引用回覆",
   "Enable users to initiate a contextual AI query directly from selected content, preserving focus and reducing disruption to the primary interaction flow.":"允許使用者直接從選取的內容發起情境化 AI 查詢，維持專注並減少對主要互動流程的干擾。",
-  "quote_reply_cta.desc_1":"",
-  "quote_reply_cta.desc_2":"",
+  "quote_reply_cta.desc_1":"透過引用，使用者可以追溯 AI 回應的來源，將輸出連結到相關資料，例如 PDF 文件、文字記錄、網頁或內部資料庫。引用提高了透明度，並使用戶能夠驗證資訊。",
+  "quote_reply_cta.desc_2":"引用同時會塑造使用者對 AI 的信任感，使摘要看起來更可靠。但若摘要出現錯誤或扭曲，引用可能會引起誤導。",
 
   "Madlibs": "填充填空",
   "Repeatedly run generative tasks without compromising on the format or accuracy": "在不犧牲格式或準確性的情況下，重複執行生成任務。",

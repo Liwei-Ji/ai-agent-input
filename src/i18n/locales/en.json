@@ -53,8 +53,8 @@
 
   "Quote Reply": "Quote Reply",
   "Enable users to initiate a contextual AI query directly from selected content, preserving focus and reducing disruption to the primary interaction flow.":"Enable users to initiate a contextual AI query directly from selected content, preserving focus and reducing disruption to the primary interaction flow.",
-  "quote_reply_cta.desc_1":"",
-  "quote_reply_cta.desc_2":"",
+  "quote_reply_cta.desc_1":"Through citations, users can trace the sources underlying AI responses, linking outputs to relevant materials such as PDFs, transcripts, web pages, or internal databases. Citations increase transparency and enable users to verify information.",
+  "quote_reply_cta.desc_2":"Citations also help build user trust, making summaries appear more reliable. However, if a summary contains errors or distortions, citations may inadvertently contribute to misinformation.",
 
   "Madlibs": "Madlibs",
   "Repeatedly run generative tasks without compromising on the format or accuracy": "Repeatedly run generative tasks without compromising on the format or accuracy",

@@ -53,8 +53,8 @@
 
   "Quote Reply": "引用返信",
   "Enable users to initiate a contextual AI query directly from selected content, preserving focus and reducing disruption to the primary interaction flow.":"ユーザーが選択したコンテンツから直接コンテキストに基づくAIクエリを開始できるようにし、集中を維持しつつ主要なインタラクションの流れへの干渉を減らします。",
-  "quote_reply_cta.desc_1":"",
-  "quote_reply_cta.desc_2":"",
+  "quote_reply_cta.desc_1":"引用を通じて、ユーザーはAIの応答がどの情報に基づいているかを追跡でき、出力をPDF文書、テキスト記録、ウェブページ、または社内データベースなどの関連資料に紐付けることができます。引用により透明性が向上し、ユーザーは情報を検証できるようになります。",
+  "quote_reply_cta.desc_2":"引用は同時に、AIに対するユーザーの信頼感を醸成し、要約結果をより信頼性のあるものとして印象付けます。しかし、要約に誤りや歪みが含まれる場合、引用は誤解を招く可能性もあります。",
 
   "Madlibs": "マドリブ",
   "Repeatedly run generative tasks without compromising on the format or accuracy": "形式や精度を損なうことなく、生成タスクを繰り返し実行します。",
