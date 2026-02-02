@@ -48,8 +48,8 @@
 
   "Inline Action": "內嵌操作",
   "Ask or interact with AI contextually based on something already available on the page": "根據頁面上已有的內容，進行上下文相關的 AI 互動或提問。",
-  "inline_action_cta.desc_1":"",
-  "inline_action_cta.desc_2":"",
+  "inline_action_cta.desc_1":"使用者並不總是需要重做整份內容，而是希望只修改或回應其中的一小段。內嵌操作讓調整可以直接發生在指定位置。",
+  "inline_action_cta.desc_2":"在文字被選取並高亮後，介面會彈出內聯操作面板，引導 AI 聚焦於使用者希望處理的區域。",
 
   "Quote Reply": "引用回覆",
   "Enable users to initiate a contextual AI query directly from selected content, preserving focus and reducing disruption to the primary interaction flow.":"允許使用者直接從選取的內容發起情境化 AI 查詢，維持專注並減少對主要互動流程的干擾。",

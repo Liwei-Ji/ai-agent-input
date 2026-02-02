@@ -48,8 +48,8 @@
 
   "Inline Action": "インラインアクション",
   "Ask or interact with AI contextually based on something already available on the page": "ページ上の既存コンテンツに基づき、文脈に沿ってAIと対話します。",
-  "inline_action_cta.desc_1":"",
-  "inline_action_cta.desc_2":"",
+  "inline_action_cta.desc_1":"ユーザーは必ずしもコンテンツ全体を再生成する必要はなく、その一部だけを修正・応答したい場合があります。インライン操作を用いることで、調整を指定した箇所で直接行うことができます。",
+  "inline_action_cta.desc_2":"テキストが選択されハイライトされると、インライン操作パネルが表示され、AIがユーザーが処理したい領域に集中できるようガイドします。",
 
   "Quote Reply": "引用返信",
   "Enable users to initiate a contextual AI query directly from selected content, preserving focus and reducing disruption to the primary interaction flow.":"ユーザーが選択したコンテンツから直接コンテキストに基づくAIクエリを開始できるようにし、集中を維持しつつ主要なインタラクションの流れへの干渉を減らします。",

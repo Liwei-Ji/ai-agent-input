@@ -48,8 +48,8 @@
 
   "Inline Action": "Inline Action",
   "Ask or interact with AI contextually based on something already available on the page": "Ask or interact with AI contextually based on something already available on the page",
-  "inline_action_cta.desc_1":"",
-  "inline_action_cta.desc_2":"",
+  "inline_action_cta.desc_1":"Users do not always need to regenerate an entire piece of content; they often want to modify or respond to just a small section. Inline actions allow adjustments to occur directly at the specified location.",
+  "inline_action_cta.desc_2":"When text is selected and highlighted, the interface displays an inline action panel, guiding the AI to focus on the region the user intends to edit.",
 
   "Quote Reply": "Quote Reply",
   "Enable users to initiate a contextual AI query directly from selected content, preserving focus and reducing disruption to the primary interaction flow.":"Enable users to initiate a contextual AI query directly from selected content, preserving focus and reducing disruption to the primary interaction flow.",
