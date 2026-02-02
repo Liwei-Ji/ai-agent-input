@@ -68,8 +68,8 @@
 
   "Remix": "リミックス",
   "Use existing content as the starting point for prompting": "既存のコンテンツをプロンプトの起点として利用します。",
-  "remix_cta.desc_1":"",
-  "remix_cta.desc_2":"",
+  "remix_cta.desc_1":"ユーザーは「再生成」機能を使ってコンテンツを更新し、同時にAIに新たな指示やプロンプトを与えて、出力を改善することができます。",
+  "remix_cta.desc_2":"これはプロンプトを最初から作成する必要はなく、既存の草稿をもとに新しいバージョンを生成できるため、プロンプト作成のハードルを下げるとともに、より多くの創造性を引き出し、AIを協力的なパートナーとして活用できます。",
 
   "Restyle": "リスタイル",
   "Transfer styles without changing the underlying structure of a generation": "生成物の基本構造を変えずにスタイルのみを変換します。",

@@ -68,8 +68,8 @@
 
   "Remix": "Remix",
   "Use existing content as the starting point for prompting": "Use existing content as the starting point for prompting",
-  "remix_cta.desc_1":"",
-  "remix_cta.desc_2":"",
+  "remix_cta.desc_1":"Users can refresh content using the regenerate feature, providing the AI with new instructions or prompts to improve outputs.",
+  "remix_cta.desc_2":"This does not require writing prompts from scratch; instead, it allows new versions to be generated on top of existing drafts. This lowers the barrier to prompt development while fostering creativity, positioning the AI as a collaborative partner.",
 
   "Restyle": "Restyle",
   "Transfer styles without changing the underlying structure of a generation": "Transfer styles without changing the underlying structure of a generation",

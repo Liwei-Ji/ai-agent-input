@@ -68,8 +68,8 @@
 
   "Remix": "重新組合",
   "Use existing content as the starting point for prompting": "將現有內容作為提示詞的起點進行修改。",
-  "remix_cta.desc_1":"",
-  "remix_cta.desc_2":"",
+  "remix_cta.desc_1":"使用者可透過重新產生功能重新整理內容，同時向 AI 提供新的指令或提示，以改進輸出。",
+  "remix_cta.desc_2":"這不需要從零開始撰寫提示，而是允許在現有草稿上生成新版本，既降低提示開發門檻，又激發更多創意，使 AI 成為協作夥伴。",
 
   "Restyle": "風格轉換",
   "Transfer styles without changing the underlying structure of a generation": "在不改變生成內容基本結構的情況下轉換風格。",
