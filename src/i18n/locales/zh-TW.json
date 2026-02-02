@@ -73,8 +73,8 @@
 
   "Restyle": "風格轉換",
   "Transfer styles without changing the underlying structure of a generation": "在不改變生成內容基本結構的情況下轉換風格。",
-  "restyle_cta.desc_1":"",
-  "restyle_cta.desc_2":"",
+  "restyle_cta.desc_1":"人類會依語境改變說話語氣，AI 也能在保持內容不變的情況下，改變文字呈現的風格。",
+  "restyle_cta.desc_2":"介面提供預設的「調整風格」操作，使用者可以隨時切換風格，快速試驗不同表達方式，而不必預先準備具體目標或示例。",
 
   "Summary": "摘要生成",
   "Have AI distill a topic or resource down to its essence": "讓 AI 將主題或資源提煉成核心精華。",

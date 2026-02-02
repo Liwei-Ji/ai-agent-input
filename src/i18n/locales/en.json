@@ -73,8 +73,8 @@
 
   "Restyle": "Restyle",
   "Transfer styles without changing the underlying structure of a generation": "Transfer styles without changing the underlying structure of a generation",
-  "restyle_cta.desc_1":"",
-  "restyle_cta.desc_2":"",
+  "restyle_cta.desc_1":"Just as humans adjust their tone according to context, AI can modify the presentation style of text while keeping the underlying content unchanged.",
+  "restyle_cta.desc_2":"The interface provides a default “Adjust Style” feature, allowing users to switch styles at any time and quickly experiment with different expressions without needing to prepare specific targets or examples in advance.",
 
   "Summary": "Summary",
   "Have AI distill a topic or resource down to its essence": "Have AI distill a topic or resource down to its essence",

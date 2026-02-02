@@ -73,8 +73,8 @@
 
   "Restyle": "リスタイル",
   "Transfer styles without changing the underlying structure of a generation": "生成物の基本構造を変えずにスタイルのみを変換します。",
-  "restyle_cta.desc_1":"",
-  "restyle_cta.desc_2":"",
+  "restyle_cta.desc_1":"人間は文脈に応じて話し方やトーンを変えますが、AIも内容を変えずに文字表現のスタイルを変えることができます。",
+  "restyle_cta.desc_2":"インターフェースには、あらかじめ用意された「スタイル調整」機能があり、ユーザーはいつでもスタイルを切り替えて、異なる表現方法を素早く試すことができます。具体的な目標やサンプルを事前に用意する必要はありません。",
 
   "Summary": "要約",
   "Have AI distill a topic or resource down to its essence": "AIにトピックやリソースをエッセンスのみに抽出させます。",
