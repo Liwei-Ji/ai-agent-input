@@ -43,8 +43,8 @@
   
   "Auto fill": "オートフィル",
   "Makes it easy for users to extend a prompt to multiple inputs at once": "プロンプトを一度に複数の入力欄へ簡単に拡張できるようにします。",
-  "auto_fill_cta.desc_1":"",
-  "auto_fill_cta.desc_2":"",
+  "auto_fill_cta.desc_1":"オートフィルは、ユーザーの明示的または暗黙的な意図を活用し、複数のフィールドやデータレコードに対して、一度にプロンプトや操作を適用します。特に、繰り返しが多く、形式が予測しやすい入力に適しています。",
+  "auto_fill_cta.desc_2":"ユーザーの入力に応じて、システムはコンテキストをもとにリアルタイムで予測を行い、テキストから重要な情報を抽出して、構造化されたフィールドや変数に書き込みます。例えば、フォームの自動補完、ワークフローのパラメータ更新、CRMなどのシステムへの事前入力が挙げられます。",
 
   "Inline Action": "インラインアクション",
   "Ask or interact with AI contextually based on something already available on the page": "ページ上の既存コンテンツに基づき、文脈に沿ってAIと対話します。",

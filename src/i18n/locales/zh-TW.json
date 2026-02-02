@@ -43,8 +43,8 @@
   
   "Auto fill": "自動填充",
   "Makes it easy for users to extend a prompt to multiple inputs at once": "讓使用者輕鬆地將提示詞一次擴展到多個輸入框中。",
-  "auto_fill_cta.desc_1":"",
-  "auto_fill_cta.desc_2":"",
+  "auto_fill_cta.desc_1":"自動填入會利用使用者的直接或隱含意圖，一次性在多個欄位或資料記錄中完成提示與操作，特別適用於重複性高或格式可預期的輸入。",
+  "auto_fill_cta.desc_2":"在使用者輸入時，系統會根據上下文即時提供預測，擷取文字中的關鍵資訊並寫入結構化欄位或變數，例如自動完成表單、更新工作流程參數，或預先填入 CRM 等系統。",
 
   "Inline Action": "內嵌操作",
   "Ask or interact with AI contextually based on something already available on the page": "根據頁面上已有的內容，進行上下文相關的 AI 互動或提問。",

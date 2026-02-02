@@ -43,8 +43,8 @@
   
   "Auto fill": "Auto fill",
   "Makes it easy for users to extend a prompt to multiple inputs at once": "Makes it easy for users to extend a prompt to multiple inputs at once",
-  "auto_fill_cta.desc_1":"",
-  "auto_fill_cta.desc_2":"",
+  "auto_fill_cta.desc_1":"Autofill leverages users’ explicit or implicit intent to complete prompts and actions across multiple fields or records in a single step, making it particularly suitable for repetitive tasks or inputs with predictable formats.",
+  "auto_fill_cta.desc_2":"As users enter information, the system provides real-time, context-aware predictions, extracting key details from the text and populating structured fields or variables—such as automatically completing forms, updating workflow parameters, or pre-filling systems like CRMs.",
 
   "Inline Action": "Inline Action",
   "Ask or interact with AI contextually based on something already available on the page": "Ask or interact with AI contextually based on something already available on the page",
