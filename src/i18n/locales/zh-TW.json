@@ -63,8 +63,8 @@
 
   "Open text": "開放文本",
   "Open ended prompt inputs that can be used in AI conversations and other natural language prompting": "可用於 AI 對話和其他自然語言提示的開放式提示輸入。",
-  "open_text_cta.desc_1":"",
-  "open_texe_cta.desc_2":"",
+  "open_text_cta.desc_1":"開放式輸入已成為互動 AI 的基礎，它促進了使用者與模型之間的對話。但簡單的輸入介面並不保證容易使用：只有當使用者清楚自己的需求時，互動才會順暢。",
+  "open_texe_cta.desc_2":"導入入門導航和提示建立工具，可以引導使用者快速上手，並幫助他們充分利用 AI 的開放式輸入能力。",
 
   "Remix": "重新組合",
   "Use existing content as the starting point for prompting": "將現有內容作為提示詞的起點進行修改。",

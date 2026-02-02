@@ -63,8 +63,8 @@
 
   "Open text": "Open text",
   "Open ended prompt inputs that can be used in AI conversations and other natural language prompting": "Open ended prompt inputs that can be used in AI conversations and other natural language prompting",
-  "open_text_cta.desc_1":"",
-  "open_texe_cta.desc_2":"",
+  "open_text_cta.desc_1":"Open-ended input has become the foundation of interactive AI, enabling conversational engagement between users and the model. However, a simple input interface does not automatically ensure ease of use; smooth interactions occur only when users clearly understand their own needs.",
+  "open_texe_cta.desc_2":"Introducing onboarding guidance and prompt-building tools can help users get started quickly and make full use of the AI’s open-ended input capabilities.",
 
   "Remix": "Remix",
   "Use existing content as the starting point for prompting": "Use existing content as the starting point for prompting",

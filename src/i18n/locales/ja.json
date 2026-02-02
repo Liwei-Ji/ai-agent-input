@@ -63,8 +63,8 @@
   
   "Open text": "オープンテキスト",
   "Open ended prompt inputs that can be used in AI conversations and other natural language prompting": "AIとの会話や自然言語プロンプトに使用できる自由入力欄です。",
-  "open_text_cta.desc_1":"",
-  "open_texe_cta.desc_2":"",
+  "open_text_cta.desc_1":"オープン入力は、対話型AIの基盤となっており、ユーザーとモデル間の対話を促進します。しかし、単純な入力インターフェースだからといって、必ずしも使いやすいわけではありません。ユーザーが自分のニーズを明確に理解している場合にのみ、スムーズなインタラクションが可能になります。",
+  "open_texe_cta.desc_2":"入門ナビゲーションやプロンプト作成支援ツールを導入することで、ユーザーが迅速に使い始められるよう案内し、オープン入力の能力を最大限に活用できるよう支援します。",
 
   "Remix": "リミックス",
   "Use existing content as the starting point for prompting": "既存のコンテンツをプロンプトの起点として利用します。",
