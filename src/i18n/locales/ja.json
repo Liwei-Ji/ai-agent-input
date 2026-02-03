@@ -101,8 +101,8 @@
   
   "Collapse Input": "入力ボックスを展開",
   "Improve focus and layout efficiency by collapsing the input area while preserving all input content.": "入力ボックスを折りたたみつつ、すべての入力内容を保持することで、集中力とレイアウト効率を向上させます。",
-  "collapse_input_cta.desc_1":"",
-  "collapse_input_cta.desc_2":"",
+  "collapse_input_cta.desc_1":"ユーザーの入力に応じて入力欄の高さをリアルタイムで調整します。折りたたみ状態では、テキスト量に合わせて自動的に高さが増し、最大高さの制限を設けたうえで、必要に応じて展開可能であることを示します。展開状態では、固定サイズの大きな入力エリアに切り替わり、長文入力時でも高い可読性と操作性を確保します。",
+  "collapse_input_cta.desc_2":"短い入力ではインターフェースを簡潔に保ち、長い入力では明確な拡張体験を提供します。さらに、フォーカスに対するフィードバックを通じて、スムーズで効率的な入力フローを実現します。",
 
   "Attachments": "添付ファイル",
   "Give the AI a specific reference to anchor its response": "AIに回答の根拠となる特定の参照資料を提供します。",

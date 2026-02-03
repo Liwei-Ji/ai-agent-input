@@ -101,8 +101,8 @@
   
   "Collapse Input":"Collapse Input",
   "Improve focus and layout efficiency by collapsing the input area while preserving all input content.":"Improve focus and layout efficiency by collapsing the input area while preserving all input content.",
-  "collapse_input_cta.desc_1":"",
-  "collapse_input_cta.desc_2":"",
+  "collapse_input_cta.desc_1":"Dynamically adjust the input field height based on user input: in the collapsed state, the field automatically expands with the text up to a defined maximum height, with a prompt to expand when needed; in the expanded state, it switches to a fixed, larger input area to ensure readability and usability when entering longer content.",
+  "collapse_input_cta.desc_2":"Keep the interface minimal for short inputs, provide a clear expanded experience for longer inputs, and use focus feedback to create a smooth and efficient input flow.",
 
   "Attachments": "Attachments",
   "Give the AI a specific reference to anchor its response": "Give the AI a specific reference to anchor its response",

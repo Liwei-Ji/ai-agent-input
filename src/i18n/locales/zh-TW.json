@@ -101,8 +101,8 @@
 
   "Collapse Input": "折疊/收合輸入框",
   "Improve focus and layout efficiency by collapsing the input area while preserving all input content.": "透過收合輸入區域，同時保留所有輸入內容，以提升專注度與版面配置效率。",
-  "collapse_input_cta.desc_1":"",
-  "collapse_input_cta.desc_2":"",
+  "collapse_input_cta.desc_1":"根據使用者輸入即時調整輸入框的高度：在收合狀態下，隨文字自動增高並設有最大高度限制，必要時提示可展開；在展開狀態下，切換為固定的大型輸入區，確保輸入長內容時仍具備良好的可讀性與操作體驗。",
+  "collapse_input_cta.desc_2":"在短輸入時保持介面簡潔，在長輸入時提供清楚的擴展體驗，並透過焦點回饋，打造流暢且高效率的輸入流程。",
 
   "Attachments": "附件參考",
   "Give the AI a specific reference to anchor its response": "提供 AI 具體的參考資料以定位其回覆內容。",
