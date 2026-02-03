@@ -10,7 +10,7 @@
     "default_paragraph_1": "このデザインパターンは、直感的なインターフェースフィードバックを提供することで、ユーザーがAIとより効果的に対話できるように導きます。"
   },
 
-  "Wayfinders": "ウェイファインダー",
+  "Wayfinders": "ユーザー導線",
   "Give users clues about how to interact with the model, particularly when getting started.": "ユーザーにモデルとのやり取り方法のヒントを提供します（特に利用開始時）。",
   
   "Follow up": "フォローアップ",

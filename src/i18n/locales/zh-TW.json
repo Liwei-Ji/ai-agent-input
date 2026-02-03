@@ -10,7 +10,7 @@
     "default_paragraph_1": "這種設計模式通過提供直觀的界面反饋，引導使用者更有效地與 AI 進行對話。"
   },
 
-  "Wayfinders": "引路指標",
+  "Wayfinders": "使用者導引路徑",
   "Give users clues about how to interact with the model, particularly when getting started.": "為使用者提供如何與模型互動的線索，特別是在剛開始使用時。",
   
   "Follow up": "追問引導",
@@ -38,7 +38,7 @@
   "templates_cta.desc_1":"模板能降低複雜產品的學習門檻，讓新使用者透過熟悉的框架快速上手並完成工作。",
   "templates_cta.desc_2":"模板的強大之處在於將參數、建議提示與文字輸入整合為一體，特別適合那些需要高度具體提示才能穩定產出結果的工具。",
 
-  "Inputs": "輸入引導",
+  "Inputs": "互動輸入介面",
   "Submit the user's prompt to the AI within its surrounding context": "在相關上下文環境中將使用者的提示詞提交給 AI。",
   
   "Auto fill": "自動填充",
@@ -96,7 +96,7 @@
   "transform_cta.desc_1":"生成式 AI 的一項關鍵能力，是在不偏離原始意圖與約束的前提下，將內容跨模態轉換，例如從文字生成圖像，或將畫面內容轉為結構化的 HTML。",
   "transform_cta.desc_2":"各種模態各有其最佳使用情境：文字適合思考與表達，圖像能傳達情緒與風格，圖表則有助於快速審閱資料。這使得模態轉換成為促進人機創意協作的核心互動方式。",
 
-  "Tuners": "微調控制",
+  "Tuners": "體驗微調與控制機制",
   "Let users refine or remix their prompt to get improved results": "讓使用者精確調整或重新組合提示詞，以獲得更好的結果。",
 
   "Collapse Input": "折疊/收合輸入框",
@@ -144,7 +144,7 @@
   "workflows_cta.desc_1":"工作流程將多個步驟組合成可重複、可預測的操作序列。隨著智能體能力增強，互動模式將轉向支援智能體生成並說明自身工作流程，使其行為可被理解與檢視。因此，介面除了用於建構流程，也需承擔審查與檢查的功能。",
   "workflows_cta.desc_2":"相較於即時拼接的提示鏈，工作流程在事前已被定義，透過固定指令與參數反覆執行，確保結果一致。這種一致性讓它特別適合需要在重複任務中維持品質與可靠性的團隊。",
 
-  "Governors": "管理機制",
+  "Governors": "體驗行為規則",
   "Maintain user agency as the AI works in order to understand and direct the AI's logic": "在 AI 運作時保持使用者的主導權，以便理解並引導 AI 的邏輯。",
   
   "Citations": "引用出處",
@@ -202,7 +202,7 @@
   "variations_desc_1":"生成式 AI 的本質是機率性，因此結果可能存在隨機差異。提供多種變體，讓使用者能比較模型對相同提示的不同排列組合。",
   "variations_desc_2":"同一個種子可生成多個候選選項，使用者可從列表中挑選，所選內容將自動合併到主要輸出中。",
 
-  "Trust builder": "信任建立",
+  "Trust builder": "信任與透明機制",
   "Give users confidence that the AI's results are ethical, accurate, and trustworthy": "讓使用者相信 AI 的結果是合乎倫理、準確且值得信賴的。",
   
   "Consent": "同意",
@@ -224,7 +224,7 @@
   "interact_with_the_ai_without_leaving_any_traces_desc_1":"",
   "interact_with_the_ai_without_leaving_any_traces_desc_2":"",
 
-  "Dark matter": "隱性影響",
+  "Dark matter": "隱性互動元素",
   "Potentially nefarious, but certainly ambiguous patterns that impact user trust with questionable user value": "潛在有害但肯定含糊的模式，會影響使用者信任且價值存疑。",
   
   "Caveat": "風險警示",
@@ -242,7 +242,7 @@
   "data_ownership_desc_1":"個人資料在網路上的使用始終充滿爭議。當人們與 AI 互動或進行協作式創作時，使用者資料、平台資料與中介資訊之間的界線往往變得模糊。",
   "data_ownership_desc_2":"介面應提供透明且可控的設定機制，讓使用者清楚掌握自己選擇開啟或關閉的功能與相關資訊使用方式。",
 
-  "Identifiers": "識別標記",
+  "Identifiers": "視覺與識別元素",
   "Differentiate the AI from other features and highlight its use case": "將 AI 與其他功能區分開來，並強調其應用場景。",
   
   "Color": "顏色",
