@@ -20,8 +20,8 @@
 
   "Initial CTA": "Initial CTA",
   "Large, open-ended input inviting the user to start their first interaction with the AI": "Large, open-ended input inviting the user to start their first interaction with the AI",
-  "initial_cta.desc_1": "For many products, the first touchpoint with AI is through the Initial CTA: A prominent collection of inputs and actions that allow a user to start prompting. From here, the user works with the model through regenerations, variants, and other actions in order to reach their intended goal.",
-  "initial_cta.desc_2": "The most common implementation of this pattern is a large direct input box, where the system goal is to understand the user’s context and intent as quickly as possible while minimizing the amount of work they have to do to express it. The implementation of this pattern varies depending on the context and capabilities of the surrounding application.",
+  "initial_cta.desc_1": "In many products, the AI first-use experience is guided by an initial CTA: clear and prominent action options help users start interacting, after which they can achieve their goals through iteration, variant generation, or other features.",
+  "initial_cta.desc_2": "A common implementation is a large input field, designed to quickly capture user intent and context while minimizing interaction friction. The specific form varies depending on the application scenario and functional requirements.",
 
   "Nudges": "Nudges",
   "Alert users to actions they can take to use AI, especially if they are just getting started": "Alert users to actions they can take to use AI, especially if they are just getting started",

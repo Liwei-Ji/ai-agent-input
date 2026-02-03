@@ -21,7 +21,7 @@
   "Initial CTA": "初始呼籲",
   "Large, open-ended input inviting the user to start their first interaction with the AI": "大型開放式輸入框，邀請使用者開始與 AI 的首次互動。",
   "initial_cta.desc_1": "對許多產品而言，與 AI 的第一個接觸點是初始呼籲 (Initial CTA)：一個顯眼的輸入與操作集合，允許使用者開始進行提示。從這裡開始，使用者透過重新生成、變體及其他操作與模型互動，以達成最終目標。",
-  "initial_cta.desc_2": "此模式最常見的實現方式是大型直接輸入框，系統目標是在盡量減少使用者表達意圖所需勞力的同時，盡快理解其情境與意圖。此模式的實現因應用程式的情境與功能而異。",
+  "initial_cta.desc_2": "常見實作是大型輸入框，設計目標是快速理解使用者意圖並捕捉上下文，同時降低操作負擔。具體形式會隨應用場景與功能需求而不同。",
 
   "Nudges": "輕推",
   "Alert users to actions they can take to use AI, especially if they are just getting started": "提示使用者可以採取的行動以使用 AI，特別是剛入門時。",
