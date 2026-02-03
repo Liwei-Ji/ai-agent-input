@@ -111,8 +111,8 @@
 
   "Filters": "フィルター",
   "Constrain the inputs or the outputs of the AI by source, type, modality, etc": "ソース、タイプ、形式などによってAIの入出力を制限します。",
-  "filters_cta.desc_1":"",
-  "filters_cta.desc_2":"",
+  "filters_cta.desc_1":"フィルターは、生成コンテンツに対するユーザーの細かい制御を可能にします。どのデータやタグを優先的に利用するか、どれを避けるかを指定でき、AIが生成前に明確な境界ルールに従うことを保証します。",
+  "filters_cta.desc_2":"フィルターがない場合、AIはユーザーの意図から逸脱しやすく、無関係な情報を取り込んだり、不適切なスタイルの出力を生成したり、無効な方向に計算リソースを浪費したりする可能性があります。",
 
   "Inpainting": "インペインティング",
   "Target specific areas of the AI's result to regenerate or remix": "AIの生成結果の特定の部分を指定して、再生成や修正を行います。",

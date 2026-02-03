@@ -111,8 +111,8 @@
 
   "Filters": "Filters",
   "Constrain the inputs or the outputs of the AI by source, type, modality, etc": "Constrain the inputs or the outputs of the AI by source, type, modality, etc",
-  "filters_cta.desc_1":"",
-  "filters_cta.desc_2":"",
+  "filters_cta.desc_1":"Filters provide users with fine-grained control over generated content, specifying which data or markers should be prioritized and which should be avoided, ensuring that the AI follows clear boundary rules before generation.",
+  "filters_cta.desc_2":"Without filters, the AI may deviate from user intent, retrieve irrelevant information, produce inappropriate styles, or waste computational resources on unproductive directions.",
 
   "Inpainting": "Inpainting",
   "Target specific areas of the AI's result to regenerate or remix": "Target specific areas of the AI's result to regenerate or remix",

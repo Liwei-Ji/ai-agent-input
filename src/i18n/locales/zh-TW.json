@@ -111,8 +111,8 @@
 
   "Filters": "篩選過濾",
   "Constrain the inputs or the outputs of the AI by source, type, modality, etc": "根據來源、類型或形式限制 AI 的輸入或輸出。",
-  "filters_cta.desc_1":"",
-  "filters_cta.desc_2":"",
+  "filters_cta.desc_1":"過濾器提供使用者對生成內容的精細控制，指定哪些資料或標記應被優先採用，哪些應避免，確保 AI 在生成前遵循清晰的邊界規則。",
+  "filters_cta.desc_2":"沒有過濾器時，AI 容易偏離使用者意圖，抓取無關資訊、產生不合適風格，或浪費計算資源於無效方向。",
 
   "Inpainting": "局部調整",
   "Target specific areas of the AI's result to regenerate or remix": "針對 AI 生成結果的特定區域進行重新生成或修改。",
