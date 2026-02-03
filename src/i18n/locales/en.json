@@ -93,8 +93,8 @@
 
   "Transform": "Transform",
   "Use AI to change the modality of content": "Use AI to change the modality of content",
-  "transform_cta.desc_1":"",
-  "transform_cta.desc_2":"",
+  "transform_cta.desc_1":"A key capability of generative AI is cross-modal transformation—converting content between modalities while preserving the original intent and constraints, such as generating images from text or transforming visual content into structured HTML.",
+  "transform_cta.desc_2":"Each modality has its optimal use cases: text supports reasoning and expression, images convey emotion and style, and charts enable rapid data review. This makes modality switching a core interaction for enabling creative collaboration between humans and AI.",
 
   "Tuners": "Tuners",
   "Let users refine or remix their prompt to get improved results": "Let users refine or remix their prompt to get improved results",

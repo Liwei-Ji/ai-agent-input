@@ -93,8 +93,8 @@
 
   "Transform": "変換",
   "Use AI to change the modality of content": "AIを使用してコンテンツの形式やモダリティを変更します。",
-  "transform_cta.desc_1":"",
-  "transform_cta.desc_2":"",
+  "transform_cta.desc_1":"生成AIの重要な能力の一つは、元の意図や制約を逸脱することなく、コンテンツを異なるモダリティ間で変換できる点にあります。たとえば、テキストから画像を生成したり、画面上の内容を構造化されたHTMLへ変換したりすることが挙げられます。",
+  "transform_cta.desc_2":"それぞれのモダリティには最適な利用シーンがあります。テキストは思考や表現に適しており、画像は感情やスタイルを伝えるのに優れ、チャートや図表はデータを素早く把握するのに役立ちます。こうした特性から、モダリティ変換は人とAIの創造的な協働を促進する中核的なインタラクションとなります。",
 
   "Tuners": "チューナー",
   "Let users refine or remix their prompt to get improved results": "プロンプトを微調整またはリミックスして、より良い結果を得られるようにします。",
