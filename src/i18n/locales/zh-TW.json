@@ -15,8 +15,8 @@
   
   "Follow up": "追問引導",
   "Get more information from the user when the initial prompt isn't sufficiently clear": "當初始提示不夠清晰時，引導使用者提供更多資訊。",
-  "follow_up.desc_1": "在理想的情況下，使用者非常擅長提示詞，第一次嘗試就能獲得絕佳結果。但現實中往往並非如此。追問引導（Follow ups）是幫助使用者優化或擴展初始互動的提示、問題或內嵌操作，讓模型能更好地理解其意圖。",
-  "follow_up.desc_2": "適時的追問引導可以節省運算資源，防止徒勞無功，並傳達出 AI 正與使用者並肩協作，而非推倒重來的訊息。",
+  "follow_up.desc_1": "使用者理想狀態下能一次性得到期望結果，但通常需要透過後續提示、提問或內嵌操作來調整或補充，幫助 AI 更好理解意圖。",
+  "follow_up.desc_2": "後續操作不僅提高效率，節省計算資源，也讓使用者感受到 AI 正在配合他們的工作，而非每次重新啟動。",
 
   "Initial CTA": "初始呼籲",
   "Large, open-ended input inviting the user to start their first interaction with the AI": "大型開放式輸入框，邀請使用者開始與 AI 的首次互動。",

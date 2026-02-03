@@ -15,8 +15,8 @@
   
   "Follow up": "Follow up",
   "Get more information from the user when the initial prompt isn't sufficiently clear": "Get more information from the user when the initial prompt isn't sufficiently clear",
-  "follow_up.desc_1": "In an ideal scenario, the user is so good at prompting that they can reach a great outcome on their first try. In reality, that's often not the case. Follow ups are prompts, questions, or inline actions that help users refine or extend their initial interaction with the model so the model can better understand their intent.",
-  "follow_up.desc_2": "A well-timed follow up saves compute cycles, prevents wasted effort, and communicates that the AI is working alongside the user rather than starting over.",
+  "follow_up.desc_1": "Ideally, users would achieve the desired outcome in a single attempt, but adjustments or supplements—through follow-up prompts, questions, or inline operations—are usually needed to help the AI better understand intent.",
+  "follow_up.desc_2": "These follow-up actions not only improve efficiency and save computational resources, but also give users the sense that the AI is collaborating with their workflow rather than starting from scratch each time.",
 
   "Initial CTA": "Initial CTA",
   "Large, open-ended input inviting the user to start their first interaction with the AI": "Large, open-ended input inviting the user to start their first interaction with the AI",
