@@ -40,6 +40,21 @@ function App() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [handleScroll]);
 
+  // 當 selectedFeature 改變時 (例如點擊 Next/Prev)，同步更新側邊欄 activeId
+  useEffect(() => {
+    if (selectedFeature) {
+      // 在所有資料中，尋找包含這個 feature 的群組 (Group)
+      const foundGroup = data.find(group => 
+        group.features?.some(f => f.title === selectedFeature.title)
+      );
+
+      // 找到群組更新側邊欄 activeId
+      if (foundGroup) {
+        setActiveId(getSlug(foundGroup.title));
+      }
+    }
+  }, [selectedFeature]); // 監聽 selectedFeature 的變化
+
   return (
     <div className="flex bg-gray-50 min-h-screen">
       <Sidebar 
@@ -57,7 +72,7 @@ function App() {
             <FeatureDetail 
               feature={selectedFeature} 
               onBack={() => setSelectedFeature(null)} 
-              // 這裡正確傳入導航函數
+              // 正確傳入導航函數
               onNavigate={(nextFeature) => setSelectedFeature(nextFeature)}
             />
           ) : (
