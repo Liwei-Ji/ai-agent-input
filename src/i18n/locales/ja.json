@@ -106,8 +106,8 @@
 
   "Attachments": "添付ファイル",
   "Give the AI a specific reference to anchor its response": "AIに回答の根拠となる特定の参照資料を提供します。",
-  "attachments_cta.desc_1":"",
-  "attachments_cta.desc_2":"",
+  "attachments_cta.desc_1":"添付ファイルを通じて、ユーザーはモデルに重要な背景情報を補足することができ、生成ロジックに直接影響を与えます。これにより、応答はより完全なコンテキストに基づいたものとなり、誤解やエラーを減らし、結果のコントロール性を高めることができます。",
+  "attachments_cta.desc_2":"また、添付ファイルは意図のシグナルとしても機能し、冗長な説明を行わなくても、モデルがユーザーの期待するコンテンツの形式、構造、語調を推測できるようになります。その結果、初回出力の適合率が向上し、コミュニケーションコストの削減につながります。",
 
   "Filters": "フィルター",
   "Constrain the inputs or the outputs of the AI by source, type, modality, etc": "ソース、タイプ、形式などによってAIの入出力を制限します。",

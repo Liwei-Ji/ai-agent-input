@@ -106,8 +106,8 @@
 
   "Attachments": "Attachments",
   "Give the AI a specific reference to anchor its response": "Give the AI a specific reference to anchor its response",
-  "attachments_cta.desc_1":"",
-  "attachments_cta.desc_2":"",
+  "attachments_cta.desc_1":"Attachments allow users to supplement the model with critical background information, directly influencing its generation logic. This grounds responses in a more complete context, reduces misunderstandings and errors, and improves the controllability of results.",
+  "attachments_cta.desc_2":"Attachments also function as intent signals, enabling the model to infer the expected content format, structure, and tone without requiring lengthy explanations. This increases the likelihood of accurate first outputs and reduces communication overhead.",
 
   "Filters": "Filters",
   "Constrain the inputs or the outputs of the AI by source, type, modality, etc": "Constrain the inputs or the outputs of the AI by source, type, modality, etc",

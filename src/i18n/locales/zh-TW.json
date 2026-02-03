@@ -106,8 +106,8 @@
 
   "Attachments": "附件參考",
   "Give the AI a specific reference to anchor its response": "提供 AI 具體的參考資料以定位其回覆內容。",
-  "attachments_cta.desc_1":"",
-  "attachments_cta.desc_2":"",
+  "attachments_cta.desc_1":"透過附件，使用者能為模型補充關鍵背景資訊，直接影響其生成邏輯，讓回應基於更完整的情境脈絡，減少誤解與錯誤，並提升結果的可控性。",
+  "attachments_cta.desc_2":"附件同時扮演意圖標記的角色，使模型能在不需冗長說明的前提下，推測使用者期望的內容形式、結構與語調，提高首次輸出的命中率並節省溝通成本。",
 
   "Filters": "篩選過濾",
   "Constrain the inputs or the outputs of the AI by source, type, modality, etc": "根據來源、類型或形式限制 AI 的輸入或輸出。",
