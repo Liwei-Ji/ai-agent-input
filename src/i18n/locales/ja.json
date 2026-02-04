@@ -221,8 +221,8 @@
   "memory_desc_2":"新たに保存されるメモリはユーザーに明確に提示され、簡単に管理できる手段が提供されるべきです。ユーザーは自然言語で自身のアイデンティティを記述でき、AIは人間に対する理解を自然で直感的な対話感として維持する必要があります。",
 
   "Interact with the AI without leaving any traces": "履歴を残さずにAIとやり取りを行います。",
-  "interact_with_the_ai_without_leaving_any_traces_desc_1":"",
-  "interact_with_the_ai_without_leaving_any_traces_desc_2":"",
+  "interact_with_the_ai_without_leaving_any_traces_desc_1":"「標準モード」と「ゼロ保存」の2つの対話状態を区別し、状態切り替えによってコンテンツが保存されるかどうかを明確に表示します。ゼロ保存に入ると、システムは現在のメッセージを即時に消去し、その旨を説明表示します。以降のやり取りはこのセッション内に限定され、終了後は通常のチャットに戻り、内容は継続的に保存されます。",
+  "interact_with_the_ai_without_leaving_any_traces_desc_2":"状態が明確に可視化されていることで、ユーザーは常に対話が保存されるかどうかを把握でき、誤操作のリスクを減らせます。また、即時フィードバックを通じて、システムの挙動に対する信頼感を高めることができます。",
 
   "Dark matter": "ダークマター",
   "Potentially nefarious, but certainly ambiguous patterns that impact user trust with questionable user value": "悪影響を及ぼす可能性があり、ユーザーの信頼を損なう不透明なパターンです。",

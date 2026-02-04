@@ -221,8 +221,8 @@
   "memory_desc_2":"新增的記憶應明確向使用者呈現，並提供簡單的管理方式，讓使用者能控制哪些記憶被保留。使用者應能用自然語言描述自己的身分，而 AI 對人類的理解也應保持自然、直覺的互動感。",
 
   "Interact with the AI without leaving any traces": "與 AI 互動而不留下任何痕跡",
-  "interact_with_the_ai_without_leaving_any_traces_desc_1":"",
-  "interact_with_the_ai_without_leaving_any_traces_desc_2":"",
+  "interact_with_the_ai_without_leaving_any_traces_desc_1":"區分「標準模式」與「零留存」兩種對話狀態，並以狀態切換清楚標示是否保存內容。進入零留存後，系統會即時清空當前訊息並顯示說明，後續互動僅限於本次會話；退出後則恢復一般聊天，內容可持續累積保存。",
+  "interact_with_the_ai_without_leaving_any_traces_desc_2":"明確的狀態呈現讓使用者隨時掌握是否留存對話，減少誤觸風險，同時透過即時回饋建立對系統行為的信任感。",
 
   "Dark matter": "隱性互動元素",
   "Potentially nefarious, but certainly ambiguous patterns that impact user trust with questionable user value": "潛在有害但肯定含糊的模式，會影響使用者信任且價值存疑。",

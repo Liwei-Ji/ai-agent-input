@@ -221,8 +221,8 @@
   "memory_desc_2":"Newly stored memories should be clearly presented to users, along with simple management options that allow them to control which memories are retained. Users should be able to describe their identity in natural language, and the AI’s understanding of humans should maintain a natural and intuitive interactive feel.",
 
   "Interact with the AI without leaving any traces": "Interact with the AI without leaving any traces",
-  "interact_with_the_ai_without_leaving_any_traces_desc_1":"",
-  "interact_with_the_ai_without_leaving_any_traces_desc_2":"",
+  "interact_with_the_ai_without_leaving_any_traces_desc_1":"Distinguish between two conversation states—Standard Mode and Zero Retention—and clearly indicate through a state toggle whether content is being stored. Upon entering Zero Retention, the system immediately clears the current messages and displays an explanation, with subsequent interactions limited to the current session only. Exiting this mode returns the user to regular chat, where content can continue to accumulate and be saved.",
+  "interact_with_the_ai_without_leaving_any_traces_desc_2":"Clear state representation allows users to always know whether their conversations are being retained, reducing the risk of accidental actions while building trust through immediate and transparent system feedback.",
 
   "Dark matter": "Dark matter",
   "Potentially nefarious, but certainly ambiguous patterns that impact user trust with questionable user value": "Potentially nefarious, but certainly ambiguous patterns that impact user trust with questionable user value",
