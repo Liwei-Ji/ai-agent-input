@@ -14,7 +14,10 @@ export const CardGroup = ({ group, onFeatureClick }: Props) => {
   return (
     <section id={groupId} className="mb-12">
       <div className="mb-6 flex items-center gap-4 rounded-2xl bg-white p-6 shadow-sm border border-gray-100">
-        <i className={`${group.icon} flex h-12 w-12 items-center justify-center rounded-xl bg-blue-50 text-blue-600 text-xl`} />
+        {/* text-blue-500 圖標顏色*/}
+        <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-blue-500">
+            <i className={`${group.icon} text-xl`} />
+        </div>
         <div>
           <h2 className="text-xl font-black text-gray-900">{t(group.title)}</h2>
           <p className="text-sm text-gray-500">{t(group.subtitle)}</p>
