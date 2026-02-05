@@ -12,12 +12,12 @@ interface Props {
 export const FeatureDetail = ({ feature, onBack, onNavigate }: Props) => {
   const { t } = useTranslation();
 
-  // 1. 將所有分組中的 features 攤平成一個單層陣列，方便計算前後順序
+  // 將所有分組中的 features 攤平成一個單層陣列，方便計算前後順序
   const allFeatures = useMemo(() => {
     return data.flatMap((group) => group.features || []);
   }, []);
 
-  // 2. 找到目前卡片在攤平陣列中的索引位置
+  // 找到目前卡片在攤平陣列中的索引位置
   const currentIndex = allFeatures.findIndex((f) => f.title === feature.title);
   const prevFeature = allFeatures[currentIndex - 1];
   const nextFeature = allFeatures[currentIndex + 1];
