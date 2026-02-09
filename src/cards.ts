@@ -82,7 +82,7 @@ export const data: CardGroup[] = [
       {
         title: "Inline Action",
         subtitle: "Ask or interact with AI contextually based on something already available on the page",
-        img: "images/lineaction.svg",
+        img: "images/lnline_action.svg",
         description: [
       "inline_action_cta.desc_1",
       "inline_action_cta.desc_2"
