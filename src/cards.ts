@@ -450,7 +450,7 @@ export const data: CardGroup[] = [
       {
         title: "Color",
         subtitle: "Visual cues to help users identify AI features or content",
-        img: "https://cdn.prod.website-files.com/65db6dd21591364dfcb8ae36/68b331d407f299d4789625e6_color_card.svg",
+        img: "images/color.svg",
         description: [
       "color_desc_1",
       "color_desc_2"
@@ -459,7 +459,7 @@ export const data: CardGroup[] = [
       {
         title: "Disclosure",
         subtitle: "Clearly mark content and interactions guided or delivered by AI",
-        img: "https://cdn.prod.website-files.com/65db6dd21591364dfcb8ae36/68b3319ed0bdb1335b8f7c20_disclosure_card.svg",
+        img: "images/disclosure.svg",
         description: [
       "disclosure_desc_1",
       "disclosure_desc_2"
@@ -468,7 +468,7 @@ export const data: CardGroup[] = [
       {
         title: "Name",
         subtitle: "How do we refer to the AI?",
-        img: "https://cdn.prod.website-files.com/65db6dd21591364dfcb8ae36/68b331d407f299d4789625df_name_card.svg",
+        img: "images/name.svg",
         description: [
       "name_desc_1",
       "name_desc_2"
@@ -477,7 +477,7 @@ export const data: CardGroup[] = [
       {
         title: "Personality",
         subtitle: "Characteristics that distinguish the AI's personality and vibe",
-        img: "https://cdn.prod.website-files.com/65db6dd21591364dfcb8ae36/68b3319fd0bdb1335b8f7c35_personality_card.svg",
+        img: "images/personality.svg",
         description: [
       "personality_desc_1",
       "personality_desc_2"
