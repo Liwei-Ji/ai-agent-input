@@ -285,7 +285,7 @@ export const data: CardGroup[] = [
       {
         title: "Footprints",
         subtitle: "Let users trace the AI's steps from prompt to result",
-        img: "https://cdn.prod.website-files.com/65db6dd21591364dfcb8ae36/68ac832f83a5ddd9aab906d3_footprints_card.svg",
+        img: "images/footprints.svg",
         description: [
       "footprints_desc_1",
       "footprints_desc_2"
@@ -294,7 +294,7 @@ export const data: CardGroup[] = [
       {
         title: "Plan of Action",
         subtitle: "Have the AI show the steps it will take to respond to the user's prompt before it executes its response",
-        img: "https://cdn.prod.website-files.com/65db6dd21591364dfcb8ae36/68ac95a1b099d421f1be4c78_planofaction_card.svg",
+        img: "images/planofaction.svg",
         description: [
       "plan_of_action_desc_1",
       "plan_of_action_desc_2"
@@ -321,7 +321,7 @@ export const data: CardGroup[] = [
       {
         title: "Regenerate",
         subtitle: "Have the AI reproduce its response to the prompt without additional input",
-        img: "https://cdn.prod.website-files.com/65db6dd21591364dfcb8ae36/68ac864d563bf2b258221d00_regenerate_card.svg",
+        img: "images/regenerate.svg",
         description: [
       "regenerate_desc_1",
       "regenerate_desc_2"
