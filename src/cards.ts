@@ -21,7 +21,7 @@ export const data: CardGroup[] = [
       {
         title: "Initial CTA",
         subtitle: "Large, open-ended input inviting the user to start their first interaction with the AI",
-        img: "https://cdn.prod.website-files.com/65db6dd21591364dfcb8ae36/68acc398ef2d45e7fca831ba_cta_card.svg",
+        img: "images/cta.svg",
         description: [
       "initial_cta.desc_1",
       "initial_cta.desc_2"
@@ -30,7 +30,7 @@ export const data: CardGroup[] = [
       {
         title: "Follow up",
         subtitle: "Get more information from the user when the initial prompt isn't sufficiently clear",
-        img: "https://cdn.prod.website-files.com/65db6dd21591364dfcb8ae36/68ace3d8b486ec00160dfaae_followup_card.svg",
+        img: "images/followup_up.svg",
         description: [
       "follow_up.desc_1",
       "follow_up.desc_2"
@@ -39,7 +39,7 @@ export const data: CardGroup[] = [
       {
         title: "Nudges",
         subtitle: "Alert users to actions they can take to use AI, especially if they are just getting started",
-        img: "https://cdn.prod.website-files.com/65db6dd21591364dfcb8ae36/68acc6618b356cc505bac940_Nudge_card.svg",
+        img: "images/nudge.svg",
         description: [
       "nudges_cta.desc_1",
       "nudges_cta.desc_2"
@@ -48,7 +48,7 @@ export const data: CardGroup[] = [
       {
         title: "Suggestions",
         subtitle: "Solves the blank canvas dilemma with clues for how to prompt",
-        img: "https://cdn.prod.website-files.com/65db6dd21591364dfcb8ae36/68ace576103ad564b4406d6d_suggestions_card.svg",
+        img: "images/suggestions.svg",
         description: [
       "suggestions_cta.desc_1",
       "suggestions_cta.desc_2"
@@ -57,7 +57,7 @@ export const data: CardGroup[] = [
       {
         title: "Templates",
         subtitle: "Structured templates that can be filled by the user or pre-filled by the AI",
-        img: "https://cdn.prod.website-files.com/65db6dd21591364dfcb8ae36/68ace652459c4533e7d88e3e_template_card.svg",
+        img: "images/template.svg",
         description: [
       "templates_cta.desc_1",
       "templates_cta.desc_2"
@@ -91,7 +91,7 @@ export const data: CardGroup[] = [
       {
         title: "Quote Reply",
         subtitle: "Enable users to initiate a contextual AI query directly from selected content, preserving focus and reducing disruption to the primary interaction flow.",
-        img: "",
+        img: "images/quote_reply.svg",
         description: [
       "quote_reply_cta.desc_1",
       "quote_reply_cta.desc_2"

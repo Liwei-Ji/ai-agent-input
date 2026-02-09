@@ -8,6 +8,11 @@ interface Props {
 export const FeatureCard = ({ feature, onClick }: Props) => {
   const { t } = useTranslation();
 
+  const baseUrl = import.meta.env.BASE_URL;
+  const imageSrc = feature.img?.startsWith("http")
+    ? feature.img
+    : `${baseUrl}${feature.img}`;
+
   return (
     <div
       role="button"
@@ -16,7 +21,7 @@ export const FeatureCard = ({ feature, onClick }: Props) => {
     >
       <div className="mb-4 h-32 w-full overflow-hidden rounded-xl bg-gray-50 p-4">
         <img
-          src={feature.img}
+          src={imageSrc}
           alt={t(feature.title)}
           className="h-full w-full object-contain transition-transform group-hover:scale-110"
         />
