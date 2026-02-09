@@ -373,7 +373,7 @@ export const data: CardGroup[] = [
       {
         title: "Consent",
         subtitle: "Only capture data from others with their knowledge and permission",
-        img: "https://cdn.prod.website-files.com/65db6dd21591364dfcb8ae36/68b617c289680bc8e194b949_consent_card.svg",
+        img: "images/consent.svg",
         description: [
       "consent_desc_1",
       "consent_desc_2"
@@ -382,7 +382,7 @@ export const data: CardGroup[] = [
       {
         title: "Watermark",
         subtitle: "Identifiers on AI Generative content that humans, software, or programs can read",
-        img: "https://cdn.prod.website-files.com/65db6dd21591364dfcb8ae36/68ad3102cabb29e3abc06f3d_watermarks_card.svg",
+        img: "images/watermarks.svg",
         description: [
       "watermark_desc_1",
       "watermark_desc_2"
@@ -391,7 +391,7 @@ export const data: CardGroup[] = [
       {
         title: "Memory",
         subtitle: "Control what details the AI knows about you",
-        img: "https://cdn.prod.website-files.com/65db6dd21591364dfcb8ae36/68ad2e956ec69fa4ae8385c2_memory_card.svg",
+        img: "images/memory.svg",
         description: [
       "memory_desc_1",
       "memory_desc_2"
@@ -400,7 +400,7 @@ export const data: CardGroup[] = [
       {
         title: "Interact with the AI without leaving any traces",
         subtitle: "Large, open-ended input inviting the user to start their first interaction with the AI",
-        img: "https://cdn.prod.website-files.com/65db6dd21591364dfcb8ae36/68ad2dc30a9b0bee5768c764_incognito_card.svg",
+        img: "images/incognito.svg",
         description: [
       "interact_with_the_ai_without_leaving_any_traces_desc_1",
       "interact_with_the_ai_without_leaving_any_traces_desc_2"
