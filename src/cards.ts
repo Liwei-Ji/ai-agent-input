@@ -303,7 +303,7 @@ export const data: CardGroup[] = [
       {
         title: "Stream Of Thought",
         subtitle: "Reveals the AI's logic thought process, tool use, and decisions for oversight and auditability",
-        img: "",
+        img: "images/stream_of_thought.svg",
         description: [
       "stream_Of_thought_desc_1",
       "stream_Of_thought_desc_2"
