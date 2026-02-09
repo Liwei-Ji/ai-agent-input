@@ -82,7 +82,7 @@ export const data: CardGroup[] = [
       {
         title: "Inline Action",
         subtitle: "Ask or interact with AI contextually based on something already available on the page",
-        img: "https://cdn.prod.website-files.com/65db6dd21591364dfcb8ae36/68acf45e3f1431ad0c44551a_inlineaction_card.svg",
+        img: "images/lineaction.svg",
         description: [
       "inline_action_cta.desc_1",
       "inline_action_cta.desc_2"
@@ -136,7 +136,7 @@ export const data: CardGroup[] = [
       {
         title: "Summary",
         subtitle: "Have AI distill a topic or resource down to its essence",
-        img: "https://cdn.prod.website-files.com/65db6dd21591364dfcb8ae36/68acf919f39d0154b592c46e_summary_card.svg",
+        img: "images/summary.svg",
         description: [
       "summary_cta.desc_1",
       "summary_cta.desc_2"
