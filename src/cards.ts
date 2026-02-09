@@ -330,7 +330,7 @@ export const data: CardGroup[] = [
       {
         title: "Copy",
         subtitle: "Instantly copy the response to your clipboard.",
-        img: "",
+        img: "images/copy.svg",
         description: [
       "copy_desc_1",
       "copy_desc_2"
@@ -425,7 +425,7 @@ export const data: CardGroup[] = [
       {
         title: "Rating",
         subtitle: "Signal expectation gaps or errors in the model – but is that clear to the user?",
-        img: "https://cdn.prod.website-files.com/65db6dd21591364dfcb8ae36/66550b496ae3ac9e19b0d9a2_p_rating.svg",
+        img: "images/rating.svg",
         description: [
       "rating_desc_1",
       "rating_desc_2"
