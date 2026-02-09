@@ -188,7 +188,7 @@ export const data: CardGroup[] = [
       {
         title: "Attachments",
         subtitle: "Give the AI a specific reference to anchor its response",
-        img: "https://cdn.prod.website-files.com/65db6dd21591364dfcb8ae36/68ad1b90f5349d41aa5ae38a_attachments_card.svg",
+        img: "images/attachments.svg",
         description: [
       "attachments_cta.desc_1",
       "attachments_cta.desc_2"
@@ -197,7 +197,7 @@ export const data: CardGroup[] = [
       {
         title: "Filters",
         subtitle: "Constrain the inputs or the outputs of the AI by source, type, modality, etc",
-        img: "https://cdn.prod.website-files.com/65db6dd21591364dfcb8ae36/68ad07d23eec6f119675d709_filters_card.svg",
+        img: "images/filters.svg",
         description: [
       "filters_cta.desc_1",
       "filters_cta.desc_2"
@@ -206,7 +206,7 @@ export const data: CardGroup[] = [
       {
         title: "Inpainting",
         subtitle: "Target specific areas of the AI's result to regenerate or remix",
-        img: "https://cdn.prod.website-files.com/65db6dd21591364dfcb8ae36/68ad10e7000b95f2b577f9fb_inpainting_card.svg",
+        img: "images/inpainting.svg",
         description: [
       "inpainting_cta.desc_1",
       "inpainting_cta.desc_2"
@@ -233,7 +233,7 @@ export const data: CardGroup[] = [
       {
         title: "Personal voice",
         subtitle: "Ensure outputs match your voice, tone, and preferences in a consistent way",
-        img: "https://cdn.prod.website-files.com/65db6dd21591364dfcb8ae36/68ad15f5719956709202c6e2_personalovoice_card.svg",
+        img: "images/personalovoice.svg",
         description: [
       "personal_voice_cta.desc_1",
       "personal_voice_cta.desc_2"
@@ -242,7 +242,7 @@ export const data: CardGroup[] = [
       {
         title: "References",
         subtitle: "See and manage what additional sources the AI references to generate its response",
-        img: "https://cdn.prod.website-files.com/65db6dd21591364dfcb8ae36/68ad1cf4e65278d06e72d111_references_card.svg",
+        img: "images/references.svg",
         description: [
       "references_cta.desc_1",
       "references_cta.desc_2"
@@ -251,7 +251,7 @@ export const data: CardGroup[] = [
       {
         title: "Workflows",
         subtitle: "String generative steps together to synthesize, create, or send content on auto-pilot",
-        img: "https://cdn.prod.website-files.com/65db6dd21591364dfcb8ae36/68ad1fe8e715687380252c4e_workflows_card.svg",
+        img: "images/workflows.svg",
         description: [
       "workflows_cta.desc_1",
       "workflows_cta.desc_2"
