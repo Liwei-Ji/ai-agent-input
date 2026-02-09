@@ -215,7 +215,7 @@ export const data: CardGroup[] = [
       {
         title: "Model management",
         subtitle: "Let users specify what model to use for their prompts",
-        img: "https://cdn.prod.website-files.com/65db6dd21591364dfcb8ae36/68ad1231271efefc27673d31_modelmanagement_card.svg",
+        img: "images/modelmanagement.svg",
         description: [
       "model_management_cta.desc_1",
       "model_management_cta.desc_2"
