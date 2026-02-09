@@ -416,7 +416,7 @@ export const data: CardGroup[] = [
       {
         title: "Caveat",
         subtitle: "Inform users about shortcomings or risks in the model or the technology overall",
-        img: "https://cdn.prod.website-files.com/65db6dd21591364dfcb8ae36/68ad33551d4f4f54c24f6054_caveat_card.svg",
+        img: "images/caveat.svg",
         description: [
       "caveat_desc_1",
       "caveat_desc_2"
@@ -434,7 +434,7 @@ export const data: CardGroup[] = [
       {
         title: "Data ownership",
         subtitle: "Control how the model remembers and uses your data",
-        img: "https://cdn.prod.website-files.com/65db6dd21591364dfcb8ae36/68ad348d3ddb47cd6b8c56bd_dataownership_card.svg",
+        img: "images/dataownership.svg",
         description: [
       "data_ownership_desc_1",
       "data_ownership_desc_2"
