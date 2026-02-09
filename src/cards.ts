@@ -73,7 +73,7 @@ export const data: CardGroup[] = [
       {
         title: "Auto fill",
         subtitle: "Makes it easy for users to extend a prompt to multiple inputs at once",
-        img: "https://cdn.prod.website-files.com/65db6dd21591364dfcb8ae36/68acf3b81d4f4f54c245396b_autofill_card.svg",
+        img: "images/autofill.svg",
         description: [
       "auto_fill_cta.desc_1",
       "auto_fill_cta.desc_2"
@@ -179,7 +179,7 @@ export const data: CardGroup[] = [
       {
         title: "Collapse Input",
         subtitle: "Improve focus and layout efficiency by collapsing the input area while preserving all input content.",
-        img: "",
+        img: "images/collapse_input.svg",
         description: [
       "collapse_input_cta.desc_1",
       "collapse_input_cta.desc_2"
