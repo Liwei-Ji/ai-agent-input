@@ -100,7 +100,7 @@ export const data: CardGroup[] = [
       {
         title: "Madlibs",
         subtitle: "Repeatedly run generative tasks without compromising on the format or accuracy",
-        img: "https://cdn.prod.website-files.com/65db6dd21591364dfcb8ae36/68acf60ad26fd9febbe28ffc_madlibs_card.svg",
+        img: "images/madlibs.svg",
         description: [
       "mablibs_cta.desc_1",
       "mablibs_cta.desc_2"
@@ -118,7 +118,7 @@ export const data: CardGroup[] = [
       {
         title: "Remix",
         subtitle: "Use existing content as the starting point for prompting",
-        img: "https://cdn.prod.website-files.com/65db6dd21591364dfcb8ae36/68b5b84cee9245c03c296be6_remix_card.svg",
+        img: "images/remix.svg",
         description: [
       "remix_cta.desc_1",
       "remix_cta.desc_2"
@@ -127,7 +127,7 @@ export const data: CardGroup[] = [
       {
         title: "Restyle",
         subtitle: "Transfer styles without changing the underlying structure of a generation",
-        img: "https://cdn.prod.website-files.com/65db6dd21591364dfcb8ae36/68b35f00d5707febd832b3ca_restyle_card.svg",
+        img: "images/restyle.svg",
         description: [
       "restyle_cta.desc_1",
       "restyle_cta.desc_2"
@@ -145,7 +145,7 @@ export const data: CardGroup[] = [
       {
         title: "Synthesis",
         subtitle: "Distill or reorganize complicated information into simple structure",
-        img: "https://cdn.prod.website-files.com/65db6dd21591364dfcb8ae36/68acf9d7f5349d41aa54b92b_synthesize_card.svg",
+        img: "images/synthesize.svg",
         description: [
       "synthesis_cta.desc_1",
       "synthesis_cta.desc_2"
@@ -154,7 +154,7 @@ export const data: CardGroup[] = [
       {
         title: "Token layering",
         subtitle: "Construct a prompt with raw tokens, just like building with legos",
-        img: "https://cdn.prod.website-files.com/65db6dd21591364dfcb8ae36/68b371846133444d3059a978_tokenlayering_card.svg",
+        img: "images/tokenlayering.svg",
         description: [
       "token_layering_cta.desc_1",
       "token_layering_cta.desc_2"
@@ -163,7 +163,7 @@ export const data: CardGroup[] = [
       {
         title: "Transform",
         subtitle: "Use AI to change the modality of content",
-        img: "https://cdn.prod.website-files.com/65db6dd21591364dfcb8ae36/68b35ec8b17834050ebc98e5_transform_card.svg",
+        img: "images/transform.svg",
         description: [
       "transform_cta.desc_1",
       "transform_cta.desc_2"
