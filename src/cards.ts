@@ -109,7 +109,7 @@ export const data: CardGroup[] = [
       {
         title: "Open text",
         subtitle: "Open ended prompt inputs that can be used in AI conversations and other natural language prompting",
-        img: "https://cdn.prod.website-files.com/65db6dd21591364dfcb8ae36/68acf789178baa4e2e9e9aab_openinput_card.svg",
+        img: "images/openinput.svg",
         description: [
       "open_text_cta.desc_1",
       "open_texe_cta.desc_2"
@@ -224,7 +224,7 @@ export const data: CardGroup[] = [
       {
         title: "Parameters",
         subtitle: "Include constraints with your prompt for the AI to reference when generating its result",
-        img: "https://cdn.prod.website-files.com/65db6dd21591364dfcb8ae36/68ad155b9b8d80f64aebee1e_parameters_card.svg",
+        img: "images/parameters.svg",
         description: [
       "parameters_cta.desc_1",
       "parameters_cta.desc_2"
