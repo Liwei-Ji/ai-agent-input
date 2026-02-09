@@ -267,7 +267,7 @@ export const data: CardGroup[] = [
       {
         title: "Citations",
         subtitle: "Give the AI a specific reference to anchor its response",
-        img: "https://cdn.prod.website-files.com/65db6dd21591364dfcb8ae36/68ac7be5d23c1be315c14fc4_citation_card.svg",
+        img: "images/citation.svg",
         description: [
       "citations_desc_1",
       "citations_desc_2"
@@ -276,7 +276,7 @@ export const data: CardGroup[] = [
       {
         title: "Controls",
         subtitle: "Manage the flow of information or pause a request mid-stream to adjust the prompt",
-        img: "https://cdn.prod.website-files.com/65db6dd21591364dfcb8ae36/68ac7ee1bea66470b3c8339e_controls_card.svg",
+        img: "images/controls.svg",
         description: [
       "controls_desc_1",
       "controls_desc_2"
