@@ -312,7 +312,7 @@ export const data: CardGroup[] = [
       {
         title: "Prompt transparency",
         subtitle: "Show users what is actually happening behind the scenes",
-        img: "https://cdn.prod.website-files.com/65db6dd21591364dfcb8ae36/68ac6c5a16f4eb679b0dbc5f_prompttransparency_card.svg",
+        img: "images/prompttransparency.svg",
         description: [
       "prompt_transparency_desc_1",
       "prompt_transparency_desc_2"
@@ -339,7 +339,7 @@ export const data: CardGroup[] = [
       {
         title: "Sample response",
         subtitle: "Confirm the user's intent for complicated prompts",
-        img: "https://cdn.prod.website-files.com/65db6dd21591364dfcb8ae36/68ac90cc404c75f50377f40f_sampleresponse_card.svg",
+        img: "images/sampleresponse.svg",
         description: [
       "sample_response_desc_1",
       "sample_response_desc_2"
@@ -348,7 +348,7 @@ export const data: CardGroup[] = [
       {
         title: "Token Transparency",
         subtitle: "Reveal the tokens the AI used to craft its response",
-        img: "https://cdn.prod.website-files.com/65db6dd21591364dfcb8ae36/68ac5fc7c03253880a417461_tokentransparency_card.svg",
+        img: "images/tokentransparency.svg",
         description: [
       "token_transparency_desc_1",
       "token_transparency_desc_2"
@@ -357,7 +357,7 @@ export const data: CardGroup[] = [
       {
         title: "Variations",
         subtitle: "Trace through multiple variations of a result to choose the one that works best for them",
-        img: "https://cdn.prod.website-files.com/65db6dd21591364dfcb8ae36/68ac9935f14f97dac35b004c_variations_card.svg",
+        img: "images/variations.svg",
         description: [
       "variations_desc_1",
       "variations_desc_2"
