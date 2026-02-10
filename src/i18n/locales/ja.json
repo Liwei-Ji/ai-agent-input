@@ -11,7 +11,7 @@
   },
 
   "Wayfinders": "ユーザー導線",
-  "Give users clues about how to interact with the model, particularly when getting started.": "ユーザーにモデルとのやり取り方法のヒントを提供します（特に利用開始時）。",
+  "Give users clues about how to interact with the model, particularly when getting started.": "ユーザーに対して、特に利用開始時において、モデルとどのようにインタラクションすればよいかの手がかりを提供します。",
   
   "Follow up": "フォローアップ",
   "Get more information from the user when the initial prompt isn't sufficiently clear": "最初のプロンプトが十分に明確でない場合に、ユーザーから詳細情報を取得します。",

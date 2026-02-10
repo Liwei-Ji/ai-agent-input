@@ -11,7 +11,7 @@
   },
 
   "Wayfinders": "Wayfinders",
-  "Give users clues about how to interact with the model, particularly when getting started.": "Give users clues about how to interact with the model, particularly when getting started.",
+  "Give users clues about how to interact with the model, particularly when getting started.": "Provide users with cues on how to interact with the model, especially when they are just getting started.",
   
   "Follow up": "Follow up",
   "Get more information from the user when the initial prompt isn't sufficiently clear": "Get more information from the user when the initial prompt isn't sufficiently clear",
