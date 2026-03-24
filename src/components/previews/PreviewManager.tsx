@@ -1,6 +1,7 @@
 import { InitialCTA } from "./InitialCTA";
 import { FollowUp } from "./FollowUp";
 import { Suggestions } from "./Suggestions";
+import { ConversationSidebar } from "./ConversationSidebar";
 import { Nudges } from "./Nudges";
 import { Templates } from "./Templates";
 import { Madlibs } from "./Madlibs";
@@ -65,7 +66,7 @@ export const PreviewManager = ({ featureTitle }: Props) => {
     case "Suggestions":
       return <Suggestions />;
     case "Nudges":
-      return <Nudges />;  
+      return <Nudges />;
     case "Templates":
       return <Templates />;
     case "Madlibs":
@@ -73,13 +74,13 @@ export const PreviewManager = ({ featureTitle }: Props) => {
     case "Rating":
       return <Rating />;
     case "Caveat":
-      return <Caveat />; 
+      return <Caveat />;
     case "Data ownership":
-      return <DataOwnership />; 
+      return <DataOwnership />;
     case "ZeroRetention":
-      return <ZeroRetention />;    
+      return <ZeroRetention />;
     case "Interact with the AI without leaving any traces":
-      return <ZeroRetention />;  
+      return <ZeroRetention />;
     case "Memory":
       return <Memory />;
     case "Consent":
@@ -91,69 +92,70 @@ export const PreviewManager = ({ featureTitle }: Props) => {
     case "Quote Reply":
       return <QuoteReply />;
     case "Inline Action":
-      return <InlineAction/>; 
+      return <InlineAction />;
     case "Open text":
-      return <OpenText/>;
+      return <OpenText />;
     case "Remix":
-      return <Remix/>;
+      return <Remix />;
     case "Restyle":
-      return <Restyle/>;
+      return <Restyle />;
     case "Summary":
-      return <Summary/>;
+      return <Summary />;
     case "Synthesis":
-      return <Synthesis/>;
+      return <Synthesis />;
     case "Token layering":
-      return <TokenLayering/>;
+      return <TokenLayering />;
     case "Transform":
-      return <Transform/>;
+      return <Transform />;
     case "Collapse Input":
-      return <CollapseInput/>;
+      return <CollapseInput />;
     case "Attachments":
-      return <Attachments/>;
+      return <Attachments />;
     case "Filters":
-      return <Filters/>;
+      return <Filters />;
     case "Model management":
-      return <ModelManagement/>; 
+      return <ModelManagement />;
     case "Parameters":
-      return <Parameters/>;
+      return <Parameters />;
     case "References":
-      return <References/>;
+      return <References />;
     case "Workflows":
-      return <Workflows/>;
+      return <Workflows />;
     case "Controls":
-      return <Controls/>;
+      return <Controls />;
     case "Regenerate":
-      return <Regenerate/>;
+      return <Regenerate />;
     case "Copy":
-      return <Copy/>;
+      return <Copy />;
     case "Variations":
-      return <Variations/>;
+      return <Variations />;
     case "Prompt transparency":
-      return <PromptTransparency/>;
+      return <PromptTransparency />;
     case "Footprints":
-      return <Footprints/>;
+    case "Conversation Sidebar":
+      return <ConversationSidebar />;
     case "Citations":
-      return <Citations/>;
+      return <Citations />;
     case "Plan of Action":
-      return <PlanOfAction/>;
+      return <PlanOfAction />;
     case "Sample response":
-      return <SampleResponse/>;
+      return <SampleResponse />;
     case "Token Transparency":
-      return <TokenTransparency/>;
+      return <TokenTransparency />;
     case "Personal voice":
-      return <PersonalVoice/>;
+      return <PersonalVoice />;
     case "Inpainting":
-      return <Inpainting/>;
+      return <Inpainting />;
     case "Disclosure":
-      return <Disclosure/>; 
+      return <Disclosure />;
     case "Name":
-      return <Name/>;
+      return <Name />;
     case "Color":
-      return <Color/>;
+      return <Color />;
     case "Personality":
-      return <Personality/>;
+      return <Personality />;
     case "Stream Of Thought":
-      return <StreamOfThought/>;  
+      return <StreamOfThought />;
     default:
       return (
         <div className="text-center space-y-4">
