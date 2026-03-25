@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-import { Send, MessageSquarePlus, X, Quote } from "lucide-react";
+import { Send, X, Quote, CornerDownRight } from "lucide-react";
 
 interface Message {
   id: string;
@@ -143,7 +143,7 @@ export const QuoteReply = () => {
           </div>
         </div>
 
-        {/* Floating Tooltip (位置跟隨文字，所以放哪裡都可以，放這裡結構清晰) */}
+        {/* Floating Tooltip */}
         {selectionTooltip && (
           <div
             className="absolute z-50 transform -translate-x-1/2 -translate-y-full px-1 py-1"
@@ -170,18 +170,14 @@ export const QuoteReply = () => {
             */}
           <div className="flex flex-col gap-2 rounded-2xl border border-gray-200 bg-white p-2 shadow-sm focus-within:ring-2 focus-within:ring-indigo-100 focus-within:border-indigo-400 transition-all">
 
-            {/* A. 引用卡片區塊 (移到內部) */}
+            {/* A. 引用卡片區塊 */}
             {activeQuote && (
               <div className="relative flex items-start gap-3 bg-slate-50 border border-slate-100 rounded-xl p-2.5 pr-8 animate-in slide-in-from-bottom-2 fade-in duration-300">
                 {/* icon */}
                 <div className="shrink-0 mt-0.5 text-slate-400">
-                  <MessageSquarePlus size={16} />
+                  <CornerDownRight size={14} />
                 </div>
-                {/* text content */}
-                <div className="flex-1 min-w-0">
-                  <div className="text-[10px] font-bold text-slate-500 mb-0.5 uppercase tracking-wide">
-                    Referencing
-                  </div>
+                <div className="min-w-0">
                   <p className="text-xs text-slate-700 line-clamp-2 italic font-medium">
                     "{activeQuote}"
                   </p>

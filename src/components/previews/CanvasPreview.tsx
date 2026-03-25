@@ -76,7 +76,7 @@ export const CanvasPreview = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <p className="text-xs text-slate-400 font-medium">Image</p>
+                                <p className="text-xs text-slate-400 font-medium">PDF Preview</p>
                             </div>
                         )}
                     </div>
