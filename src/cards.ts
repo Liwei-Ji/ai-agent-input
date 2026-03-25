@@ -265,6 +265,15 @@ export const data: CardGroup[] = [
           "workflows_cta.desc_1",
           "workflows_cta.desc_2"
         ]
+      },
+      {
+        title: "Source Mining",
+        subtitle: "source_mining_subtitle",
+        img: "images/source_mining.svg",
+        description: [
+          "source_mining_desc_1",
+          "source_mining_desc_2"
+        ]
       }
     ]
   },

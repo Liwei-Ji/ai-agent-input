@@ -47,6 +47,7 @@ import { Color } from "./Color";
 import { Personality } from "./Personality";
 import { StreamOfThought } from "./StreamOfThought";
 import { CanvasPreview } from "./CanvasPreview";
+import { SourceMining } from "./SourceMining";
 
 
 
@@ -159,6 +160,8 @@ export const PreviewManager = ({ featureTitle }: Props) => {
       return <Personality />;
     case "Stream Of Thought":
       return <StreamOfThought />;
+    case "Source Mining":
+      return <SourceMining />;
     default:
       return (
         <div className="text-center space-y-4">
