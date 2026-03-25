@@ -196,7 +196,7 @@ export const data: CardGroup[] = [
       },
       {
         title: "Attachments",
-        subtitle: "Give the AI a specific reference to anchor its response",
+        subtitle: "attachments_subtitle",
         img: "images/attachments.svg",
         description: [
           "attachments_cta.desc_1",
@@ -274,8 +274,17 @@ export const data: CardGroup[] = [
     icon: "fa-solid fa-wand-magic-sparkles",
     features: [
       {
+        title: "Canvas Preview",
+        subtitle: "canvas_preview_subtitle",
+        img: "images/canvas_preview.svg",
+        description: [
+          "canvas_preview_desc_1",
+          "canvas_preview_desc_2"
+        ]
+      },
+      {
         title: "Citations",
-        subtitle: "Give the AI a specific reference to anchor its response",
+        subtitle: "citations_subtitle",
         img: "images/citation.svg",
         description: [
           "citations_desc_1",

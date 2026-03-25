@@ -46,6 +46,7 @@ import { Name } from "./Name";
 import { Color } from "./Color";
 import { Personality } from "./Personality";
 import { StreamOfThought } from "./StreamOfThought";
+import { CanvasPreview } from "./CanvasPreview";
 
 
 
@@ -59,6 +60,8 @@ export const PreviewManager = ({ featureTitle }: Props) => {
   console.log("Current featureTitle:", featureTitle);
 
   switch (featureTitle) {
+    case "Canvas Preview":
+      return <CanvasPreview />;
     case "Initial CTA":
       return <InitialCTA />;
     case "Follow up":
