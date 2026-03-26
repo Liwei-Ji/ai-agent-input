@@ -48,9 +48,10 @@ import { Personality } from "./Personality";
 import { StreamOfThought } from "./StreamOfThought";
 import { CanvasPreview } from "./CanvasPreview";
 import { SourceMining } from "./SourceMining";
+import { Anchoring } from "./Anchoring";
 
-
-
+const PreviewComponent = ({ id }: { id: string }) => {
+}
 
 
 interface Props {
@@ -162,6 +163,8 @@ export const PreviewManager = ({ featureTitle }: Props) => {
       return <StreamOfThought />;
     case "Source Mining":
       return <SourceMining />;
+    case "Anchoring":
+      return <Anchoring />;
     default:
       return (
         <div className="text-center space-y-4">

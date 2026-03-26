@@ -62,6 +62,15 @@ export const data: CardGroup[] = [
           "templates_cta.desc_1",
           "templates_cta.desc_2"
         ]
+      },
+      {
+        title: "Anchoring",
+        subtitle: "anchoring_subtitle",
+        img: "images/anchoring.svg",
+        description: [
+          "anchoring_desc_1",
+          "anchoring_desc_2"
+        ]
       }
     ]
   },
