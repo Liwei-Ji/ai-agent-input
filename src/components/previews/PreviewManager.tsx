@@ -49,6 +49,15 @@ import { StreamOfThought } from "./StreamOfThought";
 import { CanvasPreview } from "./CanvasPreview";
 import { SourceMining } from "./SourceMining";
 import { Anchoring } from "./Anchoring";
+import { ContextualExpansion } from "./ContextualExpansion";
+
+const componentMap: Record<string, () => React.ReactNode> = {
+  "Initial CTA": () => <InitialCTA />,
+  "Collapse Input": () => <CollapseInput />,
+  "Source Mining": () => <SourceMining />,
+  "Anchoring": () => <Anchoring />,
+  "Contextual Expansion": () => <ContextualExpansion />,
+};
 
 const PreviewComponent = ({ id }: { id: string }) => {
 }
@@ -165,6 +174,8 @@ export const PreviewManager = ({ featureTitle }: Props) => {
       return <SourceMining />;
     case "Anchoring":
       return <Anchoring />;
+    case "Contextual Expansion":
+      return <ContextualExpansion />;
     default:
       return (
         <div className="text-center space-y-4">

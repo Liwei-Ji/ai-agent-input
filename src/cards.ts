@@ -301,6 +301,15 @@ export const data: CardGroup[] = [
         ]
       },
       {
+        title: "Contextual Expansion",
+        subtitle: "contextual_expansion_subtitle",
+        img: "images/contextual_expansion.svg",
+        description: [
+          "contextual_expansion_desc_1",
+          "contextual_expansion_desc_2"
+        ]
+      },
+      {
         title: "Citations",
         subtitle: "citations_subtitle",
         img: "images/citation.svg",
