@@ -50,6 +50,7 @@ import { CanvasPreview } from "./CanvasPreview";
 import { SourceMining } from "./SourceMining";
 import { Anchoring } from "./Anchoring";
 import { ContextualExpansion } from "./ContextualExpansion";
+import { AgentSupervision } from "./AgentSupervision";
 
 const componentMap: Record<string, () => React.ReactNode> = {
   "Initial CTA": () => <InitialCTA />,
@@ -57,6 +58,7 @@ const componentMap: Record<string, () => React.ReactNode> = {
   "Source Mining": () => <SourceMining />,
   "Anchoring": () => <Anchoring />,
   "Contextual Expansion": () => <ContextualExpansion />,
+  "Agent Supervision": () => <AgentSupervision />,
 };
 
 const PreviewComponent = ({ id }: { id: string }) => {
@@ -176,6 +178,8 @@ export const PreviewManager = ({ featureTitle }: Props) => {
       return <Anchoring />;
     case "Contextual Expansion":
       return <ContextualExpansion />;
+    case "Agent Supervision":
+      return <AgentSupervision />;
     default:
       return (
         <div className="text-center space-y-4">

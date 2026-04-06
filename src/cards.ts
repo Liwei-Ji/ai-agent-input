@@ -310,6 +310,15 @@ export const data: CardGroup[] = [
         ]
       },
       {
+        title: "Agent Supervision",
+        subtitle: "agent_supervision_subtitle",
+        img: "images/agent_supervision.svg",
+        description: [
+          "agent_supervision_desc_1",
+          "agent_supervision_desc_2"
+        ]
+      },
+      {
         title: "Citations",
         subtitle: "citations_subtitle",
         img: "images/citation.svg",
