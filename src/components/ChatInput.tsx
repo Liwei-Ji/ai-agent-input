@@ -8,23 +8,42 @@ interface ChatInputProps {
   disabled?: boolean;
   uploadButtonClass?: string;
   customPlaceholder?: React.ReactNode;
-  
+  value?: string;
+  onValueChange?: (val: string) => void;
+
   // 擴充，讓外部可以換 icon 和點擊行為
   leftIcon?: React.ReactNode;
   onLeftIconClick?: () => void;
+  rightIcon?: React.ReactNode;
+  onRightIconClick?: () => void;
 }
 
-export const ChatInput = ({ 
-  placeholder, 
-  onSend, 
-  onUpload, 
+export const ChatInput = ({
+  placeholder,
+  onSend,
+  onUpload,
   disabled = false,
   uploadButtonClass = "",
   customPlaceholder,
+  value: controlledValue,
+  onValueChange,
   leftIcon,
   onLeftIconClick,
+  rightIcon,
+  onRightIconClick,
 }: ChatInputProps) => {
-  const [value, setValue] = useState("");
+  const [internalValue, setInternalValue] = useState("");
+  const isControlled = controlledValue !== undefined;
+  const value = isControlled ? controlledValue : internalValue;
+
+  const setValue = (val: string) => {
+    if (onValueChange) {
+      onValueChange(val);
+    }
+    if (!isControlled) {
+      setInternalValue(val);
+    }
+  };
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const sendMessage = () => {
@@ -38,13 +57,13 @@ export const ChatInput = ({
     const file = e.target.files?.[0];
     if (file && onUpload) {
       onUpload(file);
-      e.target.value = ""; 
+      e.target.value = "";
     }
   };
 
   const handleLeftClick = () => {
     if (onLeftIconClick) {
-      onLeftIconClick(); 
+      onLeftIconClick();
     } else {
       fileInputRef.current?.click();
     }
@@ -55,7 +74,7 @@ export const ChatInput = ({
 
   return (
     <div className="relative flex w-full items-end gap-2 rounded-2xl border border-gray-200 bg-white p-2 shadow-sm focus-within:border-indigo-300 focus-within:ring-4 focus-within:ring-indigo-50 transition-all">
-      
+
       {/* 左側按鈕 */}
       <button
         type="button"
@@ -97,21 +116,20 @@ export const ChatInput = ({
         />
       </div>
 
-      {/* 發送按鈕 */}
+      {/* 發送按鈕 / 語音按鈕 */}
       <button
-        onClick={sendMessage}
-        disabled={!value.trim() || disabled}
+        onClick={onRightIconClick || sendMessage}
+        disabled={(!rightIcon && !value.trim()) || disabled}
         className={`
           flex items-center justify-center
           w-10 h-10 rounded-full transition-all shrink-0
-          ${
-            value.trim() && !disabled
-              ? "bg-indigo-600 text-white hover:bg-indigo-700 active:scale-95 shadow-md shadow-indigo-200"
-              : "bg-slate-100 text-slate-300 cursor-not-allowed"
+          ${(rightIcon || (value.trim() && !disabled))
+            ? "bg-indigo-600 text-white hover:bg-indigo-700 active:scale-95 shadow-md shadow-indigo-200"
+            : "bg-slate-100 text-slate-300 cursor-not-allowed"
           }
         `}
       >
-        <Send size={18} />
+        {rightIcon || <Send size={18} />}
       </button>
     </div>
   );

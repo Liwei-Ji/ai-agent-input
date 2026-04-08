@@ -1,4 +1,5 @@
 import { InitialCTA } from "./InitialCTA";
+import { FluidVoice } from "./FluidVoice";
 import { FollowUp } from "./FollowUp";
 import { Suggestions } from "./Suggestions";
 import { ConversationSidebar } from "./ConversationSidebar";
@@ -77,6 +78,8 @@ export const PreviewManager = ({ featureTitle }: Props) => {
       return <CanvasPreview />;
     case "Initial CTA":
       return <InitialCTA />;
+    case "Fluid Voice":
+      return <FluidVoice />;
     case "Follow up":
       return <FollowUp />;
     case "Suggestions":

@@ -187,6 +187,15 @@ export const data: CardGroup[] = [
           "transform_cta.desc_2"
         ]
       },
+      {
+        title: "Fluid Voice",
+        subtitle: "fluid_voice_subtitle",
+        img: "images/fluid_voice.svg",
+        description: [
+          "fluid_voice_desc_1",
+          "fluid_voice_desc_2"
+        ]
+      },
     ]
   },
   {
