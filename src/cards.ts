@@ -196,6 +196,15 @@ export const data: CardGroup[] = [
           "fluid_voice_desc_2"
         ]
       },
+      {
+        title: "Agent Capabilities Marquee",
+        subtitle: "agent_marquee_subtitle",
+        img: "images/marquee.svg",
+        description: [
+          "agent_marquee_desc_1",
+          "agent_marquee_desc_2"
+        ]
+      },
     ]
   },
   {
