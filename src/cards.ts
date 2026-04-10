@@ -199,7 +199,7 @@ export const data: CardGroup[] = [
       {
         title: "Agent Capabilities Marquee",
         subtitle: "agent_marquee_subtitle",
-        img: "images/marquee.svg",
+        img: "images/agent_capabilities_marquee.svg",
         description: [
           "agent_marquee_desc_1",
           "agent_marquee_desc_2"
