@@ -95,10 +95,16 @@ export const AgentCapabilitiesMarquee = () => {
     };
 
     return (
-        <div className="flex flex-col items-center justify-center h-[600px] w-full bg-slate-50 relative overflow-hidden p-8 font-sans">
+        <div className="flex flex-col items-center justify-center h-[600px] w-full relative overflow-hidden p-8 font-sans">
 
-            {/* 背景裝飾光暈 */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-indigo-50/50 rounded-full blur-[120px] opacity-40" />
+            {/* 背景裝飾光暈 - 使用徑向漸變減少斷層感 */}
+            <div
+                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] pointer-events-none opacity-50"
+                style={{
+                    background: "radial-gradient(circle at center, rgba(238, 242, 255, 0.8) 0%, rgba(238, 242, 255, 0) 70%)",
+                    filter: "blur(40px)"
+                }}
+            />
 
             {/* 1. 模擬輸入框 */}
             <div className="w-full max-w-md relative z-20 mb-8">
@@ -110,10 +116,14 @@ export const AgentCapabilitiesMarquee = () => {
                 />
             </div>
 
-            {/* 2. 標籤跑馬燈 */}
-            <div className="w-full max-w-md relative z-10 space-y-2">
-                <div className="absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-slate-50 to-transparent z-20 pointer-events-none" />
-                <div className="absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-slate-50 to-transparent z-20 pointer-events-none" />
+            {/* 2. 標籤跑馬燈 - 使用 mask-image 達成邊緣淡出，不依賴背景色 */}
+            <div
+                className="w-full max-w-md relative z-10 space-y-2"
+                style={{
+                    WebkitMaskImage: "linear-gradient(to right, transparent, black 15%, black 85%, transparent)",
+                    maskImage: "linear-gradient(to right, transparent, black 15%, black 85%, transparent)"
+                }}
+            >
 
                 <MarqueeRow
                     skills={creativeSkills}
