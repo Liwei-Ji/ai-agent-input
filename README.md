@@ -1,4 +1,6 @@
 # AI Agent Input UX
+
+![AI Agent Input UX Preview](./public/images/docs/cover.png)
 In the era of Generative AI, product design transcends functional implementation to focus on the orchestration of human-AI collaboration. **AI Agent Input UX** is an experimental initiative dedicated to deconstructing and presenting interaction archetypes within high-fidelity AI applications.
 
 ### AI Interaction Guidelines & Design Archetypes
