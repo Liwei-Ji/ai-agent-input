@@ -251,8 +251,8 @@ export default function ApplePage({ onBack }: { onBack: () => void }) {
                 </header>
 
                 <div className={cn(
-                    "flex-1 flex flex-col items-center px-8 pb-1 overflow-y-auto transition-colors duration-200 pt-20",
-                    !selectedAgent || activeView !== 'home' ? "justify-start" : "justify-start"
+                    "flex-1 flex flex-col items-center px-8 pb-1 overflow-y-auto transition-colors duration-200",
+                    !selectedAgent ? "justify-start pt-20" : "justify-center pt-0"
                 )}>
                     <AnimatePresence mode="wait">
                         {activeView === 'home' ? (
@@ -260,7 +260,7 @@ export default function ApplePage({ onBack }: { onBack: () => void }) {
                                 {!selectedAgent ? (
                                     <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="w-full">
                                         <div className="text-left w-full mb-12">
-                                            <h2 className={cn("text-5xl md:text-6xl font-display font-medium mb-4 leading-tight transition-all duration-500", themeMode === 'colorful' ? "text-inherit" : "bg-clip-text text-transparent bg-gradient-to-r from-[#4d90fe] via-[#8e75ff] to-[#f472b6]")}>Hello, Designer</h2>
+                                            <h2 className={cn("text-5xl md:text-6xl font-display font-medium mb-4 leading-tight transition-all duration-500", themeMode === 'colorful' ? "text-inherit" : "bg-clip-text text-transparent bg-gradient-to-r from-[#4d90fe] via-[#8e75ff] to-[#f472b6]")}>Hello, Liwei-Ji Designer</h2>
                                             <p className="text-2xl md:text-3xl opacity-50 font-display">How can I help you today?</p>
                                         </div>
                                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
