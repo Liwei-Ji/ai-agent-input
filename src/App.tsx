@@ -3,15 +3,17 @@ import { data } from "./cards";
 import { CardGroup } from "./components/CardGroup";
 import { Sidebar } from "./components/Sidebar";
 import { FeatureDetail } from "./components/FeatureDetail";
+import ApplePage from "./pages/pages";
 
 function App() {
+  const [currentView, setCurrentView] = useState<'wayfinders' | 'apple'>('wayfinders');
   const [activeId, setActiveId] = useState("");
   const [selectedFeature, setSelectedFeature] = useState<any>(null);
 
   const getSlug = (title: string) => title.replace(/\s+/g, "-").toLowerCase();
 
   const handleScroll = useCallback(() => {
-    if (selectedFeature) return;
+    if (selectedFeature || currentView === 'apple') return;
 
     const sections = document.querySelectorAll("section[id]");
     const scrollPosition = window.scrollY + window.innerHeight / 3;
@@ -32,7 +34,7 @@ function App() {
     if (currentActive !== activeId) {
       setActiveId(currentActive);
     }
-  }, [activeId, selectedFeature]);
+  }, [activeId, selectedFeature, currentView]);
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
@@ -40,48 +42,50 @@ function App() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [handleScroll]);
 
-  // 當 selectedFeature 改變時 (例如點擊 Next/Prev)，同步更新側邊欄 activeId
   useEffect(() => {
     if (selectedFeature) {
-      // 在所有資料中，尋找包含這個 feature 的群組 (Group)
-      const foundGroup = data.find(group => 
+      const foundGroup = data.find(group =>
         group.features?.some(f => f.title === selectedFeature.title)
       );
-
-      // 找到群組更新側邊欄 activeId
       if (foundGroup) {
         setActiveId(getSlug(foundGroup.title));
       }
     }
-  }, [selectedFeature]); // 監聽 selectedFeature 的變化
+  }, [selectedFeature]);
+
+  // 如果目前是 Apple 頁面，直接渲染 ApplePage 並傳入返回回調
+  if (currentView === 'apple') {
+    return <ApplePage onBack={() => setCurrentView('wayfinders')} />;
+  }
 
   return (
     <div className="flex bg-gray-50 min-h-screen">
-      <Sidebar 
-        groups={data} 
-        activeId={activeId} 
+      <Sidebar
+        groups={data}
+        activeId={activeId}
         onManualActive={(id) => {
           setActiveId(id);
           setSelectedFeature(null);
-        }} 
+        }}
+        onAppleClick={() => setCurrentView('apple')} // 點擊時切換狀態
       />
-      
+
       <main className="ml-0 flex-1 md:ml-64 p-4 lg:p-8">
         <div className="mx-auto max-w-[1000px] font-sans">
           {selectedFeature ? (
-            <FeatureDetail 
-              feature={selectedFeature} 
-              onBack={() => setSelectedFeature(null)} 
-              // 正確傳入導航函數
+            <FeatureDetail
+              feature={selectedFeature}
+              onBack={() => setSelectedFeature(null)}
               onNavigate={(nextFeature) => setSelectedFeature(nextFeature)}
             />
           ) : (
             data.map((group) => (
-              <CardGroup 
-                key={group.title} 
-                group={group} 
-                onFeatureClick={setSelectedFeature} 
-              />
+              <section id={getSlug(group.title)} key={group.title}>
+                <CardGroup
+                  group={group}
+                  onFeatureClick={setSelectedFeature}
+                />
+              </section>
             ))
           )}
         </div>

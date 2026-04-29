@@ -1,13 +1,15 @@
 import { useTranslation } from "react-i18next";
+import { Apple } from "lucide-react";
 import type { CardGroup } from "../cards";
 
 interface Props {
   groups: CardGroup[];
   activeId: string;
   onManualActive: (id: string) => void;
+  onAppleClick?: () => void; // 新增
 }
 
-export const Sidebar = ({ groups, activeId, onManualActive }: Props) => {
+export const Sidebar = ({ groups, activeId, onManualActive, onAppleClick }: Props) => {
   const { t, i18n } = useTranslation();
 
   const changeLanguage = (lng: string) => {
@@ -23,30 +25,42 @@ export const Sidebar = ({ groups, activeId, onManualActive }: Props) => {
           const isActive = activeId === id;
 
           return (
-            <a
-              key={group.title}
-              href={`#${id}`}
-              onClick={() => onManualActive(id)}
-              className={`group relative mb-1 flex items-center py-2.5 px-4 text-sm transition-all duration-200 rounded-xl ${isActive
-                  ? "text-blue-600 font-bold bg-blue-50"
-                  : "text-gray-500 hover:text-gray-900 hover:bg-gray-50"
-                }`}
-            >
-              {/* 指示線 */}
-              <div className={`absolute left-0 top-3 bottom-3 w-1 bg-blue-600 rounded-r-full transition-opacity ${isActive ? "opacity-100" : "opacity-0"
-                }`} />
+            <div key={group.title}>
+              <a
+                href={`#${id}`}
+                onClick={() => onManualActive(id)}
+                className={`group relative mb-1 flex items-center py-2.5 px-4 text-sm transition-all duration-200 rounded-xl ${isActive
+                    ? "text-blue-600 font-bold bg-blue-50"
+                    : "text-gray-500 hover:text-gray-900 hover:bg-gray-50"
+                  }`}
+              >
+                {/* 指示線 */}
+                <div className={`absolute left-0 top-3 bottom-3 w-1 bg-blue-600 rounded-r-full transition-opacity ${isActive ? "opacity-100" : "opacity-0"
+                  }`} />
 
-              <i className={`${group.icon} mr-3 w-5 text-center ${isActive ? "text-blue-600" : "text-gray-400"}`} />
-              <span className="truncate flex-1">{t(group.title)}</span>
-              {group.features && group.features.length > 0 && (
-                <span className={`ml-auto text-[10px] px-1.5 py-0.5 rounded-full font-medium transition-colors ${isActive
-                    ? "bg-blue-100 text-blue-600"
-                    : "bg-gray-100/50 text-gray-400 group-hover:bg-gray-200/50 group-hover:text-gray-500"
-                  }`}>
-                  {group.features.length}
-                </span>
+                <i className={`${group.icon} mr-3 w-5 text-center ${isActive ? "text-blue-600" : "text-gray-400"}`} />
+                <span className="truncate flex-1">{t(group.title)}</span>
+                {group.features && group.features.length > 0 && (
+                  <span className={`ml-auto text-[10px] px-1.5 py-0.5 rounded-full font-medium transition-colors ${isActive
+                      ? "bg-blue-100 text-blue-600"
+                      : "bg-gray-100/50 text-gray-400 group-hover:bg-gray-200/50 group-hover:text-gray-500"
+                    }`}>
+                    {group.features.length}
+                  </span>
+                )}
+              </a>
+
+              {/* 當標題是 Identifiers 時，在下面插入 Nano Apple 按鈕 */}
+              {group.title === "Identifiers" && (
+                <button
+                  onClick={onAppleClick}
+                  className="group flex items-center gap-3 px-4 py-2 mt-1 mb-3 w-full text-sm font-semibold transition-all duration-200 rounded-lg text-indigo-600 bg-indigo-50 hover:bg-indigo-100 border border-transparent"
+                >
+                  <Apple size={16} className="shrink-0" />
+                  <span>Nano Apple</span>
+                </button>
               )}
-            </a>
+            </div>
           );
         })}
       </div>
