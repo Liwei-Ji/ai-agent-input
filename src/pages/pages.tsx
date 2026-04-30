@@ -19,7 +19,9 @@ import {
     Edit2,
     Check,
     LogOut,
-    ChevronUp
+    ChevronUp,
+    Search,
+    X
 } from 'lucide-react';
 import { clsx, type ClassValue } from 'clsx';
 import { twMerge } from 'tailwind-merge';
@@ -29,7 +31,7 @@ function cn(...inputs: ClassValue[]) {
 }
 
 type ThemeMode = 'light' | 'dark' | 'colorful';
-type ViewType = 'home' | 'agents';
+type ViewType = 'home' | 'agents' | 'search';
 
 interface Agent {
     id: string;
@@ -48,6 +50,7 @@ const AGENTS: Agent[] = [
 
 export default function ApplePage({ onBack }: { onBack: () => void }) {
     const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+    const [searchQuery, setSearchQuery] = useState('');
     const [themeMode, setThemeMode] = useState<ThemeMode>('light');
     const [activeView, setActiveView] = useState<ViewType>('home');
     const [selectedAgent, setSelectedAgent] = useState<Agent | null>(null);
@@ -139,8 +142,29 @@ export default function ApplePage({ onBack }: { onBack: () => void }) {
         return Object.entries(groups).filter(([_, items]) => items.length > 0);
     };
 
+    useEffect(() => {
+        const handleKeyDown = (e: KeyboardEvent) => {
+            if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+                e.preventDefault();
+                setActiveView('search');
+                setSelectedAgent(null);
+            }
+            if (e.key === 'Escape' && activeView === 'search') {
+                setActiveView('home');
+            }
+        };
+        window.addEventListener('keydown', handleKeyDown);
+        return () => window.removeEventListener('keydown', handleKeyDown);
+    }, []);
+
     const groupedChats = groupChats(chats);
     const themeStyles = getThemeStyles();
+
+    const filteredChats = searchQuery.trim()
+        ? chats.filter(chat =>
+            chat.title.toLowerCase().includes(searchQuery.toLowerCase())
+        )
+        : [];
 
     return (
         <div
@@ -156,10 +180,11 @@ export default function ApplePage({ onBack }: { onBack: () => void }) {
                     themeMode === 'dark' ? "bg-[#1e1f20] border-[#333537]" : themeMode === 'colorful' ? (themeStyles.isDark ? "bg-white/5 border-white/10" : "bg-black/5 border-black/10") : "bg-[#f0f4f9] border-transparent"
                 )}
             >
-                <div className={cn("p-4 flex flex-col gap-6 shrink-0", isSidebarOpen ? "items-end" : "items-center")}>
+                <div className={cn("p-4 flex flex-col gap-4 shrink-0", isSidebarOpen ? "items-end" : "items-center")}>
                     <button onClick={() => setIsSidebarOpen(!isSidebarOpen)} className={cn("p-2 rounded-full transition-all duration-300 group shrink-0", themeStyles.isDark ? "hover:bg-white/10" : "hover:bg-black/10")}>
                         <PanelLeft size={24} className="opacity-20 group-hover:opacity-100 transition-opacity" />
                     </button>
+
                     <button onClick={() => { setActiveView('home'); setSelectedAgent(null); }} className={cn("flex items-center gap-3 p-4 px-5 rounded-full transition-all duration-500 overflow-hidden shadow-sm border shrink-0", themeMode === 'dark' ? "bg-[#333537] hover:bg-[#3c3d3e] border-transparent text-[#c4c7c5]" : themeMode === 'colorful' ? "bg-white/10 hover:bg-white/20 border-white/20 text-inherit" : "bg-white hover:bg-black/5 border-gray-200 text-gray-900", !isSidebarOpen ? "w-10 h-10 p-2 justify-center" : "w-full")}>
                         <Plus size={24} className="shrink-0" />
                         {isSidebarOpen && <motion.span initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} className="text-sm font-medium whitespace-nowrap">New Chat</motion.span>}
@@ -200,6 +225,7 @@ export default function ApplePage({ onBack }: { onBack: () => void }) {
 
                 <div className="p-3 border-t border-inherit mt-auto flex flex-col gap-1 shrink-0">
                     {[
+                        { icon: Search, label: 'Search', onClick: () => { setActiveView('search'); setSelectedAgent(null); }, active: activeView === 'search' },
                         { icon: Bot, label: 'AI Agents', onClick: () => setActiveView('agents'), active: activeView === 'agents' },
                         { icon: Settings, label: 'Model Training' },
                         { icon: HelpCircle, label: 'Help' },
@@ -255,7 +281,71 @@ export default function ApplePage({ onBack }: { onBack: () => void }) {
                     !selectedAgent ? "justify-start pt-20" : "justify-center pt-0"
                 )}>
                     <AnimatePresence mode="wait">
-                        {activeView === 'home' ? (
+                        {activeView === 'search' ? (
+                            <motion.div key="search-view" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} transition={{ duration: 0.4 }} className="max-w-3xl w-full flex flex-col">
+                                <div className="text-left w-full mb-8">
+                                    <h2 className="text-4xl font-display font-medium mb-2">Search</h2>
+                                    <p className="opacity-50">Search your history and conversations</p>
+                                </div>
+
+                                <form onSubmit={(e) => e.preventDefault()} className="relative mb-8">
+                                    <Search size={20} className="absolute left-4 top-1/2 -translate-y-1/2 opacity-30" />
+                                    <input
+                                        autoFocus
+                                        type="text"
+                                        value={searchQuery}
+                                        onChange={(e) => setSearchQuery(e.target.value)}
+                                        placeholder="Search chats..."
+                                        className={cn(
+                                            "w-full pl-12 pr-4 py-4 rounded-3xl outline-none border text-lg transition-all duration-300",
+                                            themeStyles.isDark ? "bg-white/5 border-white/10 focus:bg-white/10 focus:border-white/20" : "bg-white border-gray-200 focus:border-blue-500/50"
+                                        )}
+                                    />
+                                </form>
+
+                                <div className="flex-1">
+                                    {searchQuery.trim() === '' ? (
+                                        <div className="flex flex-col items-center justify-center py-20 opacity-20 gap-4">
+                                            <p className="text-lg">Type to start searching...</p>
+                                        </div>
+                                    ) : filteredChats.length > 0 ? (
+                                        <div className="grid grid-cols-1 gap-3">
+                                            {filteredChats.map(chat => (
+                                                <button
+                                                    key={chat.id}
+                                                    onClick={() => {
+                                                        const agent = AGENTS.find(a => a.id === chat.agent);
+                                                        if (agent) {
+                                                            setSelectedAgent(agent);
+                                                            setActiveView('home');
+                                                        }
+                                                        setSearchQuery('');
+                                                    }}
+                                                    className={cn(
+                                                        "w-full text-left p-6 rounded-3xl transition-all duration-300 group border shadow-sm",
+                                                        themeStyles.isDark ? "bg-white/5 border-white/10 hover:bg-white/10 hover:border-white/20" : "bg-white border-gray-100 hover:shadow-md hover:border-blue-500/30"
+                                                    )}
+                                                >
+                                                    <div className="flex items-center justify-between mb-2">
+                                                        <span className="text-xs font-bold uppercase tracking-widest opacity-40">{chat.agentId}</span>
+                                                        <span className="text-xs opacity-30">{new Date(chat.timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</span>
+                                                    </div>
+                                                    <p className="font-medium text-lg mb-1 group-hover:text-blue-500 transition-colors">
+                                                        {chat.title.split(new RegExp(`(${searchQuery.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi')).map((part: string, i: number) =>
+                                                            part.toLowerCase() === searchQuery.toLowerCase() ? <span key={i} className="bg-blue-500/20 text-blue-500 rounded px-1">{part}</span> : part
+                                                        )}
+                                                    </p>
+                                                </button>
+                                            ))}
+                                        </div>
+                                    ) : (
+                                        <div className="flex flex-col items-center justify-center py-20 opacity-20 gap-4">
+                                            <p className="text-lg">No results found for "{searchQuery}"</p>
+                                        </div>
+                                    )}
+                                </div>
+                            </motion.div>
+                        ) : activeView === 'home' ? (
                             <motion.div key="home-view" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.4 }} className={cn("max-w-5xl w-full flex flex-col items-center", selectedAgent ? "min-h-[calc(100vh-80px)]" : "")}>
                                 {!selectedAgent ? (
                                     <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="w-full">
