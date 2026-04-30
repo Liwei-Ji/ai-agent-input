@@ -143,7 +143,7 @@ export default function ApplePage({ onBack }: { onBack: () => void }) {
 
     return (
         <div
-            className="flex h-screen w-screen overflow-hidden font-sans selection:bg-blue-500/30"
+            className="flex h-screen w-screen overflow-hidden font-sans selection:bg-blue-500/30 transition-colors duration-300"
             style={{ backgroundColor: themeStyles.backgroundColor, color: themeStyles.color }}
         >
             <Sidebar
