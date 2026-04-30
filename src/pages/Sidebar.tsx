@@ -58,6 +58,29 @@ export const Sidebar: React.FC<SidebarProps> = ({
     onBack,
     menuRef
 }) => {
+    const [menuPlacement, setMenuPlacement] = React.useState<'up' | 'down'>('down');
+    const [menuPosition, setMenuPosition] = React.useState<{ top: number; left: number } | null>(null);
+
+    const handleMenuClick = (e: React.MouseEvent, chatId: string) => {
+        e.stopPropagation();
+        const rect = e.currentTarget.getBoundingClientRect();
+        const spaceBelow = window.innerHeight - rect.bottom;
+        
+        setMenuPosition({ top: rect.top, left: rect.left });
+        setMenuPlacement(spaceBelow < 180 ? 'up' : 'down');
+        setActiveMenuId(activeMenuId === chatId ? null : chatId);
+    };
+
+    // 監聽捲動，捲動時關閉選單以防止選單位置偏移
+    React.useEffect(() => {
+        const handleScroll = () => {
+            if (activeMenuId) setActiveMenuId(null);
+        };
+        const scrollContainer = document.querySelector('.custom-scrollbar');
+        scrollContainer?.addEventListener('scroll', handleScroll);
+        return () => scrollContainer?.removeEventListener('scroll', handleScroll);
+    }, [activeMenuId, setActiveMenuId]);
+
     return (
         <motion.aside
             initial={false}
@@ -99,12 +122,24 @@ export const Sidebar: React.FC<SidebarProps> = ({
                                     </button>
                                 )}
                                 {isSidebarOpen && editingChatId !== chat.id && (
-                                    <button onClick={(e) => { e.stopPropagation(); setActiveMenuId(activeMenuId === chat.id ? null : chat.id); }} className={cn("absolute right-2 top-1/2 -translate-y-1/2 p-1.5 rounded-md transition-all opacity-0 group-hover/item:opacity-100 z-10", themeStyles.isDark ? "hover:bg-white/10" : "hover:bg-black/10")}><MoreVertical size={14} className="opacity-70" /></button>
+                                    <button onClick={(e) => handleMenuClick(e, chat.id)} className={cn("absolute right-2 top-1/2 -translate-y-1/2 p-1.5 rounded-md transition-all opacity-0 group-hover/item:opacity-100 z-10", themeStyles.isDark ? "hover:bg-white/10" : "hover:bg-black/10")}><MoreVertical size={14} className="opacity-70" /></button>
                                 )}
-                                {activeMenuId === chat.id && (
-                                    <div ref={menuRef} className={cn("absolute right-2 top-10 w-32 rounded-xl shadow-2xl z-50 py-1.5 border backdrop-blur-xl overflow-hidden animate-in fade-in zoom-in duration-200", themeStyles.isDark ? "bg-[#2b2c2e] border-white/10" : "bg-white border-gray-200")}>
-                                        <button onClick={() => { setEditingChatId(chat.id); setEditingTitle(chat.title); setActiveMenuId(null); }} className="w-full flex items-center gap-2 px-3 py-2 text-xs hover:bg-black/5 dark:hover:bg-white/5 transition-colors text-left"><Edit2 size={12} /> Rename</button>
-                                        <button onClick={() => handleDelete(chat.id)} className="w-full flex items-center gap-2 px-3 py-2 text-xs text-red-500 hover:bg-red-500/10 transition-colors text-left"><Trash2 size={12} /> Delete</button>
+                                {activeMenuId === chat.id && menuPosition && (
+                                    <div 
+                                        ref={menuRef} 
+                                        style={{ 
+                                            position: 'fixed',
+                                            top: menuPlacement === 'up' ? 'auto' : `${menuPosition.top + 32}px`,
+                                            bottom: menuPlacement === 'up' ? `${window.innerHeight - menuPosition.top}px` : 'auto',
+                                            left: `${menuPosition.left - 100}px`, // 稍微向左偏移對齊按鈕
+                                        }}
+                                        className={cn(
+                                            "w-36 rounded-xl shadow-2xl z-[100] py-1.5 border backdrop-blur-xl overflow-hidden animate-in fade-in zoom-in duration-200",
+                                            themeStyles.isDark ? "bg-[#2b2c2e]/95 border-white/10" : "bg-white/95 border-gray-200"
+                                        )}
+                                    >
+                                        <button onClick={() => { setEditingChatId(chat.id); setEditingTitle(chat.title); setActiveMenuId(null); }} className="w-full flex items-center gap-2 px-3 py-2.5 text-xs hover:bg-black/5 dark:hover:bg-white/5 transition-colors text-left font-medium"><Edit2 size={14} /> Rename</button>
+                                        <button onClick={() => handleDelete(chat.id)} className="w-full flex items-center gap-2 px-3 py-2.5 text-xs text-red-500 hover:bg-red-500/10 transition-colors text-left font-medium"><Trash2 size={14} /> Delete</button>
                                     </div>
                                 )}
                             </div>
