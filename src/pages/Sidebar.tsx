@@ -6,7 +6,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import {
     PanelLeft, Plus, MessageSquare, MoreVertical, Edit2, Trash2, Check,
-    Search, Bot, Settings, HelpCircle, LogOut, ChevronUp
+    Search, Bot, Settings, HelpCircle, LogOut, ChevronUp, Pin
 } from 'lucide-react';
 import { cn, AGENTS } from './shared';
 import type { Agent, Chat, ThemeMode, ViewType, ThemeStyles } from './shared';
@@ -31,6 +31,7 @@ interface SidebarProps {
     setIsAccountMenuOpen: (open: boolean) => void;
     handleRename: (id: string) => void;
     handleDelete: (id: string) => void;
+    handleTogglePin: (id: string) => void;
     onBack: () => void;
     menuRef: React.RefObject<HTMLDivElement | null>;
 }
@@ -55,6 +56,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
     setIsAccountMenuOpen,
     handleRename,
     handleDelete,
+    handleTogglePin,
     onBack,
     menuRef
 }) => {
@@ -118,7 +120,12 @@ export const Sidebar: React.FC<SidebarProps> = ({
                                 ) : (
                                     <button onClick={() => { setActiveView('home'); const agent = AGENTS.find(a => a.id === chat.agentId); if (agent) setSelectedAgent(agent); }} className={cn("flex items-center gap-3 px-4 py-2.5 rounded-lg transition-all duration-300 text-left group w-full", themeStyles.isDark ? "hover:bg-white/5 text-inherit opacity-70" : "hover:bg-black/5 text-inherit opacity-70", !isSidebarOpen && "justify-center")}>
                                         <MessageSquare size={18} className="shrink-0 opacity-70 group-hover:opacity-100 transition-opacity" />
-                                        {isSidebarOpen && <span className="text-sm truncate font-normal flex-1 pr-6">{chat.title}</span>}
+                                        {isSidebarOpen && (
+                                            <div className="flex-1 min-w-0 flex items-center gap-2">
+                                                <span className="text-sm truncate font-normal">{chat.title}</span>
+                                                {chat.isPinned && <Pin size={10} className="shrink-0 text-blue-500 rotate-45" />}
+                                            </div>
+                                        )}
                                     </button>
                                 )}
                                 {isSidebarOpen && editingChatId !== chat.id && (
@@ -138,6 +145,10 @@ export const Sidebar: React.FC<SidebarProps> = ({
                                             themeStyles.isDark ? "bg-[#2b2c2e]/95 border-white/10" : "bg-white/95 border-gray-200"
                                         )}
                                     >
+                                        <button onClick={() => handleTogglePin(chat.id)} className="w-full flex items-center gap-2 px-3 py-2.5 text-xs hover:bg-black/5 dark:hover:bg-white/5 transition-colors text-left font-medium">
+                                            <Pin size={14} className={chat.isPinned ? "fill-current" : ""} /> 
+                                            {chat.isPinned ? 'Unpin' : 'Pin'}
+                                        </button>
                                         <button onClick={() => { setEditingChatId(chat.id); setEditingTitle(chat.title); setActiveMenuId(null); }} className="w-full flex items-center gap-2 px-3 py-2.5 text-xs hover:bg-black/5 dark:hover:bg-white/5 transition-colors text-left font-medium"><Edit2 size={14} /> Rename</button>
                                         <button onClick={() => handleDelete(chat.id)} className="w-full flex items-center gap-2 px-3 py-2.5 text-xs text-red-500 hover:bg-red-500/10 transition-colors text-left font-medium"><Trash2 size={14} /> Delete</button>
                                     </div>

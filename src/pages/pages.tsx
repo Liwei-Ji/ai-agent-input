@@ -104,6 +104,11 @@ export default function ApplePage({ onBack }: { onBack: () => void }) {
         setActiveMenuId(null);
     };
 
+    const handleTogglePin = (id: string) => {
+        setChats(prev => prev.map(c => c.id === id ? { ...c, isPinned: !c.isPinned } : c));
+        setActiveMenuId(null);
+    };
+
     const getThemeStyles = (): ThemeStyles => {
         switch (themeMode) {
             case 'dark':
@@ -121,14 +126,27 @@ export default function ApplePage({ onBack }: { onBack: () => void }) {
         const today = new Date(now.getFullYear(), now.getMonth(), now.getDate()).getTime();
         const yesterday = today - 1000 * 60 * 60 * 24;
         const lastWeek = today - 1000 * 60 * 60 * 24 * 7;
+        
+        const pinned = chatList.filter(c => c.isPinned);
+        const unpinned = chatList.filter(c => !c.isPinned);
+        
         const groups: { [key: string]: Chat[] } = { 'Today': [], 'Yesterday': [], '7 Days': [], '30 Days': [] };
-        chatList.forEach(chat => {
+        
+        unpinned.forEach(chat => {
             if (chat.timestamp >= today) groups['Today'].push(chat);
             else if (chat.timestamp >= yesterday) groups['Yesterday'].push(chat);
             else if (chat.timestamp >= lastWeek) groups['7 Days'].push(chat);
             else groups['30 Days'].push(chat);
         });
-        return Object.entries(groups).filter(([_, items]) => items.length > 0);
+
+        const result: [string, Chat[]][] = [];
+        if (pinned.length > 0) result.push(['Pinned', pinned]);
+        
+        Object.entries(groups).forEach(([name, items]) => {
+            if (items.length > 0) result.push([name, items]);
+        });
+        
+        return result;
     };
 
     // --- 渲染準備 ---
@@ -166,7 +184,8 @@ export default function ApplePage({ onBack }: { onBack: () => void }) {
                 setIsAccountMenuOpen={setIsAccountMenuOpen}
                 handleRename={handleRename}
                 handleDelete={handleDelete}
-                onBack={onBack}
+                handleTogglePin={handleTogglePin}
+                onBack={() => { setSelectedAgent(null); setActiveView('home'); }}
                 menuRef={menuRef}
             />
 

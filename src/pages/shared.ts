@@ -37,6 +37,7 @@ export interface Chat {
     title: string;
     timestamp: number;
     agentId: string;
+    isPinned?: boolean;
 }
 
 export interface ThemeStyles {
