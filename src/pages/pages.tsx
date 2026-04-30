@@ -297,10 +297,15 @@ export default function ApplePage({ onBack }: { onBack: () => void }) {
                                         onChange={(e) => setSearchQuery(e.target.value)}
                                         placeholder="Search chats..."
                                         className={cn(
-                                            "w-full pl-12 pr-4 py-4 rounded-3xl outline-none border text-lg transition-all duration-300",
+                                            "w-full pl-12 pr-12 py-4 rounded-3xl outline-none border text-lg transition-all duration-300",
                                             themeStyles.isDark ? "bg-white/5 border-white/10 focus:bg-white/10 focus:border-white/20" : "bg-white border-gray-200 focus:border-blue-500/50"
                                         )}
                                     />
+                                    {searchQuery && (
+                                        <button type="button" onClick={() => setSearchQuery('')} className="absolute right-4 top-1/2 -translate-y-1/2 p-1 rounded-full hover:bg-gray-100 dark:hover:bg-gray-900">
+                                            <X size={20} className="opacity-50 hover:opacity-80" />
+                                        </button>
+                                    )}
                                 </form>
 
                                 <div className="flex-1">
