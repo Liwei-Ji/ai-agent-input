@@ -314,7 +314,7 @@ export default function ApplePage({ onBack }: { onBack: () => void }) {
                                                 <button
                                                     key={chat.id}
                                                     onClick={() => {
-                                                        const agent = AGENTS.find(a => a.id === chat.agent);
+                                                        const agent = AGENTS.find(a => a.id === chat.agentId);
                                                         if (agent) {
                                                             setSelectedAgent(agent);
                                                             setActiveView('home');
