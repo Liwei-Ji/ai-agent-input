@@ -214,7 +214,7 @@ export default function ApplePage({ onBack }: { onBack: () => void }) {
                     <div className="relative mt-2" ref={menuRef}>
                         <button onClick={() => setIsAccountMenuOpen(!isAccountMenuOpen)} className={cn("flex items-center gap-3 px-2 py-2 rounded-xl transition-all duration-300 text-left group w-full", themeStyles.isDark ? "hover:bg-white/5 text-inherit" : "hover:bg-black/5 text-inherit", !isSidebarOpen && "justify-center")}>
                             <div className="w-8 h-8 rounded-full bg-linear-to-tr from-[#4d90fe] to-[#8e75ff] flex items-center justify-center text-white text-xs font-bold shrink-0 shadow-lg">LW</div>
-                            {isSidebarOpen && <div className="flex-1 min-w-0"><p className="text-sm font-semibold truncate leading-tight">Liwei Ji</p><p className="text-[10px] opacity-50 truncate leading-tight">liwei_ji@akousist.com</p></div>}
+                            {isSidebarOpen && <div className="flex-1 min-w-0"><p className="text-sm font-semibold truncate leading-tight">Liwei Ji</p><p className="text-[10px] opacity-50 truncate leading-tight">liwei_ji@email.com</p></div>}
                             {isSidebarOpen && <ChevronUp size={14} className={cn("opacity-40 transition-transform", isAccountMenuOpen && "rotate-180")} />}
                         </button>
                         {isAccountMenuOpen && (
@@ -260,7 +260,7 @@ export default function ApplePage({ onBack }: { onBack: () => void }) {
                                 {!selectedAgent ? (
                                     <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="w-full">
                                         <div className="text-left w-full mb-12">
-                                            <h2 className={cn("text-5xl md:text-6xl font-display font-medium mb-4 leading-tight transition-all duration-500", themeMode === 'colorful' ? "text-inherit" : "bg-clip-text text-transparent bg-gradient-to-r from-[#4d90fe] via-[#8e75ff] to-[#f472b6]")}>Hello, Liwei-Ji Designer</h2>
+                                            <h2 className={cn("text-5xl md:text-6xl font-display font-medium mb-4 leading-tight transition-all duration-500", themeMode === 'colorful' ? "text-inherit" : "bg-clip-text text-transparent bg-gradient-to-r from-[#4d90fe] via-[#8e75ff] to-[#f472b6]")}>Hello, Designer</h2>
                                             <p className="text-2xl md:text-3xl opacity-50 font-display">How can I help you today?</p>
                                         </div>
                                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
