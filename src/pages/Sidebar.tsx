@@ -34,6 +34,7 @@ interface SidebarProps {
     handleTogglePin: (id: string) => void;
     onBack: () => void;
     menuRef: React.RefObject<HTMLDivElement | null>;
+    isMobile: boolean;
 }
 
 export const Sidebar: React.FC<SidebarProps> = ({
@@ -58,7 +59,8 @@ export const Sidebar: React.FC<SidebarProps> = ({
     handleDelete,
     handleTogglePin,
     onBack,
-    menuRef
+    menuRef,
+    isMobile
 }) => {
     const [menuPlacement, setMenuPlacement] = React.useState<'up' | 'down'>('down');
     const [menuPosition, setMenuPosition] = React.useState<{ top: number; left: number } | null>(null);
@@ -86,10 +88,14 @@ export const Sidebar: React.FC<SidebarProps> = ({
     return (
         <motion.aside
             initial={false}
-            animate={{ width: isSidebarOpen ? 220 : 68 }}
+            animate={{ 
+                width: isMobile ? (isSidebarOpen ? 280 : 0) : (isSidebarOpen ? 220 : 68),
+                x: isMobile && !isSidebarOpen ? -280 : 0
+            }}
             transition={{ type: "spring", stiffness: 400, damping: 40 }}
             className={cn(
                 "relative flex flex-col h-full border-r overflow-hidden z-20 shrink-0 transition-colors duration-300",
+                isMobile && "fixed inset-y-0 left-0 z-50 shadow-2xl",
                 themeMode === 'dark' ? "bg-[#1e1f20] border-[#333537] text-[#c4c7c5]" :
                     themeMode === 'colorful' ? (themeStyles.isDark ? "bg-white/5 border-white/10 text-white" : "bg-black/5 border-black/10 text-gray-900") :
                         "bg-[#f0f4f9] border-transparent text-gray-900"
@@ -100,7 +106,14 @@ export const Sidebar: React.FC<SidebarProps> = ({
                     <PanelLeft size={24} className="opacity-20 group-hover:opacity-100 transition-opacity" />
                 </button>
 
-                <button onClick={() => { setActiveView('home'); setSelectedAgent(null); }} className={cn("flex items-center gap-3 p-4 px-5 rounded-full transition-all duration-500 overflow-hidden shadow-sm border shrink-0", themeMode === 'dark' ? "bg-[#333537] hover:bg-[#3c3d3e] border-transparent text-[#c4c7c5]" : themeMode === 'colorful' ? "bg-white/10 hover:bg-white/20 border-white/20 text-inherit" : "bg-white hover:bg-black/5 border-gray-200 text-gray-900", !isSidebarOpen ? "w-10 h-10 p-2 justify-center" : "w-full")}>
+                <button 
+                    onClick={() => { 
+                        setActiveView('home'); 
+                        setSelectedAgent(null); 
+                        if (isMobile) setIsSidebarOpen(false); 
+                    }} 
+                    className={cn("flex items-center gap-3 p-4 px-5 rounded-full transition-all duration-500 overflow-hidden shadow-sm border shrink-0", themeMode === 'dark' ? "bg-[#333537] hover:bg-[#3c3d3e] border-transparent text-[#c4c7c5]" : themeMode === 'colorful' ? "bg-white/10 hover:bg-white/20 border-white/20 text-inherit" : "bg-white hover:bg-black/5 border-gray-200 text-gray-900", !isSidebarOpen ? "w-10 h-10 p-2 justify-center" : "w-full")}
+                >
                     <Plus size={24} className="shrink-0" />
                     {isSidebarOpen && <motion.span initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} className="text-sm font-medium whitespace-nowrap">New Chat</motion.span>}
                 </button>
@@ -118,7 +131,15 @@ export const Sidebar: React.FC<SidebarProps> = ({
                                         <button onClick={() => handleRename(chat.id)} className="p-1 hover:text-blue-500 transition-colors"><Check size={14} /></button>
                                     </div>
                                 ) : (
-                                    <button onClick={() => { setActiveView('home'); const agent = AGENTS.find(a => a.id === chat.agentId); if (agent) setSelectedAgent(agent); }} className={cn("flex items-center gap-3 px-4 py-2.5 rounded-lg transition-all duration-300 text-left group w-full", themeStyles.isDark ? "hover:bg-white/5 text-inherit opacity-70" : "hover:bg-black/5 text-inherit opacity-70", !isSidebarOpen && "justify-center")}>
+                                    <button 
+                                        onClick={() => { 
+                                            setActiveView('home'); 
+                                            const agent = AGENTS.find(a => a.id === chat.agentId); 
+                                            if (agent) setSelectedAgent(agent); 
+                                            if (isMobile) setIsSidebarOpen(false); // 手機端點擊後自動收回
+                                        }} 
+                                        className={cn("flex items-center gap-3 px-4 py-2.5 rounded-lg transition-all duration-300 text-left group w-full", themeStyles.isDark ? "hover:bg-white/5 text-inherit opacity-70" : "hover:bg-black/5 text-inherit opacity-70", !isSidebarOpen && "justify-center")}
+                                    >
                                         <MessageSquare size={18} className="shrink-0 opacity-70 group-hover:opacity-100 transition-opacity" />
                                         {isSidebarOpen && (
                                             <div className="flex-1 min-w-0 flex items-center gap-2">
@@ -161,8 +182,8 @@ export const Sidebar: React.FC<SidebarProps> = ({
 
             <div className="p-3 border-t border-inherit mt-auto flex flex-col gap-1 shrink-0">
                 {[
-                    { icon: Search, label: 'Search', onClick: () => { setActiveView('search'); setSelectedAgent(null); }, active: activeView === 'search' },
-                    { icon: Bot, label: 'AI Agents', onClick: () => setActiveView('agents'), active: activeView === 'agents' },
+                    { icon: Search, label: 'Search', onClick: () => { setActiveView('search'); setSelectedAgent(null); if (isMobile) setIsSidebarOpen(false); }, active: activeView === 'search' },
+                    { icon: Bot, label: 'AI Agents', onClick: () => { setActiveView('agents'); if (isMobile) setIsSidebarOpen(false); }, active: activeView === 'agents' },
                     { icon: Settings, label: 'Model Training' },
                     { icon: HelpCircle, label: 'Help' },
                     { icon: LogOut, label: 'Back', onClick: onBack, active: false }

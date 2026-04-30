@@ -30,10 +30,10 @@ export const HomeView: React.FC<HomeViewProps> = ({
             {!selectedAgent ? (
                 <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="w-full">
                     <div className="text-left w-full mb-12">
-                        <h2 className={cn("text-5xl md:text-6xl font-display font-medium mb-4 leading-tight transition-all duration-500", themeMode === 'colorful' ? "text-inherit" : "bg-clip-text text-transparent bg-gradient-to-r from-[#4d90fe] via-[#8e75ff] to-[#f472b6]")}>Hello, Designer</h2>
-                        <p className="text-2xl md:text-3xl opacity-50 font-display">How can I help you today?</p>
+                        <h2 className={cn("text-4xl md:text-6xl font-display font-medium mb-4 leading-tight transition-all duration-500", themeMode === 'colorful' ? "text-inherit" : "bg-clip-text text-transparent bg-gradient-to-r from-[#4d90fe] via-[#8e75ff] to-[#f472b6]")}>Hello, Designer</h2>
+                        <p className="text-xl md:text-3xl opacity-50 font-display">How can I help you today?</p>
                     </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                         {AGENTS.map((agent) => (
                             <motion.div key={agent.id} whileHover={{ y: -5 }} onClick={() => createNewChat(agent)} className={cn("p-6 rounded-3xl cursor-pointer transition-all duration-300 group shadow-lg backdrop-blur-md", themeMode === 'colorful' ? (themeStyles.isDark ? "bg-white/15 hover:bg-white/20" : "bg-black/10 hover:bg-black/15") : (themeStyles.isDark ? "bg-white/10 hover:bg-[#4d90fe]/5" : "bg-white text-gray-900 shadow-sm hover:shadow-xl"))}>
                                 <div className="flex items-center gap-3 mb-4"><div className={cn("w-10 h-10 rounded-xl flex items-center justify-center text-white shadow-sm shrink-0", agent.color)}><agent.icon size={20} /></div><h3 className="text-lg font-medium font-display tracking-tight leading-tight">{agent.name}</h3></div><p className="text-sm opacity-60 leading-relaxed line-clamp-2">{agent.description}</p>

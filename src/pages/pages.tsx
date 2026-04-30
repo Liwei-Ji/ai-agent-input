@@ -38,6 +38,7 @@ export default function ApplePage({ onBack }: { onBack: () => void }) {
     const [inputText, setInputText] = useState('');
     const [activeMenuId, setActiveMenuId] = useState<string | null>(null);
     const [isAccountMenuOpen, setIsAccountMenuOpen] = useState(false);
+    const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
     const [editingChatId, setEditingChatId] = useState<string | null>(null);
     const [editingTitle, setEditingTitle] = useState('');
     const [chats, setChats] = useState<Chat[]>([
@@ -51,6 +52,18 @@ export default function ApplePage({ onBack }: { onBack: () => void }) {
     
     const colorInputRef = useRef<HTMLInputElement>(null);
     const menuRef = useRef<HTMLDivElement>(null);
+
+    // 監聽視窗大小變化
+    useEffect(() => {
+        const handleResize = () => {
+            const mobile = window.innerWidth < 768;
+            setIsMobile(mobile);
+            if (!mobile && !isSidebarOpen) setIsSidebarOpen(true);
+            if (mobile && isSidebarOpen) setIsSidebarOpen(false);
+        };
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, [isSidebarOpen]);
 
     // --- 副作用處理 ---
     useEffect(() => {
@@ -187,7 +200,16 @@ export default function ApplePage({ onBack }: { onBack: () => void }) {
                 handleTogglePin={handleTogglePin}
                 onBack={() => { setSelectedAgent(null); setActiveView('home'); }}
                 menuRef={menuRef}
+                isMobile={isMobile}
             />
+
+            {/* 手機端遮罩 */}
+            {isMobile && isSidebarOpen && (
+                <div 
+                    className="fixed inset-0 bg-black/40 backdrop-blur-sm z-40 transition-opacity"
+                    onClick={() => setIsSidebarOpen(false)}
+                />
+            )}
 
             <main className="flex-1 flex flex-col relative min-w-0 h-full overflow-hidden">
                 <Header
@@ -199,6 +221,8 @@ export default function ApplePage({ onBack }: { onBack: () => void }) {
                     customColor={customColor}
                     setCustomColor={setCustomColor}
                     colorInputRef={colorInputRef}
+                    isMobile={isMobile}
+                    setIsSidebarOpen={setIsSidebarOpen}
                 />
 
                 <div className={cn(
