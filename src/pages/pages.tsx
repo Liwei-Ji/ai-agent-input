@@ -301,7 +301,7 @@ export default function ApplePage({ onBack }: { onBack: () => void }) {
                                                 <button className={cn(
                                                     "flex items-center justify-center w-10 h-10 rounded-full transition-all duration-300 shrink-0",
                                                     inputText.trim()
-                                                        ? "bg-indigo-600 text-white shadow-lg shadow-indigo-200 scale-100 hover:bg-indigo-700 active:scale-95"
+                                                        ? cn("bg-indigo-600 text-white shadow-lg scale-100 hover:bg-indigo-700 active:scale-95", themeMode === 'light' ? "shadow-indigo-200" : "shadow-indigo-950/50")
                                                         : (themeStyles.isDark ? "bg-white/5 text-white/20 scale-95" : "bg-slate-100 text-slate-300 scale-95 cursor-not-allowed")
                                                 )}>
                                                     <Send size={18} />
