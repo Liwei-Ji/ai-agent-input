@@ -43,6 +43,10 @@ export default function ApplePage({ onBack }: { onBack: () => void }) {
         const saved = localStorage.getItem('ag_show_date_grouping');
         return saved !== null ? JSON.parse(saved) : true;
     });
+    const [isSidebarFloating, setIsSidebarFloating] = useState(() => {
+        const saved = localStorage.getItem('ag_is_sidebar_floating');
+        return saved !== null ? JSON.parse(saved) : false;
+    });
     const [editingChatId, setEditingChatId] = useState<string | null>(null);
     const [editingTitle, setEditingTitle] = useState('');
     const [chats, setChats] = useState<Chat[]>([
@@ -176,6 +180,10 @@ export default function ApplePage({ onBack }: { onBack: () => void }) {
         localStorage.setItem('ag_show_date_grouping', JSON.stringify(showDateGrouping));
     }, [showDateGrouping]);
 
+    useEffect(() => {
+        localStorage.setItem('ag_is_sidebar_floating', JSON.stringify(isSidebarFloating));
+    }, [isSidebarFloating]);
+
     // --- 渲染準備 ---
     const themeStyles = getThemeStyles();
     const groupedChats = groupChats(chats);
@@ -191,6 +199,11 @@ export default function ApplePage({ onBack }: { onBack: () => void }) {
             className="flex h-screen w-screen overflow-hidden font-sans selection:bg-blue-500/30 transition-colors duration-300"
             style={{ backgroundColor: themeStyles.backgroundColor, color: themeStyles.color }}
         >
+            {/* Sidebar 佔位容器：恆定佔位，確保右側內容永不跳動 */}
+            <div 
+                className="hidden md:block transition-all duration-300 shrink-0"
+                style={{ width: isSidebarOpen ? 220 : 68 }}
+            />
             <Sidebar
                 isSidebarOpen={isSidebarOpen}
                 setIsSidebarOpen={setIsSidebarOpen}
@@ -217,6 +230,8 @@ export default function ApplePage({ onBack }: { onBack: () => void }) {
                 isMobile={isMobile}
                 showDateGrouping={showDateGrouping}
                 setShowDateGrouping={setShowDateGrouping}
+                isSidebarFloating={isSidebarFloating}
+                setIsSidebarFloating={setIsSidebarFloating}
                 setThemeMode={setThemeMode}
                 customColor={customColor}
                 setCustomColor={setCustomColor}

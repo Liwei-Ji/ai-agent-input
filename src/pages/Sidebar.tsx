@@ -6,7 +6,7 @@ import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
     PanelLeft, Plus, MessageSquare, MoreVertical, Edit2, Trash2, Check,
-    Search, Bot, Settings, HelpCircle, LogOut, ChevronUp, Pin, Palette, CalendarDays, ChevronRight
+    Search, Bot, Settings, HelpCircle, LogOut, ChevronUp, Pin, Palette, CalendarDays, ChevronRight, Layout
 } from 'lucide-react';
 import { cn, AGENTS } from './shared';
 import type { Agent, Chat, ThemeMode, ViewType, ThemeStyles } from './shared';
@@ -37,6 +37,8 @@ interface SidebarProps {
     isMobile: boolean;
     showDateGrouping: boolean;
     setShowDateGrouping: (show: boolean) => void;
+    isSidebarFloating: boolean;
+    setIsSidebarFloating: (isFloating: boolean) => void;
     setThemeMode: (mode: ThemeMode) => void;
     customColor: string;
     setCustomColor: (color: string) => void;
@@ -69,6 +71,8 @@ export const Sidebar: React.FC<SidebarProps> = ({
     isMobile,
     showDateGrouping,
     setShowDateGrouping,
+    isSidebarFloating,
+    setIsSidebarFloating,
     setThemeMode,
     customColor,
     setCustomColor,
@@ -116,13 +120,18 @@ export const Sidebar: React.FC<SidebarProps> = ({
             initial={false}
             animate={{
                 width: isMobile ? (isSidebarOpen ? 280 : 0) : (isSidebarOpen ? 220 : 68),
-                x: isMobile && !isSidebarOpen ? -280 : 0
+                x: isMobile && !isSidebarOpen ? -280 : 0,
+                top: !isMobile && isSidebarFloating ? 16 : 0,
+                bottom: !isMobile && isSidebarFloating ? 16 : 0,
+                left: !isMobile && isSidebarFloating ? 16 : 0,
+                borderRadius: !isMobile && isSidebarFloating ? 24 : 0,
             }}
             transition={{ type: "spring", stiffness: 400, damping: 40 }}
             className={cn(
-                "relative flex flex-col h-full border-r z-20 shrink-0 transition-colors duration-300",
-                isMobile && "fixed inset-y-0 left-0 z-50 shadow-2xl overflow-hidden",
-                !isMobile && "overflow-visible",
+                "fixed z-50 flex flex-col transition-colors duration-300",
+                !isMobile && !isSidebarFloating && "border-r",
+                isMobile && "inset-y-0 left-0 shadow-2xl overflow-hidden h-full",
+                !isMobile && isSidebarFloating && "shadow-2xl border",
                 themeMode === 'dark' ? "bg-[#1e1f20] border-[#333537] text-[#c4c7c5]" :
                     themeMode === 'colorful' ? (themeStyles.isDark ? "bg-white/5 border-white/10 text-white" : "bg-black/5 border-black/10 text-gray-900") :
                         "bg-[#f0f4f9] border-transparent text-gray-900"
@@ -226,9 +235,16 @@ export const Sidebar: React.FC<SidebarProps> = ({
                         {isSidebarOpen && <div className="flex-1 min-w-0"><p className="text-sm font-semibold truncate leading-tight">Liwei Ji</p><p className="text-[10px] opacity-50 truncate leading-tight">liwei_ji@email.com</p></div>}
                     </button>
                     {isAccountMenuOpen && (
-                        <div className={cn("absolute bottom-full left-0 mb-2 rounded-2xl shadow-2xl z-50 p-2 border backdrop-blur-xl animate-in fade-in slide-in-from-bottom-2 duration-200", isSidebarOpen ? "right-0" : "w-56", themeStyles.isDark ? "bg-[#2b2c2e]/95 border-white/10" : "bg-white/95 border-gray-200")}>
+                        <div 
+                            className={cn(
+                                "absolute bottom-full left-0 mb-2 rounded-2xl shadow-2xl z-50 p-2 border backdrop-blur-xl animate-in fade-in slide-in-from-bottom-2 duration-200", 
+                                isSidebarOpen ? "right-0" : "w-56", 
+                                themeMode === 'colorful' ? "border-white/10" : (themeStyles.isDark ? "bg-[#2b2c2e]/95 border-white/10" : "bg-white/95 border-gray-200")
+                            )}
+                            style={themeMode === 'colorful' ? { backgroundColor: `${customColor}f2` } : {}}
+                        >
                             {/* 主題切換 (Click Fly-out) */}
-                            <div 
+                            <div
                                 onClick={(e) => { e.stopPropagation(); setIsThemeSectionOpen(!isThemeSectionOpen); }}
                                 className="w-full flex items-center gap-2 px-3 py-2.5 rounded-lg hover:bg-black/5 dark:hover:bg-white/5 transition-colors group relative cursor-pointer"
                             >
@@ -238,8 +254,8 @@ export const Sidebar: React.FC<SidebarProps> = ({
                                     <div className={cn(
                                         "w-3 h-3 rounded-full border border-inherit shadow-sm",
                                         themeMode === 'light' ? "bg-white border-gray-200" :
-                                        themeMode === 'dark' ? "bg-black border-white/20" :
-                                        "bg-gradient-to-tr from-[#4d90fe] to-[#f472b6] border-transparent"
+                                            themeMode === 'dark' ? "bg-black border-white/20" :
+                                                "bg-gradient-to-tr from-[#4d90fe] to-[#f472b6] border-transparent"
                                     )} style={themeMode === 'colorful' ? { backgroundColor: customColor } : {}} />
                                     <ChevronRight size={12} className={cn("opacity-40 transition-transform", isThemeSectionOpen && "rotate-90")} />
                                 </div>
@@ -247,12 +263,16 @@ export const Sidebar: React.FC<SidebarProps> = ({
                                 {/* Fly-out Submenu (Absolute) */}
                                 <AnimatePresence>
                                     {isThemeSectionOpen && (
-                                        <motion.div 
+                                        <motion.div
                                             initial={{ opacity: 0, x: -10 }}
                                             animate={{ opacity: 1, x: 0 }}
                                             exit={{ opacity: 0, x: -10 }}
                                             onClick={(e) => e.stopPropagation()}
-                                            className={cn("absolute left-full top-0 ml-2 w-48 p-2 rounded-2xl shadow-2xl border backdrop-blur-xl z-[60] flex flex-col gap-1", themeStyles.isDark ? "bg-[#2b2c2e]/95 border-white/10" : "bg-white/95 border-gray-200")}
+                                            className={cn(
+                                                "absolute left-full top-0 ml-2 w-48 p-2 rounded-2xl shadow-2xl border backdrop-blur-xl z-[60] flex flex-col gap-1", 
+                                                themeMode === 'colorful' ? "border-white/10" : (themeStyles.isDark ? "bg-[#2b2c2e]/95 border-white/10" : "bg-white/95 border-gray-200")
+                                            )}
+                                            style={themeMode === 'colorful' ? { backgroundColor: `${customColor}f2` } : {}}
                                         >
                                             <button onClick={() => setThemeMode('light')} className="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-black/5 dark:hover:bg-white/5 transition-colors group/sub w-full text-left">
                                                 <div className={cn("w-3 h-3 rounded-full bg-white border shrink-0", themeMode === 'light' ? "border-blue-500 ring-2 ring-blue-500/20" : "border-gray-200")} />
@@ -262,8 +282,8 @@ export const Sidebar: React.FC<SidebarProps> = ({
                                                 <div className={cn("w-3 h-3 rounded-full bg-black border shrink-0", themeMode === 'dark' ? "border-blue-500 ring-2 ring-blue-500/20" : "border-white/20")} />
                                                 <span className={cn("text-xs font-medium", themeMode === 'dark' ? "text-blue-500" : "opacity-70")}>Dark Mode</span>
                                             </button>
-                                            <button 
-                                                onClick={(e) => { e.stopPropagation(); setThemeMode('colorful'); colorInputRef.current?.click(); }} 
+                                            <button
+                                                onClick={(e) => { e.stopPropagation(); setThemeMode('colorful'); colorInputRef.current?.click(); }}
                                                 className="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-black/5 dark:hover:bg-white/5 transition-colors group/sub w-full text-left relative"
                                             >
                                                 <div className={cn("w-3 h-3 rounded-full bg-gradient-to-tr from-[#4d90fe] to-[#f472b6] border shrink-0", themeMode === 'colorful' ? "border-blue-500 ring-2 ring-blue-500/20" : "border-transparent")} style={themeMode === 'colorful' ? { backgroundColor: customColor } : {}} />
@@ -274,16 +294,28 @@ export const Sidebar: React.FC<SidebarProps> = ({
                                     )}
                                 </AnimatePresence>
                             </div>
-                            
+
                             {/* 日期分組 */}
                             <div className="flex items-center gap-2 px-3 py-2.5 rounded-lg group">
                                 <CalendarDays size={14} className="opacity-70 group-hover:opacity-100" />
                                 <span className="text-xs font-medium flex-1 opacity-70 group-hover:opacity-100 text-left">Group by Date</span>
-                                <button 
+                                <button
                                     onClick={(e) => { e.stopPropagation(); setShowDateGrouping(!showDateGrouping); }}
                                     className={cn("w-8 h-4 rounded-full transition-colors relative flex items-center px-0.5 shrink-0", showDateGrouping ? "bg-[#4d90fe]" : "bg-gray-400")}
                                 >
                                     <div className={cn("w-3 h-3 bg-white rounded-full transition-transform shadow-sm", showDateGrouping ? "translate-x-4" : "translate-x-0")} />
+                                </button>
+                            </div>
+
+                            {/* 側邊欄樣式 (懸浮切換) */}
+                            <div className="flex items-center gap-2 px-3 py-2.5 rounded-lg group">
+                                <Layout size={14} className="opacity-70 group-hover:opacity-100" />
+                                <span className="text-xs font-medium flex-1 opacity-70 group-hover:opacity-100 text-left">Sidebar</span>
+                                <button
+                                    onClick={(e) => { e.stopPropagation(); setIsSidebarFloating(!isSidebarFloating); }}
+                                    className={cn("w-8 h-4 rounded-full transition-colors relative flex items-center px-0.5 shrink-0", isSidebarFloating ? "bg-[#4d90fe]" : "bg-gray-400")}
+                                >
+                                    <div className={cn("w-3 h-3 bg-white rounded-full transition-transform shadow-sm", isSidebarFloating ? "translate-x-4" : "translate-x-0")} />
                                 </button>
                             </div>
 
