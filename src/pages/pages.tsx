@@ -39,6 +39,10 @@ export default function ApplePage({ onBack }: { onBack: () => void }) {
     const [activeMenuId, setActiveMenuId] = useState<string | null>(null);
     const [isAccountMenuOpen, setIsAccountMenuOpen] = useState(false);
     const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+    const [showDateGrouping, setShowDateGrouping] = useState(() => {
+        const saved = localStorage.getItem('ag_show_date_grouping');
+        return saved !== null ? JSON.parse(saved) : true;
+    });
     const [editingChatId, setEditingChatId] = useState<string | null>(null);
     const [editingTitle, setEditingTitle] = useState('');
     const [chats, setChats] = useState<Chat[]>([
@@ -135,13 +139,21 @@ export default function ApplePage({ onBack }: { onBack: () => void }) {
     };
 
     const groupChats = (chatList: Chat[]): [string, Chat[]][] => {
+        const pinned = chatList.filter(c => c.isPinned);
+        const unpinned = chatList.filter(c => !c.isPinned);
+        
+        const result: [string, Chat[]][] = [];
+        if (pinned.length > 0) result.push(['Pinned', pinned]);
+
+        if (!showDateGrouping) {
+            if (unpinned.length > 0) result.push(['Recent', unpinned]);
+            return result;
+        }
+
         const now = new Date();
         const today = new Date(now.getFullYear(), now.getMonth(), now.getDate()).getTime();
         const yesterday = today - 1000 * 60 * 60 * 24;
         const lastWeek = today - 1000 * 60 * 60 * 24 * 7;
-        
-        const pinned = chatList.filter(c => c.isPinned);
-        const unpinned = chatList.filter(c => !c.isPinned);
         
         const groups: { [key: string]: Chat[] } = { 'Today': [], 'Yesterday': [], '7 Days': [], '30 Days': [] };
         
@@ -152,15 +164,17 @@ export default function ApplePage({ onBack }: { onBack: () => void }) {
             else groups['30 Days'].push(chat);
         });
 
-        const result: [string, Chat[]][] = [];
-        if (pinned.length > 0) result.push(['Pinned', pinned]);
-        
         Object.entries(groups).forEach(([name, items]) => {
             if (items.length > 0) result.push([name, items]);
         });
         
         return result;
     };
+
+    // 監控設定變化並儲存
+    useEffect(() => {
+        localStorage.setItem('ag_show_date_grouping', JSON.stringify(showDateGrouping));
+    }, [showDateGrouping]);
 
     // --- 渲染準備 ---
     const themeStyles = getThemeStyles();
@@ -201,6 +215,8 @@ export default function ApplePage({ onBack }: { onBack: () => void }) {
                 onBack={() => { setSelectedAgent(null); setActiveView('home'); }}
                 menuRef={menuRef}
                 isMobile={isMobile}
+                showDateGrouping={showDateGrouping}
+                setShowDateGrouping={setShowDateGrouping}
             />
 
             {/* 手機端遮罩 */}

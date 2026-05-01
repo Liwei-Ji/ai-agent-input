@@ -35,6 +35,8 @@ interface SidebarProps {
     onBack: () => void;
     menuRef: React.RefObject<HTMLDivElement | null>;
     isMobile: boolean;
+    showDateGrouping: boolean;
+    setShowDateGrouping: (show: boolean) => void;
 }
 
 export const Sidebar: React.FC<SidebarProps> = ({
@@ -60,8 +62,12 @@ export const Sidebar: React.FC<SidebarProps> = ({
     handleTogglePin,
     onBack,
     menuRef,
-    isMobile
+    isMobile,
+    showDateGrouping,
+    setShowDateGrouping
 }) => {
+    const [isSettingsOpen, setIsSettingsOpen] = React.useState(false);
+    const settingsRef = React.useRef<HTMLDivElement>(null);
     const [menuPlacement, setMenuPlacement] = React.useState<'up' | 'down'>('down');
     const [menuPosition, setMenuPosition] = React.useState<{ top: number; left: number } | null>(null);
 
@@ -76,6 +82,17 @@ export const Sidebar: React.FC<SidebarProps> = ({
     };
 
     // 監聽捲動，捲動時關閉選單以防止選單位置偏移
+    // --- 副作用處理 ---
+    React.useEffect(() => {
+        function handleClickOutside(event: MouseEvent) {
+            if (settingsRef.current && !settingsRef.current.contains(event.target as Node)) {
+                setIsSettingsOpen(false);
+            }
+        }
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => document.removeEventListener('mousedown', handleClickOutside);
+    }, []);
+
     React.useEffect(() => {
         const handleScroll = () => {
             if (activeMenuId) setActiveMenuId(null);
@@ -201,8 +218,19 @@ export const Sidebar: React.FC<SidebarProps> = ({
                         {isSidebarOpen && <ChevronUp size={14} className={cn("opacity-40 transition-transform", isAccountMenuOpen && "rotate-180")} />}
                     </button>
                     {isAccountMenuOpen && (
-                        <div className={cn("absolute bottom-full left-0 mb-2 rounded-2xl shadow-2xl z-50 py-1.5 border backdrop-blur-xl overflow-hidden animate-in fade-in slide-in-from-bottom-2 duration-200", isSidebarOpen ? "right-0" : "w-32", themeStyles.isDark ? "bg-[#2b2c2e] border-white/10" : "bg-white border-gray-200")}>
-                            <button onClick={() => { setIsAccountMenuOpen(false); onBack(); }} className="w-full flex items-center gap-2 px-3 py-2 text-xs text-red-500 hover:bg-red-500/10 transition-colors text-left font-medium"><LogOut size={12} /> Log out</button>
+                        <div className={cn("absolute bottom-full left-0 mb-2 rounded-2xl shadow-2xl z-50 p-2 border backdrop-blur-xl overflow-hidden animate-in fade-in slide-in-from-bottom-2 duration-200", isSidebarOpen ? "right-0" : "w-48", themeStyles.isDark ? "bg-[#2b2c2e]/95 border-white/10" : "bg-white/95 border-gray-200")}>
+                            <div className="px-3 py-2 border-b border-inherit mb-1">
+                                <div className="flex items-center justify-between gap-2">
+                                    <span className="text-xs font-medium opacity-70">Group by Date</span>
+                                    <button 
+                                        onClick={(e) => { e.stopPropagation(); setShowDateGrouping(!showDateGrouping); }}
+                                        className={cn("w-8 h-4 rounded-full transition-colors relative flex items-center px-0.5 shrink-0", showDateGrouping ? "bg-[#4d90fe]" : "bg-gray-400")}
+                                    >
+                                        <div className={cn("w-3 h-3 bg-white rounded-full transition-transform shadow-sm", showDateGrouping ? "translate-x-4" : "translate-x-0")} />
+                                    </button>
+                                </div>
+                            </div>
+                            <button onClick={() => { setIsAccountMenuOpen(false); onBack(); }} className="w-full flex items-center gap-2 px-3 py-2 text-xs text-red-500 hover:bg-red-500/10 transition-colors text-left font-medium rounded-lg"><LogOut size={14} /> Log out</button>
                         </div>
                     )}
                 </div>
