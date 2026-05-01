@@ -58,6 +58,11 @@ export default function ApplePage({ onBack }: { onBack: () => void }) {
         { id: '6', title: 'GMP認證', timestamp: new Date().getTime() - 1000 * 60 * 60 * 24 * 10, agentId: 'gmp' },
     ]);
     
+    const handleResetToHome = () => {
+        setSelectedAgent(null);
+        setActiveView('home');
+    };
+
     const colorInputRef = useRef<HTMLInputElement>(null);
     const menuRef = useRef<HTMLDivElement>(null);
 
@@ -225,7 +230,8 @@ export default function ApplePage({ onBack }: { onBack: () => void }) {
                 handleRename={handleRename}
                 handleDelete={handleDelete}
                 handleTogglePin={handleTogglePin}
-                onBack={() => { setSelectedAgent(null); setActiveView('home'); }}
+                onBack={onBack}
+                onResetToHome={handleResetToHome}
                 menuRef={menuRef}
                 isMobile={isMobile}
                 showDateGrouping={showDateGrouping}

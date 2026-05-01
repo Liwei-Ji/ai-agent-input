@@ -43,6 +43,7 @@ interface SidebarProps {
     customColor: string;
     setCustomColor: (color: string) => void;
     colorInputRef: React.RefObject<HTMLInputElement | null>;
+    onResetToHome: () => void;
 }
 
 export const Sidebar: React.FC<SidebarProps> = ({
@@ -76,7 +77,8 @@ export const Sidebar: React.FC<SidebarProps> = ({
     setThemeMode,
     customColor,
     setCustomColor,
-    colorInputRef
+    colorInputRef,
+    onResetToHome
 }) => {
     const [isSettingsOpen, setIsSettingsOpen] = React.useState(false);
     const [isThemeSectionOpen, setIsThemeSectionOpen] = React.useState(false);
@@ -144,8 +146,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
 
                 <button
                     onClick={() => {
-                        setActiveView('home');
-                        setSelectedAgent(null);
+                        onResetToHome();
                         if (isMobile) setIsSidebarOpen(false);
                     }}
                     className={cn("flex items-center gap-2 p-2 px-10 rounded-full transition-all duration-300 overflow-hidden shadow-sm border shrink-0", themeMode === 'dark' ? "bg-[#333537] hover:bg-[#3c3d3e] border-transparent text-[#c4c7c5]" : themeMode === 'colorful' ? "bg-white/10 hover:bg-white/20 border-white/20 text-inherit" : "bg-white hover:bg-black/5 border-gray-200 text-gray-900", !isSidebarOpen ? "w-10 h-10 p-2 justify-center" : "w-full")}
@@ -327,7 +328,10 @@ export const Sidebar: React.FC<SidebarProps> = ({
 
                             <div className="h-px bg-inherit my-1 opacity-10" />
 
-                            <button onClick={() => { setIsAccountMenuOpen(false); onBack(); }} className="w-full flex items-center gap-2 px-3 py-2.5 text-xs text-red-500 hover:bg-red-500/10 transition-colors text-left font-medium rounded-lg"><LogOut size={14} /> Log out</button>
+                            {/* 登出 (僅 UI 呈現) */}
+                            <button className="w-full flex items-center gap-2 px-3 py-2.5 text-xs text-red-500 hover:bg-red-500/10 transition-colors text-left font-medium rounded-lg cursor-default">
+                                <LogOut size={14} /> Log out
+                            </button>
                         </div>
                     )}
                 </div>
