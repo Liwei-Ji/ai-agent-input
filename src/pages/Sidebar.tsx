@@ -69,7 +69,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
         e.stopPropagation();
         const rect = e.currentTarget.getBoundingClientRect();
         const spaceBelow = window.innerHeight - rect.bottom;
-        
+
         setMenuPosition({ top: rect.top, left: rect.left });
         setMenuPlacement(spaceBelow < 180 ? 'up' : 'down');
         setActiveMenuId(activeMenuId === chatId ? null : chatId);
@@ -88,7 +88,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
     return (
         <motion.aside
             initial={false}
-            animate={{ 
+            animate={{
                 width: isMobile ? (isSidebarOpen ? 280 : 0) : (isSidebarOpen ? 220 : 68),
                 x: isMobile && !isSidebarOpen ? -280 : 0
             }}
@@ -103,18 +103,18 @@ export const Sidebar: React.FC<SidebarProps> = ({
         >
             <div className={cn("p-4 flex flex-col gap-4 shrink-0", isSidebarOpen ? "items-end" : "items-center")}>
                 <button onClick={() => setIsSidebarOpen(!isSidebarOpen)} className={cn("p-2 rounded-full transition-all duration-300 group shrink-0", themeStyles.isDark ? "hover:bg-white/10" : "hover:bg-black/10")}>
-                    <PanelLeft size={24} className="opacity-20 group-hover:opacity-100 transition-opacity" />
+                    <PanelLeft size={18} className="opacity-20 group-hover:opacity-100 transition-opacity" />
                 </button>
 
-                <button 
-                    onClick={() => { 
-                        setActiveView('home'); 
-                        setSelectedAgent(null); 
-                        if (isMobile) setIsSidebarOpen(false); 
-                    }} 
-                    className={cn("flex items-center gap-3 p-4 px-5 rounded-full transition-all duration-500 overflow-hidden shadow-sm border shrink-0", themeMode === 'dark' ? "bg-[#333537] hover:bg-[#3c3d3e] border-transparent text-[#c4c7c5]" : themeMode === 'colorful' ? "bg-white/10 hover:bg-white/20 border-white/20 text-inherit" : "bg-white hover:bg-black/5 border-gray-200 text-gray-900", !isSidebarOpen ? "w-10 h-10 p-2 justify-center" : "w-full")}
+                <button
+                    onClick={() => {
+                        setActiveView('home');
+                        setSelectedAgent(null);
+                        if (isMobile) setIsSidebarOpen(false);
+                    }}
+                    className={cn("flex items-center gap-2 p-2 px-10 rounded-full transition-all duration-300 overflow-hidden shadow-sm border shrink-0", themeMode === 'dark' ? "bg-[#333537] hover:bg-[#3c3d3e] border-transparent text-[#c4c7c5]" : themeMode === 'colorful' ? "bg-white/10 hover:bg-white/20 border-white/20 text-inherit" : "bg-white hover:bg-black/5 border-gray-200 text-gray-900", !isSidebarOpen ? "w-10 h-10 p-2 justify-center" : "w-full")}
                 >
-                    <Plus size={24} className="shrink-0" />
+                    <Plus size={18} className="shrink-0" />
                     {isSidebarOpen && <motion.span initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} className="text-sm font-medium whitespace-nowrap">New Chat</motion.span>}
                 </button>
             </div>
@@ -131,13 +131,13 @@ export const Sidebar: React.FC<SidebarProps> = ({
                                         <button onClick={() => handleRename(chat.id)} className="p-1 hover:text-blue-500 transition-colors"><Check size={14} /></button>
                                     </div>
                                 ) : (
-                                    <button 
-                                        onClick={() => { 
-                                            setActiveView('home'); 
-                                            const agent = AGENTS.find(a => a.id === chat.agentId); 
-                                            if (agent) setSelectedAgent(agent); 
+                                    <button
+                                        onClick={() => {
+                                            setActiveView('home');
+                                            const agent = AGENTS.find(a => a.id === chat.agentId);
+                                            if (agent) setSelectedAgent(agent);
                                             if (isMobile) setIsSidebarOpen(false); // 手機端點擊後自動收回
-                                        }} 
+                                        }}
                                         className={cn("flex items-center gap-3 px-4 py-2.5 rounded-lg transition-all duration-300 text-left group w-full", themeStyles.isDark ? "hover:bg-white/5 text-inherit opacity-70" : "hover:bg-black/5 text-inherit opacity-70", !isSidebarOpen && "justify-center")}
                                     >
                                         <MessageSquare size={18} className="shrink-0 opacity-70 group-hover:opacity-100 transition-opacity" />
@@ -153,9 +153,9 @@ export const Sidebar: React.FC<SidebarProps> = ({
                                     <button onClick={(e) => handleMenuClick(e, chat.id)} className={cn("absolute right-2 top-1/2 -translate-y-1/2 p-1.5 rounded-md transition-all opacity-0 group-hover/item:opacity-100 z-10", themeStyles.isDark ? "hover:bg-white/10" : "hover:bg-black/10")}><MoreVertical size={14} className="opacity-70" /></button>
                                 )}
                                 {activeMenuId === chat.id && menuPosition && (
-                                    <div 
-                                        ref={menuRef} 
-                                        style={{ 
+                                    <div
+                                        ref={menuRef}
+                                        style={{
                                             position: 'fixed',
                                             top: menuPlacement === 'up' ? 'auto' : `${menuPosition.top + 32}px`,
                                             bottom: menuPlacement === 'up' ? `${window.innerHeight - menuPosition.top}px` : 'auto',
@@ -167,7 +167,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                                         )}
                                     >
                                         <button onClick={() => handleTogglePin(chat.id)} className="w-full flex items-center gap-2 px-3 py-2.5 text-xs hover:bg-black/5 dark:hover:bg-white/5 transition-colors text-left font-medium">
-                                            <Pin size={14} className={chat.isPinned ? "fill-current" : ""} /> 
+                                            <Pin size={14} className={chat.isPinned ? "fill-current" : ""} />
                                             {chat.isPinned ? 'Unpin' : 'Pin'}
                                         </button>
                                         <button onClick={() => { setEditingChatId(chat.id); setEditingTitle(chat.title); setActiveMenuId(null); }} className="w-full flex items-center gap-2 px-3 py-2.5 text-xs hover:bg-black/5 dark:hover:bg-white/5 transition-colors text-left font-medium"><Edit2 size={14} /> Rename</button>
