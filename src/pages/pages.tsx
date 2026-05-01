@@ -217,6 +217,10 @@ export default function ApplePage({ onBack }: { onBack: () => void }) {
                 isMobile={isMobile}
                 showDateGrouping={showDateGrouping}
                 setShowDateGrouping={setShowDateGrouping}
+                setThemeMode={setThemeMode}
+                customColor={customColor}
+                setCustomColor={setCustomColor}
+                colorInputRef={colorInputRef}
             />
 
             {/* 手機端遮罩 */}

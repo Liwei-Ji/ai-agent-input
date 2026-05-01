@@ -55,16 +55,6 @@ export const Header: React.FC<HeaderProps> = ({
                 )}
             </AnimatePresence>
             </div>
-            <div className="flex items-center gap-4">
-                <div className={cn("p-1 rounded-full flex items-center gap-2 backdrop-blur-xl border transition-all duration-500 ease-in-out", themeStyles.isDark ? "bg-black/40 border-white/10" : "bg-white/40 border-black/10")}>
-                    <button onClick={() => setThemeMode('light')} className={cn("w-6 h-6 rounded-full transition-all hover:scale-110 bg-white", themeMode === 'light' ? "border-2 border-gray-400" : "border border-gray-200")} />
-                    <button onClick={() => setThemeMode('dark')} className={cn("w-6 h-6 rounded-full transition-all hover:scale-110 bg-black", themeMode === 'dark' ? "border-2 border-white/40" : "border border-gray-800")} />
-                    <div className="relative flex items-center justify-center">
-                        <button onClick={() => { setThemeMode('colorful'); colorInputRef.current?.click(); }} className={cn("w-6 h-6 rounded-full transition-all hover:scale-110 bg-gradient-to-tr from-[#4d90fe] via-[#8e75ff] to-[#f472b6]", themeMode === 'colorful' ? "border-2 border-white/40" : "")} style={themeMode === 'colorful' ? { backgroundColor: customColor } : {}} />
-                        <input type="color" ref={colorInputRef} className="absolute opacity-0 pointer-events-none" value={customColor} onChange={(e) => setCustomColor(e.target.value)} />
-                    </div>
-                </div>
-            </div>
         </header>
     );
 };

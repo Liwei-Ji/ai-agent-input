@@ -3,10 +3,10 @@
  * 側邊欄組件：負責處理導覽切換、歷史對話列表分組顯示、對話重新命名與刪除，以及帳戶選單。
  */
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import {
     PanelLeft, Plus, MessageSquare, MoreVertical, Edit2, Trash2, Check,
-    Search, Bot, Settings, HelpCircle, LogOut, ChevronUp, Pin
+    Search, Bot, Settings, HelpCircle, LogOut, ChevronUp, Pin, Palette, CalendarDays, ChevronRight
 } from 'lucide-react';
 import { cn, AGENTS } from './shared';
 import type { Agent, Chat, ThemeMode, ViewType, ThemeStyles } from './shared';
@@ -37,6 +37,10 @@ interface SidebarProps {
     isMobile: boolean;
     showDateGrouping: boolean;
     setShowDateGrouping: (show: boolean) => void;
+    setThemeMode: (mode: ThemeMode) => void;
+    customColor: string;
+    setCustomColor: (color: string) => void;
+    colorInputRef: React.RefObject<HTMLInputElement | null>;
 }
 
 export const Sidebar: React.FC<SidebarProps> = ({
@@ -64,9 +68,14 @@ export const Sidebar: React.FC<SidebarProps> = ({
     menuRef,
     isMobile,
     showDateGrouping,
-    setShowDateGrouping
+    setShowDateGrouping,
+    setThemeMode,
+    customColor,
+    setCustomColor,
+    colorInputRef
 }) => {
     const [isSettingsOpen, setIsSettingsOpen] = React.useState(false);
+    const [isThemeSectionOpen, setIsThemeSectionOpen] = React.useState(false);
     const settingsRef = React.useRef<HTMLDivElement>(null);
     const [menuPlacement, setMenuPlacement] = React.useState<'up' | 'down'>('down');
     const [menuPosition, setMenuPosition] = React.useState<{ top: number; left: number } | null>(null);
@@ -111,8 +120,9 @@ export const Sidebar: React.FC<SidebarProps> = ({
             }}
             transition={{ type: "spring", stiffness: 400, damping: 40 }}
             className={cn(
-                "relative flex flex-col h-full border-r overflow-hidden z-20 shrink-0 transition-colors duration-300",
-                isMobile && "fixed inset-y-0 left-0 z-50 shadow-2xl",
+                "relative flex flex-col h-full border-r z-20 shrink-0 transition-colors duration-300",
+                isMobile && "fixed inset-y-0 left-0 z-50 shadow-2xl overflow-hidden",
+                !isMobile && "overflow-visible",
                 themeMode === 'dark' ? "bg-[#1e1f20] border-[#333537] text-[#c4c7c5]" :
                     themeMode === 'colorful' ? (themeStyles.isDark ? "bg-white/5 border-white/10 text-white" : "bg-black/5 border-black/10 text-gray-900") :
                         "bg-[#f0f4f9] border-transparent text-gray-900"
@@ -202,7 +212,6 @@ export const Sidebar: React.FC<SidebarProps> = ({
                     { icon: Search, label: 'Search', onClick: () => { setActiveView('search'); setSelectedAgent(null); if (isMobile) setIsSidebarOpen(false); }, active: activeView === 'search' },
                     { icon: Bot, label: 'AI Agents', onClick: () => { setActiveView('agents'); if (isMobile) setIsSidebarOpen(false); }, active: activeView === 'agents' },
                     { icon: Settings, label: 'Model Training' },
-                    { icon: HelpCircle, label: 'Help' },
                     { icon: LogOut, label: 'Back', onClick: onBack, active: false }
                 ].map((item, idx) => (
                     <button key={idx} onClick={item.onClick} className={cn("flex items-center gap-3 px-3 py-2 rounded-xl transition-all duration-300 group w-full", item.active ? (themeStyles.isDark ? "bg-white/10 text-white" : "bg-black/10 text-gray-900") : (themeStyles.isDark ? "hover:bg-white/5 text-inherit opacity-70" : "hover:bg-black/5 text-inherit opacity-70"), !isSidebarOpen && "justify-center")}>
@@ -215,22 +224,78 @@ export const Sidebar: React.FC<SidebarProps> = ({
                     <button onClick={() => setIsAccountMenuOpen(!isAccountMenuOpen)} className={cn("flex items-center gap-3 px-2 py-2 rounded-xl transition-all duration-300 text-left group w-full", themeStyles.isDark ? "hover:bg-white/5 text-inherit" : "hover:bg-black/5 text-inherit", !isSidebarOpen && "justify-center")}>
                         <div className="w-8 h-8 rounded-full bg-linear-to-tr from-[#4d90fe] to-[#8e75ff] flex items-center justify-center text-white text-xs font-bold shrink-0 shadow-lg">LW</div>
                         {isSidebarOpen && <div className="flex-1 min-w-0"><p className="text-sm font-semibold truncate leading-tight">Liwei Ji</p><p className="text-[10px] opacity-50 truncate leading-tight">liwei_ji@email.com</p></div>}
-                        {isSidebarOpen && <ChevronUp size={14} className={cn("opacity-40 transition-transform", isAccountMenuOpen && "rotate-180")} />}
                     </button>
                     {isAccountMenuOpen && (
-                        <div className={cn("absolute bottom-full left-0 mb-2 rounded-2xl shadow-2xl z-50 p-2 border backdrop-blur-xl overflow-hidden animate-in fade-in slide-in-from-bottom-2 duration-200", isSidebarOpen ? "right-0" : "w-48", themeStyles.isDark ? "bg-[#2b2c2e]/95 border-white/10" : "bg-white/95 border-gray-200")}>
-                            <div className="px-3 py-2 border-b border-inherit mb-1">
-                                <div className="flex items-center justify-between gap-2">
-                                    <span className="text-xs font-medium opacity-70">Group by Date</span>
-                                    <button 
-                                        onClick={(e) => { e.stopPropagation(); setShowDateGrouping(!showDateGrouping); }}
-                                        className={cn("w-8 h-4 rounded-full transition-colors relative flex items-center px-0.5 shrink-0", showDateGrouping ? "bg-[#4d90fe]" : "bg-gray-400")}
-                                    >
-                                        <div className={cn("w-3 h-3 bg-white rounded-full transition-transform shadow-sm", showDateGrouping ? "translate-x-4" : "translate-x-0")} />
-                                    </button>
+                        <div className={cn("absolute bottom-full left-0 mb-2 rounded-2xl shadow-2xl z-50 p-2 border backdrop-blur-xl animate-in fade-in slide-in-from-bottom-2 duration-200", isSidebarOpen ? "right-0" : "w-56", themeStyles.isDark ? "bg-[#2b2c2e]/95 border-white/10" : "bg-white/95 border-gray-200")}>
+                            {/* 主題切換 (Click Fly-out) */}
+                            <div 
+                                onClick={(e) => { e.stopPropagation(); setIsThemeSectionOpen(!isThemeSectionOpen); }}
+                                className="w-full flex items-center gap-2 px-3 py-2.5 rounded-lg hover:bg-black/5 dark:hover:bg-white/5 transition-colors group relative cursor-pointer"
+                            >
+                                <Palette size={14} className="opacity-70 group-hover:opacity-100" />
+                                <span className="text-xs font-medium flex-1 opacity-70 group-hover:opacity-100 text-left">Theme</span>
+                                <div className="flex items-center gap-2">
+                                    <div className={cn(
+                                        "w-3 h-3 rounded-full border border-inherit shadow-sm",
+                                        themeMode === 'light' ? "bg-white border-gray-200" :
+                                        themeMode === 'dark' ? "bg-black border-white/20" :
+                                        "bg-gradient-to-tr from-[#4d90fe] to-[#f472b6] border-transparent"
+                                    )} style={themeMode === 'colorful' ? { backgroundColor: customColor } : {}} />
+                                    <ChevronRight size={12} className={cn("opacity-40 transition-transform", isThemeSectionOpen && "rotate-90")} />
                                 </div>
+
+                                {/* Fly-out Submenu (Absolute) */}
+                                <AnimatePresence>
+                                    {isThemeSectionOpen && (
+                                        <motion.div 
+                                            initial={{ opacity: 0, x: -10 }}
+                                            animate={{ opacity: 1, x: 0 }}
+                                            exit={{ opacity: 0, x: -10 }}
+                                            onClick={(e) => e.stopPropagation()}
+                                            className={cn("absolute left-full top-0 ml-2 w-48 p-2 rounded-2xl shadow-2xl border backdrop-blur-xl z-[60] flex flex-col gap-1", themeStyles.isDark ? "bg-[#2b2c2e]/95 border-white/10" : "bg-white/95 border-gray-200")}
+                                        >
+                                            <button onClick={() => setThemeMode('light')} className="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-black/5 dark:hover:bg-white/5 transition-colors group/sub w-full text-left">
+                                                <div className={cn("w-3 h-3 rounded-full bg-white border shrink-0", themeMode === 'light' ? "border-blue-500 ring-2 ring-blue-500/20" : "border-gray-200")} />
+                                                <span className={cn("text-xs font-medium", themeMode === 'light' ? "text-blue-500" : "opacity-70")}>Light Mode</span>
+                                            </button>
+                                            <button onClick={() => setThemeMode('dark')} className="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-black/5 dark:hover:bg-white/5 transition-colors group/sub w-full text-left">
+                                                <div className={cn("w-3 h-3 rounded-full bg-black border shrink-0", themeMode === 'dark' ? "border-blue-500 ring-2 ring-blue-500/20" : "border-white/20")} />
+                                                <span className={cn("text-xs font-medium", themeMode === 'dark' ? "text-blue-500" : "opacity-70")}>Dark Mode</span>
+                                            </button>
+                                            <button 
+                                                onClick={(e) => { e.stopPropagation(); setThemeMode('colorful'); colorInputRef.current?.click(); }} 
+                                                className="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-black/5 dark:hover:bg-white/5 transition-colors group/sub w-full text-left relative"
+                                            >
+                                                <div className={cn("w-3 h-3 rounded-full bg-gradient-to-tr from-[#4d90fe] to-[#f472b6] border shrink-0", themeMode === 'colorful' ? "border-blue-500 ring-2 ring-blue-500/20" : "border-transparent")} style={themeMode === 'colorful' ? { backgroundColor: customColor } : {}} />
+                                                <span className={cn("text-xs font-medium", themeMode === 'colorful' ? "text-blue-500" : "opacity-70")}>Colorful Mode</span>
+                                                <input type="color" ref={colorInputRef} className="absolute opacity-0 pointer-events-none w-0 h-0" value={customColor} onChange={(e) => setCustomColor(e.target.value)} />
+                                            </button>
+                                        </motion.div>
+                                    )}
+                                </AnimatePresence>
                             </div>
-                            <button onClick={() => { setIsAccountMenuOpen(false); onBack(); }} className="w-full flex items-center gap-2 px-3 py-2 text-xs text-red-500 hover:bg-red-500/10 transition-colors text-left font-medium rounded-lg"><LogOut size={14} /> Log out</button>
+                            
+                            {/* 日期分組 */}
+                            <div className="flex items-center gap-2 px-3 py-2.5 rounded-lg group">
+                                <CalendarDays size={14} className="opacity-70 group-hover:opacity-100" />
+                                <span className="text-xs font-medium flex-1 opacity-70 group-hover:opacity-100 text-left">Group by Date</span>
+                                <button 
+                                    onClick={(e) => { e.stopPropagation(); setShowDateGrouping(!showDateGrouping); }}
+                                    className={cn("w-8 h-4 rounded-full transition-colors relative flex items-center px-0.5 shrink-0", showDateGrouping ? "bg-[#4d90fe]" : "bg-gray-400")}
+                                >
+                                    <div className={cn("w-3 h-3 bg-white rounded-full transition-transform shadow-sm", showDateGrouping ? "translate-x-4" : "translate-x-0")} />
+                                </button>
+                            </div>
+
+                            {/* 幫助 */}
+                            <button className="w-full flex items-center gap-2 px-3 py-2.5 text-xs hover:bg-black/5 dark:hover:bg-white/5 transition-colors text-left font-medium rounded-lg group">
+                                <HelpCircle size={14} className="opacity-70 group-hover:opacity-100" />
+                                <span className="opacity-70 group-hover:opacity-100">Help</span>
+                            </button>
+
+                            <div className="h-px bg-inherit my-1 opacity-10" />
+
+                            <button onClick={() => { setIsAccountMenuOpen(false); onBack(); }} className="w-full flex items-center gap-2 px-3 py-2.5 text-xs text-red-500 hover:bg-red-500/10 transition-colors text-left font-medium rounded-lg"><LogOut size={14} /> Log out</button>
                         </div>
                     )}
                 </div>
