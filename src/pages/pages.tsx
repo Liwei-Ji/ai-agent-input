@@ -17,7 +17,8 @@ import type {
     ViewType, 
     Agent, 
     Chat, 
-    ThemeStyles 
+    ThemeStyles,
+    Project
 } from './shared';
 
 // 導入子組件
@@ -43,6 +44,10 @@ export default function ApplePage({ onBack }: { onBack: () => void }) {
         const saved = localStorage.getItem('ag_show_date_grouping');
         return saved !== null ? JSON.parse(saved) : true;
     });
+    const [showChatIcons, setShowChatIcons] = useState(() => {
+        const saved = localStorage.getItem('ag_show_chat_icons');
+        return saved !== null ? JSON.parse(saved) : true;
+    });
     const [isSidebarFloating, setIsSidebarFloating] = useState(() => {
         const saved = localStorage.getItem('ag_is_sidebar_floating');
         return saved !== null ? JSON.parse(saved) : false;
@@ -57,6 +62,7 @@ export default function ApplePage({ onBack }: { onBack: () => void }) {
         { id: '5', title: '生成高品質圖像技巧', timestamp: new Date().getTime() - 1000 * 60 * 60 * 24 * 5, agentId: 'apple' },
         { id: '6', title: 'GMP認證', timestamp: new Date().getTime() - 1000 * 60 * 60 * 24 * 10, agentId: 'gmp' },
     ]);
+    const [projects, setProjects] = useState<Project[]>([]);
     
     const handleResetToHome = () => {
         setSelectedAgent(null);
@@ -65,6 +71,7 @@ export default function ApplePage({ onBack }: { onBack: () => void }) {
 
     const colorInputRef = useRef<HTMLInputElement>(null);
     const menuRef = useRef<HTMLDivElement>(null);
+    const accountMenuRef = useRef<HTMLDivElement>(null);
 
     // 監聽視窗大小變化
     useEffect(() => {
@@ -81,8 +88,11 @@ export default function ApplePage({ onBack }: { onBack: () => void }) {
     // --- 副作用處理 ---
     useEffect(() => {
         function handleClickOutside(event: MouseEvent) {
-            if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+            const target = event.target as Node;
+            if (menuRef.current && !menuRef.current.contains(target)) {
                 setActiveMenuId(null);
+            }
+            if (accountMenuRef.current && !accountMenuRef.current.contains(target)) {
                 setIsAccountMenuOpen(false);
             }
         }
@@ -135,6 +145,23 @@ export default function ApplePage({ onBack }: { onBack: () => void }) {
         setActiveMenuId(null);
     };
 
+    const handleCreateProject = (name: string) => {
+        const newProject: Project = {
+            id: Date.now().toString(),
+            name
+        };
+        setProjects(prev => [...prev, newProject]);
+    };
+
+    const handleDeleteProject = (id: string) => {
+        setProjects(prev => prev.filter(p => p.id !== id));
+        setChats(prev => prev.map(c => c.projectId === id ? { ...c, projectId: undefined } : c));
+    };
+
+    const handleMoveChatToProject = (chatId: string, projectId?: string) => {
+        setChats(prev => prev.map(c => c.id === chatId ? { ...c, projectId } : c));
+    };
+
     const getThemeStyles = (): ThemeStyles => {
         switch (themeMode) {
             case 'dark':
@@ -148,8 +175,9 @@ export default function ApplePage({ onBack }: { onBack: () => void }) {
     };
 
     const groupChats = (chatList: Chat[]): [string, Chat[]][] => {
-        const pinned = chatList.filter(c => c.isPinned);
-        const unpinned = chatList.filter(c => !c.isPinned);
+        const availableChats = chatList.filter(c => !c.projectId);
+        const pinned = availableChats.filter(c => c.isPinned);
+        const unpinned = availableChats.filter(c => !c.isPinned);
         
         const result: [string, Chat[]][] = [];
         if (pinned.length > 0) result.push(['Pinned', pinned]);
@@ -188,6 +216,10 @@ export default function ApplePage({ onBack }: { onBack: () => void }) {
     useEffect(() => {
         localStorage.setItem('ag_is_sidebar_floating', JSON.stringify(isSidebarFloating));
     }, [isSidebarFloating]);
+
+    useEffect(() => {
+        localStorage.setItem('ag_show_chat_icons', JSON.stringify(showChatIcons));
+    }, [showChatIcons]);
 
     // --- 渲染準備 ---
     const themeStyles = getThemeStyles();
@@ -233,15 +265,23 @@ export default function ApplePage({ onBack }: { onBack: () => void }) {
                 onBack={onBack}
                 onResetToHome={handleResetToHome}
                 menuRef={menuRef}
+                accountMenuRef={accountMenuRef}
                 isMobile={isMobile}
                 showDateGrouping={showDateGrouping}
                 setShowDateGrouping={setShowDateGrouping}
+                showChatIcons={showChatIcons}
+                setShowChatIcons={setShowChatIcons}
                 isSidebarFloating={isSidebarFloating}
                 setIsSidebarFloating={setIsSidebarFloating}
                 setThemeMode={setThemeMode}
                 customColor={customColor}
                 setCustomColor={setCustomColor}
                 colorInputRef={colorInputRef}
+                chats={chats}
+                projects={projects}
+                onCreateProject={handleCreateProject}
+                onDeleteProject={handleDeleteProject}
+                onMoveChatToProject={handleMoveChatToProject}
             />
 
             {/* 手機端遮罩 */}

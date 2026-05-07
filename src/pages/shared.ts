@@ -32,12 +32,18 @@ export interface Agent {
     color: string;
 }
 
+export interface Project {
+    id: string;
+    name: string;
+}
+
 export interface Chat {
     id: string;
     title: string;
     timestamp: number;
     agentId: string;
     isPinned?: boolean;
+    projectId?: string;
 }
 
 export interface ThemeStyles {
