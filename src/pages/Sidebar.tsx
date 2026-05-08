@@ -173,43 +173,14 @@ export const Sidebar: React.FC<SidebarProps> = ({
                         className={cn("flex items-center gap-2 p-2 px-10 rounded-full transition-all duration-300 overflow-hidden shadow-sm border shrink-0", themeMode === 'dark' ? "bg-[#333537] hover:bg-[#3c3d3e] border-transparent text-[#c4c7c5]" : themeMode === 'colorful' ? "bg-white/10 hover:bg-white/20 border-white/20 text-inherit" : "bg-white hover:bg-black/5 border-gray-200 text-gray-900", !isSidebarOpen ? "w-10 h-10 p-2 justify-center" : "w-full")}
                     >
                         <Plus size={18} className="shrink-0" />
-                        {isSidebarOpen && <motion.span initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} className="text-sm font-medium whitespace-nowrap">New Chat</motion.span>}
+                        {isSidebarOpen && <motion.span initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} className="text-sm font-medium whitespace-nowrap">{activeView === 'notebook' ? "Add source" : "New Chat"}</motion.span>}
                     </button>
                 </div>
 
                 <div className={cn("flex-1 overflow-y-auto px-4 py-2 flex flex-col custom-scrollbar transition-all duration-300", isSidebarOpen ? "gap-6" : "gap-1")}>
                     {activeView === 'notebook' ? (
                         <div className="flex flex-col gap-4">
-                            <div className="flex items-center justify-between px-4 py-2 group">
-                                {isSidebarOpen && <span className="text-[10px] font-bold text-[#8e918f] uppercase tracking-wider">Sources</span>}
-                                {isSidebarOpen && (
-                                    <button className={cn("p-1 rounded-md transition-opacity", themeStyles.isDark ? "hover:bg-white/10" : "hover:bg-black/10")}>
-                                        <Plus size={12} />
-                                    </button>
-                                )}
-                            </div>
-                            <div className={cn(
-                                "px-4 py-8 border-2 border-dashed rounded-2xl flex flex-col items-center justify-center gap-2 opacity-40 mx-2",
-                                themeStyles.isDark ? "border-white/10" : "border-black/10"
-                            )}>
-                                <FileText size={24} />
-                                {isSidebarOpen && <span className="text-[10px] font-medium">Add source files</span>}
-                            </div>
-
-                            <div className="flex items-center justify-between px-4 py-2 group mt-4">
-                                {isSidebarOpen && <span className="text-[10px] font-bold text-[#8e918f] uppercase tracking-wider">Notes</span>}
-                                {isSidebarOpen && (
-                                    <button className={cn("p-1 rounded-md transition-opacity", themeStyles.isDark ? "hover:bg-white/10" : "hover:bg-black/10")}>
-                                        <Plus size={12} />
-                                    </button>
-                                )}
-                            </div>
-                            <div className="flex flex-col gap-1 px-2">
-                                <div className={cn("flex items-center gap-2 px-3 py-2 rounded-lg opacity-60 transition-colors cursor-pointer", themeStyles.isDark ? "hover:bg-white/5" : "hover:bg-black/5")}>
-                                    <FileText size={14} className="shrink-0" />
-                                    {isSidebarOpen && <span className="text-xs truncate">Research Summary</span>}
-                                </div>
-                            </div>
+                            {/* Empty for now as per user request */}
                         </div>
                     ) : (
                         <>
