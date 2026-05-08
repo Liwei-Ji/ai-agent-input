@@ -48,7 +48,7 @@ export const Header: React.FC<HeaderProps> = ({
                     </button>
                 )}
                 <AnimatePresence>
-                    {selectedAgent && activeView === 'home' && (
+                    {selectedAgent && (activeView === 'home' || activeView === 'notebook') && (
                     <motion.div initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -10 }} className={cn("flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold tracking-wide border transition-all duration-300", themeStyles.isDark ? "bg-white/5 border-white/10" : "bg-black/5 border-black/10 text-gray-900")}>
                         <div className={cn("w-2 h-2 rounded-full", selectedAgent.color)} /><span className="opacity-70 uppercase tracking-widest">{selectedAgent.name}</span>
                     </motion.div>

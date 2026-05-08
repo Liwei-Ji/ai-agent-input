@@ -7,7 +7,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import {
     PanelLeft, Plus, MessageSquare, MoreVertical, Edit2, Trash2, Check,
     Search, Bot, Settings, HelpCircle, LogOut, ChevronUp, Pin, Palette, CalendarDays, ChevronRight, Layout,
-    Folder, X, Undo2
+    Folder, X, Undo2, FileText
 } from 'lucide-react';
 import { cn, AGENTS } from './shared';
 import type { Agent, Chat, ThemeMode, ViewType, ThemeStyles, Project } from './shared';
@@ -178,141 +178,178 @@ export const Sidebar: React.FC<SidebarProps> = ({
                 </div>
 
                 <div className={cn("flex-1 overflow-y-auto px-4 py-2 flex flex-col custom-scrollbar transition-all duration-300", isSidebarOpen ? "gap-6" : "gap-1")}>
-                    {/* Projects Section */}
-                    <div className="flex flex-col gap-1">
-                        <div className="flex items-center justify-between px-4 py-2 group">
-                            {isSidebarOpen && <span className="text-[10px] font-bold text-[#8e918f] uppercase tracking-wider">Projects</span>}
-                            {isSidebarOpen && (
-                                <button
-                                    onClick={() => setIsAddProjectModalOpen(true)}
-                                    className={cn("p-1 rounded-md opacity-0 group-hover:opacity-100 transition-opacity", themeStyles.isDark ? "hover:bg-white/10" : "hover:bg-black/10")}
-                                >
-                                    <Plus size={12} />
-                                </button>
-                            )}
+                    {activeView === 'notebook' ? (
+                        <div className="flex flex-col gap-4">
+                            <div className="flex items-center justify-between px-4 py-2 group">
+                                {isSidebarOpen && <span className="text-[10px] font-bold text-[#8e918f] uppercase tracking-wider">Sources</span>}
+                                {isSidebarOpen && (
+                                    <button className={cn("p-1 rounded-md transition-opacity", themeStyles.isDark ? "hover:bg-white/10" : "hover:bg-black/10")}>
+                                        <Plus size={12} />
+                                    </button>
+                                )}
+                            </div>
+                            <div className={cn(
+                                "px-4 py-8 border-2 border-dashed rounded-2xl flex flex-col items-center justify-center gap-2 opacity-40 mx-2",
+                                themeStyles.isDark ? "border-white/10" : "border-black/10"
+                            )}>
+                                <FileText size={24} />
+                                {isSidebarOpen && <span className="text-[10px] font-medium">Add source files</span>}
+                            </div>
+
+                            <div className="flex items-center justify-between px-4 py-2 group mt-4">
+                                {isSidebarOpen && <span className="text-[10px] font-bold text-[#8e918f] uppercase tracking-wider">Notes</span>}
+                                {isSidebarOpen && (
+                                    <button className={cn("p-1 rounded-md transition-opacity", themeStyles.isDark ? "hover:bg-white/10" : "hover:bg-black/10")}>
+                                        <Plus size={12} />
+                                    </button>
+                                )}
+                            </div>
+                            <div className="flex flex-col gap-1 px-2">
+                                <div className={cn("flex items-center gap-2 px-3 py-2 rounded-lg opacity-60 transition-colors cursor-pointer", themeStyles.isDark ? "hover:bg-white/5" : "hover:bg-black/5")}>
+                                    <FileText size={14} className="shrink-0" />
+                                    {isSidebarOpen && <span className="text-xs truncate">Research Summary</span>}
+                                </div>
+                            </div>
                         </div>
-                        {projects.map(project => (
-                            <div key={project.id} className="flex flex-col">
-                                <div
-                                    onDragOver={(e) => e.preventDefault()}
-                                    onDrop={() => {
-                                        if (!draggedChatId) return;
-                                        const chat = chats.find(c => c.id === draggedChatId);
-                                        if (chat?.isPinned) return; // Prevent pinned chats from being moved to projects
-                                        onMoveChatToProject(draggedChatId, project.id);
-                                    }}
-                                    className={cn(
-                                        "flex items-center gap-3 px-4 py-2 rounded-lg transition-all duration-300 text-left group w-full",
-                                        themeStyles.isDark ? "hover:bg-white/5 text-inherit opacity-70" : "hover:bg-black/5 text-inherit opacity-70",
-                                        !isSidebarOpen && "justify-center"
-                                    )}
-                                >
-                                    <Folder size={18} className="shrink-0 opacity-70" />
-                                    {isSidebarOpen && <span className="text-sm truncate font-medium">{project.name}</span>}
+                    ) : (
+                        <>
+                            {/* Projects Section */}
+                            <div className="flex flex-col gap-1">
+                                <div className="flex items-center justify-between px-4 py-2 group">
+                                    {isSidebarOpen && <span className="text-[10px] font-bold text-[#8e918f] uppercase tracking-wider">Projects</span>}
                                     {isSidebarOpen && (
                                         <button
-                                            onClick={() => onDeleteProject(project.id)}
-                                            className="ml-auto opacity-0 group-hover:opacity-100 p-1 hover:text-red-500 transition-colors"
+                                            onClick={() => setIsAddProjectModalOpen(true)}
+                                            className={cn("p-1 rounded-md opacity-0 group-hover:opacity-100 transition-opacity", themeStyles.isDark ? "hover:bg-white/10" : "hover:bg-black/10")}
                                         >
-                                            <X size={12} />
+                                            <Plus size={12} />
                                         </button>
                                     )}
                                 </div>
-                                {/* Chats inside Project */}
-                                {isSidebarOpen && chats.filter(c => c.projectId === project.id).map(chat => (
-                                    <div key={chat.id} className="ml-6 relative group/subitem">
-                                        <button
-                                            draggable
-                                            onDragStart={() => setDraggedChatId(chat.id)}
-                                            onClick={() => {
-                                                setActiveView('home');
-                                                const agent = AGENTS.find(a => a.id === chat.agentId);
-                                                if (agent) setSelectedAgent(agent);
+                                {projects.map(project => (
+                                    <div key={project.id} className="flex flex-col">
+                                        <div
+                                            onDragOver={(e) => e.preventDefault()}
+                                            onDrop={() => {
+                                                if (!draggedChatId) return;
+                                                const chat = chats.find(c => c.id === draggedChatId);
+                                                if (chat?.isPinned) return; // Prevent pinned chats from being moved to projects
+                                                onMoveChatToProject(draggedChatId, project.id);
                                             }}
-                                            className={cn("flex items-center gap-2 px-3 py-1.5 rounded-lg transition-all duration-300 text-left w-full", themeStyles.isDark ? "hover:bg-white/5 opacity-60" : "hover:bg-black/5 opacity-60")}
+                                            className={cn(
+                                                "flex items-center gap-3 px-4 py-2 rounded-lg transition-all duration-300 text-left group w-full",
+                                                themeStyles.isDark ? "hover:bg-white/5 text-inherit opacity-70" : "hover:bg-black/5 text-inherit opacity-70",
+                                                !isSidebarOpen && "justify-center"
+                                            )}
                                         >
-                                            {showChatIcons && <MessageSquare size={14} className="shrink-0" />}
-                                            <span className="text-xs truncate">{chat.title}</span>
-                                        </button>
-                                        <button
-                                            onClick={() => onMoveChatToProject(chat.id, undefined)}
-                                            className="absolute right-2 top-1/2 -translate-y-1/2 p-1 opacity-0 group-hover/subitem:opacity-100 hover:text-blue-500 transition-all"
-                                            title="Move back to Recent"
-                                        >
-                                            <Undo2 size={12} />
-                                        </button>
+                                            <Folder size={18} className="shrink-0 opacity-70" />
+                                            {isSidebarOpen && <span className="text-sm truncate font-medium">{project.name}</span>}
+                                            {isSidebarOpen && (
+                                                <button
+                                                    onClick={() => onDeleteProject(project.id)}
+                                                    className="ml-auto opacity-0 group-hover:opacity-100 p-1 hover:text-red-500 transition-colors"
+                                                >
+                                                    <X size={12} />
+                                                </button>
+                                            )}
+                                        </div>
+                                        {/* Chats inside Project */}
+                                        {isSidebarOpen && chats.filter(c => c.projectId === project.id).map(chat => (
+                                            <div key={chat.id} className="ml-6 relative group/subitem">
+                                                <button
+                                                    draggable
+                                                    onDragStart={() => setDraggedChatId(chat.id)}
+                                                    onClick={() => {
+                                                        setActiveView('home');
+                                                        const agent = AGENTS.find(a => a.id === chat.agentId);
+                                                        if (agent) setSelectedAgent(agent);
+                                                    }}
+                                                    className={cn("flex items-center gap-2 px-3 py-1.5 rounded-lg transition-all duration-300 text-left w-full", themeStyles.isDark ? "hover:bg-white/5 opacity-60" : "hover:bg-black/5 opacity-60")}
+                                                >
+                                                    {showChatIcons && <MessageSquare size={14} className="shrink-0" />}
+                                                    <span className="text-xs truncate">{chat.title}</span>
+                                                </button>
+                                                <button
+                                                    onClick={() => onMoveChatToProject(chat.id, undefined)}
+                                                    className="absolute right-2 top-1/2 -translate-y-1/2 p-1 opacity-0 group-hover/subitem:opacity-100 hover:text-blue-500 transition-all"
+                                                    title="Move back to Recent"
+                                                >
+                                                    <Undo2 size={12} />
+                                                </button>
+                                            </div>
+                                        ))}
                                     </div>
                                 ))}
                             </div>
-                        ))}
-                    </div>
 
-                    <div
-                        className="flex flex-col gap-1"
-                        onDragOver={(e) => e.preventDefault()}
-                        onDrop={() => draggedChatId && onMoveChatToProject(draggedChatId, undefined)}
-                    >
-                        {groupedChats.map(([groupName, chats]) => (
-                            <div key={groupName} className="flex flex-col gap-1">
-                                {isSidebarOpen && <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="px-4 py-2 text-[10px] font-bold text-[#8e918f] uppercase tracking-wider">{groupName}</motion.p>}
-                                {chats.map((chat) => (
-                                    <div key={chat.id} className="relative group/item">
-                                        {editingChatId === chat.id ? (
-                                            <div className={cn("flex items-center gap-2 px-2 py-1.5 rounded-lg mx-2 my-1", themeStyles.isDark ? "bg-white/10" : "bg-black/5")}>
-                                                <input autoFocus value={editingTitle} onChange={(e) => setEditingTitle(e.target.value)} onBlur={() => handleRename(chat.id)} onKeyDown={(e) => { if (e.key === 'Enter') handleRename(chat.id); if (e.key === 'Escape') setEditingChatId(null); }} className="flex-1 bg-transparent border-none text-sm outline-none px-1 py-0.5" />
-                                                <button onClick={() => handleRename(chat.id)} className="p-1 hover:text-blue-500 transition-colors"><Check size={14} /></button>
-                                            </div>
-                                        ) : (
-                                            <button
-                                                draggable
-                                                onDragStart={() => setDraggedChatId(chat.id)}
-                                                onClick={() => {
-                                                    setActiveView('home');
-                                                    const agent = AGENTS.find(a => a.id === chat.agentId);
-                                                    if (agent) setSelectedAgent(agent);
-                                                    if (isMobile) setIsSidebarOpen(false); // 手機端點擊後自動收回
-                                                }}
-                                                className={cn("flex items-center gap-3 px-4 py-2.5 rounded-lg transition-all duration-300 text-left group w-full", themeStyles.isDark ? "hover:bg-white/5 text-inherit opacity-70" : "hover:bg-black/5 text-inherit opacity-70", !isSidebarOpen && "justify-center")}
-                                            >
-                                                {showChatIcons && <MessageSquare size={18} className="shrink-0 opacity-70 group-hover:opacity-100 transition-opacity" />}
-                                                {isSidebarOpen && (
-                                                    <div className="flex-1 min-w-0 flex items-center gap-2">
-                                                        <span className="text-sm truncate font-normal">{chat.title}</span>
-                                                        {chat.isPinned && <Pin size={10} className="shrink-0 text-blue-500 rotate-45" />}
+                            <div
+                                className="flex flex-col gap-1"
+                                onDragOver={(e) => e.preventDefault()}
+                                onDrop={() => draggedChatId && onMoveChatToProject(draggedChatId, undefined)}
+                            >
+                                {groupedChats.map(([groupName, chats]) => (
+                                    <div key={groupName} className="flex flex-col gap-1">
+                                        {isSidebarOpen && <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="px-4 py-2 text-[10px] font-bold text-[#8e918f] uppercase tracking-wider">{groupName}</motion.p>}
+                                        {chats.map((chat) => (
+                                            <div key={chat.id} className="relative group/item">
+                                                {editingChatId === chat.id ? (
+                                                    <div className={cn("flex items-center gap-2 px-2 py-1.5 rounded-lg mx-2 my-1", themeStyles.isDark ? "bg-white/10" : "bg-black/5")}>
+                                                        <input autoFocus value={editingTitle} onChange={(e) => setEditingTitle(e.target.value)} onBlur={() => handleRename(chat.id)} onKeyDown={(e) => { if (e.key === 'Enter') handleRename(chat.id); if (e.key === 'Escape') setEditingChatId(null); }} className="flex-1 bg-transparent border-none text-sm outline-none px-1 py-0.5" />
+                                                        <button onClick={() => handleRename(chat.id)} className="p-1 hover:text-blue-500 transition-colors"><Check size={14} /></button>
+                                                    </div>
+                                                ) : (
+                                                    <button
+                                                        draggable
+                                                        onDragStart={() => setDraggedChatId(chat.id)}
+                                                        onClick={() => {
+                                                            setActiveView('home');
+                                                            const agent = AGENTS.find(a => a.id === chat.agentId);
+                                                            if (agent) setSelectedAgent(agent);
+                                                            if (isMobile) setIsSidebarOpen(false); // 手機端點擊後自動收回
+                                                        }}
+                                                        className={cn("flex items-center gap-3 px-4 py-2.5 rounded-lg transition-all duration-300 text-left group w-full", themeStyles.isDark ? "hover:bg-white/5 text-inherit opacity-70" : "hover:bg-black/5 text-inherit opacity-70", !isSidebarOpen && "justify-center")}
+                                                    >
+                                                        {showChatIcons && <MessageSquare size={18} className="shrink-0 opacity-70 group-hover:opacity-100 transition-opacity" />}
+                                                        {isSidebarOpen && (
+                                                            <div className="flex-1 min-w-0 flex items-center gap-2">
+                                                                <span className="text-sm truncate font-normal">{chat.title}</span>
+                                                                {chat.isPinned && <Pin size={10} className="shrink-0 text-blue-500 rotate-45" />}
+                                                            </div>
+                                                        )}
+                                                    </button>
+                                                )}
+                                                {isSidebarOpen && editingChatId !== chat.id && (
+                                                    <button onClick={(e) => handleMenuClick(e, chat.id)} className={cn("absolute right-2 top-1/2 -translate-y-1/2 p-1.5 rounded-md transition-all opacity-0 group-hover/item:opacity-100 z-10", themeStyles.isDark ? "hover:bg-white/10" : "hover:bg-black/10")}><MoreVertical size={14} className="opacity-70" /></button>
+                                                )}
+                                                {activeMenuId === chat.id && menuPosition && (
+                                                    <div
+                                                        ref={menuRef}
+                                                        style={{
+                                                            position: 'fixed',
+                                                            top: menuPlacement === 'up' ? 'auto' : `${menuPosition.top + 32}px`,
+                                                            bottom: menuPlacement === 'up' ? `${window.innerHeight - menuPosition.top}px` : 'auto',
+                                                            left: `${menuPosition.left - 100}px`, // 稍微向左偏移對齊按鈕
+                                                        }}
+                                                        className={cn(
+                                                            "w-36 rounded-xl shadow-2xl z-[100] py-1.5 border backdrop-blur-xl overflow-hidden animate-in fade-in zoom-in duration-200",
+                                                            themeStyles.isDark ? "bg-[#2b2c2e]/95 border-white/10" : "bg-white/95 border-gray-200"
+                                                        )}
+                                                    >
+                                                        <button onClick={() => handleTogglePin(chat.id)} className="w-full flex items-center gap-2 px-3 py-2.5 text-xs hover:bg-black/5 dark:hover:bg-white/5 transition-colors text-left font-medium">
+                                                            <Pin size={14} className={chat.isPinned ? "fill-current" : ""} />
+                                                            {chat.isPinned ? 'Unpin' : 'Pin'}
+                                                        </button>
+                                                        <button onClick={() => { setEditingChatId(chat.id); setEditingTitle(chat.title); setActiveMenuId(null); }} className="w-full flex items-center gap-2 px-3 py-2.5 text-xs hover:bg-black/5 dark:hover:bg-white/5 transition-colors text-left font-medium"><Edit2 size={14} /> Rename</button>
+                                                        <button onClick={() => handleDelete(chat.id)} className="w-full flex items-center gap-2 px-3 py-2.5 text-xs text-red-500 hover:bg-red-500/10 transition-colors text-left font-medium"><Trash2 size={14} /> Delete</button>
                                                     </div>
                                                 )}
-                                            </button>
-                                        )}
-                                        {isSidebarOpen && editingChatId !== chat.id && (
-                                            <button onClick={(e) => handleMenuClick(e, chat.id)} className={cn("absolute right-2 top-1/2 -translate-y-1/2 p-1.5 rounded-md transition-all opacity-0 group-hover/item:opacity-100 z-10", themeStyles.isDark ? "hover:bg-white/10" : "hover:bg-black/10")}><MoreVertical size={14} className="opacity-70" /></button>
-                                        )}
-                                        {activeMenuId === chat.id && menuPosition && (
-                                            <div
-                                                ref={menuRef}
-                                                style={{
-                                                    position: 'fixed',
-                                                    top: menuPlacement === 'up' ? 'auto' : `${menuPosition.top + 32}px`,
-                                                    bottom: menuPlacement === 'up' ? `${window.innerHeight - menuPosition.top}px` : 'auto',
-                                                    left: `${menuPosition.left - 100}px`, // 稍微向左偏移對齊按鈕
-                                                }}
-                                                className={cn(
-                                                    "w-36 rounded-xl shadow-2xl z-[100] py-1.5 border backdrop-blur-xl overflow-hidden animate-in fade-in zoom-in duration-200",
-                                                    themeStyles.isDark ? "bg-[#2b2c2e]/95 border-white/10" : "bg-white/95 border-gray-200"
-                                                )}
-                                            >
-                                                <button onClick={() => handleTogglePin(chat.id)} className="w-full flex items-center gap-2 px-3 py-2.5 text-xs hover:bg-black/5 dark:hover:bg-white/5 transition-colors text-left font-medium">
-                                                    <Pin size={14} className={chat.isPinned ? "fill-current" : ""} />
-                                                    {chat.isPinned ? 'Unpin' : 'Pin'}
-                                                </button>
-                                                <button onClick={() => { setEditingChatId(chat.id); setEditingTitle(chat.title); setActiveMenuId(null); }} className="w-full flex items-center gap-2 px-3 py-2.5 text-xs hover:bg-black/5 dark:hover:bg-white/5 transition-colors text-left font-medium"><Edit2 size={14} /> Rename</button>
-                                                <button onClick={() => handleDelete(chat.id)} className="w-full flex items-center gap-2 px-3 py-2.5 text-xs text-red-500 hover:bg-red-500/10 transition-colors text-left font-medium"><Trash2 size={14} /> Delete</button>
                                             </div>
-                                        )}
+                                        ))}
                                     </div>
                                 ))}
                             </div>
-                        ))}
-                    </div>
+                        </>
+                    )}
                 </div>
 
                 <div className="p-3 border-t border-inherit mt-auto flex flex-col gap-1 shrink-0">

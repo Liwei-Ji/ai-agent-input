@@ -117,6 +117,11 @@ export default function ApplePage({ onBack }: { onBack: () => void }) {
 
     // --- 業務邏輯 ---
     const createNewChat = (agent: Agent) => {
+        if (agent.id === 'notebook') {
+            setSelectedAgent(agent);
+            setActiveView('notebook');
+            return;
+        }
         const newChat: Chat = {
             id: Date.now().toString(),
             title: `${agent.name} 諮詢 (${new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })})`,
@@ -320,7 +325,7 @@ export default function ApplePage({ onBack }: { onBack: () => void }) {
                                 setSelectedAgent={setSelectedAgent}
                                 setActiveView={setActiveView}
                             />
-                        ) : activeView === 'home' ? (
+                        ) : activeView === 'home' || activeView === 'notebook' ? (
                             <HomeView
                                 selectedAgent={selectedAgent}
                                 themeMode={themeMode}
