@@ -18,7 +18,8 @@ import type {
     Agent, 
     Chat, 
     ThemeStyles,
-    Project
+    Project,
+    NotebookSource
 } from './shared';
 
 // 導入子組件
@@ -63,6 +64,7 @@ export default function ApplePage({ onBack }: { onBack: () => void }) {
         { id: '6', title: 'GMP認證', timestamp: new Date().getTime() - 1000 * 60 * 60 * 24 * 10, agentId: 'gmp' },
     ]);
     const [projects, setProjects] = useState<Project[]>([]);
+    const [notebookSources, setNotebookSources] = useState<NotebookSource[]>([]);
     
     const handleResetToHome = () => {
         setSelectedAgent(null);
@@ -165,6 +167,30 @@ export default function ApplePage({ onBack }: { onBack: () => void }) {
 
     const handleMoveChatToProject = (chatId: string, projectId?: string) => {
         setChats(prev => prev.map(c => c.id === chatId ? { ...c, projectId } : c));
+    };
+
+    const handleAddSource = () => {
+        const name = prompt("Enter source name:");
+        if (name) {
+            const newSource: NotebookSource = {
+                id: Date.now().toString(),
+                name: name,
+                type: 'pdf'
+            };
+            setNotebookSources(prev => [...prev, newSource]);
+        }
+    };
+
+    const handleRenameSource = (id: string, newName: string) => {
+        setNotebookSources(prev => prev.map(s => s.id === id ? { ...s, name: newName } : s));
+    };
+
+    const handleDeleteSource = (id: string) => {
+        setNotebookSources(prev => prev.filter(s => s.id !== id));
+    };
+
+    const handleToggleSourceSelection = (id: string) => {
+        setNotebookSources(prev => prev.map(s => s.id === id ? { ...s, selected: !s.selected } : s));
     };
 
     const getThemeStyles = (): ThemeStyles => {
@@ -287,6 +313,11 @@ export default function ApplePage({ onBack }: { onBack: () => void }) {
                 onCreateProject={handleCreateProject}
                 onDeleteProject={handleDeleteProject}
                 onMoveChatToProject={handleMoveChatToProject}
+                notebookSources={notebookSources}
+                onAddSource={handleAddSource}
+                onRenameSource={handleRenameSource}
+                onDeleteSource={handleDeleteSource}
+                onToggleSourceSelection={handleToggleSourceSelection}
             />
 
             {/* 手機端遮罩 */}

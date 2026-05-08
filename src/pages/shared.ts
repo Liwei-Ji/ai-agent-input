@@ -46,6 +46,13 @@ export interface Chat {
     projectId?: string;
 }
 
+export interface NotebookSource {
+    id: string;
+    name: string;
+    type: string;
+    selected?: boolean;
+}
+
 export interface ThemeStyles {
     backgroundColor: string;
     color: string;

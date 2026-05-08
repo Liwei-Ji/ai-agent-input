@@ -10,7 +10,7 @@ import {
     Folder, X, Undo2, FileText
 } from 'lucide-react';
 import { cn, AGENTS } from './shared';
-import type { Agent, Chat, ThemeMode, ViewType, ThemeStyles, Project } from './shared';
+import type { Agent, Chat, ThemeMode, ViewType, ThemeStyles, Project, NotebookSource } from './shared';
 
 interface SidebarProps {
     isSidebarOpen: boolean;
@@ -53,6 +53,11 @@ interface SidebarProps {
     onCreateProject: (name: string) => void;
     onDeleteProject: (id: string) => void;
     onMoveChatToProject: (chatId: string, projectId?: string) => void;
+    notebookSources: NotebookSource[];
+    onAddSource: () => void;
+    onRenameSource: (id: string, newName: string) => void;
+    onDeleteSource: (id: string) => void;
+    onToggleSourceSelection: (id: string) => void;
 }
 
 export const Sidebar: React.FC<SidebarProps> = ({
@@ -95,7 +100,12 @@ export const Sidebar: React.FC<SidebarProps> = ({
     projects,
     onCreateProject,
     onDeleteProject,
-    onMoveChatToProject
+    onMoveChatToProject,
+    notebookSources,
+    onAddSource,
+    onRenameSource,
+    onDeleteSource,
+    onToggleSourceSelection,
 }) => {
     const [isSettingsOpen, setIsSettingsOpen] = React.useState(false);
     const [isThemeSectionOpen, setIsThemeSectionOpen] = React.useState(false);
@@ -167,20 +177,94 @@ export const Sidebar: React.FC<SidebarProps> = ({
 
                     <button
                         onClick={() => {
-                            onResetToHome();
-                            if (isMobile) setIsSidebarOpen(false);
+                            if (activeView === 'notebook') {
+                                onAddSource();
+                            } else {
+                                onResetToHome();
+                                if (isMobile) setIsSidebarOpen(false);
+                            }
                         }}
                         className={cn("flex items-center gap-2 p-2 px-10 rounded-full transition-all duration-300 overflow-hidden shadow-sm border shrink-0", themeMode === 'dark' ? "bg-[#333537] hover:bg-[#3c3d3e] border-transparent text-[#c4c7c5]" : themeMode === 'colorful' ? "bg-white/10 hover:bg-white/20 border-white/20 text-inherit" : "bg-white hover:bg-black/5 border-gray-200 text-gray-900", !isSidebarOpen ? "w-10 h-10 p-2 justify-center" : "w-full")}
                     >
                         <Plus size={18} className="shrink-0" />
-                        {isSidebarOpen && <motion.span initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} className="text-sm font-medium whitespace-nowrap">{activeView === 'notebook' ? "Add source" : "New Chat"}</motion.span>}
+                        {isSidebarOpen && <motion.span initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} className="text-sm font-medium whitespace-nowrap">{activeView === 'notebook' ? "Add Source" : "New Chat"}</motion.span>}
                     </button>
                 </div>
 
                 <div className={cn("flex-1 overflow-y-auto px-4 py-2 flex flex-col custom-scrollbar transition-all duration-300", isSidebarOpen ? "gap-6" : "gap-1")}>
                     {activeView === 'notebook' ? (
-                        <div className="flex flex-col gap-4">
-                            {/* Empty for now as per user request */}
+                        <div className="flex flex-col gap-1">
+                            {notebookSources.map(source => (
+                                <div key={source.id} className="relative group/item">
+                                    {editingChatId === source.id ? (
+                                        <div className={cn("flex items-center gap-2 px-2 py-1.5 rounded-lg my-1", themeStyles.isDark ? "bg-white/10" : "bg-black/5")}>
+                                            <input 
+                                                autoFocus 
+                                                value={editingTitle} 
+                                                onChange={(e) => setEditingTitle(e.target.value)} 
+                                                onBlur={() => { onRenameSource(source.id, editingTitle); setEditingChatId(null); }} 
+                                                onKeyDown={(e) => { 
+                                                    if (e.key === 'Enter') { onRenameSource(source.id, editingTitle); setEditingChatId(null); }
+                                                    if (e.key === 'Escape') setEditingChatId(null); 
+                                                }} 
+                                                className="flex-1 bg-transparent border-none text-sm outline-none px-1 py-0.5" 
+                                            />
+                                            <button onClick={() => { onRenameSource(source.id, editingTitle); setEditingChatId(null); }} className="p-1 hover:text-blue-500 transition-colors"><Check size={14} /></button>
+                                        </div>
+                                    ) : (
+                                        <div className={cn(
+                                            "flex items-center gap-3 px-4 py-2.5 rounded-lg transition-all duration-300 group w-full",
+                                            themeStyles.isDark ? "hover:bg-white/5 text-inherit opacity-70" : "hover:bg-black/5 text-inherit opacity-70",
+                                            !isSidebarOpen && "justify-center"
+                                        )}>
+                                            <div 
+                                                onClick={() => onToggleSourceSelection(source.id)}
+                                                className={cn(
+                                                    "w-4 h-4 rounded border flex items-center justify-center transition-colors cursor-pointer shrink-0",
+                                                    source.selected 
+                                                        ? "bg-blue-500 border-blue-500 text-white" 
+                                                        : (themeStyles.isDark ? "border-white/20" : "border-gray-300")
+                                                )}
+                                            >
+                                                {source.selected && <Check size={12} strokeWidth={4} />}
+                                            </div>
+                                            
+                                            <FileText size={18} className="shrink-0 opacity-70" />
+                                            {isSidebarOpen && <span className="text-sm truncate flex-1">{source.name}</span>}
+                                            
+                                            {isSidebarOpen && (
+                                                <button 
+                                                    onClick={(e) => handleMenuClick(e, source.id)} 
+                                                    className={cn(
+                                                        "p-1.5 rounded-md transition-all opacity-0 group-hover:opacity-100 z-10", 
+                                                        themeStyles.isDark ? "hover:bg-white/10" : "hover:bg-black/10"
+                                                    )}
+                                                >
+                                                    <MoreVertical size={14} className="opacity-70" />
+                                                </button>
+                                            )}
+                                        </div>
+                                    )}
+                                    {activeMenuId === source.id && menuPosition && (
+                                        <div
+                                            ref={menuRef}
+                                            style={{
+                                                position: 'fixed',
+                                                top: menuPlacement === 'up' ? 'auto' : `${menuPosition.top + 32}px`,
+                                                bottom: menuPlacement === 'up' ? `${window.innerHeight - menuPosition.top}px` : 'auto',
+                                                left: `${menuPosition.left - 100}px`,
+                                            }}
+                                            className={cn(
+                                                "w-36 rounded-xl shadow-2xl z-[100] py-1.5 border backdrop-blur-xl overflow-hidden animate-in fade-in zoom-in duration-200",
+                                                themeStyles.isDark ? "bg-[#2b2c2e]/95 border-white/10" : "bg-white/95 border-gray-200"
+                                            )}
+                                        >
+                                            <button onClick={() => { setEditingChatId(source.id); setEditingTitle(source.name); setActiveMenuId(null); }} className="w-full flex items-center gap-2 px-3 py-2.5 text-xs hover:bg-black/5 dark:hover:bg-white/5 transition-colors text-left font-medium"><Edit2 size={14} /> Rename</button>
+                                            <button onClick={() => { onDeleteSource(source.id); setActiveMenuId(null); }} className="w-full flex items-center gap-2 px-3 py-2.5 text-xs text-red-500 hover:bg-red-500/10 transition-colors text-left font-medium"><Trash2 size={14} /> Delete</button>
+                                        </div>
+                                    )}
+                                </div>
+                            ))}
                         </div>
                     ) : (
                         <>
