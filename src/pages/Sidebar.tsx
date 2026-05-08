@@ -7,7 +7,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import {
     PanelLeft, Plus, MessageSquare, MoreVertical, Edit2, Trash2, Check,
     Search, Bot, Settings, HelpCircle, LogOut, ChevronUp, Pin, Palette, CalendarDays, ChevronRight, Layout,
-    Folder, X, Undo2, FileText
+    Folder, X, Undo2, FileText, BookOpen
 } from 'lucide-react';
 import { cn, AGENTS } from './shared';
 import type { Agent, Chat, ThemeMode, ViewType, ThemeStyles, Project, NotebookSource } from './shared';
@@ -152,7 +152,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
             <motion.aside
                 initial={false}
                 animate={{
-                    width: isMobile ? (isSidebarOpen ? 280 : 0) : (isSidebarOpen ? 220 : 68),
+                    width: isMobile ? (isSidebarOpen ? 280 : 0) : (isSidebarOpen ? (activeView === 'notebook' ? 300 : 220) : 68),
                     x: isMobile && !isSidebarOpen ? -280 : 0,
                     top: !isMobile && isSidebarFloating ? 16 : 0,
                     bottom: !isMobile && isSidebarFloating ? 16 : 0,
@@ -315,13 +315,19 @@ export const Sidebar: React.FC<SidebarProps> = ({
                                                     draggable
                                                     onDragStart={() => setDraggedChatId(chat.id)}
                                                     onClick={() => {
-                                                        setActiveView('home');
                                                         const agent = AGENTS.find(a => a.id === chat.agentId);
-                                                        if (agent) setSelectedAgent(agent);
+                                                        if (agent) {
+                                                            setSelectedAgent(agent);
+                                                            setActiveView(agent.id === 'notebook' ? 'notebook' : 'home');
+                                                        }
                                                     }}
                                                     className={cn("flex items-center gap-2 px-3 py-1.5 rounded-lg transition-all duration-300 text-left w-full", themeStyles.isDark ? "hover:bg-white/5 opacity-60" : "hover:bg-black/5 opacity-60")}
                                                 >
-                                                    {showChatIcons && <MessageSquare size={14} className="shrink-0" />}
+                                                    {showChatIcons && (
+                                                        chat.agentId === 'notebook' 
+                                                            ? <BookOpen size={14} className="shrink-0" />
+                                                            : <MessageSquare size={14} className="shrink-0" />
+                                                    )}
                                                     <span className="text-xs truncate">{chat.title}</span>
                                                 </button>
                                                 <button
@@ -357,14 +363,20 @@ export const Sidebar: React.FC<SidebarProps> = ({
                                                         draggable
                                                         onDragStart={() => setDraggedChatId(chat.id)}
                                                         onClick={() => {
-                                                            setActiveView('home');
                                                             const agent = AGENTS.find(a => a.id === chat.agentId);
-                                                            if (agent) setSelectedAgent(agent);
+                                                            if (agent) {
+                                                                setSelectedAgent(agent);
+                                                                setActiveView(agent.id === 'notebook' ? 'notebook' : 'home');
+                                                            }
                                                             if (isMobile) setIsSidebarOpen(false); // 手機端點擊後自動收回
                                                         }}
                                                         className={cn("flex items-center gap-3 px-4 py-2.5 rounded-lg transition-all duration-300 text-left group w-full", themeStyles.isDark ? "hover:bg-white/5 text-inherit opacity-70" : "hover:bg-black/5 text-inherit opacity-70", !isSidebarOpen && "justify-center")}
                                                     >
-                                                        {showChatIcons && <MessageSquare size={18} className="shrink-0 opacity-70 group-hover:opacity-100 transition-opacity" />}
+                                                        {showChatIcons && (
+                                                            chat.agentId === 'notebook'
+                                                                ? <BookOpen size={18} className="shrink-0 opacity-70 group-hover:opacity-100 transition-opacity" />
+                                                                : <MessageSquare size={18} className="shrink-0 opacity-70 group-hover:opacity-100 transition-opacity" />
+                                                        )}
                                                         {isSidebarOpen && (
                                                             <div className="flex-1 min-w-0 flex items-center gap-2">
                                                                 <span className="text-sm truncate font-normal">{chat.title}</span>

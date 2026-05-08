@@ -119,20 +119,15 @@ export default function ApplePage({ onBack }: { onBack: () => void }) {
 
     // --- 業務邏輯 ---
     const createNewChat = (agent: Agent) => {
-        if (agent.id === 'notebook') {
-            setSelectedAgent(agent);
-            setActiveView('notebook');
-            return;
-        }
         const newChat: Chat = {
             id: Date.now().toString(),
-            title: `${agent.name} 諮詢 (${new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })})`,
+            title: agent.id === 'notebook' ? `New Notebook (${new Date().toLocaleDateString()})` : `${agent.name} 諮詢 (${new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })})`,
             timestamp: new Date().getTime(),
             agentId: agent.id
         };
         setChats(prev => [newChat, ...prev]);
         setSelectedAgent(agent);
-        setActiveView('home');
+        setActiveView(agent.id === 'notebook' ? 'notebook' : 'home');
     };
 
     const handleRename = (id: string) => {
@@ -270,7 +265,7 @@ export default function ApplePage({ onBack }: { onBack: () => void }) {
             {/* Sidebar 佔位容器：恆定佔位，確保右側內容永不跳動 */}
             <div 
                 className="hidden md:block transition-all duration-300 shrink-0"
-                style={{ width: isSidebarOpen ? 220 : 68 }}
+                style={{ width: isSidebarOpen ? (activeView === 'notebook' ? 300 : 220) : 68 }}
             />
             <Sidebar
                 isSidebarOpen={isSidebarOpen}
