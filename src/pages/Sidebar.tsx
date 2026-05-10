@@ -6,9 +6,10 @@ import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
     PanelLeft, Plus, MessageSquare, MoreVertical, Edit2, Trash2, Check,
-    Search, Bot, Settings, HelpCircle, LogOut, ChevronUp, Pin, Palette, CalendarDays, ChevronRight, Layout,
+    Search, Bot, Settings, HelpCircle, LogOut, ChevronUp, Pin, Palette, Cat, CalendarDays, ChevronRight, Layout,
     Folder, X, Undo2, FileText, BookOpen
 } from 'lucide-react';
+import { Pet } from './petdex/Pet';
 import { cn, AGENTS } from './shared';
 import type { Agent, Chat, ThemeMode, ViewType, ThemeStyles, Project, NotebookSource } from './shared';
 
@@ -58,6 +59,8 @@ interface SidebarProps {
     onRenameSource: (id: string, newName: string) => void;
     onDeleteSource: (id: string) => void;
     onToggleSourceSelection: (id: string) => void;
+    showPet: boolean;
+    setShowPet: (show: boolean) => void;
 }
 
 export const Sidebar: React.FC<SidebarProps> = ({
@@ -106,6 +109,8 @@ export const Sidebar: React.FC<SidebarProps> = ({
     onRenameSource,
     onDeleteSource,
     onToggleSourceSelection,
+    showPet,
+    setShowPet,
 }) => {
     const [isSettingsOpen, setIsSettingsOpen] = React.useState(false);
     const [isThemeSectionOpen, setIsThemeSectionOpen] = React.useState(false);
@@ -198,16 +203,16 @@ export const Sidebar: React.FC<SidebarProps> = ({
                                 <div key={source.id} className="relative group/item">
                                     {editingChatId === source.id ? (
                                         <div className={cn("flex items-center gap-2 px-2 py-1.5 rounded-lg my-1", themeStyles.isDark ? "bg-white/10" : "bg-black/5")}>
-                                            <input 
-                                                autoFocus 
-                                                value={editingTitle} 
-                                                onChange={(e) => setEditingTitle(e.target.value)} 
-                                                onBlur={() => { onRenameSource(source.id, editingTitle); setEditingChatId(null); }} 
-                                                onKeyDown={(e) => { 
+                                            <input
+                                                autoFocus
+                                                value={editingTitle}
+                                                onChange={(e) => setEditingTitle(e.target.value)}
+                                                onBlur={() => { onRenameSource(source.id, editingTitle); setEditingChatId(null); }}
+                                                onKeyDown={(e) => {
                                                     if (e.key === 'Enter') { onRenameSource(source.id, editingTitle); setEditingChatId(null); }
-                                                    if (e.key === 'Escape') setEditingChatId(null); 
-                                                }} 
-                                                className="flex-1 bg-transparent border-none text-sm outline-none px-1 py-0.5" 
+                                                    if (e.key === 'Escape') setEditingChatId(null);
+                                                }}
+                                                className="flex-1 bg-transparent border-none text-sm outline-none px-1 py-0.5"
                                             />
                                             <button onClick={() => { onRenameSource(source.id, editingTitle); setEditingChatId(null); }} className="p-1 hover:text-blue-500 transition-colors"><Check size={14} /></button>
                                         </div>
@@ -217,26 +222,26 @@ export const Sidebar: React.FC<SidebarProps> = ({
                                             themeStyles.isDark ? "hover:bg-white/5 text-inherit opacity-70" : "hover:bg-black/5 text-inherit opacity-70",
                                             !isSidebarOpen && "justify-center"
                                         )}>
-                                            <div 
+                                            <div
                                                 onClick={() => onToggleSourceSelection(source.id)}
                                                 className={cn(
                                                     "w-4 h-4 rounded border flex items-center justify-center transition-colors cursor-pointer shrink-0",
-                                                    source.selected 
-                                                        ? "bg-blue-500 border-blue-500 text-white" 
+                                                    source.selected
+                                                        ? "bg-blue-500 border-blue-500 text-white"
                                                         : (themeStyles.isDark ? "border-white/20" : "border-gray-300")
                                                 )}
                                             >
                                                 {source.selected && <Check size={12} strokeWidth={4} />}
                                             </div>
-                                            
+
                                             <FileText size={18} className="shrink-0 opacity-70" />
                                             {isSidebarOpen && <span className="text-sm truncate flex-1">{source.name}</span>}
-                                            
+
                                             {isSidebarOpen && (
-                                                <button 
-                                                    onClick={(e) => handleMenuClick(e, source.id)} 
+                                                <button
+                                                    onClick={(e) => handleMenuClick(e, source.id)}
                                                     className={cn(
-                                                        "p-1.5 rounded-md transition-all opacity-0 group-hover:opacity-100 z-10", 
+                                                        "p-1.5 rounded-md transition-all opacity-0 group-hover:opacity-100 z-10",
                                                         themeStyles.isDark ? "hover:bg-white/10" : "hover:bg-black/10"
                                                     )}
                                                 >
@@ -324,7 +329,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                                                     className={cn("flex items-center gap-2 px-3 py-1.5 rounded-lg transition-all duration-300 text-left w-full", themeStyles.isDark ? "hover:bg-white/5 opacity-60" : "hover:bg-black/5 opacity-60")}
                                                 >
                                                     {showChatIcons && (
-                                                        chat.agentId === 'notebook' 
+                                                        chat.agentId === 'notebook'
                                                             ? <BookOpen size={14} className="shrink-0" />
                                                             : <MessageSquare size={14} className="shrink-0" />
                                                     )}
@@ -531,6 +536,18 @@ export const Sidebar: React.FC<SidebarProps> = ({
                                         className={cn("w-8 h-4 rounded-full transition-colors relative flex items-center px-0.5 shrink-0", isSidebarFloating ? "bg-[#4d90fe]" : "bg-gray-400")}
                                     >
                                         <div className={cn("w-3 h-3 bg-white rounded-full transition-transform shadow-sm", isSidebarFloating ? "translate-x-4" : "translate-x-0")} />
+                                    </button>
+                                </div>
+
+                                {/* 寵物開關 (Clippy) */}
+                                <div className="flex items-center gap-2 px-3 py-2.5 rounded-lg group">
+                                    <Cat size={14} className="opacity-70 group-hover:opacity-100" />
+                                    <span className="text-xs font-medium flex-1 opacity-70 group-hover:opacity-100 text-left">Pet</span>
+                                    <button
+                                        onClick={(e) => { e.stopPropagation(); setShowPet(!showPet); }}
+                                        className={cn("w-8 h-4 rounded-full transition-colors relative flex items-center px-0.5 shrink-0", showPet ? "bg-[#4d90fe]" : "bg-gray-400")}
+                                    >
+                                        <div className={cn("w-3 h-3 bg-white rounded-full transition-transform shadow-sm", showPet ? "translate-x-4" : "translate-x-0")} />
                                     </button>
                                 </div>
 

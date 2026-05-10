@@ -1,0 +1,21 @@
+/* Pet.css - Simplified for 4-frame sprite */
+.pet-container {
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+    width: 128px;
+    height: 144px;
+    background-size: 512px 144px; /* 4 frames * 128px */
+    background-repeat: no-repeat;
+    display: block;
+}
+
+/* 由於目前只有一排 4 格動畫，所有狀態共用循環 */
+.pet-idle, .pet-walk, .pet-sleep, .pet-wave {
+    animation: pet-loop 0.8s steps(4) infinite;
+    background-position-y: 0px;
+}
+
+@keyframes pet-loop {
+    from { background-position-x: 0px; }
+    to { background-position-x: -512px; }
+}
