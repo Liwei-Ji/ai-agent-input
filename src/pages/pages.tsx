@@ -28,6 +28,7 @@ import { Header } from './Header';
 import { SearchView } from './SearchView';
 import { HomeView } from './HomeView';
 import { AgentsView } from './AgentsView';
+import { Pet } from './petdex/Pet';
 
 export default function ApplePage({ onBack }: { onBack: () => void }) {
     // --- 狀態管理 ---
@@ -65,6 +66,7 @@ export default function ApplePage({ onBack }: { onBack: () => void }) {
     ]);
     const [projects, setProjects] = useState<Project[]>([]);
     const [notebookSources, setNotebookSources] = useState<NotebookSource[]>([]);
+    const [showPet, setShowPet] = useState(false);
     
     const handleResetToHome = () => {
         setSelectedAgent(null);
@@ -313,7 +315,12 @@ export default function ApplePage({ onBack }: { onBack: () => void }) {
                 onRenameSource={handleRenameSource}
                 onDeleteSource={handleDeleteSource}
                 onToggleSourceSelection={handleToggleSourceSelection}
+                showPet={showPet}
+                setShowPet={setShowPet}
             />
+
+            {/* 全局寵物 (Clippy 模式) */}
+            {showPet && <Pet containerRef={{ current: document.body as any }} />}
 
             {/* 手機端遮罩 */}
             {isMobile && isSidebarOpen && (
