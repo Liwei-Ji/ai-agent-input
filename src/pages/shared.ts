@@ -66,5 +66,5 @@ export const AGENTS: Agent[] = [
     { id: 'dise', name: 'DISE AI Agent', description: '專業提供 DISE 相關技術支援與系統開發指引。', icon: Cpu, color: 'bg-blue-600' },
     { id: 'doc', name: 'DOC AI', description: '智慧文檔管理專家，精通各類文件處理與自動化流程。', icon: FileText, color: 'bg-blue-600' },
     { id: 'apple', name: 'Nano Apple', description: '創意生成式 AI，能將您的想法轉化為精美豐富的圖像。', icon: Image, color: 'bg-blue-600' },
-    { id: 'notebook', name: 'NotebookLM', description: '智慧筆記與資料研讀助手，深度解析您的檔案內容。', icon: BookOpen, color: 'bg-blue-600' },
+    { id: 'notebook', name: 'NotebookLM', description: 'Smart note-taking and document study assistant that deeply analyzes your file content.', icon: BookOpen, color: 'bg-blue-600' },
 ];
