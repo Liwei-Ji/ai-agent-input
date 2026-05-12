@@ -64,7 +64,7 @@ export interface ThemeStyles {
 export const AGENTS: Agent[] = [
     { id: 'gmp', name: 'GMP AI Agent', description: '致力於 GMP 相關規範與品質管理流程諮詢。', icon: ShieldCheck, color: 'bg-blue-600' },
     { id: 'dise', name: 'DISE AI Agent', description: '專業提供 DISE 相關技術支援與系統開發指引。', icon: Cpu, color: 'bg-blue-600' },
-    { id: 'doc', name: 'DOC AI', description: '智慧文檔管理專家，精通各類文件處理與自動化流程。', icon: FileText, color: 'bg-blue-600' },
+    { id: 'doc', name: 'DOC AI', description: 'Intelligent document management expert, proficient in various file processing and automation workflows.', icon: FileText, color: 'bg-blue-600' },
     { id: 'apple', name: 'Nano Apple', description: 'Creative generative AI that can transform your ideas into beautifully rich images.', icon: Image, color: 'bg-blue-600' },
     { id: 'notebook', name: 'NotebookLM', description: 'Smart note-taking and document study assistant that deeply analyzes your file content.', icon: BookOpen, color: 'bg-blue-600' },
 ];
