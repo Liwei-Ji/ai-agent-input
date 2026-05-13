@@ -800,14 +800,6 @@ export const TrainingView: React.FC<TrainingViewProps> = ({ themeStyles }) => {
                         </AnimatePresence>
                     </div>
                 ))}
-
-                {/* Placeholder for future panels */}
-                <div className={cn(
-                    "p-5 rounded-2xl border border-dashed flex items-center justify-center opacity-30",
-                    themeStyles.isDark ? "border-white/20" : "border-black/20"
-                )}>
-                    <p className="text-sm font-medium italic">More training modules coming soon...</p>
-                </div>
             </div>
         </motion.div>
     );
