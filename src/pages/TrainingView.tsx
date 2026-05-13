@@ -162,7 +162,7 @@ const SortableCard = ({ col, themeStyles, onRemove, sortableId }: { col: ColumnI
 export const TrainingView: React.FC<TrainingViewProps> = ({ themeStyles }) => {
     const [activePanel, setActivePanel] = useState<string | null>('experiment');
     const [topic, setTopic] = useState('');
-    const [selectedType, setSelectedType] = useState('xgboost');
+    const [selectedType, setSelectedType] = useState<string | null>(null);
     const [isDraggingOver, setIsDraggingOver] = useState(false);
     const [activeId, setActiveId] = useState<string | null>(null);
     const [completedSteps, setCompletedSteps] = useState<string[]>([]);
@@ -205,7 +205,8 @@ export const TrainingView: React.FC<TrainingViewProps> = ({ themeStyles }) => {
     const [isCVEnabled, setIsCVEnabled] = useState(false);
     const [cvFolds, setCvFolds] = useState(2);
 
-    const [computeParam, setComputeParam] = useState('medium');
+    const [computeParam, setComputeParam] = useState<string | null>(null);
+
 
     const handleMoveToRight = (item: ColumnItem) => {
         if (item.disabled) return;
@@ -325,9 +326,10 @@ export const TrainingView: React.FC<TrainingViewProps> = ({ themeStyles }) => {
         setTrainRatio(80);
         setIsCVEnabled(false);
         setCvFolds(2);
-        setComputeParam('medium');
+        setComputeParam(null);
         setCompletedSteps([]);
         setActivePanel('experiment');
+
     };
 
     const markStepComplete = (id: string) => {
@@ -867,16 +869,21 @@ export const TrainingView: React.FC<TrainingViewProps> = ({ themeStyles }) => {
                                     {panel.isComplete && activePanel !== panel.id ? <Check size={20} strokeWidth={3} /> : <panel.icon size={20} />}
                                 </div>
                                 <div className="flex-1 min-w-0">
-                                    <div className="flex items-center justify-between gap-4">
-                                        <h3 className="font-bold text-lg truncate">{panel.title}</h3>
+                                    <div className="flex items-center justify-between gap-4 h-full">
+                                        <div className="flex flex-col justify-center">
+                                            <h3 className="font-bold text-lg leading-none mb-1">{panel.title}</h3>
+                                            <p className="text-[10px] opacity-40 uppercase tracking-wider font-bold">Step {idx + 1}</p>
+                                        </div>
                                         {activePanel !== panel.id && panel.summary && (
-                                            <span className="text-sm font-medium opacity-40 truncate bg-black/5 dark:bg-white/5 px-3 py-1 rounded-full">
-                                                {panel.summary}
-                                            </span>
+                                            <div className="flex items-center h-full">
+                                                <span className="text-sm font-medium opacity-60 truncate bg-black/5 dark:bg-white/5 px-3 py-1.5 rounded-full border border-black/5 dark:border-white/5">
+                                                    {panel.summary}
+                                                </span>
+                                            </div>
                                         )}
                                     </div>
-                                    <p className="text-xs opacity-50 uppercase tracking-wider font-semibold">Step {idx + 1}</p>
                                 </div>
+
                             </div>
                             <motion.div
                                 animate={{ rotate: activePanel === panel.id ? 180 : 0 }}
