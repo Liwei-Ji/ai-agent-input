@@ -1,8 +1,26 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronDown, FlaskConical, Search, Play } from 'lucide-react';
+import {
+    ChevronDown,
+    FlaskConical,
+    Search,
+    Play,
+    Table,
+    Layers,
+    X,
+    Info,
+    Plus
+} from 'lucide-react';
 import { cn } from './shared';
 import type { ThemeStyles } from './shared';
+
+interface ColumnItem {
+    id: string;
+    name: string;
+    disabled?: boolean;
+    recommend?: boolean;
+    type?: 'data' | 'timestamp';
+}
 
 interface TrainingViewProps {
     themeStyles: ThemeStyles;
@@ -12,6 +30,31 @@ export const TrainingView: React.FC<TrainingViewProps> = ({ themeStyles }) => {
     const [activePanel, setActivePanel] = useState<string | null>('experiment');
     const [topic, setTopic] = useState('');
     const [selectedType, setSelectedType] = useState('xgboost');
+    const [isDraggingOver, setIsDraggingOver] = useState(false);
+    const rightColumnRef = useRef<HTMLDivElement>(null);
+
+    // --- Step 3: Column Selection State ---
+    const [availableCols, setAvailableCols] = useState<ColumnItem[]>([
+        { id: 'col-1', name: 'Frame', type: 'data' },
+        { id: 'col-2', name: 'Timestamp', type: 'timestamp', disabled: true },
+        { id: 'col-3', name: 'Confidence', type: 'data' },
+    ]);
+
+    const [selectedCols, setSelectedCols] = useState<ColumnItem[]>([
+        { id: 'col-4', name: 'Time (s)', type: 'data', recommend: true },
+        { id: 'col-5', name: 'Defect Size', type: 'data', recommend: true },
+    ]);
+
+    const handleMoveToRight = (item: ColumnItem) => {
+        if (item.disabled) return;
+        setAvailableCols(prev => prev.filter(i => i.id !== item.id));
+        setSelectedCols(prev => [...prev, item]);
+    };
+
+    const handleMoveToLeft = (item: ColumnItem) => {
+        setSelectedCols(prev => prev.filter(i => i.id !== item.id));
+        setAvailableCols(prev => [...prev, item]);
+    };
 
     const experimentTypes = [
         { id: 'xgboost', name: 'xgboost', recommend: true, description: 'Gradient boosting for tabular data (numeric/categorical features). Best for handling complex relationships.' },
@@ -94,6 +137,124 @@ export const TrainingView: React.FC<TrainingViewProps> = ({ themeStyles }) => {
                             </div>
                         </div>
                     ))}
+                </div>
+            )
+        },
+        {
+            id: 'columns',
+            title: 'Select INPUT column',
+            icon: Table,
+            content: (
+                <div className="grid grid-cols-1 md:grid-cols-12 gap-4">
+                    {/* Left Column: Options */}
+                    <div className={cn(
+                        "md:col-span-4 rounded-2xl p-3 space-y-2",
+                        themeStyles.isDark ? "bg-white/5" : "bg-black/5"
+                    )}>
+                        <AnimatePresence mode='popLayout'>
+                            {availableCols.map((col) => (
+                                <motion.div
+                                    layout
+                                    key={col.id}
+                                    initial={{ opacity: 0, scale: 0.95 }}
+                                    animate={{ opacity: 1, scale: 1 }}
+                                    exit={{ opacity: 0, scale: 0.95 }}
+                                    drag={!col.disabled}
+                                    dragSnapToOrigin
+                                    onDragStart={() => setIsDraggingOver(true)}
+                                    onDragEnd={(event, info) => {
+                                        setIsDraggingOver(false);
+                                        if (!rightColumnRef.current) return;
+                                        const rect = rightColumnRef.current.getBoundingClientRect();
+                                        const { x, y } = info.point;
+                                        if (
+                                            x >= rect.left &&
+                                            x <= rect.right &&
+                                            y >= rect.top &&
+                                            y <= rect.bottom
+                                        ) {
+                                            handleMoveToRight(col);
+                                        }
+                                    }}
+                                    whileDrag={{ 
+                                        scale: 1.05, 
+                                        zIndex: 50, 
+                                        boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1)"
+                                    }}
+                                    onClick={() => handleMoveToRight(col)}
+                                    className={cn(
+                                        "flex items-center justify-between p-3 rounded-xl border transition-all shadow-sm",
+                                        themeStyles.isDark ? "bg-zinc-900 border-white/10" : "bg-white border-black/5",
+                                        col.disabled
+                                            ? "opacity-50 cursor-not-allowed"
+                                            : "cursor-pointer hover:border-blue-500/50 active:scale-[0.98] touch-none"
+                                    )}
+                                >
+                                    <div className="flex items-center gap-3">
+                                        {col.type === 'timestamp' ? <Layers size={16} className="opacity-40" /> : <Table size={16} className="opacity-40" />}
+                                        <span className="text-sm font-semibold opacity-80">{col.name}</span>
+                                    </div>
+                                    {col.disabled && <Info size={14} className="opacity-30" />}
+                                </motion.div>
+                            ))}
+                        </AnimatePresence>
+                    </div>
+
+                    {/* Right Column: Selected */}
+                    <div 
+                        ref={rightColumnRef}
+                        className={cn(
+                            "md:col-span-8 rounded-2xl p-3 space-y-2 border-2 transition-all",
+                            isDraggingOver 
+                                ? "border-blue-500/50 bg-blue-500/5 ring-4 ring-blue-500/10" 
+                                : "border-transparent",
+                            themeStyles.isDark ? "bg-white/5" : "bg-black/5"
+                        )}
+                    >
+                        <AnimatePresence mode='popLayout'>
+                            {selectedCols.map((col) => (
+                                <motion.div
+                                    layout
+                                    key={col.id}
+                                    initial={{ opacity: 0, x: 10 }}
+                                    animate={{ opacity: 1, x: 0 }}
+                                    exit={{ opacity: 0, scale: 0.95 }}
+                                    className={cn(
+                                        "flex items-center justify-between p-3 rounded-xl border shadow-sm group",
+                                        themeStyles.isDark ? "bg-zinc-900 border-white/10" : "bg-white border-black/5"
+                                    )}
+                                >
+                                    <div className="flex items-center gap-3">
+                                        <Table size={16} className="opacity-40" />
+                                        <span className="text-sm font-semibold opacity-80">{col.name}</span>
+                                        {col.recommend && (
+                                            <span className="px-2 py-0.5 rounded-md bg-linear-to-r from-teal-400 to-teal-500 text-[10px] font-bold text-white uppercase tracking-tighter shadow-sm">
+                                                Recommend
+                                            </span>
+                                        )}
+                                    </div>
+                                    <button
+                                        onClick={() => handleMoveToLeft(col)}
+                                        className="p-1 hover:bg-black/5 dark:hover:bg-white/5 rounded-lg transition-colors"
+                                    >
+                                        <X size={18} className="opacity-40 group-hover:opacity-100 group-hover:text-red-500 transition-all" />
+                                    </button>
+                                </motion.div>
+                            ))}
+                        </AnimatePresence>
+
+                        {/* Placeholder */}
+                        <motion.div
+                            layout
+                            className={cn(
+                                "border-2 border-dashed rounded-xl p-4 flex items-center justify-center gap-2 opacity-30",
+                                themeStyles.isDark ? "border-white/20" : "border-black/20"
+                            )}
+                        >
+                            <Plus size={18} />
+                            <span className="text-sm font-medium">Drag here or click from left</span>
+                        </motion.div>
+                    </div>
                 </div>
             )
         }
