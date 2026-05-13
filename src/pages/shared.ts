@@ -22,7 +22,7 @@ export const getContrastColor = (hex: string) => {
 
 // 類型定義
 export type ThemeMode = 'light' | 'dark' | 'colorful';
-export type ViewType = 'home' | 'agents' | 'search' | 'notebook';
+export type ViewType = 'home' | 'agents' | 'search' | 'notebook' | 'training';
 
 export interface Agent {
     id: string;

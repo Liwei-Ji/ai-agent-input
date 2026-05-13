@@ -28,6 +28,7 @@ import { Header } from './Header';
 import { SearchView } from './SearchView';
 import { HomeView } from './HomeView';
 import { AgentsView } from './AgentsView';
+import { TrainingView } from './TrainingView';
 import { Pet } from './petdex/Pet';
 
 export default function ApplePage({ onBack }: { onBack: () => void }) {
@@ -367,6 +368,8 @@ export default function ApplePage({ onBack }: { onBack: () => void }) {
                                 inputText={inputText}
                                 setInputText={setInputText}
                             />
+                        ) : activeView === 'training' ? (
+                            <TrainingView themeStyles={themeStyles} />
                         ) : (
                             <AgentsView
                                 themeMode={themeMode}

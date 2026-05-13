@@ -428,7 +428,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                     {[
                         { icon: Search, label: 'Search', onClick: () => { setActiveView('search'); setSelectedAgent(null); if (isMobile) setIsSidebarOpen(false); }, active: activeView === 'search' },
                         { icon: Bot, label: 'AI Agents', onClick: () => { setActiveView('agents'); if (isMobile) setIsSidebarOpen(false); }, active: activeView === 'agents' },
-                        { icon: Settings, label: 'Model Training' },
+                        { icon: Settings, label: 'Model Training', onClick: () => { setActiveView('training'); setSelectedAgent(null); if (isMobile) setIsSidebarOpen(false); }, active: activeView === 'training' },
                         { icon: LogOut, label: 'Back', onClick: onBack, active: false }
                     ].filter(item => activeView === 'notebook' ? (item.label !== 'Search' && item.label !== 'Model Training') : true).map((item, idx) => (
                         <button key={idx} onClick={item.onClick} className={cn("flex items-center gap-3 px-3 py-2 rounded-xl transition-all duration-300 group w-full", item.active ? (themeStyles.isDark ? "bg-white/10 text-white" : "bg-black/10 text-gray-900") : (themeStyles.isDark ? "hover:bg-white/5 text-inherit opacity-70" : "hover:bg-black/5 text-inherit opacity-70"), !isSidebarOpen && "justify-center")}>
