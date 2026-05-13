@@ -11,6 +11,14 @@ interface TrainingViewProps {
 export const TrainingView: React.FC<TrainingViewProps> = ({ themeStyles }) => {
     const [activePanel, setActivePanel] = useState<string | null>('experiment');
     const [topic, setTopic] = useState('');
+    const [selectedType, setSelectedType] = useState('xgboost');
+
+    const experimentTypes = [
+        { id: 'xgboost', name: 'xgboost', recommend: true, description: 'Gradient boosting for tabular data (numeric/categorical features). Best for handling complex relationships.' },
+        { id: 'randomforest', name: 'randomforest', description: 'Ensemble of decision trees for tabular data (numeric/categorical features).' },
+        { id: 'svm', name: 'svm', description: 'Supervised learning for structured data, effective with smaller datasets or linear separability.' },
+        { id: 'dnn', name: 'dnn', description: 'Deep neural network for tabular data. Suitable for large datasets with complex relationships between features.' }
+    ];
 
     const panels = [
         {
@@ -29,13 +37,13 @@ export const TrainingView: React.FC<TrainingViewProps> = ({ themeStyles }) => {
                                 placeholder="e.g., Optimizing GMP workflow analysis..."
                                 className={cn(
                                     "w-full px-4 py-2.5 rounded-xl border transition-all outline-none text-sm",
-                                    themeStyles.isDark 
-                                        ? "bg-white/5 border-white/10 focus:border-blue-500/50" 
+                                    themeStyles.isDark
+                                        ? "bg-white/5 border-white/10 focus:border-blue-500/50"
                                         : "bg-black/5 border-black/10 focus:border-blue-500/50"
                                 )}
                             />
                         </div>
-                        <button 
+                        <button
                             className={cn(
                                 "flex items-center gap-2 px-6 py-2.5 rounded-xl font-semibold text-sm transition-all shadow-lg active:scale-95",
                                 "bg-linear-to-r from-blue-600 to-indigo-600 text-white hover:from-blue-500 hover:to-indigo-500"
@@ -47,11 +55,52 @@ export const TrainingView: React.FC<TrainingViewProps> = ({ themeStyles }) => {
                     </div>
                 </div>
             )
+        },
+        {
+            id: 'type',
+            title: 'Experiment Type',
+            icon: Play,
+            content: (
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 p-2">
+                    {experimentTypes.map((type) => (
+                        <div
+                            key={type.id}
+                            onClick={() => setSelectedType(type.id)}
+                            className={cn(
+                                "group cursor-pointer flex gap-4 p-1 rounded-xl transition-all duration-300",
+                                selectedType === type.id ? "opacity-100" : "opacity-60 hover:opacity-80"
+                            )}
+                        >
+                            <div className={cn(
+                                "w-6 h-6 rounded-full border-2 flex items-center justify-center transition-all shrink-0 mt-1",
+                                selectedType === type.id
+                                    ? "border-blue-500 bg-blue-500 text-white"
+                                    : (themeStyles.isDark ? "border-white/20" : "border-black/20")
+                            )}>
+                                {selectedType === type.id && <div className="w-2 h-2 rounded-full bg-white animate-in zoom-in duration-300" />}
+                            </div>
+                            <div className="flex-1 space-y-1">
+                                <div className="flex items-center gap-2">
+                                    <span className="font-bold text-base tracking-tight">{type.name}</span>
+                                    {type.recommend && (
+                                        <span className="px-2 py-0.5 rounded-md bg-linear-to-r from-orange-400 to-orange-500 text-[10px] font-bold text-white uppercase tracking-tighter shadow-sm">
+                                            Recommend
+                                        </span>
+                                    )}
+                                </div>
+                                <p className="text-xs opacity-60 leading-relaxed font-medium">
+                                    {type.description}
+                                </p>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            )
         }
     ];
 
     return (
-        <motion.div 
+        <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             className="w-full max-w-4xl mx-auto py-8 px-4"
@@ -62,8 +111,8 @@ export const TrainingView: React.FC<TrainingViewProps> = ({ themeStyles }) => {
             </div>
 
             <div className="space-y-3">
-                {panels.map((panel) => (
-                    <div 
+                {panels.map((panel, idx) => (
+                    <div
                         key={panel.id}
                         className={cn(
                             "rounded-2xl border transition-all duration-300 overflow-hidden",
@@ -84,7 +133,7 @@ export const TrainingView: React.FC<TrainingViewProps> = ({ themeStyles }) => {
                                 </div>
                                 <div>
                                     <h3 className="font-bold text-lg">{panel.title}</h3>
-                                    <p className="text-xs opacity-50 uppercase tracking-wider font-semibold">Step {panel.id === 'experiment' ? '1' : '?'}</p>
+                                    <p className="text-xs opacity-50 uppercase tracking-wider font-semibold">Step {idx + 1}</p>
                                 </div>
                             </div>
                             <motion.div
