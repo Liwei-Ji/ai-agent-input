@@ -319,7 +319,7 @@ export const TrainingView: React.FC<TrainingViewProps> = ({ themeStyles }) => {
                                     "w-full px-4 py-2.5 rounded-xl border transition-all outline-none text-sm",
                                     themeStyles.isDark
                                         ? "bg-white/5 border-white/10 focus:border-blue-500/50"
-                                        : "bg-black/5 border-black/10 focus:border-blue-500/50"
+                                        : "bg-white border-black/10 focus:border-blue-500/50"
                                 )}
                             />
                         </div>
@@ -363,7 +363,7 @@ export const TrainingView: React.FC<TrainingViewProps> = ({ themeStyles }) => {
                                 <div className="flex items-center gap-2">
                                     <span className="font-bold text-base tracking-tight">{type.name}</span>
                                     {type.recommend && (
-                                        <span className="px-2 py-0.5 rounded-md bg-linear-to-r from-orange-400 to-orange-500 text-[10px] font-bold text-white uppercase tracking-tighter shadow-sm">
+                                        <span className="px-2 py-0.5 rounded-md bg-linear-to-r from-teal-400 to-teal-500 text-[10px] font-bold text-white uppercase tracking-tighter shadow-sm">
                                             Recommend
                                         </span>
                                     )}
@@ -598,7 +598,7 @@ export const TrainingView: React.FC<TrainingViewProps> = ({ themeStyles }) => {
                                                 "w-full appearance-none px-4 py-3 rounded-xl border transition-all outline-none text-sm font-bold cursor-pointer",
                                                 themeStyles.isDark
                                                     ? "bg-transparent border-white/10 focus:border-blue-500/50 hover:bg-white/5"
-                                                    : "bg-black/5 border-black/10 focus:border-blue-500/50 hover:bg-black/10"
+                                                    : "bg-white border-black/10 focus:border-blue-500/50 hover:bg-black/5"
                                             )}
                                         >
                                             {[80, 75, 70, 65, 60].map(val => (
@@ -619,7 +619,7 @@ export const TrainingView: React.FC<TrainingViewProps> = ({ themeStyles }) => {
                                                 "w-full appearance-none px-4 py-3 rounded-xl border transition-all outline-none text-sm font-bold cursor-pointer",
                                                 themeStyles.isDark
                                                     ? "bg-transparent border-white/10 focus:border-blue-500/50 hover:bg-white/5"
-                                                    : "bg-black/5 border-black/10 focus:border-blue-500/50 hover:bg-black/10"
+                                                    : "bg-white border-black/10 focus:border-blue-500/50 hover:bg-black/5"
                                             )}
                                         >
                                             {[40, 35, 30, 25, 20].map(val => (
@@ -674,7 +674,7 @@ export const TrainingView: React.FC<TrainingViewProps> = ({ themeStyles }) => {
                                                 "w-full appearance-none px-4 py-3 rounded-xl border transition-all outline-none text-sm font-bold cursor-pointer",
                                                 themeStyles.isDark
                                                     ? "bg-transparent border-white/10 focus:border-blue-500/50 hover:bg-white/5"
-                                                    : "bg-black/5 border-black/10 focus:border-blue-500/50 hover:bg-black/10"
+                                                    : "bg-white border-black/10 focus:border-blue-500/50 hover:bg-black/5"
                                             )}
                                         >
                                             {[2, 3, 4, 5].map(val => (
@@ -790,7 +790,7 @@ export const TrainingView: React.FC<TrainingViewProps> = ({ themeStyles }) => {
                                     exit={{ height: 0, opacity: 0 }}
                                     transition={{ duration: 0.4, ease: "easeInOut" }}
                                 >
-                                    <div className="p-5 pt-0 border-t border-white/5">
+                                    <div className="p-5 pt-0">
                                         <div className="pt-1">
                                             {panel.content}
                                         </div>
