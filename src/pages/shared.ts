@@ -63,8 +63,8 @@ export interface ThemeStyles {
 // 常量
 export const AGENTS: Agent[] = [
     { id: 'gmp', name: 'GMP AI Agent', description: '致力於 GMP 相關規範與品質管理流程諮詢。', icon: ShieldCheck, color: 'bg-blue-600' },
-    { id: 'dise', name: 'DISE AI Agent', description: '專業提供 DISE 相關技術支援與系統開發指引。', icon: Cpu, color: 'bg-blue-600' },
+    { id: 'dise', name: 'DISE AI Agent', description: 'Sleep endoscopy for precise airway obstruction analysis.', icon: Cpu, color: 'bg-blue-600' },
     { id: 'doc', name: 'DOC AI', description: 'AI document agent for file and workflow automation.', icon: FileText, color: 'bg-blue-600' },
-    { id: 'apple', name: 'Nano Apple', description: 'Creative generative AI that can transform your ideas into beautifully rich images.', icon: Image, color: 'bg-blue-600' },
-    { id: 'notebook', name: 'NotebookLM', description: 'Smart note-taking and document study assistant that deeply analyzes your file content.', icon: BookOpen, color: 'bg-blue-600' },
+    { id: 'apple', name: 'Nano Apple', description: 'Turns ideas into high quality images instantly.', icon: Image, color: 'bg-blue-600' },
+    { id: 'notebook', name: 'NotebookLM', description: 'AI study assistant for smart notes and deep document analysis.', icon: BookOpen, color: 'bg-blue-600' },
 ];
