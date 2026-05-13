@@ -48,7 +48,10 @@ export const TrainingView: React.FC<TrainingViewProps> = ({ themeStyles }) => {
     const handleMoveToRight = (item: ColumnItem) => {
         if (item.disabled) return;
         setAvailableCols(prev => prev.filter(i => i.id !== item.id));
-        setSelectedCols(prev => [...prev, item]);
+        setSelectedCols(prev => {
+            if (prev.find(i => i.id === item.id)) return prev;
+            return [...prev, item];
+        });
     };
 
     const handleMoveToLeft = (item: ColumnItem) => {
@@ -161,29 +164,35 @@ export const TrainingView: React.FC<TrainingViewProps> = ({ themeStyles }) => {
                                     exit={{ opacity: 0, scale: 0.95 }}
                                     drag={!col.disabled}
                                     dragSnapToOrigin
+                                    dragElastic={0.1}
+                                    dragTransition={{ bounceStiffness: 600, bounceDamping: 25 }}
                                     onDragStart={() => setIsDraggingOver(true)}
                                     onDragEnd={(event, info) => {
                                         setIsDraggingOver(false);
                                         if (!rightColumnRef.current) return;
                                         const rect = rightColumnRef.current.getBoundingClientRect();
                                         const { x, y } = info.point;
+                                        
+                                        // Add a small buffer (20px) to make the drop target more forgiving
                                         if (
-                                            x >= rect.left &&
-                                            x <= rect.right &&
-                                            y >= rect.top &&
-                                            y <= rect.bottom
+                                            x >= rect.left - 20 &&
+                                            x <= rect.right + 20 &&
+                                            y >= rect.top - 20 &&
+                                            y <= rect.bottom + 20
                                         ) {
                                             handleMoveToRight(col);
                                         }
                                     }}
+                                    whileHover={!col.disabled ? { scale: 1.01, borderColor: "rgba(59, 130, 246, 0.5)" } : {}}
                                     whileDrag={{ 
-                                        scale: 1.05, 
-                                        zIndex: 50, 
-                                        boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1)"
+                                        scale: 1.03, 
+                                        zIndex: 50,
+                                        boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -10px rgba(0, 0, 0, 0.2)"
                                     }}
-                                    onClick={() => handleMoveToRight(col)}
+                                    whileTap={{ scale: 0.98 }}
+                                    onTap={() => handleMoveToRight(col)}
                                     className={cn(
-                                        "flex items-center justify-between p-3 rounded-xl border transition-all shadow-sm",
+                                        "flex items-center justify-between p-3 rounded-xl border transition-all shadow-sm select-none",
                                         themeStyles.isDark ? "bg-zinc-900 border-white/10" : "bg-white border-black/5",
                                         col.disabled
                                             ? "opacity-50 cursor-not-allowed"
@@ -204,7 +213,7 @@ export const TrainingView: React.FC<TrainingViewProps> = ({ themeStyles }) => {
                     <div 
                         ref={rightColumnRef}
                         className={cn(
-                            "md:col-span-8 rounded-2xl p-3 space-y-2 border-2 transition-all",
+                            "md:col-span-8 rounded-2xl p-3 space-y-2 border-2 transition-all min-h-[160px]",
                             isDraggingOver 
                                 ? "border-blue-500/50 bg-blue-500/5 ring-4 ring-blue-500/10" 
                                 : "border-transparent",
@@ -247,12 +256,17 @@ export const TrainingView: React.FC<TrainingViewProps> = ({ themeStyles }) => {
                         <motion.div
                             layout
                             className={cn(
-                                "border-2 border-dashed rounded-xl p-4 flex items-center justify-center gap-2 opacity-30",
+                                "border-2 border-dashed rounded-xl p-4 flex items-center justify-center gap-2 transition-all",
+                                isDraggingOver 
+                                    ? "opacity-100 border-blue-500/50 text-blue-500 bg-blue-500/5" 
+                                    : "opacity-30",
                                 themeStyles.isDark ? "border-white/20" : "border-black/20"
                             )}
                         >
-                            <Plus size={18} />
-                            <span className="text-sm font-medium">Drag here or click from left</span>
+                            <Plus size={18} className={cn(isDraggingOver && "animate-bounce")} />
+                            <span className="text-sm font-medium">
+                                {isDraggingOver ? "Drop here!" : "Drag here or click from left"}
+                            </span>
                         </motion.div>
                     </div>
                 </div>
