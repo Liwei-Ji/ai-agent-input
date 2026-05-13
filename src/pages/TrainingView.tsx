@@ -49,18 +49,19 @@ interface TrainingViewProps {
 
 // --- Sub-components for dnd-kit ---
 
-const CardContent = ({ col, themeStyles, isDragging, onRemove, showGrip }: { 
-    col: ColumnItem, 
-    themeStyles: ThemeStyles, 
+const CardContent = ({ col, themeStyles, isDragging, onRemove, showGrip, disabled }: {
+    col: ColumnItem,
+    themeStyles: ThemeStyles,
     isDragging?: boolean,
     onRemove?: () => void,
-    showGrip?: boolean
+    showGrip?: boolean,
+    disabled?: boolean
 }) => (
     <div className={cn(
         "flex items-center justify-between p-3 rounded-xl border transition-all shadow-sm select-none w-full",
         themeStyles.isDark ? "bg-zinc-900 border-white/10" : "bg-white border-black/5",
         isDragging && "opacity-50 ring-2 ring-blue-500/50",
-        col.disabled && "opacity-50 cursor-not-allowed"
+        (col.disabled || disabled) && "opacity-50"
     )}>
         <div className="flex items-center gap-3">
             {showGrip && <GripVertical size={14} className="opacity-30 cursor-grab active:cursor-grabbing" />}
@@ -72,7 +73,7 @@ const CardContent = ({ col, themeStyles, isDragging, onRemove, showGrip }: {
                 </span>
             )}
         </div>
-        {col.disabled ? (
+        {(col.disabled || disabled) ? (
             <Info size={14} className="opacity-30" />
         ) : onRemove ? (
             <button
@@ -85,10 +86,10 @@ const CardContent = ({ col, themeStyles, isDragging, onRemove, showGrip }: {
     </div>
 );
 
-const DraggableCard = ({ col, themeStyles, onTap }: { col: ColumnItem, themeStyles: ThemeStyles, onTap: () => void }) => {
+const DraggableCard = ({ col, themeStyles, onTap, disabled }: { col: ColumnItem, themeStyles: ThemeStyles, onTap: () => void, disabled?: boolean }) => {
     const { attributes, listeners, setNodeRef, transform, isDragging } = useDraggable({
         id: col.id,
-        disabled: col.disabled,
+        disabled: col.disabled || disabled,
     });
 
     const style = transform ? {
@@ -108,14 +109,17 @@ const DraggableCard = ({ col, themeStyles, onTap }: { col: ColumnItem, themeStyl
             whileHover={!col.disabled ? { scale: 1.01, borderColor: "rgba(59, 130, 246, 0.5)" } : {}}
             whileTap={{ scale: 0.98 }}
             onTap={onTap}
-            className="cursor-pointer touch-none"
+            className={cn(
+                "touch-none",
+                (col.disabled || disabled) ? "cursor-default" : "cursor-pointer"
+            )}
         >
-            <CardContent col={col} themeStyles={themeStyles} isDragging={isDragging} />
+            <CardContent col={col} themeStyles={themeStyles} isDragging={isDragging} disabled={disabled} />
         </motion.div>
     );
 };
 
-const SortableCard = ({ col, themeStyles, onRemove }: { col: ColumnItem, themeStyles: ThemeStyles, onRemove: () => void }) => {
+const SortableCard = ({ col, themeStyles, onRemove, sortableId }: { col: ColumnItem, themeStyles: ThemeStyles, onRemove: () => void, sortableId?: string }) => {
     const {
         attributes,
         listeners,
@@ -123,7 +127,7 @@ const SortableCard = ({ col, themeStyles, onRemove }: { col: ColumnItem, themeSt
         transform,
         transition,
         isDragging,
-    } = useSortable({ id: `selected-${col.id}` });
+    } = useSortable({ id: sortableId || `selected-${col.id}` });
 
     const style = {
         transform: CSS.Transform.toString(transform),
@@ -153,7 +157,7 @@ export const TrainingView: React.FC<TrainingViewProps> = ({ themeStyles }) => {
     const [selectedType, setSelectedType] = useState('xgboost');
     const [isDraggingOver, setIsDraggingOver] = useState(false);
     const [activeId, setActiveId] = useState<string | null>(null);
-    
+
     const sensors = useSensors(
         useSensor(PointerSensor, {
             activationConstraint: {
@@ -174,6 +178,16 @@ export const TrainingView: React.FC<TrainingViewProps> = ({ themeStyles }) => {
         { id: 'col-5', name: 'Defect Size', type: 'data', recommend: true },
     ]);
 
+    const [outputAvailableCols, setOutputAvailableCols] = useState<ColumnItem[]>([
+        { id: 'out-1', name: 'Frame', type: 'data' },
+        { id: 'out-2', name: 'Time (s)', type: 'data' },
+        { id: 'out-3', name: 'Timestamp', type: 'timestamp' },
+        { id: 'out-4', name: 'Defect Size', type: 'data' },
+        { id: 'out-5', name: 'Confidence', type: 'data' },
+    ]);
+
+    const [outputSelectedCols, setOutputSelectedCols] = useState<ColumnItem[]>([]);
+
     const handleMoveToRight = (item: ColumnItem) => {
         if (item.disabled) return;
         setAvailableCols(prev => prev.filter(i => i.id !== item.id));
@@ -186,6 +200,23 @@ export const TrainingView: React.FC<TrainingViewProps> = ({ themeStyles }) => {
     const handleMoveToLeft = (item: ColumnItem) => {
         setSelectedCols(prev => prev.filter(i => i.id !== item.id));
         setAvailableCols(prev => {
+            if (prev.find(i => i.id === item.id)) return prev;
+            return [...prev, item];
+        });
+    };
+
+    const handleMoveOutputToRight = (item: ColumnItem) => {
+        if (item.disabled) return;
+        setOutputAvailableCols(prev => prev.filter(i => i.id !== item.id));
+        setOutputSelectedCols(prev => {
+            if (prev.find(i => i.id === item.id)) return prev;
+            return [...prev, item];
+        });
+    };
+
+    const handleMoveOutputToLeft = (item: ColumnItem) => {
+        setOutputSelectedCols(prev => prev.filter(i => i.id !== item.id));
+        setOutputAvailableCols(prev => {
             if (prev.find(i => i.id === item.id)) return prev;
             return [...prev, item];
         });
@@ -217,6 +248,26 @@ export const TrainingView: React.FC<TrainingViewProps> = ({ themeStyles }) => {
                 setSelectedCols((items) => {
                     const oldIndex = items.findIndex(i => `selected-${i.id}` === active.id);
                     const newIndex = items.findIndex(i => `selected-${i.id}` === over.id);
+                    return arrayMove(items, oldIndex, newIndex);
+                });
+            }
+        }
+    };
+
+    const handleOutputDragEnd = (event: DragEndEvent) => {
+        const { active, over } = event;
+        setActiveId(null);
+        setIsDraggingOver(false);
+
+        if (!over) return;
+
+        // Note: Left side is not draggable as per request, 
+        // so this only handles reordering on the right side.
+        if (String(active.id).startsWith('out-selected-') && String(over.id).startsWith('out-selected-')) {
+            if (active.id !== over.id) {
+                setOutputSelectedCols((items) => {
+                    const oldIndex = items.findIndex(i => `out-selected-${i.id}` === active.id);
+                    const newIndex = items.findIndex(i => `out-selected-${i.id}` === over.id);
                     return arrayMove(items, oldIndex, newIndex);
                 });
             }
@@ -309,7 +360,7 @@ export const TrainingView: React.FC<TrainingViewProps> = ({ themeStyles }) => {
         },
         {
             id: 'columns',
-            title: 'Select INPUT column',
+            title: 'Select INPUT Column',
             icon: Table,
             content: (
                 <DndContext
@@ -326,10 +377,10 @@ export const TrainingView: React.FC<TrainingViewProps> = ({ themeStyles }) => {
                         )}>
                             <AnimatePresence mode='popLayout'>
                                 {availableCols.map((col) => (
-                                    <DraggableCard 
-                                        key={`available-${col.id}`} 
-                                        col={col} 
-                                        themeStyles={themeStyles} 
+                                    <DraggableCard
+                                        key={`available-${col.id}`}
+                                        col={col}
+                                        themeStyles={themeStyles}
                                         onTap={() => handleMoveToRight(col)}
                                     />
                                 ))}
@@ -353,10 +404,10 @@ export const TrainingView: React.FC<TrainingViewProps> = ({ themeStyles }) => {
                             >
                                 <AnimatePresence mode='popLayout'>
                                     {selectedCols.map((col) => (
-                                        <SortableCard 
-                                            key={`selected-${col.id}`} 
-                                            col={col} 
-                                            themeStyles={themeStyles} 
+                                        <SortableCard
+                                            key={`selected-${col.id}`}
+                                            col={col}
+                                            themeStyles={themeStyles}
                                             onRemove={() => handleMoveToLeft(col)}
                                         />
                                     ))}
@@ -391,6 +442,97 @@ export const TrainingView: React.FC<TrainingViewProps> = ({ themeStyles }) => {
                                     <CardContent col={availableCols.find(c => c.id === activeId)!} themeStyles={themeStyles} isDragging />
                                 ) : (
                                     <CardContent col={selectedCols.find(c => `selected-${c.id}` === activeId)!} themeStyles={themeStyles} isDragging />
+                                )}
+                            </div>
+                        ) : null}
+                    </DragOverlay>
+                </DndContext>
+            )
+        },
+        {
+            id: 'output-columns',
+            title: 'Select OUTPUT Column',
+            icon: Table,
+            content: (
+                <DndContext
+                    sensors={sensors}
+                    collisionDetection={closestCenter}
+                    onDragStart={handleDragStart}
+                    onDragEnd={handleOutputDragEnd}
+                >
+                    <div className="grid grid-cols-1 md:grid-cols-12 gap-4">
+                        {/* Left Column: Options */}
+                        <div className={cn(
+                            "md:col-span-4 rounded-2xl p-3 space-y-2",
+                            themeStyles.isDark ? "bg-white/5" : "bg-black/5"
+                        )}>
+                            <AnimatePresence mode='popLayout'>
+                                {outputAvailableCols.map((col) => (
+                                    <DraggableCard
+                                        key={`out-available-${col.id}`}
+                                        col={col}
+                                        themeStyles={themeStyles}
+                                        onTap={() => handleMoveOutputToRight(col)}
+                                        disabled={true} // Non-draggable as requested
+                                    />
+                                ))}
+                            </AnimatePresence>
+                        </div>
+
+                        {/* Right Column: Selected */}
+                        <div
+                            id="droppable-output-selected"
+                            className={cn(
+                                "md:col-span-8 rounded-2xl p-3 space-y-2 border-2 transition-all min-h-[160px]",
+                                isDraggingOver
+                                    ? "border-blue-500/50 bg-blue-500/5 ring-4 ring-blue-500/10"
+                                    : "border-transparent",
+                                themeStyles.isDark ? "bg-white/5" : "bg-black/5"
+                            )}
+                        >
+                            <SortableContext
+                                items={outputSelectedCols.map(c => `out-selected-${c.id}`)}
+                                strategy={verticalListSortingStrategy}
+                            >
+                                <AnimatePresence mode='popLayout'>
+                                    {outputSelectedCols.map((col) => (
+                                        <SortableCard
+                                            key={`out-selected-${col.id}`}
+                                            col={col}
+                                            themeStyles={themeStyles}
+                                            onRemove={() => handleMoveOutputToLeft(col)}
+                                            sortableId={`out-selected-${col.id}`}
+                                        />
+                                    ))}
+                                </AnimatePresence>
+                            </SortableContext>
+
+                            {/* Placeholder */}
+                            {outputSelectedCols.length === 0 && (
+                                <motion.div
+                                    layout
+                                    className={cn(
+                                        "border-2 border-dashed rounded-xl p-4 flex items-center justify-center gap-2 transition-all",
+                                        isDraggingOver
+                                            ? "opacity-100 border-blue-500/50 text-blue-500 bg-blue-500/5"
+                                            : "opacity-30",
+                                        themeStyles.isDark ? "border-white/20" : "border-black/20"
+                                    )}
+                                >
+                                    <Plus size={18} className={cn(isDraggingOver && "animate-bounce")} />
+                                    <span className="text-sm font-medium">
+                                        {isDraggingOver ? "Drop here!" : "Click columns from left"}
+                                    </span>
+                                </motion.div>
+                            )}
+                        </div>
+                    </div>
+
+                    <DragOverlay dropAnimation={null}>
+                        {activeId ? (
+                            <div className="opacity-80 scale-105 pointer-events-none">
+                                {outputSelectedCols.find(c => `out-selected-${c.id}` === activeId) && (
+                                    <CardContent col={outputSelectedCols.find(c => `out-selected-${c.id}` === activeId)!} themeStyles={themeStyles} isDragging />
                                 )}
                             </div>
                         ) : null}
