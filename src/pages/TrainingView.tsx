@@ -15,7 +15,9 @@ import {
     Check,
     RefreshCw,
     Clock,
-    Cpu
+    Cpu,
+    Rocket,
+    Trash2
 } from 'lucide-react';
 import {
     DndContext,
@@ -800,6 +802,45 @@ export const TrainingView: React.FC<TrainingViewProps> = ({ themeStyles }) => {
                         </AnimatePresence>
                     </div>
                 ))}
+            </div>
+
+            {/* Bottom Actions */}
+            <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-6">
+                <button
+                    className={cn(
+                        "flex items-center justify-center gap-2 px-12 py-4 rounded-2xl font-bold text-base transition-all active:scale-95 w-full sm:w-60",
+                        themeStyles.isDark 
+                            ? "bg-white/5 border border-white/10 hover:bg-white/10 text-white/70 hover:text-white" 
+                            : "bg-black/5 border border-black/10 hover:bg-black/10 text-black/70 hover:text-black"
+                    )}
+                >
+                    <Trash2 size={18} className="opacity-60" />
+                    Discard
+                </button>
+
+                <button
+                    className={cn(
+                        "group relative flex items-center justify-center gap-3 px-12 py-4 rounded-2xl font-bold text-base transition-all shadow-xl active:scale-95 overflow-hidden w-full sm:w-60",
+                        "bg-linear-to-r from-blue-600 via-indigo-600 to-blue-600 text-white hover:shadow-blue-500/25"
+                    )}
+                    style={{ backgroundSize: '200% 100%' }}
+                >
+                    {/* Shimmer Effect */}
+                    <motion.div
+                        className="absolute inset-0 bg-linear-to-r from-transparent via-white/20 to-transparent"
+                        animate={{
+                            x: ['-100%', '100%']
+                        }}
+                        transition={{
+                            duration: 2,
+                            repeat: Infinity,
+                            ease: "linear"
+                        }}
+                    />
+
+                    <Rocket size={20} className="group-hover:rotate-12 transition-transform duration-300" />
+                    <span>Compute</span>
+                </button>
             </div>
         </motion.div>
     );
