@@ -392,7 +392,7 @@ export const TrainingView: React.FC<TrainingViewProps> = ({ themeStyles }) => {
                         {/* Left Column: Options */}
                         <div className={cn(
                             "md:col-span-4 rounded-2xl p-3 space-y-2",
-                            themeStyles.isDark ? "bg-white/5" : "bg-black/5"
+                            themeStyles.isDark ? "bg-transparent" : "bg-transparent"
                         )}>
                             <AnimatePresence mode='popLayout'>
                                 {availableCols.map((col) => (
@@ -483,7 +483,7 @@ export const TrainingView: React.FC<TrainingViewProps> = ({ themeStyles }) => {
                         {/* Left Column: Options */}
                         <div className={cn(
                             "md:col-span-4 rounded-2xl p-3 space-y-2",
-                            themeStyles.isDark ? "bg-white/5" : "bg-black/5"
+                            themeStyles.isDark ? "bg-transparent" : "bg-transparent"
                         )}>
                             <AnimatePresence mode='popLayout'>
                                 {outputAvailableCols.map((col) => (
@@ -572,7 +572,7 @@ export const TrainingView: React.FC<TrainingViewProps> = ({ themeStyles }) => {
                                 "w-6 h-6 rounded-md border-2 flex items-center justify-center transition-all",
                                 isSplitEnabled
                                     ? "bg-blue-500 border-blue-500 text-white"
-                                    : (themeStyles.isDark ? "border-white/20 bg-white/5" : "border-black/20 bg-black/5")
+                                    : (themeStyles.isDark ? "border-white/20 bg-transparent" : "border-black/20 bg-transparent")
                             )}
                         >
                             {isSplitEnabled && <Check size={14} strokeWidth={3} />}
@@ -597,7 +597,7 @@ export const TrainingView: React.FC<TrainingViewProps> = ({ themeStyles }) => {
                                             className={cn(
                                                 "w-full appearance-none px-4 py-3 rounded-xl border transition-all outline-none text-sm font-bold cursor-pointer",
                                                 themeStyles.isDark
-                                                    ? "bg-white/5 border-white/10 focus:border-blue-500/50 hover:bg-white/10"
+                                                    ? "bg-transparent border-white/10 focus:border-blue-500/50 hover:bg-white/5"
                                                     : "bg-black/5 border-black/10 focus:border-blue-500/50 hover:bg-black/10"
                                             )}
                                         >
@@ -618,7 +618,7 @@ export const TrainingView: React.FC<TrainingViewProps> = ({ themeStyles }) => {
                                             className={cn(
                                                 "w-full appearance-none px-4 py-3 rounded-xl border transition-all outline-none text-sm font-bold cursor-pointer",
                                                 themeStyles.isDark
-                                                    ? "bg-white/5 border-white/10 focus:border-blue-500/50 hover:bg-white/10"
+                                                    ? "bg-transparent border-white/10 focus:border-blue-500/50 hover:bg-white/5"
                                                     : "bg-black/5 border-black/10 focus:border-blue-500/50 hover:bg-black/10"
                                             )}
                                         >
@@ -648,7 +648,7 @@ export const TrainingView: React.FC<TrainingViewProps> = ({ themeStyles }) => {
                                 "w-6 h-6 rounded-md border-2 flex items-center justify-center transition-all",
                                 isCVEnabled
                                     ? "bg-blue-500 border-blue-500 text-white"
-                                    : (themeStyles.isDark ? "border-white/20 bg-white/5" : "border-black/20 bg-black/5")
+                                    : (themeStyles.isDark ? "border-white/20 bg-transparent" : "border-black/20 bg-transparent")
                             )}
                         >
                             {isCVEnabled && <Check size={14} strokeWidth={3} />}
@@ -673,7 +673,7 @@ export const TrainingView: React.FC<TrainingViewProps> = ({ themeStyles }) => {
                                             className={cn(
                                                 "w-full appearance-none px-4 py-3 rounded-xl border transition-all outline-none text-sm font-bold cursor-pointer",
                                                 themeStyles.isDark
-                                                    ? "bg-white/5 border-white/10 focus:border-blue-500/50 hover:bg-white/10"
+                                                    ? "bg-transparent border-white/10 focus:border-blue-500/50 hover:bg-white/5"
                                                     : "bg-black/5 border-black/10 focus:border-blue-500/50 hover:bg-black/10"
                                             )}
                                         >
@@ -753,7 +753,7 @@ export const TrainingView: React.FC<TrainingViewProps> = ({ themeStyles }) => {
                         key={panel.id}
                         className={cn(
                             "rounded-2xl border transition-all duration-300 overflow-hidden",
-                            themeStyles.isDark ? "bg-white/5 border-white/10" : "bg-black/5 border-black/10",
+                            themeStyles.isDark ? "bg-transparent border-white/10" : "bg-transparent border-black/10",
                             activePanel === panel.id && (themeStyles.isDark ? "ring-1 ring-blue-500/30" : "ring-1 ring-blue-500/20")
                         )}
                     >
@@ -790,8 +790,8 @@ export const TrainingView: React.FC<TrainingViewProps> = ({ themeStyles }) => {
                                     exit={{ height: 0, opacity: 0 }}
                                     transition={{ duration: 0.4, ease: "easeInOut" }}
                                 >
-                                    <div className="p-5 pt-0 border-t border-white/5 mt-2">
-                                        <div className="pt-4">
+                                    <div className="p-5 pt-0 border-t border-white/5">
+                                        <div className="pt-1">
                                             {panel.content}
                                         </div>
                                     </div>
