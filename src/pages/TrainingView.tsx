@@ -14,7 +14,8 @@ import {
     Split,
     Check,
     RefreshCw,
-    Clock
+    Clock,
+    Cpu
 } from 'lucide-react';
 import {
     DndContext,
@@ -198,6 +199,8 @@ export const TrainingView: React.FC<TrainingViewProps> = ({ themeStyles }) => {
     const [isCVEnabled, setIsCVEnabled] = useState(false);
     const [cvFolds, setCvFolds] = useState(2);
 
+    const [computeParam, setComputeParam] = useState('medium');
+
     const handleMoveToRight = (item: ColumnItem) => {
         if (item.disabled) return;
         setAvailableCols(prev => prev.filter(i => i.id !== item.id));
@@ -289,6 +292,12 @@ export const TrainingView: React.FC<TrainingViewProps> = ({ themeStyles }) => {
         { id: 'randomforest', name: 'randomforest', description: 'Ensemble of decision trees for tabular data (numeric/categorical features).' },
         { id: 'svm', name: 'svm', description: 'Supervised learning for structured data, effective with smaller datasets or linear separability.' },
         { id: 'dnn', name: 'dnn', description: 'Deep neural network for tabular data. Suitable for large datasets with complex relationships between features.' }
+    ];
+
+    const computeOptions = [
+        { id: 'low', name: 'Low', description: 'Faster but accuracy might be not enough. You can try once in low mode to confirm your data quality.' },
+        { id: 'medium', name: 'Medium', recommend: true, description: 'Average speed and accuracy performance.' },
+        { id: 'high', name: 'High', description: 'Spend much time but be able to raise accuracy.' }
     ];
 
     const panels = [
@@ -561,8 +570,8 @@ export const TrainingView: React.FC<TrainingViewProps> = ({ themeStyles }) => {
                             onClick={() => setIsSplitEnabled(!isSplitEnabled)}
                             className={cn(
                                 "w-6 h-6 rounded-md border-2 flex items-center justify-center transition-all",
-                                isSplitEnabled 
-                                    ? "bg-blue-500 border-blue-500 text-white" 
+                                isSplitEnabled
+                                    ? "bg-blue-500 border-blue-500 text-white"
                                     : (themeStyles.isDark ? "border-white/20 bg-white/5" : "border-black/20 bg-black/5")
                             )}
                         >
@@ -587,8 +596,8 @@ export const TrainingView: React.FC<TrainingViewProps> = ({ themeStyles }) => {
                                             onChange={(e) => setTrainRatio(Number(e.target.value))}
                                             className={cn(
                                                 "w-full appearance-none px-4 py-3 rounded-xl border transition-all outline-none text-sm font-bold cursor-pointer",
-                                                themeStyles.isDark 
-                                                    ? "bg-white/5 border-white/10 focus:border-blue-500/50 hover:bg-white/10" 
+                                                themeStyles.isDark
+                                                    ? "bg-white/5 border-white/10 focus:border-blue-500/50 hover:bg-white/10"
                                                     : "bg-black/5 border-black/10 focus:border-blue-500/50 hover:bg-black/10"
                                             )}
                                         >
@@ -608,8 +617,8 @@ export const TrainingView: React.FC<TrainingViewProps> = ({ themeStyles }) => {
                                             onChange={(e) => setTrainRatio(100 - Number(e.target.value))}
                                             className={cn(
                                                 "w-full appearance-none px-4 py-3 rounded-xl border transition-all outline-none text-sm font-bold cursor-pointer",
-                                                themeStyles.isDark 
-                                                    ? "bg-white/5 border-white/10 focus:border-blue-500/50 hover:bg-white/10" 
+                                                themeStyles.isDark
+                                                    ? "bg-white/5 border-white/10 focus:border-blue-500/50 hover:bg-white/10"
                                                     : "bg-black/5 border-black/10 focus:border-blue-500/50 hover:bg-black/10"
                                             )}
                                         >
@@ -628,7 +637,7 @@ export const TrainingView: React.FC<TrainingViewProps> = ({ themeStyles }) => {
         },
         {
             id: 'cv',
-            title: 'Cross validation',
+            title: 'Cross Validation',
             icon: RefreshCw,
             content: (
                 <div className="space-y-6 py-2">
@@ -637,8 +646,8 @@ export const TrainingView: React.FC<TrainingViewProps> = ({ themeStyles }) => {
                             onClick={() => setIsCVEnabled(!isCVEnabled)}
                             className={cn(
                                 "w-6 h-6 rounded-md border-2 flex items-center justify-center transition-all",
-                                isCVEnabled 
-                                    ? "bg-blue-500 border-blue-500 text-white" 
+                                isCVEnabled
+                                    ? "bg-blue-500 border-blue-500 text-white"
                                     : (themeStyles.isDark ? "border-white/20 bg-white/5" : "border-black/20 bg-black/5")
                             )}
                         >
@@ -663,8 +672,8 @@ export const TrainingView: React.FC<TrainingViewProps> = ({ themeStyles }) => {
                                             onChange={(e) => setCvFolds(Number(e.target.value))}
                                             className={cn(
                                                 "w-full appearance-none px-4 py-3 rounded-xl border transition-all outline-none text-sm font-bold cursor-pointer",
-                                                themeStyles.isDark 
-                                                    ? "bg-white/5 border-white/10 focus:border-blue-500/50 hover:bg-white/10" 
+                                                themeStyles.isDark
+                                                    ? "bg-white/5 border-white/10 focus:border-blue-500/50 hover:bg-white/10"
                                                     : "bg-black/5 border-black/10 focus:border-blue-500/50 hover:bg-black/10"
                                             )}
                                         >
@@ -681,6 +690,47 @@ export const TrainingView: React.FC<TrainingViewProps> = ({ themeStyles }) => {
                             </motion.div>
                         )}
                     </AnimatePresence>
+                </div>
+            )
+        },
+        {
+            id: 'computing',
+            title: 'Computing Parameters',
+            icon: Cpu,
+            content: (
+                <div className="grid grid-cols-1 gap-4 p-2">
+                    {computeOptions.map((opt) => (
+                        <div
+                            key={opt.id}
+                            onClick={() => setComputeParam(opt.id)}
+                            className={cn(
+                                "group cursor-pointer flex gap-4 p-2 rounded-xl transition-all duration-300",
+                                computeParam === opt.id ? "opacity-100" : "opacity-60 hover:opacity-80"
+                            )}
+                        >
+                            <div className={cn(
+                                "w-6 h-6 rounded-full border-2 flex items-center justify-center transition-all shrink-0 mt-1",
+                                computeParam === opt.id
+                                    ? "border-blue-500 bg-blue-500 text-white"
+                                    : (themeStyles.isDark ? "border-white/20" : "border-black/20")
+                            )}>
+                                {computeParam === opt.id && <div className="w-2 h-2 rounded-full bg-white animate-in zoom-in duration-300" />}
+                            </div>
+                            <div className="flex-1 space-y-1">
+                                <div className="flex items-center gap-2">
+                                    <span className="font-bold text-base tracking-tight">{opt.name}</span>
+                                    {opt.recommend && (
+                                        <span className="px-2 py-0.5 rounded-md bg-linear-to-r from-teal-400 to-teal-500 text-[10px] font-bold text-white uppercase tracking-tighter shadow-sm">
+                                            Recommend
+                                        </span>
+                                    )}
+                                </div>
+                                <p className="text-xs opacity-60 leading-relaxed font-medium">
+                                    {opt.description}
+                                </p>
+                            </div>
+                        </div>
+                    ))}
                 </div>
             )
         }
