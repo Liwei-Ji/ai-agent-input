@@ -17,7 +17,8 @@ import {
     Clock,
     Cpu,
     Rocket,
-    Trash2
+    Trash2,
+    ArrowRight
 } from 'lucide-react';
 import {
     DndContext,
@@ -164,6 +165,8 @@ export const TrainingView: React.FC<TrainingViewProps> = ({ themeStyles }) => {
     const [selectedType, setSelectedType] = useState('xgboost');
     const [isDraggingOver, setIsDraggingOver] = useState(false);
     const [activeId, setActiveId] = useState<string | null>(null);
+    const panelRefs = useRef<Record<string, HTMLDivElement | null>>({});
+
 
     const sensors = useSensors(
         useSensor(PointerSensor, {
@@ -302,10 +305,24 @@ export const TrainingView: React.FC<TrainingViewProps> = ({ themeStyles }) => {
         { id: 'high', name: 'High', description: 'Spend much time but be able to raise accuracy.' }
     ];
 
+    const NextStepButton = ({ nextId, label = "Go to Next" }: { nextId: string, label?: string }) => (
+        <div className="flex justify-end mt-6 pt-4 border-t border-white/5">
+            <button
+                onClick={() => setActivePanel(nextId)}
+                className="flex items-center gap-2 px-6 py-2.5 rounded-xl bg-blue-500 hover:bg-blue-600 text-white font-bold text-sm transition-all active:scale-95 shadow-lg shadow-blue-500/20"
+            >
+                {label}
+                <ArrowRight size={16} />
+            </button>
+        </div>
+    );
+
     const panels = [
         {
             id: 'experiment',
             title: 'Experiment Topic',
+            summary: topic ? (topic.length > 20 ? topic.substring(0, 20) + '...' : topic) : null,
+            isComplete: !!topic,
             icon: FlaskConical,
             content: (
                 <div className="space-y-4">
@@ -326,6 +343,7 @@ export const TrainingView: React.FC<TrainingViewProps> = ({ themeStyles }) => {
                             />
                         </div>
                         <button
+                            onClick={() => setActivePanel('type')}
                             className={cn(
                                 "flex items-center gap-2 px-6 py-2.5 rounded-xl font-semibold text-sm transition-all shadow-lg active:scale-95",
                                 "bg-linear-to-r from-blue-600 to-indigo-600 text-white hover:from-blue-500 hover:to-indigo-500"
@@ -341,13 +359,18 @@ export const TrainingView: React.FC<TrainingViewProps> = ({ themeStyles }) => {
         {
             id: 'type',
             title: 'Experiment Type',
+            summary: experimentTypes.find(t => t.id === selectedType)?.name || selectedType,
+            isComplete: !!selectedType,
             icon: Play,
             content: (
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 p-2">
                     {experimentTypes.map((type) => (
                         <div
                             key={type.id}
-                            onClick={() => setSelectedType(type.id)}
+                            onClick={() => {
+                                setSelectedType(type.id);
+                                setTimeout(() => setActivePanel('columns'), 300);
+                            }}
                             className={cn(
                                 "group cursor-pointer flex gap-4 p-1 rounded-xl transition-all duration-300",
                                 selectedType === type.id ? "opacity-100" : "opacity-60 hover:opacity-80"
@@ -382,188 +405,208 @@ export const TrainingView: React.FC<TrainingViewProps> = ({ themeStyles }) => {
         {
             id: 'columns',
             title: 'Select INPUT Column',
+            summary: selectedCols.length > 0 
+                ? (selectedCols.length <= 2 
+                    ? selectedCols.map(c => c.name).join(', ') 
+                    : `${selectedCols.length} Columns (${selectedCols.slice(0, 2).map(c => c.name).join(', ')}...)`)
+                : null,
+            isComplete: selectedCols.length > 0,
             icon: Table,
             content: (
-                <DndContext
-                    sensors={sensors}
-                    collisionDetection={closestCenter}
-                    onDragStart={handleDragStart}
-                    onDragEnd={handleDragEnd}
-                >
-                    <div className="grid grid-cols-1 md:grid-cols-12 gap-4">
-                        {/* Left Column: Options */}
-                        <div className={cn(
-                            "md:col-span-4 rounded-2xl p-3 space-y-2",
-                            themeStyles.isDark ? "bg-transparent" : "bg-transparent"
-                        )}>
-                            <AnimatePresence mode='popLayout'>
-                                {availableCols.map((col) => (
-                                    <DraggableCard
-                                        key={`available-${col.id}`}
-                                        col={col}
-                                        themeStyles={themeStyles}
-                                        onTap={() => handleMoveToRight(col)}
-                                    />
-                                ))}
-                            </AnimatePresence>
-                        </div>
-
-                        {/* Right Column: Selected */}
-                        <div
-                            id="droppable-selected"
-                            className={cn(
-                                "md:col-span-8 rounded-2xl p-3 space-y-2 border-2 transition-all min-h-[160px]",
-                                isDraggingOver
-                                    ? "border-blue-500/50 bg-blue-500/5 ring-4 ring-blue-500/10"
-                                    : "border-transparent",
-                                themeStyles.isDark ? "bg-white/5" : "bg-black/5"
-                            )}
-                        >
-                            <SortableContext
-                                items={selectedCols.map(c => `selected-${c.id}`)}
-                                strategy={verticalListSortingStrategy}
-                            >
+                <div className="space-y-4">
+                    <DndContext
+                        sensors={sensors}
+                        collisionDetection={closestCenter}
+                        onDragStart={handleDragStart}
+                        onDragEnd={handleDragEnd}
+                    >
+                        <div className="grid grid-cols-1 md:grid-cols-12 gap-4">
+                            {/* Left Column: Options */}
+                            <div className={cn(
+                                "md:col-span-4 rounded-2xl p-3 space-y-2",
+                                themeStyles.isDark ? "bg-transparent" : "bg-transparent"
+                            )}>
                                 <AnimatePresence mode='popLayout'>
-                                    {selectedCols.map((col) => (
-                                        <SortableCard
-                                            key={`selected-${col.id}`}
+                                    {availableCols.map((col) => (
+                                        <DraggableCard
+                                            key={`available-${col.id}`}
                                             col={col}
                                             themeStyles={themeStyles}
-                                            onRemove={() => handleMoveToLeft(col)}
+                                            onTap={() => handleMoveToRight(col)}
                                         />
                                     ))}
                                 </AnimatePresence>
-                            </SortableContext>
+                            </div>
 
-                            {/* Placeholder */}
-                            {selectedCols.length === 0 && (
-                                <motion.div
-                                    layout
-                                    className={cn(
-                                        "border-2 border-dashed rounded-xl p-4 flex items-center justify-center gap-2 transition-all",
-                                        isDraggingOver
-                                            ? "opacity-100 border-blue-500/50 text-blue-500 bg-blue-500/5"
-                                            : "opacity-30",
-                                        themeStyles.isDark ? "border-white/20" : "border-black/20"
-                                    )}
+                            {/* Right Column: Selected */}
+                            <div
+                                id="droppable-selected"
+                                className={cn(
+                                    "md:col-span-8 rounded-2xl p-3 space-y-2 border-2 transition-all min-h-[160px]",
+                                    isDraggingOver
+                                        ? "border-blue-500/50 bg-blue-500/5 ring-4 ring-blue-500/10"
+                                        : "border-transparent",
+                                    themeStyles.isDark ? "bg-white/5" : "bg-black/5"
+                                )}
+                            >
+                                <SortableContext
+                                    items={selectedCols.map(c => `selected-${c.id}`)}
+                                    strategy={verticalListSortingStrategy}
                                 >
-                                    <Plus size={18} className={cn(isDraggingOver && "animate-bounce")} />
-                                    <span className="text-sm font-medium">
-                                        {isDraggingOver ? "Drop here!" : "Drag here or click from left"}
-                                    </span>
-                                </motion.div>
-                            )}
-                        </div>
-                    </div>
+                                    <AnimatePresence mode='popLayout'>
+                                        {selectedCols.map((col) => (
+                                            <SortableCard
+                                                key={`selected-${col.id}`}
+                                                col={col}
+                                                themeStyles={themeStyles}
+                                                onRemove={() => handleMoveToLeft(col)}
+                                            />
+                                        ))}
+                                    </AnimatePresence>
+                                </SortableContext>
 
-                    <DragOverlay dropAnimation={null}>
-                        {activeId ? (
-                            <div className="opacity-80 scale-105 pointer-events-none">
-                                {availableCols.find(c => c.id === activeId) ? (
-                                    <CardContent col={availableCols.find(c => c.id === activeId)!} themeStyles={themeStyles} isDragging />
-                                ) : (
-                                    <CardContent col={selectedCols.find(c => `selected-${c.id}` === activeId)!} themeStyles={themeStyles} isDragging />
+                                {/* Placeholder */}
+                                {selectedCols.length === 0 && (
+                                    <motion.div
+                                        layout
+                                        className={cn(
+                                            "border-2 border-dashed rounded-xl p-4 flex items-center justify-center gap-2 transition-all",
+                                            isDraggingOver
+                                                ? "opacity-100 border-blue-500/50 text-blue-500 bg-blue-500/5"
+                                                : "opacity-30",
+                                            themeStyles.isDark ? "border-white/20" : "border-black/20"
+                                        )}
+                                    >
+                                        <Plus size={18} className={cn(isDraggingOver && "animate-bounce")} />
+                                        <span className="text-sm font-medium">
+                                            {isDraggingOver ? "Drop here!" : "Drag here or click from left"}
+                                        </span>
+                                    </motion.div>
                                 )}
                             </div>
-                        ) : null}
-                    </DragOverlay>
-                </DndContext>
+                        </div>
+
+                        <DragOverlay dropAnimation={null}>
+                            {activeId ? (
+                                <div className="opacity-80 scale-105 pointer-events-none">
+                                    {availableCols.find(c => c.id === activeId) ? (
+                                        <CardContent col={availableCols.find(c => c.id === activeId)!} themeStyles={themeStyles} isDragging />
+                                    ) : (
+                                        <CardContent col={selectedCols.find(c => `selected-${c.id}` === activeId)!} themeStyles={themeStyles} isDragging />
+                                    )}
+                                </div>
+                            ) : null}
+                        </DragOverlay>
+                    </DndContext>
+                    <NextStepButton nextId="output-columns" />
+                </div>
             )
         },
         {
             id: 'output-columns',
             title: 'Select OUTPUT Column',
+            summary: outputSelectedCols.length > 0 
+                ? (outputSelectedCols.length <= 2 
+                    ? outputSelectedCols.map(c => c.name).join(', ') 
+                    : `${outputSelectedCols.length} Columns (${outputSelectedCols.slice(0, 2).map(c => c.name).join(', ')}...)`)
+                : null,
+            isComplete: outputSelectedCols.length > 0,
             icon: Table,
             content: (
-                <DndContext
-                    sensors={sensors}
-                    collisionDetection={closestCenter}
-                    onDragStart={handleDragStart}
-                    onDragEnd={handleOutputDragEnd}
-                >
-                    <div className="grid grid-cols-1 md:grid-cols-12 gap-4">
-                        {/* Left Column: Options */}
-                        <div className={cn(
-                            "md:col-span-4 rounded-2xl p-3 space-y-2",
-                            themeStyles.isDark ? "bg-transparent" : "bg-transparent"
-                        )}>
-                            <AnimatePresence mode='popLayout'>
-                                {outputAvailableCols.map((col) => (
-                                    <DraggableCard
-                                        key={`out-available-${col.id}`}
-                                        col={col}
-                                        themeStyles={themeStyles}
-                                        onTap={() => handleMoveOutputToRight(col)}
-                                        disabled={true} // Non-draggable as requested
-                                    />
-                                ))}
-                            </AnimatePresence>
-                        </div>
-
-                        {/* Right Column: Selected */}
-                        <div
-                            id="droppable-output-selected"
-                            className={cn(
-                                "md:col-span-8 rounded-2xl p-3 space-y-2 border-2 transition-all min-h-[160px]",
-                                isDraggingOver
-                                    ? "border-blue-500/50 bg-blue-500/5 ring-4 ring-blue-500/10"
-                                    : "border-transparent",
-                                themeStyles.isDark ? "bg-white/5" : "bg-black/5"
-                            )}
-                        >
-                            <SortableContext
-                                items={outputSelectedCols.map(c => `out-selected-${c.id}`)}
-                                strategy={verticalListSortingStrategy}
-                            >
+                <div className="space-y-4">
+                    <DndContext
+                        sensors={sensors}
+                        collisionDetection={closestCenter}
+                        onDragStart={handleDragStart}
+                        onDragEnd={handleOutputDragEnd}
+                    >
+                        <div className="grid grid-cols-1 md:grid-cols-12 gap-4">
+                            {/* Left Column: Options */}
+                            <div className={cn(
+                                "md:col-span-4 rounded-2xl p-3 space-y-2",
+                                themeStyles.isDark ? "bg-transparent" : "bg-transparent"
+                            )}>
                                 <AnimatePresence mode='popLayout'>
-                                    {outputSelectedCols.map((col) => (
-                                        <SortableCard
-                                            key={`out-selected-${col.id}`}
+                                    {outputAvailableCols.map((col) => (
+                                        <DraggableCard
+                                            key={`out-available-${col.id}`}
                                             col={col}
                                             themeStyles={themeStyles}
-                                            onRemove={() => handleMoveOutputToLeft(col)}
-                                            sortableId={`out-selected-${col.id}`}
+                                            onTap={() => handleMoveOutputToRight(col)}
+                                            disabled={true} // Non-draggable as requested
                                         />
                                     ))}
                                 </AnimatePresence>
-                            </SortableContext>
+                            </div>
 
-                            {/* Placeholder */}
-                            {outputSelectedCols.length === 0 && (
-                                <motion.div
-                                    layout
-                                    className={cn(
-                                        "border-2 border-dashed rounded-xl p-4 flex items-center justify-center gap-2 transition-all",
-                                        isDraggingOver
-                                            ? "opacity-100 border-blue-500/50 text-blue-500 bg-blue-500/5"
-                                            : "opacity-30",
-                                        themeStyles.isDark ? "border-white/20" : "border-black/20"
-                                    )}
+                            {/* Right Column: Selected */}
+                            <div
+                                id="droppable-output-selected"
+                                className={cn(
+                                    "md:col-span-8 rounded-2xl p-3 space-y-2 border-2 transition-all min-h-[160px]",
+                                    isDraggingOver
+                                        ? "border-blue-500/50 bg-blue-500/5 ring-4 ring-blue-500/10"
+                                        : "border-transparent",
+                                    themeStyles.isDark ? "bg-white/5" : "bg-black/5"
+                                )}
+                            >
+                                <SortableContext
+                                    items={outputSelectedCols.map(c => `out-selected-${c.id}`)}
+                                    strategy={verticalListSortingStrategy}
                                 >
-                                    <Plus size={18} className={cn(isDraggingOver && "animate-bounce")} />
-                                    <span className="text-sm font-medium">
-                                        {isDraggingOver ? "Drop here!" : "Click columns from left"}
-                                    </span>
-                                </motion.div>
-                            )}
-                        </div>
-                    </div>
+                                    <AnimatePresence mode='popLayout'>
+                                        {outputSelectedCols.map((col) => (
+                                            <SortableCard
+                                                key={`out-selected-${col.id}`}
+                                                col={col}
+                                                themeStyles={themeStyles}
+                                                onRemove={() => handleMoveOutputToLeft(col)}
+                                                sortableId={`out-selected-${col.id}`}
+                                            />
+                                        ))}
+                                    </AnimatePresence>
+                                </SortableContext>
 
-                    <DragOverlay dropAnimation={null}>
-                        {activeId ? (
-                            <div className="opacity-80 scale-105 pointer-events-none">
-                                {outputSelectedCols.find(c => `out-selected-${c.id}` === activeId) && (
-                                    <CardContent col={outputSelectedCols.find(c => `out-selected-${c.id}` === activeId)!} themeStyles={themeStyles} isDragging />
+                                {/* Placeholder */}
+                                {outputSelectedCols.length === 0 && (
+                                    <motion.div
+                                        layout
+                                        className={cn(
+                                            "border-2 border-dashed rounded-xl p-4 flex items-center justify-center gap-2 transition-all",
+                                            isDraggingOver
+                                                ? "opacity-100 border-blue-500/50 text-blue-500 bg-blue-500/5"
+                                                : "opacity-30",
+                                            themeStyles.isDark ? "border-white/20" : "border-black/20"
+                                        )}
+                                    >
+                                        <Plus size={18} className={cn(isDraggingOver && "animate-bounce")} />
+                                        <span className="text-sm font-medium">
+                                            {isDraggingOver ? "Drop here!" : "Click columns from left"}
+                                        </span>
+                                    </motion.div>
                                 )}
                             </div>
-                        ) : null}
-                    </DragOverlay>
-                </DndContext>
+                        </div>
+
+                        <DragOverlay dropAnimation={null}>
+                            {activeId ? (
+                                <div className="opacity-80 scale-105 pointer-events-none">
+                                    {outputSelectedCols.find(c => `out-selected-${c.id}` === activeId) && (
+                                        <CardContent col={outputSelectedCols.find(c => `out-selected-${c.id}` === activeId)!} themeStyles={themeStyles} isDragging />
+                                    )}
+                                </div>
+                            ) : null}
+                        </DragOverlay>
+                    </DndContext>
+                    <NextStepButton nextId="split" />
+                </div>
             )
         },
         {
             id: 'split',
             title: 'Training / Testing Splitting',
+            summary: isSplitEnabled ? `${trainRatio}/${100 - trainRatio}` : "Off",
+            isComplete: true,
             icon: Split,
             content: (
                 <div className="space-y-6 py-2">
@@ -634,12 +677,15 @@ export const TrainingView: React.FC<TrainingViewProps> = ({ themeStyles }) => {
                             </motion.div>
                         )}
                     </AnimatePresence>
+                    <NextStepButton nextId="cv" />
                 </div>
             )
         },
         {
             id: 'cv',
             title: 'Cross Validation',
+            summary: isCVEnabled ? `${cvFolds} Fold` : "Off",
+            isComplete: true,
             icon: RefreshCw,
             content: (
                 <div className="space-y-6 py-2">
@@ -692,12 +738,15 @@ export const TrainingView: React.FC<TrainingViewProps> = ({ themeStyles }) => {
                             </motion.div>
                         )}
                     </AnimatePresence>
+                    <NextStepButton nextId="computing" />
                 </div>
             )
         },
         {
             id: 'computing',
             title: 'Computing Parameters',
+            summary: computeOptions.find(o => o.id === computeParam)?.name,
+            isComplete: true,
             icon: Cpu,
             content: (
                 <div className="grid grid-cols-1 gap-4 p-2">
@@ -753,6 +802,7 @@ export const TrainingView: React.FC<TrainingViewProps> = ({ themeStyles }) => {
                 {panels.map((panel, idx) => (
                     <div
                         key={panel.id}
+                        ref={el => { panelRefs.current[panel.id] = el; }}
                         className={cn(
                             "rounded-2xl border transition-all duration-300 overflow-hidden",
                             themeStyles.isDark ? "bg-transparent border-white/10" : "bg-transparent border-black/10",
@@ -763,22 +813,29 @@ export const TrainingView: React.FC<TrainingViewProps> = ({ themeStyles }) => {
                             onClick={() => setActivePanel(activePanel === panel.id ? null : panel.id)}
                             className="w-full flex items-center justify-between p-5 text-left transition-colors hover:bg-white/5"
                         >
-                            <div className="flex items-center gap-4">
+                            <div className="flex items-center gap-4 flex-1 overflow-hidden">
                                 <div className={cn(
-                                    "w-10 h-10 rounded-xl flex items-center justify-center transition-colors",
-                                    activePanel === panel.id ? "bg-blue-500 text-white" : (themeStyles.isDark ? "bg-white/10 text-white/70" : "bg-black/10 text-black/70")
+                                    "w-10 h-10 rounded-xl flex items-center justify-center transition-colors shrink-0",
+                                    activePanel === panel.id ? "bg-blue-500 text-white" : (panel.isComplete ? "bg-teal-500/10 text-teal-500" : (themeStyles.isDark ? "bg-white/10 text-white/70" : "bg-black/10 text-black/70"))
                                 )}>
-                                    <panel.icon size={20} />
+                                    {panel.isComplete && activePanel !== panel.id ? <Check size={20} strokeWidth={3} /> : <panel.icon size={20} />}
                                 </div>
-                                <div>
-                                    <h3 className="font-bold text-lg">{panel.title}</h3>
+                                <div className="flex-1 min-w-0">
+                                    <div className="flex items-center justify-between gap-4">
+                                        <h3 className="font-bold text-lg truncate">{panel.title}</h3>
+                                        {activePanel !== panel.id && panel.summary && (
+                                            <span className="text-sm font-medium opacity-40 truncate bg-black/5 dark:bg-white/5 px-3 py-1 rounded-full">
+                                                {panel.summary}
+                                            </span>
+                                        )}
+                                    </div>
                                     <p className="text-xs opacity-50 uppercase tracking-wider font-semibold">Step {idx + 1}</p>
                                 </div>
                             </div>
                             <motion.div
                                 animate={{ rotate: activePanel === panel.id ? 180 : 0 }}
                                 transition={{ duration: 0.3 }}
-                                className="opacity-50"
+                                className="opacity-50 ml-4"
                             >
                                 <ChevronDown size={20} />
                             </motion.div>
@@ -809,8 +866,8 @@ export const TrainingView: React.FC<TrainingViewProps> = ({ themeStyles }) => {
                 <button
                     className={cn(
                         "flex items-center justify-center gap-2 px-12 py-4 rounded-2xl font-bold text-base transition-all active:scale-95 w-full sm:w-60",
-                        themeStyles.isDark 
-                            ? "bg-white/5 border border-white/10 hover:bg-white/10 text-white/70 hover:text-white" 
+                        themeStyles.isDark
+                            ? "bg-white/5 border border-white/10 hover:bg-white/10 text-white/70 hover:text-white"
                             : "bg-black/5 border border-black/10 hover:bg-black/10 text-black/70 hover:text-black"
                     )}
                 >
