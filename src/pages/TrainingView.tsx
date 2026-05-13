@@ -12,7 +12,9 @@ import {
     Plus,
     GripVertical,
     Split,
-    Check
+    Check,
+    RefreshCw,
+    Clock
 } from 'lucide-react';
 import {
     DndContext,
@@ -192,6 +194,9 @@ export const TrainingView: React.FC<TrainingViewProps> = ({ themeStyles }) => {
 
     const [isSplitEnabled, setIsSplitEnabled] = useState(false);
     const [trainRatio, setTrainRatio] = useState(80);
+
+    const [isCVEnabled, setIsCVEnabled] = useState(false);
+    const [cvFolds, setCvFolds] = useState(2);
 
     const handleMoveToRight = (item: ColumnItem) => {
         if (item.disabled) return;
@@ -614,6 +619,64 @@ export const TrainingView: React.FC<TrainingViewProps> = ({ themeStyles }) => {
                                         </select>
                                         <ChevronDown size={16} className="absolute right-4 top-1/2 -translate-y-1/2 opacity-30 pointer-events-none group-hover:opacity-50 transition-opacity" />
                                     </div>
+                                </div>
+                            </motion.div>
+                        )}
+                    </AnimatePresence>
+                </div>
+            )
+        },
+        {
+            id: 'cv',
+            title: 'Cross validation',
+            icon: RefreshCw,
+            content: (
+                <div className="space-y-6 py-2">
+                    <div className="flex items-center gap-3">
+                        <button
+                            onClick={() => setIsCVEnabled(!isCVEnabled)}
+                            className={cn(
+                                "w-6 h-6 rounded-md border-2 flex items-center justify-center transition-all",
+                                isCVEnabled 
+                                    ? "bg-blue-500 border-blue-500 text-white" 
+                                    : (themeStyles.isDark ? "border-white/20 bg-white/5" : "border-black/20 bg-black/5")
+                            )}
+                        >
+                            {isCVEnabled && <Check size={14} strokeWidth={3} />}
+                        </button>
+                        <span className="text-sm font-semibold opacity-80">Enable Cross Validation</span>
+                    </div>
+
+                    <AnimatePresence>
+                        {isCVEnabled && (
+                            <motion.div
+                                initial={{ opacity: 0, y: -10 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                exit={{ opacity: 0, y: -10 }}
+                                className="space-y-6 pt-2"
+                            >
+                                <div className="space-y-3 max-w-xs">
+                                    <label className="text-[10px] uppercase tracking-widest font-bold opacity-40 ml-1">Number of Folds</label>
+                                    <div className="relative group">
+                                        <select
+                                            value={cvFolds}
+                                            onChange={(e) => setCvFolds(Number(e.target.value))}
+                                            className={cn(
+                                                "w-full appearance-none px-4 py-3 rounded-xl border transition-all outline-none text-sm font-bold cursor-pointer",
+                                                themeStyles.isDark 
+                                                    ? "bg-white/5 border-white/10 focus:border-blue-500/50 hover:bg-white/10" 
+                                                    : "bg-black/5 border-black/10 focus:border-blue-500/50 hover:bg-black/10"
+                                            )}
+                                        >
+                                            {[2, 3, 4, 5].map(val => (
+                                                <option key={val} value={val}>{val} fold</option>
+                                            ))}
+                                        </select>
+                                        <ChevronDown size={16} className="absolute right-4 top-1/2 -translate-y-1/2 opacity-30 pointer-events-none group-hover:opacity-50 transition-opacity" />
+                                    </div>
+                                    <p className="text-xs opacity-50 mt-2 ml-1 font-medium">
+                                        Estimated Time: ~30 mins ({cvFolds})Fold
+                                    </p>
                                 </div>
                             </motion.div>
                         )}
