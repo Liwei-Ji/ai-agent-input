@@ -165,6 +165,7 @@ export const TrainingView: React.FC<TrainingViewProps> = ({ themeStyles }) => {
     const [selectedType, setSelectedType] = useState('xgboost');
     const [isDraggingOver, setIsDraggingOver] = useState(false);
     const [activeId, setActiveId] = useState<string | null>(null);
+    const [completedSteps, setCompletedSteps] = useState<string[]>([]);
     const panelRefs = useRef<Record<string, HTMLDivElement | null>>({});
 
 
@@ -299,16 +300,53 @@ export const TrainingView: React.FC<TrainingViewProps> = ({ themeStyles }) => {
         { id: 'dnn', name: 'dnn', description: 'Deep neural network for tabular data. Suitable for large datasets with complex relationships between features.' }
     ];
 
+    const handleDiscard = () => {
+        // Reset all states
+        setTopic('');
+        setSelectedType('xgboost');
+        setAvailableCols([
+            { id: 'col-1', name: 'Frame', type: 'data' },
+            { id: 'col-2', name: 'Timestamp', type: 'timestamp', disabled: true },
+            { id: 'col-3', name: 'Confidence', type: 'data' },
+        ]);
+        setSelectedCols([
+            { id: 'col-4', name: 'Time (s)', type: 'data', recommend: true },
+            { id: 'col-5', name: 'Defect Size', type: 'data', recommend: true },
+        ]);
+        setOutputAvailableCols([
+            { id: 'out-1', name: 'Frame', type: 'data' },
+            { id: 'out-2', name: 'Time (s)', type: 'data' },
+            { id: 'out-3', name: 'Timestamp', type: 'timestamp' },
+            { id: 'out-4', name: 'Defect Size', type: 'data' },
+            { id: 'out-5', name: 'Confidence', type: 'data' },
+        ]);
+        setOutputSelectedCols([]);
+        setIsSplitEnabled(false);
+        setTrainRatio(80);
+        setIsCVEnabled(false);
+        setCvFolds(2);
+        setComputeParam('medium');
+        setCompletedSteps([]);
+        setActivePanel('experiment');
+    };
+
+    const markStepComplete = (id: string) => {
+        setCompletedSteps(prev => prev.includes(id) ? prev : [...prev, id]);
+    };
+
     const computeOptions = [
         { id: 'low', name: 'Low', description: 'Faster but accuracy might be not enough. You can try once in low mode to confirm your data quality.' },
         { id: 'medium', name: 'Medium', recommend: true, description: 'Average speed and accuracy performance.' },
         { id: 'high', name: 'High', description: 'Spend much time but be able to raise accuracy.' }
     ];
 
-    const NextStepButton = ({ nextId, label = "Go to Next" }: { nextId: string, label?: string }) => (
+    const NextStepButton = ({ nextId, currentId, label = "Go to Next" }: { nextId: string, currentId: string, label?: string }) => (
         <div className="flex justify-end mt-6 pt-4 border-t border-white/5">
             <button
-                onClick={() => setActivePanel(nextId)}
+                onClick={() => {
+                    markStepComplete(currentId);
+                    setActivePanel(nextId);
+                }}
                 className="flex items-center gap-2 px-6 py-2.5 rounded-xl bg-blue-500 hover:bg-blue-600 text-white font-bold text-sm transition-all active:scale-95 shadow-lg shadow-blue-500/20"
             >
                 {label}
@@ -317,12 +355,13 @@ export const TrainingView: React.FC<TrainingViewProps> = ({ themeStyles }) => {
         </div>
     );
 
+
     const panels = [
         {
             id: 'experiment',
             title: 'Experiment Topic',
             summary: topic ? (topic.length > 20 ? topic.substring(0, 20) + '...' : topic) : null,
-            isComplete: !!topic,
+            isComplete: completedSteps.includes('experiment'),
             icon: FlaskConical,
             content: (
                 <div className="space-y-4">
@@ -343,7 +382,10 @@ export const TrainingView: React.FC<TrainingViewProps> = ({ themeStyles }) => {
                             />
                         </div>
                         <button
-                            onClick={() => setActivePanel('type')}
+                            onClick={() => {
+                                markStepComplete('experiment');
+                                setActivePanel('type');
+                            }}
                             className={cn(
                                 "flex items-center gap-2 px-6 py-2.5 rounded-xl font-semibold text-sm transition-all shadow-lg active:scale-95",
                                 "bg-linear-to-r from-blue-600 to-indigo-600 text-white hover:from-blue-500 hover:to-indigo-500"
@@ -360,7 +402,7 @@ export const TrainingView: React.FC<TrainingViewProps> = ({ themeStyles }) => {
             id: 'type',
             title: 'Experiment Type',
             summary: experimentTypes.find(t => t.id === selectedType)?.name || selectedType,
-            isComplete: !!selectedType,
+            isComplete: completedSteps.includes('type'),
             icon: Play,
             content: (
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 p-2">
@@ -369,6 +411,7 @@ export const TrainingView: React.FC<TrainingViewProps> = ({ themeStyles }) => {
                             key={type.id}
                             onClick={() => {
                                 setSelectedType(type.id);
+                                markStepComplete('type');
                                 setTimeout(() => setActivePanel('columns'), 300);
                             }}
                             className={cn(
@@ -410,7 +453,7 @@ export const TrainingView: React.FC<TrainingViewProps> = ({ themeStyles }) => {
                     ? selectedCols.map(c => c.name).join(', ') 
                     : `${selectedCols.length} Columns (${selectedCols.slice(0, 2).map(c => c.name).join(', ')}...)`)
                 : null,
-            isComplete: selectedCols.length > 0,
+            isComplete: completedSteps.includes('columns'),
             icon: Table,
             content: (
                 <div className="space-y-4">
@@ -498,7 +541,7 @@ export const TrainingView: React.FC<TrainingViewProps> = ({ themeStyles }) => {
                             ) : null}
                         </DragOverlay>
                     </DndContext>
-                    <NextStepButton nextId="output-columns" />
+                    <NextStepButton currentId="columns" nextId="output-columns" />
                 </div>
             )
         },
@@ -510,7 +553,7 @@ export const TrainingView: React.FC<TrainingViewProps> = ({ themeStyles }) => {
                     ? outputSelectedCols.map(c => c.name).join(', ') 
                     : `${outputSelectedCols.length} Columns (${outputSelectedCols.slice(0, 2).map(c => c.name).join(', ')}...)`)
                 : null,
-            isComplete: outputSelectedCols.length > 0,
+            isComplete: completedSteps.includes('output-columns'),
             icon: Table,
             content: (
                 <div className="space-y-4">
@@ -598,7 +641,7 @@ export const TrainingView: React.FC<TrainingViewProps> = ({ themeStyles }) => {
                             ) : null}
                         </DragOverlay>
                     </DndContext>
-                    <NextStepButton nextId="split" />
+                    <NextStepButton currentId="output-columns" nextId="split" />
                 </div>
             )
         },
@@ -606,7 +649,7 @@ export const TrainingView: React.FC<TrainingViewProps> = ({ themeStyles }) => {
             id: 'split',
             title: 'Training / Testing Splitting',
             summary: isSplitEnabled ? `${trainRatio}/${100 - trainRatio}` : "Off",
-            isComplete: true,
+            isComplete: completedSteps.includes('split'),
             icon: Split,
             content: (
                 <div className="space-y-6 py-2">
@@ -677,7 +720,7 @@ export const TrainingView: React.FC<TrainingViewProps> = ({ themeStyles }) => {
                             </motion.div>
                         )}
                     </AnimatePresence>
-                    <NextStepButton nextId="cv" />
+                    <NextStepButton currentId="split" nextId="cv" />
                 </div>
             )
         },
@@ -685,7 +728,7 @@ export const TrainingView: React.FC<TrainingViewProps> = ({ themeStyles }) => {
             id: 'cv',
             title: 'Cross Validation',
             summary: isCVEnabled ? `${cvFolds} Fold` : "Off",
-            isComplete: true,
+            isComplete: completedSteps.includes('cv'),
             icon: RefreshCw,
             content: (
                 <div className="space-y-6 py-2">
@@ -738,7 +781,7 @@ export const TrainingView: React.FC<TrainingViewProps> = ({ themeStyles }) => {
                             </motion.div>
                         )}
                     </AnimatePresence>
-                    <NextStepButton nextId="computing" />
+                    <NextStepButton currentId="cv" nextId="computing" />
                 </div>
             )
         },
@@ -746,14 +789,17 @@ export const TrainingView: React.FC<TrainingViewProps> = ({ themeStyles }) => {
             id: 'computing',
             title: 'Computing Parameters',
             summary: computeOptions.find(o => o.id === computeParam)?.name,
-            isComplete: true,
+            isComplete: completedSteps.includes('computing'),
             icon: Cpu,
             content: (
                 <div className="grid grid-cols-1 gap-4 p-2">
                     {computeOptions.map((opt) => (
                         <div
                             key={opt.id}
-                            onClick={() => setComputeParam(opt.id)}
+                            onClick={() => {
+                                setComputeParam(opt.id);
+                                markStepComplete('computing');
+                            }}
                             className={cn(
                                 "group cursor-pointer flex gap-4 p-2 rounded-xl transition-all duration-300",
                                 computeParam === opt.id ? "opacity-100" : "opacity-60 hover:opacity-80"
@@ -864,6 +910,7 @@ export const TrainingView: React.FC<TrainingViewProps> = ({ themeStyles }) => {
             {/* Bottom Actions */}
             <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-6">
                 <button
+                    onClick={handleDiscard}
                     className={cn(
                         "flex items-center justify-center gap-2 px-12 py-4 rounded-2xl font-bold text-base transition-all active:scale-95 w-full sm:w-60",
                         themeStyles.isDark
