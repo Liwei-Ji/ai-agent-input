@@ -348,8 +348,8 @@ export default function ApplePage({ onBack }: { onBack: () => void }) {
                 )}
 
                 <div className={cn(
-                    "flex-1 flex flex-col items-center px-8 pb-1 overflow-y-auto transition-colors duration-200",
-                    activeView === 'training' ? "pt-0" : (!selectedAgent || activeView === 'search' ? "pt-20" : "justify-center pt-0")
+                    "flex-1 flex flex-col items-center px-8 pb-1 transition-colors duration-200",
+                    activeView === 'training' ? "pt-0 overflow-hidden" : (!selectedAgent || activeView === 'search' ? "pt-20 overflow-y-auto" : "justify-center pt-0 overflow-y-auto")
                 )}>
                     <AnimatePresence mode="wait">
                         {activeView === 'search' ? (

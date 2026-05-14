@@ -762,11 +762,12 @@ export const TrainingView: React.FC<TrainingViewProps> = ({ themeStyles }) => {
         <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="w-full max-w-6xl mx-auto px-4"
+            className="w-full max-w-6xl mx-auto px-4 h-full flex flex-col overflow-hidden"
         >
+            {/* Fixed Header */}
             <div 
                 className={cn(
-                    "sticky top-0 z-30 pt-4 pb-6 mb-8 -mx-4 px-4 transition-all duration-200",
+                    "flex-none z-30 pt-4 pb-6 transition-all duration-200 -mx-4 px-4",
                 )}
             >
                 <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
@@ -780,7 +781,9 @@ export const TrainingView: React.FC<TrainingViewProps> = ({ themeStyles }) => {
                 </div>
             </div>
 
-            <AnimatePresence mode="wait">
+            {/* Scrollable Content Area */}
+            <div className="flex-1 overflow-y-auto overflow-x-hidden pt-2 pb-10 scrollbar-hide -mx-4 px-4">
+                <AnimatePresence mode="wait">
                 {phase === 'upload' ? (
                     <motion.div
                         key="upload-phase"
@@ -934,7 +937,8 @@ export const TrainingView: React.FC<TrainingViewProps> = ({ themeStyles }) => {
                         </div>
                     </motion.div>
                 )}
-            </AnimatePresence>
+                </AnimatePresence>
+            </div>
         </motion.div>
     );
 };
