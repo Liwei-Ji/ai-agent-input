@@ -332,22 +332,24 @@ export default function ApplePage({ onBack }: { onBack: () => void }) {
             )}
 
             <main className="flex-1 flex flex-col relative min-w-0 h-full overflow-hidden">
-                <Header
-                    selectedAgent={selectedAgent}
-                    activeView={activeView}
-                    themeStyles={themeStyles}
-                    themeMode={themeMode}
-                    setThemeMode={setThemeMode}
-                    customColor={customColor}
-                    setCustomColor={setCustomColor}
-                    colorInputRef={colorInputRef}
-                    isMobile={isMobile}
-                    setIsSidebarOpen={setIsSidebarOpen}
-                />
+                {activeView !== 'training' && (
+                    <Header
+                        selectedAgent={selectedAgent}
+                        activeView={activeView}
+                        themeStyles={themeStyles}
+                        themeMode={themeMode}
+                        setThemeMode={setThemeMode}
+                        customColor={customColor}
+                        setCustomColor={setCustomColor}
+                        colorInputRef={colorInputRef}
+                        isMobile={isMobile}
+                        setIsSidebarOpen={setIsSidebarOpen}
+                    />
+                )}
 
                 <div className={cn(
                     "flex-1 flex flex-col items-center px-8 pb-1 overflow-y-auto transition-colors duration-200",
-                    !selectedAgent || activeView === 'search' ? "justify-start pt-20" : "justify-center pt-0"
+                    activeView === 'training' ? "pt-0" : (!selectedAgent || activeView === 'search' ? "pt-20" : "justify-center pt-0")
                 )}>
                     <AnimatePresence mode="wait">
                         {activeView === 'search' ? (
