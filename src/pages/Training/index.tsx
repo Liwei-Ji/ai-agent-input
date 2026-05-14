@@ -249,7 +249,9 @@ export const TrainingView: React.FC<TrainingViewProps> = ({ themeStyles }) => {
                                     ? "bg-blue-500 border-blue-500 text-white shadow-lg shadow-blue-500/20"
                                     : step.isDone 
                                         ? "bg-teal-500 border-teal-500 text-white"
-                                        : "bg-white dark:bg-zinc-900 border-black/10 dark:border-white/10 text-black/30 dark:text-white/30"
+                                        : themeStyles.isDark 
+                                            ? "bg-white/5 border-white/10 text-white/20" 
+                                            : "bg-black/5 border-black/5 text-black/20"
                             )}>
                                 {step.isDone ? <Check size={12} strokeWidth={4} /> : i + 1}
                             </div>
@@ -763,15 +765,15 @@ export const TrainingView: React.FC<TrainingViewProps> = ({ themeStyles }) => {
             className="w-full max-w-6xl mx-auto px-4"
         >
             <div className={cn(
-                "sticky top-0 z-30 pt-4 pb-6 mb-8 border-b transition-all duration-300 backdrop-blur-xl",
+                "sticky top-0 z-30 pt-4 pb-6 mb-8 transition-all duration-300 backdrop-blur-xl",
                 themeStyles.isDark 
-                    ? "bg-zinc-950/80 border-white/5" 
-                    : "bg-white/80 border-black/5"
+                    ? "bg-zinc-950/80" 
+                    : "bg-white/80"
             )}>
                 <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
                     <div>
-                        <h1 className="text-4xl font-black mb-2 tracking-tight">Model Training</h1>
-                        <p className="opacity-50 max-w-lg text-sm font-medium">Configure and refine your AI model parameters through experimental topics.</p>
+                        <h1 className="text-2xl font-black mb-2 tracking-tight">Model Training</h1>
+                        <p className="opacity-50 max-w-lg text-xs font-medium">Configure and refine your AI model parameters through experimental topics.</p>
                     </div>
                     <div className="shrink-0 mb-1">
                         <Stepper />

@@ -32,20 +32,20 @@ export const StepUpload: React.FC<StepUploadProps> = ({ themeStyles, onComplete 
             <AnimatePresence mode="wait">
                 {/* 測試模式：直接點擊即完成 */}
                 {status === 'idle' && (
-                    <motion.div 
+                    <motion.div
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -10 }}
                         className="grid grid-cols-1 md:grid-cols-2 gap-4"
                     >
-                        <UploadTypeCard 
+                        <UploadTypeCard
                             icon={Database}
-                            title="Pure Dataset"
+                            title="Dataset"
                             description="Click to instantly use a sample tabular dataset for testing."
                             onClick={() => handleSelectType('tabular')}
                             themeStyles={themeStyles}
                         />
-                        <UploadTypeCard 
+                        <UploadTypeCard
                             icon={ImageIcon}
                             title="Dataset + Images"
                             description="Click to instantly use a sample vision dataset for testing."
@@ -57,7 +57,7 @@ export const StepUpload: React.FC<StepUploadProps> = ({ themeStyles, onComplete 
 
                 {/* 完成狀態 */}
                 {status === 'completed' && (
-                    <motion.div 
+                    <motion.div
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
                         className={cn(
@@ -77,7 +77,7 @@ export const StepUpload: React.FC<StepUploadProps> = ({ themeStyles, onComplete 
                                 <p className="text-xs opacity-50 capitalize">{selection} data analysis ready</p>
                             </div>
                         </div>
-                        <button 
+                        <button
                             onClick={reset}
                             className="p-2 hover:bg-black/5 dark:hover:bg-white/5 rounded-xl transition-colors"
                         >
@@ -95,8 +95,8 @@ const UploadTypeCard = ({ icon: Icon, title, description, onClick, themeStyles }
         onClick={onClick}
         className={cn(
             "p-6 rounded-3xl border-2 transition-all text-left group hover:scale-[1.02] active:scale-[0.98]",
-            themeStyles.isDark 
-                ? "bg-white/5 border-white/5 hover:border-blue-500/50 hover:bg-blue-500/5" 
+            themeStyles.isDark
+                ? "bg-white/5 border-white/5 hover:border-blue-500/50 hover:bg-blue-500/5"
                 : "bg-white border-black/5 hover:border-blue-500/50 hover:bg-blue-50"
         )}
     >
