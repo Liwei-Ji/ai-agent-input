@@ -766,11 +766,8 @@ export const TrainingView: React.FC<TrainingViewProps> = ({ themeStyles }) => {
         >
             <div 
                 className={cn(
-                    "sticky top-0 z-30 pt-4 pb-6 mb-8 transition-all duration-300 backdrop-blur-xl -mx-4 px-4",
+                    "sticky top-0 z-30 pt-4 pb-6 mb-8 -mx-4 px-4 transition-all duration-200",
                 )}
-                style={{ 
-                    backgroundColor: `${themeStyles.backgroundColor}cc`, // 80% opacity in hex
-                }}
             >
                 <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
                     <div>
