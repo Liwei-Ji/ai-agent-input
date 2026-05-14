@@ -28,7 +28,7 @@ import { Header } from './Header';
 import { SearchView } from './SearchView';
 import { HomeView } from './HomeView';
 import { AgentsView } from './AgentsView';
-import { TrainingView } from './TrainingView';
+import { TrainingView } from './Training';
 import { Pet } from './petdex/Pet';
 
 export default function ApplePage({ onBack }: { onBack: () => void }) {
