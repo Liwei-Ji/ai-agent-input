@@ -764,12 +764,14 @@ export const TrainingView: React.FC<TrainingViewProps> = ({ themeStyles }) => {
             animate={{ opacity: 1 }}
             className="w-full max-w-6xl mx-auto px-4"
         >
-            <div className={cn(
-                "sticky top-0 z-30 pt-4 pb-6 mb-8 transition-all duration-300 backdrop-blur-xl",
-                themeStyles.isDark 
-                    ? "bg-zinc-950/80" 
-                    : "bg-white/80"
-            )}>
+            <div 
+                className={cn(
+                    "sticky top-0 z-30 pt-4 pb-6 mb-8 transition-all duration-300 backdrop-blur-xl -mx-4 px-4",
+                )}
+                style={{ 
+                    backgroundColor: `${themeStyles.backgroundColor}cc`, // 80% opacity in hex
+                }}
+            >
                 <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
                     <div>
                         <h1 className="text-2xl font-black mb-2 tracking-tight">Model Training</h1>
