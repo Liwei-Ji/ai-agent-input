@@ -28,6 +28,7 @@ import {
     useSensor,
     useSensors,
     useDraggable,
+    useDroppable,
 } from '@dnd-kit/core';
 import type {
     DragStartEvent,
@@ -156,6 +157,21 @@ const SortableCard = ({ col, themeStyles, onRemove, sortableId }: { col: ColumnI
         >
             <CardContent col={col} themeStyles={themeStyles} isDragging={isDragging} onRemove={onRemove} showGrip />
         </motion.div>
+    );
+};
+
+const DroppableArea = ({ id, children, className }: { id: string, children: React.ReactNode, className?: string }) => {
+    const { setNodeRef, isOver } = useDroppable({ id });
+    return (
+        <div 
+            ref={setNodeRef} 
+            className={cn(
+                className,
+                isOver && "border-blue-500/50 bg-blue-500/5 ring-4 ring-blue-500/10"
+            )}
+        >
+            {children}
+        </div>
     );
 };
 
@@ -471,8 +487,8 @@ export const TrainingView: React.FC<TrainingViewProps> = ({ themeStyles }) => {
                         <div className="grid grid-cols-1 md:grid-cols-12 gap-4">
                             {/* Left Column: Options */}
                             <div className={cn(
-                                "md:col-span-4 rounded-2xl p-3 space-y-2",
-                                themeStyles.isDark ? "bg-transparent" : "bg-transparent"
+                                "md:col-span-4 rounded-2xl p-3 space-y-2 border-2 border-dashed",
+                                themeStyles.isDark ? "bg-white/5 border-white/5" : "bg-black/5 border-black/5"
                             )}>
                                 <AnimatePresence mode='popLayout'>
                                     {availableCols.map((col) => (
@@ -487,14 +503,11 @@ export const TrainingView: React.FC<TrainingViewProps> = ({ themeStyles }) => {
                             </div>
 
                             {/* Right Column: Selected */}
-                            <div
+                            <DroppableArea
                                 id="droppable-selected"
                                 className={cn(
                                     "md:col-span-8 rounded-2xl p-3 space-y-2 border-2 transition-all min-h-[160px]",
-                                    isDraggingOver
-                                        ? "border-blue-500/50 bg-blue-500/5 ring-4 ring-blue-500/10"
-                                        : "border-transparent",
-                                    themeStyles.isDark ? "bg-white/5" : "bg-black/5"
+                                    "border-dashed border-zinc-200 dark:border-white/10 bg-zinc-50 dark:bg-white/5"
                                 )}
                             >
                                 <SortableContext
@@ -512,7 +525,6 @@ export const TrainingView: React.FC<TrainingViewProps> = ({ themeStyles }) => {
                                         ))}
                                     </AnimatePresence>
                                 </SortableContext>
-
                                 {/* Placeholder */}
                                 {selectedCols.length === 0 && (
                                     <motion.div
@@ -531,7 +543,7 @@ export const TrainingView: React.FC<TrainingViewProps> = ({ themeStyles }) => {
                                         </span>
                                     </motion.div>
                                 )}
-                            </div>
+                            </DroppableArea>
                         </div>
 
                         <DragOverlay dropAnimation={null}>
@@ -571,8 +583,8 @@ export const TrainingView: React.FC<TrainingViewProps> = ({ themeStyles }) => {
                         <div className="grid grid-cols-1 md:grid-cols-12 gap-4">
                             {/* Left Column: Options */}
                             <div className={cn(
-                                "md:col-span-4 rounded-2xl p-3 space-y-2",
-                                themeStyles.isDark ? "bg-transparent" : "bg-transparent"
+                                "md:col-span-4 rounded-2xl p-3 space-y-2 border-2 border-dashed",
+                                themeStyles.isDark ? "bg-white/5 border-white/5" : "bg-black/5 border-black/5"
                             )}>
                                 <AnimatePresence mode='popLayout'>
                                     {outputAvailableCols.map((col) => (
@@ -588,14 +600,11 @@ export const TrainingView: React.FC<TrainingViewProps> = ({ themeStyles }) => {
                             </div>
 
                             {/* Right Column: Selected */}
-                            <div
+                            <DroppableArea
                                 id="droppable-output-selected"
                                 className={cn(
                                     "md:col-span-8 rounded-2xl p-3 space-y-2 border-2 transition-all min-h-[160px]",
-                                    isDraggingOver
-                                        ? "border-blue-500/50 bg-blue-500/5 ring-4 ring-blue-500/10"
-                                        : "border-transparent",
-                                    themeStyles.isDark ? "bg-white/5" : "bg-black/5"
+                                    "border-dashed border-zinc-200 dark:border-white/10 bg-zinc-50 dark:bg-white/5"
                                 )}
                             >
                                 <SortableContext
@@ -633,7 +642,7 @@ export const TrainingView: React.FC<TrainingViewProps> = ({ themeStyles }) => {
                                         </span>
                                     </motion.div>
                                 )}
-                            </div>
+                            </DroppableArea>
                         </div>
 
                         <DragOverlay dropAnimation={null}>
