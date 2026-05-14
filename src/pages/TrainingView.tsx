@@ -342,6 +342,9 @@ export const TrainingView: React.FC<TrainingViewProps> = ({ themeStyles }) => {
         { id: 'high', name: 'High', description: 'Spend much time but be able to raise accuracy.' }
     ];
 
+    const isReadyToCompute = ['experiment', 'type', 'columns', 'output-columns', 'computing'].every(id => completedSteps.includes(id));
+
+
     const NextStepButton = ({ nextId, currentId, label = "Go to Next" }: { nextId: string, currentId: string, label?: string }) => (
         <div className="flex justify-end mt-6 pt-4 border-t border-white/5">
             <button
@@ -450,9 +453,9 @@ export const TrainingView: React.FC<TrainingViewProps> = ({ themeStyles }) => {
         {
             id: 'columns',
             title: 'Select INPUT Column',
-            summary: selectedCols.length > 0 
-                ? (selectedCols.length <= 2 
-                    ? selectedCols.map(c => c.name).join(', ') 
+            summary: selectedCols.length > 0
+                ? (selectedCols.length <= 2
+                    ? selectedCols.map(c => c.name).join(', ')
                     : `${selectedCols.length} Columns (${selectedCols.slice(0, 2).map(c => c.name).join(', ')}...)`)
                 : null,
             isComplete: completedSteps.includes('columns'),
@@ -550,9 +553,9 @@ export const TrainingView: React.FC<TrainingViewProps> = ({ themeStyles }) => {
         {
             id: 'output-columns',
             title: 'Select OUTPUT Column',
-            summary: outputSelectedCols.length > 0 
-                ? (outputSelectedCols.length <= 2 
-                    ? outputSelectedCols.map(c => c.name).join(', ') 
+            summary: outputSelectedCols.length > 0
+                ? (outputSelectedCols.length <= 2
+                    ? outputSelectedCols.map(c => c.name).join(', ')
                     : `${outputSelectedCols.length} Columns (${outputSelectedCols.slice(0, 2).map(c => c.name).join(', ')}...)`)
                 : null,
             isComplete: completedSteps.includes('output-columns'),
@@ -919,37 +922,50 @@ export const TrainingView: React.FC<TrainingViewProps> = ({ themeStyles }) => {
                 <button
                     onClick={handleDiscard}
                     className={cn(
-                        "flex items-center justify-center gap-2 px-12 py-4 rounded-2xl font-bold text-base transition-all active:scale-95 w-full sm:w-60",
+                        "flex items-center justify-center gap-2 px-12 py-4 rounded-2xl font-bold text-base transition-all active:scale-95 w-full sm:w-60 border shadow-sm",
                         themeStyles.isDark
-                            ? "bg-white/5 border border-white/10 hover:bg-white/10 text-white/70 hover:text-white"
-                            : "bg-black/5 border border-black/10 hover:bg-black/10 text-black/70 hover:text-black"
+                            ? "bg-white/5 border-white/10 text-white/60 hover:text-white hover:bg-white/10"
+                            : "bg-white border-zinc-200 text-zinc-500 hover:text-zinc-900 hover:bg-zinc-50"
                     )}
                 >
-                    <Trash2 size={18} className="opacity-60" />
+                    <Trash2 size={18} className="opacity-70" />
                     Discard
                 </button>
 
                 <button
+                    disabled={!isReadyToCompute}
                     className={cn(
-                        "group relative flex items-center justify-center gap-3 px-12 py-4 rounded-2xl font-bold text-base transition-all shadow-xl active:scale-95 overflow-hidden w-full sm:w-60",
-                        "bg-linear-to-r from-blue-600 via-indigo-600 to-blue-600 text-white hover:shadow-blue-500/25"
+                        "group relative flex items-center justify-center gap-3 px-12 py-4 rounded-2xl font-bold text-base transition-all overflow-hidden w-full sm:w-60 border",
+                        isReadyToCompute 
+                            ? "bg-linear-to-r from-blue-500 via-indigo-500 to-blue-500 text-white border-transparent shadow-xl shadow-blue-400/30 cursor-pointer" 
+                            : "" // 這裡留空，改用 style 控制
                     )}
-                    style={{ backgroundSize: '200% 100%' }}
+                    style={!isReadyToCompute ? {
+                        backgroundColor: themeStyles.isDark ? 'rgba(255,255,255,0.05)' : '#e5e7eb', // zinc-200
+                        borderColor: themeStyles.isDark ? 'rgba(255,255,255,0.1)' : '#d1d5db', // zinc-300
+                        color: themeStyles.isDark ? 'rgba(255,255,255,0.2)' : '#6b7280', // zinc-500
+                        cursor: 'not-allowed'
+                    } : {}}
                 >
-                    {/* Shimmer Effect */}
-                    <motion.div
-                        className="absolute inset-0 bg-linear-to-r from-transparent via-white/20 to-transparent"
-                        animate={{
-                            x: ['-100%', '100%']
-                        }}
-                        transition={{
-                            duration: 2,
-                            repeat: Infinity,
-                            ease: "linear"
-                        }}
-                    />
+                    {/* Shimmer Effect - Only show when ready */}
+                    {isReadyToCompute && (
+                        <motion.div
+                            className="absolute inset-0 bg-linear-to-r from-transparent via-white/20 to-transparent"
+                            animate={{
+                                x: ['-100%', '100%']
+                            }}
+                            transition={{
+                                duration: 2,
+                                repeat: Infinity,
+                                ease: "linear"
+                            }}
+                        />
+                    )}
 
-                    <Rocket size={20} className="group-hover:rotate-12 transition-transform duration-300" />
+                    <Rocket size={20} className={cn(
+                        "transition-transform duration-300",
+                        isReadyToCompute ? "group-hover:rotate-12" : "opacity-30"
+                    )} />
                     <span>Compute</span>
                 </button>
             </div>
