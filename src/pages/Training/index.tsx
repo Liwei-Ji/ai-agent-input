@@ -758,12 +758,25 @@ export const TrainingView: React.FC<TrainingViewProps> = ({ themeStyles }) => {
         }
     ];
 
+    // 輔助函數：將 Hex 轉換為 RGBA
+    const hexToRgba = (hex: string, alpha: number) => {
+        const r = parseInt(hex.slice(1, 3), 16);
+        const g = parseInt(hex.slice(3, 5), 16);
+        const b = parseInt(hex.slice(5, 7), 16);
+        return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+    };
+
     return (
         <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             className="w-full max-w-6xl mx-auto px-4 h-full flex flex-col overflow-hidden"
         >
+            <style dangerouslySetInnerHTML={{ __html: `
+                .no-scrollbar::-webkit-scrollbar { display: none; }
+                .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+            `}} />
+            
             {/* Fixed Header */}
             <div 
                 className={cn(
@@ -782,7 +795,7 @@ export const TrainingView: React.FC<TrainingViewProps> = ({ themeStyles }) => {
             </div>
 
             {/* Scrollable Content Area */}
-            <div className="flex-1 overflow-y-auto overflow-x-hidden pt-2 pb-10 scrollbar-hide -mx-4 px-4">
+            <div className="flex-1 overflow-y-auto overflow-x-hidden pt-0 pb-10 no-scrollbar -mx-4 px-4">
                 <AnimatePresence mode="wait">
                 {phase === 'upload' ? (
                     <motion.div
@@ -931,7 +944,7 @@ export const TrainingView: React.FC<TrainingViewProps> = ({ themeStyles }) => {
                             </div>
 
                             {/* Right: Persistent Data Summary */}
-                            <div className="lg:col-span-4 sticky top-8">
+                            <div className="lg:col-span-4 sticky top-0">
                                 <DataSummary type={uploadType!} files={uploadedFiles} themeStyles={themeStyles} />
                             </div>
                         </div>
