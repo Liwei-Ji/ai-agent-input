@@ -1,14 +1,14 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { 
-    Database, 
-    Layout, 
-    AlertCircle, 
-    Activity, 
-    ImageIcon, 
-    Tag, 
-    Maximize, 
-    CheckCircle2 
+import {
+    Database,
+    Layout,
+    AlertCircle,
+    Activity,
+    ImageIcon,
+    Tag,
+    Maximize,
+    CheckCircle2
 } from 'lucide-react';
 import { cn } from '../../shared';
 import type { ThemeStyles } from '../../shared';
@@ -20,7 +20,7 @@ interface DataSummaryProps {
 }
 
 export const DataSummary: React.FC<DataSummaryProps> = ({ type, files, themeStyles }) => {
-    // 這裡我們預設一些模擬數據，未來可以從真實文件解析
+    // 模擬數據，未來可以從真實文件解析
     const summaryData = type === 'tabular' ? {
         metrics: [
             { label: 'Total Rows', value: '12,480', icon: Database },
@@ -42,7 +42,7 @@ export const DataSummary: React.FC<DataSummaryProps> = ({ type, files, themeStyl
     };
 
     return (
-        <motion.div 
+        <motion.div
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             className={cn(
@@ -80,16 +80,16 @@ export const DataSummary: React.FC<DataSummaryProps> = ({ type, files, themeStyl
                             <span className="text-[10px] font-bold uppercase tracking-widest opacity-40">Data Health</span>
                         </div>
                     </div>
-                    
+
                     <div className="h-1.5 w-full bg-black/5 dark:bg-white/5 rounded-full overflow-hidden mb-3">
-                        <motion.div 
+                        <motion.div
                             initial={{ width: 0 }}
                             animate={{ width: `${summaryData.health}%` }}
                             transition={{ duration: 1, ease: "easeOut" }}
                             className="h-full bg-linear-to-r from-teal-500 to-emerald-400"
                         />
                     </div>
-                    
+
                     <p className="text-[10px] italic opacity-50">{summaryData.healthLabel}</p>
                 </div>
             </div>
