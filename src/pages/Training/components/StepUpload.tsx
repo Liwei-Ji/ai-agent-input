@@ -81,14 +81,10 @@ export const StepUpload: React.FC<StepUploadProps> = ({ themeStyles, onComplete 
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, scale: 0.95 }}
-                        className={cn(
-                            "p-6 rounded-3xl border text-center flex flex-col items-center justify-center min-h-[160px]",
-                            themeStyles.isDark ? "bg-white/5 border-white/10" : "bg-black/5 border-black/10"
-                        )}
+                        className="py-8 text-center flex flex-col items-center justify-center min-h-[160px]"
                     >
-                        <RefreshCw size={32} className="animate-spin mb-4 opacity-50" />
-                        <h3 className="font-bold mb-2">Ingesting Data Source...</h3>
-                        <p className="text-sm opacity-50 mb-6">Parsing schema and preparing environment</p>
+                        <RefreshCw size={24} className="animate-spin mb-4 opacity-50" />
+                        <h3 className="font-bold mb-8 text-lg">Setting up data source...</h3>
                         
                         <div className="w-full max-w-md">
                             <div className="flex justify-between text-xs font-bold font-mono opacity-50 mb-2">
