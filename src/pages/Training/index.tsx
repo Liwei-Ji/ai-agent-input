@@ -50,6 +50,7 @@ export const TrainingView: React.FC<TrainingViewProps> = ({ themeStyles }) => {
     const [completedSteps, setCompletedSteps] = useState<string[]>([]);
     const [uploadType, setUploadType] = useState<'tabular' | 'vision' | null>(null);
     const [uploadedFiles, setUploadedFiles] = useState<any[]>([]);
+    const [isUploading, setIsUploading] = useState(false);
     const panelRefs = useRef<Record<string, HTMLDivElement | null>>({});
 
     const sensors = useSensors(
@@ -758,13 +759,6 @@ export const TrainingView: React.FC<TrainingViewProps> = ({ themeStyles }) => {
         }
     ];
 
-    // 輔助函數：將 Hex 轉換為 RGBA
-    const hexToRgba = (hex: string, alpha: number) => {
-        const r = parseInt(hex.slice(1, 3), 16);
-        const g = parseInt(hex.slice(3, 5), 16);
-        const b = parseInt(hex.slice(5, 7), 16);
-        return `rgba(${r}, ${g}, ${b}, ${alpha})`;
-    };
 
     return (
         <motion.div
@@ -805,13 +799,17 @@ export const TrainingView: React.FC<TrainingViewProps> = ({ themeStyles }) => {
                         exit={{ opacity: 0, x: 20 }}
                         className="py-10"
                     >
-                        <div className="text-center mb-10">
-                            <h2 className="text-2xl font-bold mb-2">Select Data Source</h2>
-                            <p className="opacity-50 text-sm">Choose the type of data you want to use for this training experiment.</p>
-                        </div>
+                        {!isUploading && (
+                            <div className="text-center mb-10">
+                                <h2 className="text-2xl font-bold mb-2">Select Data Source</h2>
+                                <p className="opacity-50 text-sm">Choose the type of data you want to use for this training experiment.</p>
+                            </div>
+                        )}
                         <StepUpload
                             themeStyles={themeStyles}
+                            onUploadStart={() => setIsUploading(true)}
                             onComplete={(type, files) => {
+                                setIsUploading(false);
                                 setUploadType(type);
                                 setUploadedFiles(files);
                                 markStepComplete('upload');

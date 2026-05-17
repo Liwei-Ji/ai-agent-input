@@ -6,10 +6,11 @@ import type { ThemeStyles } from '../../shared';
 
 interface StepUploadProps {
     themeStyles: ThemeStyles;
+    onUploadStart?: () => void;
     onComplete: (type: 'tabular' | 'vision', files: any[]) => void;
 }
 
-export const StepUpload: React.FC<StepUploadProps> = ({ themeStyles, onComplete }) => {
+export const StepUpload: React.FC<StepUploadProps> = ({ themeStyles, onUploadStart, onComplete }) => {
     const [selection, setSelection] = useState<'tabular' | 'vision' | null>(null);
     const [status, setStatus] = useState<'idle' | 'uploading' | 'completed'>('idle');
     const [progress, setProgress] = useState(0);
@@ -20,18 +21,19 @@ export const StepUpload: React.FC<StepUploadProps> = ({ themeStyles, onComplete 
         setSelection(type);
         setStatus('uploading');
         setProgress(0);
-        
+        if (onUploadStart) onUploadStart();
+
         // 模擬上傳與解析進度
         let currentProgress = 0;
         const interval = setInterval(() => {
             // 隨機增加 10~25 的進度
             currentProgress += Math.floor(Math.random() * 15) + 10;
-            
+
             if (currentProgress >= 100) {
                 currentProgress = 100;
                 clearInterval(interval);
                 setProgress(100);
-                
+
                 // 達到 100% 後，稍微延遲一下讓用戶看到滿格，再跳轉
                 setTimeout(() => {
                     onComplete(type, ['sample_file']);
@@ -83,16 +85,15 @@ export const StepUpload: React.FC<StepUploadProps> = ({ themeStyles, onComplete 
                         exit={{ opacity: 0, scale: 0.95 }}
                         className="py-8 text-center flex flex-col items-center justify-center min-h-[160px]"
                     >
-                        <RefreshCw size={24} className="animate-spin mb-4 opacity-50" />
-                        <h3 className="font-bold mb-8 text-lg">Setting up data source...</h3>
-                        
+                        <h2 className="text-2xl font-bold mb-8">Setting Up Data Source...</h2>
+
                         <div className="w-full max-w-md">
                             <div className="flex justify-between text-xs font-bold font-mono opacity-50 mb-2">
                                 <span>PROGRESS</span>
                                 <span>{progress}%</span>
                             </div>
                             <div className="h-1.5 w-full bg-black/10 dark:bg-white/10 rounded-full overflow-hidden">
-                                <motion.div 
+                                <motion.div
                                     className="h-full bg-blue-500"
                                     initial={{ width: 0 }}
                                     animate={{ width: `${progress}%` }}
