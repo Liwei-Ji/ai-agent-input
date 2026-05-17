@@ -18,8 +18,28 @@ export const StepUpload: React.FC<StepUploadProps> = ({ themeStyles, onComplete 
 
     const handleSelectType = (type: 'tabular' | 'vision') => {
         setSelection(type);
-        // 測試模式：點擊即調用完成，不進行內部狀態切換與延遲
-        onComplete(type, ['sample_file']);
+        setStatus('uploading');
+        setProgress(0);
+        
+        // 模擬上傳與解析進度
+        let currentProgress = 0;
+        const interval = setInterval(() => {
+            // 隨機增加 10~25 的進度
+            currentProgress += Math.floor(Math.random() * 15) + 10;
+            
+            if (currentProgress >= 100) {
+                currentProgress = 100;
+                clearInterval(interval);
+                setProgress(100);
+                
+                // 達到 100% 後，稍微延遲一下讓用戶看到滿格，再跳轉
+                setTimeout(() => {
+                    onComplete(type, ['sample_file']);
+                }, 600);
+            } else {
+                setProgress(currentProgress);
+            }
+        }, 300);
     };
 
     const reset = () => {
@@ -52,6 +72,38 @@ export const StepUpload: React.FC<StepUploadProps> = ({ themeStyles, onComplete 
                             onClick={() => handleSelectType('vision')}
                             themeStyles={themeStyles}
                         />
+                    </motion.div>
+                )}
+
+                {/* 上傳中狀態 */}
+                {status === 'uploading' && (
+                    <motion.div
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, scale: 0.95 }}
+                        className={cn(
+                            "p-6 rounded-3xl border text-center flex flex-col items-center justify-center min-h-[160px]",
+                            themeStyles.isDark ? "bg-white/5 border-white/10" : "bg-black/5 border-black/10"
+                        )}
+                    >
+                        <RefreshCw size={32} className="animate-spin mb-4 opacity-50" />
+                        <h3 className="font-bold mb-2">Ingesting Data Source...</h3>
+                        <p className="text-sm opacity-50 mb-6">Parsing schema and preparing environment</p>
+                        
+                        <div className="w-full max-w-md">
+                            <div className="flex justify-between text-xs font-bold font-mono opacity-50 mb-2">
+                                <span>PROGRESS</span>
+                                <span>{progress}%</span>
+                            </div>
+                            <div className="h-1.5 w-full bg-black/10 dark:bg-white/10 rounded-full overflow-hidden">
+                                <motion.div 
+                                    className="h-full bg-blue-500"
+                                    initial={{ width: 0 }}
+                                    animate={{ width: `${progress}%` }}
+                                    transition={{ ease: "linear", duration: 0.3 }}
+                                />
+                            </div>
+                        </div>
                     </motion.div>
                 )}
 
