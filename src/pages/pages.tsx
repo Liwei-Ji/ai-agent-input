@@ -58,11 +58,11 @@ export default function ApplePage({ onBack }: { onBack: () => void }) {
     const [editingChatId, setEditingChatId] = useState<string | null>(null);
     const [editingTitle, setEditingTitle] = useState('');
     const [chats, setChats] = useState<Chat[]>([
-        { id: '1', title: 'GMP 規範諮詢', timestamp: new Date().getTime(), agentId: 'gmp' },
-        { id: '2', title: 'API 規範與設計', timestamp: new Date().getTime() - 1000 * 60 * 60 * 2, agentId: 'gmp' },
-        { id: '3', title: 'GMP 架構圖', timestamp: new Date().getTime() - 1000 * 60 * 60 * 24, agentId: 'dise' },
+        { id: '1', title: 'GMP 諮詢', timestamp: new Date().getTime(), agentId: 'gmp' },
+        { id: '2', title: '法規與設計', timestamp: new Date().getTime() - 1000 * 60 * 60 * 2, agentId: 'gmp' },
+        { id: '3', title: '睡眠內視鏡', timestamp: new Date().getTime() - 1000 * 60 * 60 * 24, agentId: 'dise' },
         { id: '4', title: '產品文檔自動化', timestamp: new Date().getTime() - 1000 * 60 * 60 * 24 * 3, agentId: 'doc' },
-        { id: '5', title: '生成高品質圖像技巧', timestamp: new Date().getTime() - 1000 * 60 * 60 * 24 * 5, agentId: 'apple' },
+        { id: '5', title: '生成高品質圖像', timestamp: new Date().getTime() - 1000 * 60 * 60 * 24 * 5, agentId: 'apple' },
         { id: '6', title: 'GMP認證', timestamp: new Date().getTime() - 1000 * 60 * 60 * 24 * 10, agentId: 'gmp' },
     ]);
     const [projects, setProjects] = useState<Project[]>([]);
