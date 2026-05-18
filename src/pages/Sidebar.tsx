@@ -169,7 +169,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                     "fixed z-50 flex flex-col transition-colors duration-300",
                     !isMobile && !isSidebarFloating && "border-r",
                     isMobile && "inset-y-0 left-0 shadow-2xl overflow-hidden h-full",
-                    !isMobile && isSidebarFloating && "shadow-2xl border",
+                    !isMobile && isSidebarFloating && "shadow-sm border",
                     themeMode === 'dark' ? "bg-[#1e1f20] border-[#333537] text-[#c4c7c5]" :
                         themeMode === 'colorful' ? (themeStyles.isDark ? "bg-white/5 border-white/10 text-white" : "bg-black/5 border-black/10 text-gray-900") :
                             "bg-[#f0f4f9] border-transparent text-gray-900"
