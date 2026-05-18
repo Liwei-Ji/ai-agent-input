@@ -354,7 +354,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                                 onDrop={() => draggedChatId && onMoveChatToProject(draggedChatId, undefined)}
                             >
                                 {groupedChats.map(([groupName, chats]) => (
-                                    <div key={groupName} className="flex flex-col gap-1">
+                                    <div key={groupName} className="flex flex-col gap-0">
                                         {isSidebarOpen && <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="px-4 py-2 text-[10px] font-bold text-[#8e918f] uppercase tracking-wider">{groupName}</motion.p>}
                                         {chats.map((chat) => (
                                             <div key={chat.id} className="relative group/item">
@@ -375,7 +375,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                                                             }
                                                             if (isMobile) setIsSidebarOpen(false); // 手機端點擊後自動收回
                                                         }}
-                                                        className={cn("flex items-center gap-3 px-4 py-2.5 rounded-lg transition-all duration-300 text-left group w-full", themeStyles.isDark ? "hover:bg-white/5 text-inherit opacity-70" : "hover:bg-black/5 text-inherit opacity-70", !isSidebarOpen && "justify-center")}
+                                                        className={cn("flex items-center gap-3 px-4 py-2 rounded-lg transition-all duration-300 text-left group w-full", themeStyles.isDark ? "hover:bg-white/5 text-inherit opacity-70" : "hover:bg-black/5 text-inherit opacity-70", !isSidebarOpen && "justify-center")}
                                                     >
                                                         {showChatIcons && (
                                                             chat.agentId === 'notebook'
