@@ -7,16 +7,16 @@ import React, { useState, useRef, useEffect } from 'react';
 import { AnimatePresence } from 'framer-motion';
 
 // 導入共享類型、常量與工具
-import { 
-    cn, 
-    getContrastColor, 
-    AGENTS 
+import {
+    cn,
+    getContrastColor,
+    AGENTS
 } from './shared';
-import type { 
-    ThemeMode, 
-    ViewType, 
-    Agent, 
-    Chat, 
+import type {
+    ThemeMode,
+    ViewType,
+    Agent,
+    Chat,
     ThemeStyles,
     Project,
     NotebookSource
@@ -68,7 +68,7 @@ export default function ApplePage({ onBack }: { onBack: () => void }) {
     const [projects, setProjects] = useState<Project[]>([]);
     const [notebookSources, setNotebookSources] = useState<NotebookSource[]>([]);
     const [showPet, setShowPet] = useState(false);
-    
+
     const handleResetToHome = () => {
         setSelectedAgent(null);
         setActiveView('home');
@@ -207,7 +207,7 @@ export default function ApplePage({ onBack }: { onBack: () => void }) {
         const availableChats = chatList.filter(c => !c.projectId);
         const pinned = availableChats.filter(c => c.isPinned);
         const unpinned = availableChats.filter(c => !c.isPinned);
-        
+
         const result: [string, Chat[]][] = [];
         if (pinned.length > 0) result.push(['Pinned', pinned]);
 
@@ -220,9 +220,9 @@ export default function ApplePage({ onBack }: { onBack: () => void }) {
         const today = new Date(now.getFullYear(), now.getMonth(), now.getDate()).getTime();
         const yesterday = today - 1000 * 60 * 60 * 24;
         const lastWeek = today - 1000 * 60 * 60 * 24 * 7;
-        
+
         const groups: { [key: string]: Chat[] } = { 'Today': [], 'Yesterday': [], '7 Days': [], '30 Days': [] };
-        
+
         unpinned.forEach(chat => {
             if (chat.timestamp >= today) groups['Today'].push(chat);
             else if (chat.timestamp >= yesterday) groups['Yesterday'].push(chat);
@@ -233,7 +233,7 @@ export default function ApplePage({ onBack }: { onBack: () => void }) {
         Object.entries(groups).forEach(([name, items]) => {
             if (items.length > 0) result.push([name, items]);
         });
-        
+
         return result;
     };
 
@@ -253,7 +253,7 @@ export default function ApplePage({ onBack }: { onBack: () => void }) {
     // --- 渲染準備 ---
     const themeStyles = getThemeStyles();
     const groupedChats = groupChats(chats);
-    
+
     const filteredChats = searchQuery.trim()
         ? chats.filter(chat =>
             chat.title.toLowerCase().includes(searchQuery.toLowerCase())
@@ -266,9 +266,9 @@ export default function ApplePage({ onBack }: { onBack: () => void }) {
             style={{ backgroundColor: themeStyles.backgroundColor, color: themeStyles.color }}
         >
             {/* Sidebar 佔位容器：恆定佔位，確保右側內容永不跳動 */}
-            <div 
+            <div
                 className="hidden md:block transition-all duration-300 shrink-0"
-                style={{ width: isSidebarOpen ? (activeView === 'notebook' ? 300 : 220) : 68 }}
+                style={{ width: isSidebarOpen ? (activeView === 'notebook' ? 300 : 220) : 50 }}
             />
             <Sidebar
                 isSidebarOpen={isSidebarOpen}
@@ -325,7 +325,7 @@ export default function ApplePage({ onBack }: { onBack: () => void }) {
 
             {/* 手機端遮罩 */}
             {isMobile && isSidebarOpen && (
-                <div 
+                <div
                     className="fixed inset-0 bg-black/40 backdrop-blur-sm z-40 transition-opacity"
                     onClick={() => setIsSidebarOpen(false)}
                 />

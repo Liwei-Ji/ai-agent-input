@@ -157,7 +157,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
             <motion.aside
                 initial={false}
                 animate={{
-                    width: isMobile ? (isSidebarOpen ? 280 : 0) : (isSidebarOpen ? (activeView === 'notebook' ? 300 : 220) : 68),
+                    width: isMobile ? (isSidebarOpen ? 280 : 0) : (isSidebarOpen ? (activeView === 'notebook' ? 300 : 220) : 50),
                     x: isMobile && !isSidebarOpen ? -280 : 0,
                     top: !isMobile && isSidebarFloating ? 16 : 0,
                     bottom: !isMobile && isSidebarFloating ? 16 : 0,
