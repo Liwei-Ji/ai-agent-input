@@ -439,7 +439,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
 
                     <div className="relative mt-2" ref={accountMenuRef}>
                         <button onClick={() => setIsAccountMenuOpen(!isAccountMenuOpen)} className={cn("flex items-center gap-3 px-2 py-2 rounded-xl transition-all duration-300 text-left group w-full", themeStyles.isDark ? "hover:bg-white/5 text-inherit" : "hover:bg-black/5 text-inherit", !isSidebarOpen && "justify-center")}>
-                            <div className="w-6 h-6 rounded-full bg-linear-to-tr from-[#4d90fe] to-[#8e75ff] flex items-center justify-center text-white text-xs font-bold shrink-0 shadow-lg">LW</div>
+                            <div className="w-6 h-6 rounded-full bg-linear-to-tr from-[#4d90fe] to-[#8e75ff] flex items-center justify-center text-white text-[10px] font-bold shrink-0 shadow-lg">LW</div>
                             {isSidebarOpen && <div className="flex-1 min-w-0"><p className="text-sm font-semibold truncate leading-tight">Liwei Ji</p><p className="text-[10px] opacity-50 truncate leading-tight">liwei_ji@email.com</p></div>}
                         </button>
                         {isAccountMenuOpen && (
