@@ -424,7 +424,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                     )}
                 </div>
 
-                <div className={cn("border-t border-inherit mt-auto flex flex-col gap-1 shrink-0", isSidebarOpen ? "p-3" : "p-1.5")}>
+                <div className={cn("border-t border-inherit mt-auto flex flex-col gap-0 shrink-0", isSidebarOpen ? "p-3" : "p-1.5")}>
                     {[
                         { icon: Search, label: 'Search', onClick: () => { setActiveView('search'); setSelectedAgent(null); if (isMobile) setIsSidebarOpen(false); }, active: activeView === 'search' },
                         { icon: Bot, label: 'AI Agents', onClick: () => { setActiveView('agents'); if (isMobile) setIsSidebarOpen(false); }, active: activeView === 'agents' },
