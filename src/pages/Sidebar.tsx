@@ -424,14 +424,14 @@ export const Sidebar: React.FC<SidebarProps> = ({
                     )}
                 </div>
 
-                <div className="p-3 border-t border-inherit mt-auto flex flex-col gap-1 shrink-0">
+                <div className={cn("border-t border-inherit mt-auto flex flex-col gap-1 shrink-0", isSidebarOpen ? "p-3" : "p-1.5")}>
                     {[
                         { icon: Search, label: 'Search', onClick: () => { setActiveView('search'); setSelectedAgent(null); if (isMobile) setIsSidebarOpen(false); }, active: activeView === 'search' },
                         { icon: Bot, label: 'AI Agents', onClick: () => { setActiveView('agents'); if (isMobile) setIsSidebarOpen(false); }, active: activeView === 'agents' },
                         { icon: FlaskConical, label: 'Model Training', onClick: () => { setActiveView('training'); setSelectedAgent(null); if (isMobile) setIsSidebarOpen(false); }, active: activeView === 'training' },
                         { icon: LogOut, label: 'Back', onClick: onBack, active: false }
                     ].filter(item => activeView === 'notebook' ? (item.label !== 'Search' && item.label !== 'Model Training') : true).map((item, idx) => (
-                        <button key={idx} onClick={item.onClick} className={cn("flex items-center gap-3 px-3 py-2 rounded-xl transition-all duration-300 group w-full", item.active ? (themeStyles.isDark ? "bg-white/10 text-white" : "bg-black/10 text-gray-900") : (themeStyles.isDark ? "hover:bg-white/5 text-inherit opacity-70" : "hover:bg-black/5 text-inherit opacity-70"), !isSidebarOpen && "justify-center")}>
+                        <button key={idx} onClick={item.onClick} className={cn("flex items-center gap-3 py-2 rounded-xl transition-all duration-300 group w-full", isSidebarOpen ? "px-3" : "px-0", item.active ? (themeStyles.isDark ? "bg-white/10 text-white" : "bg-black/10 text-gray-900") : (themeStyles.isDark ? "hover:bg-white/5 text-inherit opacity-70" : "hover:bg-black/5 text-inherit opacity-70"), !isSidebarOpen && "justify-center")}>
                             <item.icon size={18} className={cn("shrink-0 transition-opacity", item.active ? "text-[#4d90fe] opacity-100" : "opacity-70 group-hover:opacity-100")} />
                             {isSidebarOpen && <span className="text-sm whitespace-nowrap font-medium">{item.label}</span>}
                         </button>
