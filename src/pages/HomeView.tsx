@@ -31,7 +31,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
                 <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="w-full">
                     <div className="text-left w-full mb-12">
                         <h2 className={cn("text-4xl md:text-6xl font-display font-medium mb-4 leading-tight transition-all duration-500", themeMode === 'colorful' ? "text-inherit" : "bg-clip-text text-transparent bg-gradient-to-r from-[#4d90fe] via-[#8e75ff] to-[#f472b6]")}>Hello, Designer</h2>
-                        <p className="text-xl md:text-3xl opacity-50 font-display">How can I help you today?</p>
+                        <p className="text-xl md:text-3xl opacity-50 font-display">How can help you today?</p>
                     </div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                         {AGENTS.map((agent) => (
