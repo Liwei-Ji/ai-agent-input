@@ -29,7 +29,7 @@ export const SearchView: React.FC<SearchViewProps> = ({
         <motion.div key="search-view" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} transition={{ duration: 0.4 }} className="max-w-3xl w-full flex flex-col">
             <div className="text-left w-full mb-8">
                 <h2 className="text-4xl font-display font-medium mb-2">Search</h2>
-                <p className="text-xl opacity-60 font-display">Your history and conversations</p>
+                <p className="text-xl opacity-60 font-display">Your history and conversations.</p>
             </div>
 
             <form onSubmit={(e) => e.preventDefault()} className="relative mb-8">

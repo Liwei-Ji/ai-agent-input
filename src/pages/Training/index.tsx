@@ -775,13 +775,13 @@ export const TrainingView: React.FC<TrainingViewProps> = ({ themeStyles }) => {
             {/* Fixed Header */}
             <div
                 className={cn(
-                    "flex-none z-30 pt-4 pb-6 transition-all duration-200 -mx-4 px-4",
+                    "flex-none z-30 pt-24 pb-6 transition-all duration-200 -mx-4 px-4",
                 )}
             >
                 <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
                     <div>
                         <h2 className="text-4xl font-display font-medium mb-2">Model Training</h2>
-                        <p className="opacity-50 max-w-lg text-xs font-medium">Configure and refine your AI model parameters through experimental topics.</p>
+                        <p className="text-xl opacity-60 max-w-lg font-display">Configure and refine your AI model parameters through experimental topics.</p>
                     </div>
                     <div className="shrink-0 mb-1">
                         <Stepper />
@@ -798,7 +798,7 @@ export const TrainingView: React.FC<TrainingViewProps> = ({ themeStyles }) => {
                             initial={{ opacity: 0, x: -20 }}
                             animate={{ opacity: 1, x: 0 }}
                             exit={{ opacity: 0, x: 20 }}
-                            className="py-10"
+                            className="pt-36 py-10"
                         >
                             {!isUploading && (
                                 <div className="text-center mb-10">
