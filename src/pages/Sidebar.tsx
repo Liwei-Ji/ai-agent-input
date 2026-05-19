@@ -275,7 +275,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                         <>
                             {/* Projects Section */}
                             <div className="flex flex-col gap-1">
-                                <div className="flex items-center justify-between px-4 py-2 group">
+                                <div className="flex items-center justify-between px-1 py-2 group">
                                     {isSidebarOpen && <span className="text-[10px] font-bold text-[#8e918f] uppercase tracking-wider">Projects</span>}
                                     {isSidebarOpen && (
                                         <button
@@ -355,7 +355,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                             >
                                 {groupedChats.map(([groupName, chats]) => (
                                     <div key={groupName} className="flex flex-col gap-0">
-                                        {isSidebarOpen && <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="px-4 py-2 text-[10px] font-bold text-[#8e918f] uppercase tracking-wider">{groupName}</motion.p>}
+                                        {isSidebarOpen && <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="px-1 py-2 text-[10px] font-bold text-[#8e918f] uppercase tracking-wider">{groupName}</motion.p>}
                                         {chats.map((chat) => (
                                             <div key={chat.id} className="relative group/item">
                                                 {editingChatId === chat.id ? (
