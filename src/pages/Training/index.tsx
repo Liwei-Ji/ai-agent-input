@@ -247,7 +247,7 @@ export const TrainingView: React.FC<TrainingViewProps> = ({ themeStyles }) => {
                             <div className={cn(
                                 "w-7 h-7 rounded-full flex items-center justify-center transition-all duration-500 text-[10px] font-bold border-2",
                                 (step.id === 'upload' && phase === 'upload') || (step.id === 'config' && phase === 'config')
-                                    ? "bg-blue-500 border-blue-500 text-white shadow-lg shadow-blue-500/20"
+                                    ? "bg-blue-500 border-blue-500 text-white shadow-none shadow-blue-500/20"
                                     : step.isDone
                                         ? "bg-teal-500 border-teal-500 text-white"
                                         : themeStyles.isDark
