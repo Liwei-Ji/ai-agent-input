@@ -149,10 +149,12 @@ const UploadTypeCard = ({ icon: Icon, title, description, onClick, themeStyles }
                 : "bg-white border-black/5 hover:border-blue-500/50 hover:bg-blue-50"
         )}
     >
-        <div className="w-12 h-12 rounded-2xl bg-black/5 dark:bg-white/5 flex items-center justify-center mb-4 group-hover:bg-blue-500 group-hover:text-white transition-colors">
-            <Icon size={24} />
+        <div className="flex items-center gap-4 mb-3">
+            <div className="w-12 h-12 rounded-2xl bg-black/5 dark:bg-white/5 flex items-center justify-center mb-4 group-hover:bg-blue-500 group-hover:text-white transition-colors">
+                <Icon size={24} />
+            </div>
+            <h4 className="font-bold text-lg mb-4">{title}</h4>
         </div>
-        <h4 className="font-bold text-lg mb-2">{title}</h4>
         <p className="text-sm opacity-50 leading-relaxed">{description}</p>
     </button>
 );
