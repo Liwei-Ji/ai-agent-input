@@ -937,7 +937,7 @@ export const TrainingView: React.FC<TrainingViewProps> = ({ themeStyles }) => {
                                                 "transition-transform duration-300",
                                                 isReadyToCompute ? "group-hover:rotate-12" : "opacity-30"
                                             )} />
-                                            <span>Start Training</span>
+                                            <span>Compute</span>
                                         </button>
                                     </div>
                                 </div>
