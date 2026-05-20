@@ -92,7 +92,7 @@ export const StepUpload: React.FC<StepUploadProps> = ({ themeStyles, onUploadSta
                                 <span>PROGRESS</span>
                                 <span>{progress}%</span>
                             </div>
-                            <div className="h-1.5 w-full bg-black/10 dark:bg-white/10 rounded-full overflow-hidden">
+                            <div className="h-1.5 w-full bg-gray-300 dark:bg-white/10 rounded-full overflow-hidden">
                                 <motion.div
                                     className="h-full bg-blue-500"
                                     initial={{ width: 0 }}
