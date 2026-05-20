@@ -58,7 +58,7 @@ export const StepUpload: React.FC<StepUploadProps> = ({ themeStyles, onUploadSta
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -10 }}
-                        className="grid grid-cols-1 md:grid-cols-2 gap-4"
+                        className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl mx-auto w-full"
                     >
                         <UploadTypeCard
                             icon={Database}
