@@ -320,7 +320,7 @@ export const TrainingView: React.FC<TrainingViewProps> = ({ themeStyles }) => {
                                 setActivePanel('type');
                             }}
                             className={cn(
-                                "flex items-center gap-2 px-6 py-2.5 rounded-xl font-semibold text-sm transition-all shadow-lg active:scale-95",
+                                "flex items-center gap-2 px-6 py-2.5 rounded-xl font-semibold text-sm transition-all active:scale-95",
                                 "bg-linear-to-r from-blue-600 to-indigo-600 text-white hover:from-blue-500 hover:to-indigo-500"
                             )}
                         >
