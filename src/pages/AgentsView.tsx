@@ -20,7 +20,9 @@ export const AgentsView: React.FC<AgentsViewProps> = ({
 }) => {
     return (
         <motion.div key="agents" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} className="max-w-5xl w-full pt-6 pb-10 px-4">
-            <div className="mb-12"><h2 className="text-4xl font-display font-medium mb-4">Choose your Agent</h2><p className="text-xl opacity-60 font-display">Select the one that fits your needs.</p></div>
+            <div className="mb-12">
+                <h2 className="text-4xl font-display font-medium mb-4">Choose your Agent</h2>
+                <p className="text-xl opacity-60 font-display">Select the one that fits your needs.</p></div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 {AGENTS.map((agent) => (
                     <motion.div key={agent.id} whileHover={{ y: -5 }} onClick={() => createNewChat(agent)} className={cn("p-6 rounded-3xl cursor-pointer transition-all duration-300 group shadow-lg backdrop-blur-md", themeMode === 'colorful' ? (themeStyles.isDark ? "bg-white/15 hover:bg-white/20" : "bg-black/10 hover:bg-black/15") : (themeStyles.isDark ? "bg-white/10 hover:bg-[#4d90fe]/5" : "bg-white text-gray-900 shadow-sm hover:shadow-xl"))}>

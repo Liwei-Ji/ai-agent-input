@@ -26,9 +26,9 @@ export const SearchView: React.FC<SearchViewProps> = ({
     setActiveView
 }) => {
     return (
-        <motion.div key="search-view" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} transition={{ duration: 0.4 }} className="max-w-3xl w-full flex flex-col">
-            <div className="text-left w-full mb-8">
-                <h2 className="text-4xl font-display font-medium mb-2">Search</h2>
+        <motion.div key="search-view" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} transition={{ duration: 0.4 }} className="max-w-5xl w-full pt-6 pb-10 px-4">
+            <div className="mb-12">
+                <h2 className="text-4xl font-display font-medium mb-4">Search</h2>
                 <p className="text-xl opacity-60 font-display">Your history and conversations.</p>
             </div>
 
