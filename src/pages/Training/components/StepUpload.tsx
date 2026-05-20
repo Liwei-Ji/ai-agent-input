@@ -85,7 +85,7 @@ export const StepUpload: React.FC<StepUploadProps> = ({ themeStyles, onUploadSta
                         exit={{ opacity: 0, scale: 0.95 }}
                         className="py-8 text-center flex flex-col items-center justify-center min-h-[160px]"
                     >
-                        <h2 className="text-2xl font-bold mb-8">Setting Up Data Source...</h2>
+                        <h2 className="text-2xl font-bold mb-8">Uploading...</h2>
 
                         <div className="w-full max-w-md">
                             <div className="flex justify-between text-xs font-bold font-mono opacity-50 mb-2">
