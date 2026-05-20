@@ -63,14 +63,14 @@ export const StepUpload: React.FC<StepUploadProps> = ({ themeStyles, onUploadSta
                         <UploadTypeCard
                             icon={Database}
                             title="Dataset"
-                            description="Click to instantly use a sample tabular dataset for testing."
+                            description="A table with many rows and columns, containing only text content."
                             onClick={() => handleSelectType('tabular')}
                             themeStyles={themeStyles}
                         />
                         <UploadTypeCard
                             icon={ImageIcon}
                             title="Dataset + Images"
-                            description="Click to instantly use a sample vision dataset for testing."
+                            description="A table where each data row is associated with a single image (e.g., X-rays, wound photos, or cell images)."
                             onClick={() => handleSelectType('vision')}
                             themeStyles={themeStyles}
                         />
