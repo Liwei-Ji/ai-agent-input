@@ -827,7 +827,7 @@ export const TrainingView: React.FC<TrainingViewProps> = ({ themeStyles }) => {
                             exit={{ opacity: 0, x: -20 }}
                             className="pb-20"
                         >
-                            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start pt-12">
                                 {/* Left: Configuration Steps */}
                                 <div className="lg:col-span-8 space-y-3">
                                     {panels.map((panel, idx) => (

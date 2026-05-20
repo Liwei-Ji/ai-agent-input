@@ -46,8 +46,8 @@ export const DataSummary: React.FC<DataSummaryProps> = ({ type, files, themeStyl
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             className={cn(
-                "h-full p-5 rounded-3xl border flex flex-col gap-6",
-                themeStyles.isDark ? "bg-white/[0.03] border-white/10" : "bg-black/[0.03] border-black/10"
+                "h-full p-5 rounded-3xl flex flex-col gap-6",
+                themeStyles.isDark ? "border-white/10" : "border-black/10"
             )}
         >
             <div>
